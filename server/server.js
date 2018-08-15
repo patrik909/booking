@@ -5,9 +5,12 @@ const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./booking_app.db', sqlite3.OPEN_READWRITE);
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept'
+    );
+    next();
 });
 
 app.use(express.static('public'));
@@ -16,10 +19,13 @@ app.get('/booking', (req, res) => {
     getBookings((err, rows) => {
         res.send(rows);
     });
-})
+});
 
 const getBookings = cb => {
-    db.all(`select * from booking`, cb);
+    db.all(
+        `select * from booking join details on details.id = booking.details_id`,
+        cb
+    );
 };
 
 db.get(`PRAGMA foreign_keys = ON`, () =>
