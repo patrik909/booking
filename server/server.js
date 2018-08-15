@@ -15,11 +15,36 @@ app.use(function(req, res, next) {
 
 app.use(express.static('public'));
 
+app.get('/create-guest', (req, res) => {
+    createGuest(
+        req.query.firstname,
+        req.query.lastname,
+        req.query.email,
+        req.query.phone,
+        (err, row) => {
+            res.send(row);
+        }
+    );
+});
+
 app.get('/booking', (req, res) => {
     getBookings((err, rows) => {
         res.send(rows);
     });
 });
+
+const createGuest = (firstname, lastname, email, phone, cb) => {
+    db.serialize(
+        db.run(
+            `insert 
+            into guest (firstname, lastname, email, phone) 
+        values 
+            ('${firstname}', '${lastname}', '${email}', ${phone})`,
+            cb
+        ),
+        db.all(`select * from sqlite_sequence where seq = guest`)
+    );
+};
 
 const getBookings = cb => {
     db.all(
