@@ -3,16 +3,25 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+    
+    componentDidMount(){ 
+        this.fetcher();
+    }
+
+    fetcher = () => {
+fetch('http://localhost:3000/booking') 
+    .then(function(response ){
+                return response.json();
+            }).then((fetched) => {
+                console.log(fetched)
+            }).catch(function(error) {
+                console.log(error);
+            });
+    }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        Hej
       </div>
     );
   }
