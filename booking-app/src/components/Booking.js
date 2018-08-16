@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import InputField from './subcomponents/InputField.js';
+import DayPicker from './../../node_modules/@kupibilet/react-day-picker';
+import './../../node_modules/@kupibilet/react-day-picker/lib/style.css';
 
 class BookingPage extends Component {
     
@@ -21,13 +23,26 @@ class BookingPage extends Component {
     setAmountOfGuests = (event) => {
         this.setState({amountOfGuests: event.target.value})
     }
+    
+    lol = (event) => {
+        console.log(event)
+        console.log("hej")
+    }
 
     /** ----- Guest Details----- **/
 
     submitGuestDetails = (event) => {
         event.preventDefault();
+        console.log(this.state.firstName)
+        console.log(this.state.lastName)
+        console.log(this.state.email)
+        console.log(this.state.phoneNumber)
         
         fetch(`http://localhost:3000/create-guest?firstname=${this.state.firstName}&lastname=${this.state.lastName}&email=${this.state.email}&phone=${this.state.phoneNumber}`) 
+        
+//        fetch('http://localhost:3000/create-guest?firstname=kalle&lastname=fdfdfd&email=fdfdfd&phone=88878')
+        
+        fetch(`http://localhost:3000/create-guest?firstname=${this.state.firstName}&lastname=${this.state.lastName}&email=${this.state.email}&phone=${this.state.phoneNumber}`)
             .then(function(response){
                 return response.json();
             }).then((fetched) => {
@@ -38,6 +53,7 @@ class BookingPage extends Component {
     }
     
     handleFirstNameInput = (event) => {
+        console.log(event.target.value)
         this.setState({firstName: event.target.value})
     }
     
@@ -58,6 +74,11 @@ class BookingPage extends Component {
             <div id='BookingWrapper'>
                 <div id='BookingDetails'>
                     <p>Booking Details</p>
+                    <DayPicker 
+                        onClick={
+                            this.lol
+                        }    
+                    />
                     <select
                         onChange={
                             this.setAmountOfGuests
@@ -74,47 +95,59 @@ class BookingPage extends Component {
                 <div id='GuestDetails'>
                     <p>Guest details</p>
                     <form>
-                        <InputField 
+                        <InputField
+                            type={
+                                'text'
+                            } 
                             name={
                                 'firstname'
                             }
                             placeholder={
                                 'First name'
                             }
-                            onChange={
+                            handle={
                                 this.handleFirstNameInput
                             }
                         />
-                        <InputField 
+                        <InputField
+                            type={
+                                'text'
+                            }  
                             name={
                                 'lastname'
                             }
                             placeholder={
                                 'Last name'
                             }
-                            onChange={
+                            handle={
                                 this.handleLastNameInput
                             }
                         />
-                        <InputField 
+                        <InputField
+                            type={
+                                'text'
+                            } 
                             name={
                                 'email'
                             }
                             placeholder={
                                 'Email'
                             }
-                            onChange={
+                            handle={
                                 this.handleEmailInput
                             }
                         />
-                        <InputField 
+                        <InputField
+                            type={
+                                'number'
+                            } 
                             name={
                                 'phonenumber'
                             }
                             placeholder={
                                 'Phone number'
                             }
-                            onChange={
+                            handle={
                                 this.handlePhoneNumberInput
                             }
                         />

@@ -3,7 +3,9 @@ import React from 'react';
 function InputField(props) {
     return(
         <input 
-            type='text'
+            type={
+                props.type
+            }
             name={
                 props.name
             }
