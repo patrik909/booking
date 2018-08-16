@@ -15,6 +15,21 @@ app.use(function(req, res, next) {
 
 app.use(express.static('public'));
 
+app.get('/create-details', (req, res) => {
+    createDetails(
+        req.query.guestId,
+        req.query.numOfGuests,
+        req.query.time,
+        req.query.date,
+        (err, row) => {
+            if (('express', err)) {
+                console.log(err);
+            }
+            res.send(row);
+        }
+    );
+});
+
 app.get('/create-guest', (req, res) => {
     createGuest(
         req.query.firstname,
@@ -22,9 +37,24 @@ app.get('/create-guest', (req, res) => {
         req.query.email,
         req.query.phone,
         (err, row) => {
+            if (err) {
+                console.log('express', err);
+            }
             res.send(row);
         }
     );
+});
+
+app.get('/create-booking', (req, res) => {
+    createBooking(req.query.userId, req.query.detailsId, (err, res) => {
+        res.send(rows);
+    });
+});
+
+app.get('/guests', (req, res) => {
+    getGuests((err, rows) => {
+        res.send(rows);
+    });
 });
 
 app.get('/booking', (req, res) => {
@@ -33,26 +63,91 @@ app.get('/booking', (req, res) => {
     });
 });
 
-const createGuest = (firstname, lastname, email, phone, cb) => {
-    db.serialize(
+db.get(`PRAGMA foreign_keys = ON`, () =>
+    app.listen(3000, () => console.log('Example app listening on port 3000!'))
+);
+
+const createDetails = (guestId, numOfGuests, time, date, cb) => {
+    db.serialize(() => {
         db.run(
-            `insert 
-            into guest (firstname, lastname, email, phone) 
-        values 
-            ('${firstname}', '${lastname}', '${email}', ${phone})`,
-            cb
-        ),
-        db.all(`select * from sqlite_sequence where seq = guest`)
-    );
+            `insert
+                into details (guest_id, num_of_guests, time, date)
+            values
+                (${guestId}, ${numOfGuests}, ${time}, ${date})`,
+            function(err) {
+                if (err) {
+                    cb(err);
+                    console.log(err);
+                    return;
+                }
+                db.get(
+                    `select * from details where id = 
+                    (select seq from sqlite_sequence where name = 'details'`,
+                    cb
+                );
+            }
+        );
+    });
+};
+
+const createGuest = (firstname, lastname, email, phone, cb) => {
+    db.serialize(() => {
+        console.log('Test', firstname);
+
+        db.run(
+            `INSERT INTO guest ('firstname', 'lastname', 'email', 'phone') VALUES
+                ('${firstname}', '${lastname}', '${email}', '${phone}')`,
+            function(err) {
+                if (err) {
+                    cb(err);
+                    console.log(err.message);
+                    return;
+                }
+                db.get(
+                    `select * from guest where id = 
+                    (select seq from sqlite_sequence where name = 'guest'`,
+                    cb
+                );
+            }
+        );
+    });
+};
+
+const createBooking = (userId, detailsId, cb) => {
+    db.serialize(() => {
+        db.run(
+            `
+        insert 
+            into booking (user_id, details_id)
+        values
+            ${userId}, ${detailsId}`,
+            function(err) {
+                if (err) {
+                    cb(err);
+                    console.log(err);
+                    return;
+                }
+                db.get(
+                    `select * from booking where id = 
+                    (select seq from sqlite_sequence where name = 'booking'`,
+                    cb
+                );
+            }
+        );
+    });
+};
+
+const getGuests = cb => {
+    db.all(`select * from guest`, cb);
 };
 
 const getBookings = cb => {
     db.all(
-        `select * from booking join details on details.id = booking.details_id`,
+        `select 
+            * from booking 
+        join 
+            details on details.id = 
+            booking.details_id`,
         cb
     );
 };
-
-db.get(`PRAGMA foreign_keys = ON`, () =>
-    app.listen(3000, () => console.log('Example app listening on port 3001!'))
-);
