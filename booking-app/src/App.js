@@ -36,13 +36,14 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import Home from './components/Home.js'
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-    <h3>Kors i krösamoset</h3>
-  </div>
-)
+// const Home = () => (
+//   <div>
+//     <h2>Home</h2>
+//     <h3>Kors i krösamoset</h3>
+//   </div>
+// )
 
 const Contact = () => (
   <div>
