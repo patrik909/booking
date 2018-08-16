@@ -4,17 +4,17 @@
     align-items: center;
 }
 
-.BookingPage {
+#BookingWrapper {
     text-align: center;
     width: 300px;
 }
 
-.BookingPage form{
+#BookingWrapper form{
     display: flex;
     flex-direction: column;
 }
 
-.BookingPage input {
+#BookingWrapper input {
     margin-bottom: 15px;
     padding: 6px;
 }

@@ -29,9 +29,8 @@
 //
 // export default App;
 
-
-import React from 'react'
-import BookingPage from './components/BookingPage.js';
+import React from 'react';
+import Booking from './components/Booking';
 import './App.css';
 
 import {
