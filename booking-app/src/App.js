@@ -10,7 +10,6 @@ class App extends Component {
     }
 
     fetcher = () => {
-        console.log("hej")
 //fetch('http://localhost:3000/booking') 
 //    .then(function(response ){
 //                return response.json();
