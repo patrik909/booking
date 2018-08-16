@@ -29,11 +29,11 @@
 // //
 // export default App;
 
-import React from "react";
-import Booking from "./components/Booking";
-import "./App.css";
+import React from 'react';
+import Booking from './components/Booking';
+import './App.css';
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Home = () => (
   <div>
