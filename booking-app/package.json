@@ -24,6 +24,10 @@
       }
     }
   },
+  "prettier": {
+    "singleQoute": true,
+    "trailingComma": "es5"
+  },
   "devDependencies": {
     "husky": "^0.14.3",
     "prettier": "^1.14.2",
