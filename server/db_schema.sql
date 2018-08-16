@@ -1,0 +1,26 @@
+BEGIN TRANSACTION;
+DROP TABLE IF EXISTS `guest`;
+CREATE TABLE IF NOT EXISTS `guest` (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`firstname`	TEXT NOT NULL,
+	`lastname`	TEXT NOT NULL,
+	`email`	TEXT NOT NULL,
+	`phone`	TEXT NOT NULL
+);
+DROP TABLE IF EXISTS `details`;
+CREATE TABLE IF NOT EXISTS `details` (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`guest_id`	INTEGER NOT NULL,
+	`num_of_guests`	INTEGER NOT NULL,
+	`time`	TEXT NOT NULL,
+	`date`	TEXT NOT NULL
+);
+DROP TABLE IF EXISTS `booking`;
+CREATE TABLE IF NOT EXISTS `booking` (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`guest_id`	INTEGER,
+	`details_id`	INTEGER,
+	FOREIGN KEY(`guest_id`) REFERENCES `guest`(`id`),
+	FOREIGN KEY(`details_id`) REFERENCES `details`(`id`)
+);
+COMMIT;
