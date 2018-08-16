@@ -30,7 +30,10 @@
 // export default App;
 
 
-import React from 'react'
+import React from 'react';
+import Booking from './components/Booking';
+import './App.css';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -53,6 +56,7 @@ const Contact = () => (
 const Reservation = () => (
   <div>
     <h2>Reservation</h2>
+    <Booking />
   </div>
 )
 
