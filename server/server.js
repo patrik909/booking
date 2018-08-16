@@ -66,13 +66,8 @@ app.get("/guests", (req, res) => {
 });
 
 app.get("/booking", (req, res) => {
-  getBookings((err, rows) => {
-    if (err) {
-      return res.status(500).send(err);
-    }
-
-    res.send(rows);
-  });
+  const bookings = getBookings();
+  res.send(bookings);
 });
 
 // returns error message as json
@@ -144,12 +139,16 @@ const getGuests = () => {
 };
 
 const getBookings = () => {
-  return db.prepare(/* sql */ `
+  return db
+    .prepare(
+      /* sql */ `
         SELECT
             * FROM booking 
         JOIN
             details ON details.id = 
-            booking.details_id`);
+            booking.details_id`
+    )
+    .all();
 };
 
 app.listen(4001, () => console.log("Booking app listening on port 4001!"));
