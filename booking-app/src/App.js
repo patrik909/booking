@@ -59,7 +59,7 @@ const Reservation = () => (
 
 const BasicExample = () => (
   <Router>
-    <div>
+    <div className="navbar">
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/Contact">Contact</Link></li>
