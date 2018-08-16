@@ -42,37 +42,53 @@ class BookingPage extends Component {
         this.setState({phoneNumber: event.target.value})
     }
     
+    
+    
     render() {
         return (
             <div className="BookingPage">
-               <p>Guest details</p>
-                <form>
-                    <input    
-                        type="text" 
-                        name="firstname"     
-                        placeholder="First name"
-                        onChange={this.handleFirstNameInput}       
-                    />
-                    <input
-                        type="text"
-                        name="lastname"
-                        placeholder="Last name"
-                        onChange={this.handleLastNameInput}
-                    />
-                    <input
-                        type="text"
-                        name="email"
-                        placeholder="Email"
-                        onChange={this.handleEmailInput}
-                    />
-                    <input
-                        type="text"
-                        name="phonenumber"
-                        placeholder="Phone"
-                        onChange={this.handlePhoneNumberInput}
-                    />
-                    <button type="submit" onClick={this.submitGuestDetails}>Book</button>
-                </form>
+                <div className="guestDetails">
+                    <p>Guest details</p>
+                    <form>
+                        <input    
+                            type="text" 
+                            name="firstname"     
+                            placeholder="First name"
+                            onChange={this.handleFirstNameInput}       
+                        />
+                        <input
+                            type="text"
+                            name="lastname"
+                            placeholder="Last name"
+                            onChange={this.handleLastNameInput}
+                        />
+                        <input
+                            type="text"
+                            name="email"
+                            placeholder="Email"
+                            onChange={this.handleEmailInput}
+                        />
+                        <input
+                            type="text"
+                            name="phonenumber"
+                            placeholder="Phone"
+                            onChange={this.handlePhoneNumberInput}
+                        />
+                        <button type="submit" onClick={this.submitGuestDetails}>Book</button>
+                    </form>         
+                </div>
+                <div className="bookingDetails">
+                    <p>Booking details</p>
+                    For: 
+                    <select name="cars">
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="4">5 Guests</option>
+                        <option value="4">6 Guests</option>
+                    </select>
+                </div>
             </div>
         );
     }

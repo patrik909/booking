@@ -31,6 +31,9 @@
 
 
 import React from 'react'
+import BookingPage from './components/BookingPage.js';
+import './App.css';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -53,6 +56,7 @@ const Contact = () => (
 const Reservation = () => (
   <div>
     <h2>Reservation</h2>
+    <Booking />
   </div>
 )
 
@@ -75,4 +79,3 @@ const BasicExample = () => (
 )
 
 export default BasicExample
-
