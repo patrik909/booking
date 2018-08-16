@@ -26,55 +26,57 @@
 //     );
 //   }
 // }
-//
+// //
 // export default App;
 
-import React from 'react';
-import Booking from './components/Booking';
-import './App.css';
+import React from "react";
+import Booking from "./components/Booking";
+import "./App.css";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const Home = () => (
   <div>
     <h2>Home</h2>
     <h3>Kors i krösamoset</h3>
   </div>
-)
+);
 
 const Contact = () => (
   <div>
     <h2>Contact</h2>
   </div>
-)
+);
 
 const Reservation = () => (
   <div>
     <h2>Reservation</h2>
     <Booking />
   </div>
-)
+);
 
 const BasicExample = () => (
   <Router>
     <div>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/Contact">Contact</Link></li>
-        <li><Link to="/Reservation">Reservation</Link></li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/Contact">Contact</Link>
+        </li>
+        <li>
+          <Link to="/Reservation">Reservation</Link>
+        </li>
       </ul>
 
-      <hr/>
+      <hr />
 
-      <Route exact path="/" component={Home}/>
-      <Route path="/Contact" component={Contact}/>
-      <Route path="/Reservation" component={Reservation}/>
+      <Route exact path="/" component={Home} />
+      <Route path="/Contact" component={Contact} />
+      <Route path="/Reservation" component={Reservation} />
     </div>
   </Router>
-)
+);
 
-export default BasicExample
+export default BasicExample;
