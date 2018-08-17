@@ -13,11 +13,17 @@ h2 {
   width: 100%;
 }
 
+<<<<<<< HEAD
 
 /* ----HOME PAGE STYLING---- */
 
 /* ----CARDS---- */
 
+=======
+.hide {
+  display: none;
+}
+>>>>>>> master
 
 /* ---- BOOKING PAGE STYLING ---- */
 

@@ -12,6 +12,7 @@ class BookingPage extends Component {
     lastName: '',
     email: '',
     phoneNumber: '',
+    submitBoxClass: 'hide',
   };
 
   componentDidMount() {}
@@ -26,6 +27,11 @@ class BookingPage extends Component {
     console.log('hej');
   };
 
+  setGuestDetails = event => {
+    event.preventDefault();
+    this.setState({ submitBoxClass: 'show' });
+  };
+
   /** ----- Guest Details----- **/
 
   submitGuestDetails = event => {
@@ -34,8 +40,6 @@ class BookingPage extends Component {
     console.log(this.state.lastName);
     console.log(this.state.email);
     console.log(this.state.phoneNumber);
-
-    //        fetch('http://localhost:3000/create-guest?firstname=kalle&lastname=fdfdfd&email=fdfdfd&phone=88878')
 
     fetch(
       `api/create-guest?firstname=${this.state.firstName}&lastname=${
@@ -110,10 +114,24 @@ class BookingPage extends Component {
               placeholder={'Phone number'}
               handle={this.handlePhoneNumberInput}
             />
-            <button type="submit" onClick={this.submitGuestDetails}>
-              Book
+            <button type="submit" onClick={this.setGuestDetails}>
+              Next
             </button>
           </form>
+        </div>
+        <div id="" className={this.state.submitBoxClass}>
+          <p>
+            We're storing your personal details to enhance your experience, when
+            pressing accept you give us the right to save the information below:
+          </p>
+          <p>
+            {this.state.firstName} {this.state.lastName}
+          </p>
+          <p>{this.state.email}</p>
+          <p>{this.state.phoneNumber}</p>
+          <button type="submit" onClick={this.submitGuestDetails}>
+            Book
+          </button>
         </div>
       </div>
     );
