@@ -7,6 +7,7 @@ class BookingPage extends Component {
   state = {
     /** --- Booking Details --- **/
     amountOfGuests: '',
+    bookingDetailsClass: 'show',
     /** --- Guest Details --- **/
     firstName: '',
     lastName: '',
@@ -75,7 +76,7 @@ class BookingPage extends Component {
   render() {
     return (
       <div id="BookingWrapper">
-        <div id="BookingDetails">
+        <div id="BookingDetails" className={bookingDetailsClass}>
           <p>Booking Details</p>
           <DayPicker onClick={this.lol} />
           <select onChange={this.setAmountOfGuests}>
@@ -86,6 +87,9 @@ class BookingPage extends Component {
             <option value="5">5 Guests</option>
             <option value="6">6 Guests</option>
           </select>
+          <button type="submit" onClick={this.setGuestDetails}>
+            Next
+          </button>
         </div>
         <div id="GuestDetails">
           <p>Guest details</p>
