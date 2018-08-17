@@ -28,6 +28,27 @@ function connectDatabase() {
 // });
 
 app.get("/create-details", (req, res) => {
+  if (!req.query.guestId) {
+    const err = new Error("guestId is required");
+    err.status = 400;
+    throw err;
+  }
+  if (!req.query.numOfGuests) {
+    const err = new Error("numberOfGuests must be specified");
+    err.status = 400;
+    throw err;
+  }
+  if (!req.query.time) {
+    const err = new Error("time must be specified");
+    err.status = 400;
+    throw err;
+  }
+  if (!req.query.date) {
+    const err = new Error("date must be specified");
+    err.status = 400;
+    throw err;
+  }
+
   const details = createDetails(
     req.query.guestId,
     req.query.numOfGuests,
@@ -40,7 +61,22 @@ app.get("/create-details", (req, res) => {
 
 app.get("/create-guest", (req, res) => {
   if (!req.query.firstname) {
-    const err = new Error("missing first name");
+    const err = new Error("firstname is required");
+    err.status = 400;
+    throw err;
+  }
+  if (!req.query.lastname) {
+    const err = new Error("lastname is required");
+    err.status = 400;
+    throw err;
+  }
+  if (!req.query.email) {
+    const err = new Error("email is required");
+    err.status = 400;
+    throw err;
+  }
+  if (!req.query.phone) {
+    const err = new Error("phonenumber is required");
     err.status = 400;
     throw err;
   }
@@ -56,6 +92,17 @@ app.get("/create-guest", (req, res) => {
 });
 
 app.get("/create-booking", (req, res) => {
+  if (!req.query.guestId) {
+    const err = new Error("guestId must be specified");
+    err.status = 400;
+    throw err;
+  }
+  if (!req.query.detailsId) {
+    const err = new Error("detailsId must be specified");
+    err.status = 400;
+    throw err;
+  }
+
   const booking = createBooking(req.query.guestId, req.query.detailsId);
   res.send(booking);
 });
@@ -70,7 +117,7 @@ app.get("/booking", (req, res) => {
   res.send(bookings);
 });
 
-// returns error message as json
+// returns error message as json in browser
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.status || 500).send({ message: err.message });
