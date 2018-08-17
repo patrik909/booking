@@ -2,13 +2,25 @@ import React from 'react';
 import Booking from './components/Booking';
 import ContactPage from './components/ContactPage';
 import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Home = () => (
-  <div>
-    <h2>Home</h2>
-    <h3>Kors i krösamoset</h3>
+  <div className="jumbotron">
+    <h1 className="display-4">Hello, world!</h1>
+    <p className="lead">
+      This is a simple hero unit, a simple jumbotron-style component for calling
+      extra attention to featured content or information.
+    </p>
+    <hr className="my-4" />
+    <p>
+      It uses utility classes for typography and spacing to space content out
+      within the larger container.
+    </p>
+    <button type="button" className="btn btn-light">
+      Light
+    </button>
   </div>
 );
 
