@@ -12,12 +12,7 @@ const Home = () => (
   </div>
 );
 
-const Contact = () => (
-  <div>
-    <h2>Contact</h2>
-    <ContactPage />
-  </div>
-);
+const Contact = () => <ContactPage />;
 
 const Reservation = () => (
   <div>
