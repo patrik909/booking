@@ -5,12 +5,15 @@ class Home extends Component {
     render() {
         return (
             <div className="wrapper">
+             <div className="jumbotron">
                 <header className="home-header">
 
                     <h1 className="App-title">Le'licious</h1>
                     <h2>Your heaven for tasty food</h2>
-                    <button>Book a table</button>
+                    <button type="button" className="btn btn-light">Book a table</button>
+
                 </header>
+                </div>
                 <main>
 
                     <div className="content">
