@@ -13,6 +13,8 @@ class BookingPage extends Component {
     lastName: '',
     email: '',
     phoneNumber: '',
+    guestDetailsClass: 'hide',
+    /** --- GDPR Details --- **/
     submitBoxClass: 'hide',
   };
 
@@ -23,17 +25,50 @@ class BookingPage extends Component {
     this.setState({ amountOfGuests: event.target.value });
   };
 
-  lol = event => {
-    console.log(event);
-    console.log('hej');
+  /** ----- Guest Details----- **/
+
+  submitBookingDetails = event => {
+    this.setState({ bookingDetailsClass: 'hide' });
+    this.setState({ guestDetailsClass: 'show' });
   };
 
   setGuestDetails = event => {
     event.preventDefault();
-    this.setState({ submitBoxClass: 'show' });
+    if (
+      this.state.firstName !== '' &&
+      this.state.lastName !== '' &&
+      this.state.email !== '' &&
+      this.state.phoneNumber !== ''
+    ) {
+      this.setState({ submitBoxClass: 'show' });
+      this.setState({ guestDetailsClass: 'hide' });
+    }
   };
 
-  /** ----- Guest Details----- **/
+  backGuestDetails = event => {
+    event.preventDefault();
+    this.setState({ bookingDetailsClass: 'show' });
+    this.setState({ guestDetailsClass: 'hide' });
+  };
+
+  handleFirstNameInput = event => {
+    console.log(event.target.value);
+    this.setState({ firstName: event.target.value });
+  };
+
+  handleLastNameInput = event => {
+    this.setState({ lastName: event.target.value });
+  };
+
+  handleEmailInput = event => {
+    this.setState({ email: event.target.value });
+  };
+
+  handlePhoneNumberInput = event => {
+    this.setState({ phoneNumber: event.target.value });
+  };
+
+  /** ---- SUBMIT & GDPR ---- **/
 
   submitGuestDetails = event => {
     event.preventDefault();
@@ -56,27 +91,21 @@ class BookingPage extends Component {
       });
   };
 
-  handleFirstNameInput = event => {
-    console.log(event.target.value);
-    this.setState({ firstName: event.target.value });
-  };
-
-  handleLastNameInput = event => {
-    this.setState({ lastName: event.target.value });
-  };
-
-  handleEmailInput = event => {
-    this.setState({ email: event.target.value });
-  };
-
-  handlePhoneNumberInput = event => {
-    this.setState({ phoneNumber: event.target.value });
+  cancelBooking = event => {
+    this.setState({ amountOfGuests: '' });
+    this.setState({ firstName: '' });
+    this.setState({ lastName: '' });
+    this.setState({ email: '' });
+    this.setState({ phoneNumber: '' });
+    this.setState({ bookingDetailsClass: 'show' });
+    this.setState({ guestDetailsClass: 'hide' });
+    this.setState({ submitBoxClass: 'hide' });
   };
 
   render() {
     return (
       <div id="BookingWrapper">
-        <div id="BookingDetails" className={bookingDetailsClass}>
+        <div id="BookingDetails" className={this.state.bookingDetailsClass}>
           <p>Booking Details</p>
           <DayPicker onClick={this.lol} />
           <select onChange={this.setAmountOfGuests}>
@@ -87,11 +116,11 @@ class BookingPage extends Component {
             <option value="5">5 Guests</option>
             <option value="6">6 Guests</option>
           </select>
-          <button type="submit" onClick={this.setGuestDetails}>
+          <button type="submit" onClick={this.submitBookingDetails}>
             Next
           </button>
         </div>
-        <div id="GuestDetails">
+        <div id="GuestDetails" className={this.state.guestDetailsClass}>
           <p>Guest details</p>
           <form>
             <InputField
@@ -118,6 +147,9 @@ class BookingPage extends Component {
               placeholder={'Phone number'}
               handle={this.handlePhoneNumberInput}
             />
+            <button type="submit" onClick={this.backGuestDetails}>
+              Back
+            </button>
             <button type="submit" onClick={this.setGuestDetails}>
               Next
             </button>
@@ -133,6 +165,9 @@ class BookingPage extends Component {
           </p>
           <p>{this.state.email}</p>
           <p>{this.state.phoneNumber}</p>
+          <button type="submit" onClick={this.cancelBooking}>
+            Cancel
+          </button>
           <button type="submit" onClick={this.submitGuestDetails}>
             Book
           </button>
