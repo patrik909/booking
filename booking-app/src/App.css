@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 h2 {
@@ -17,6 +19,31 @@ h2 {
   display: none;
 }
 
+.navbarDiv {
+  padding: 0;
+  margin: 0;
+  background: #dbdbdb;
+}
+
+nav {
+  margin: auto;
+  padding: 0;
+  width: 900px;
+}
+
+nav ul {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul li {
+  letter-spacing: 2px;
+  margin: 30px 0;
+}
 /* ----HOME PAGE STYLING---- */
 
 /* ----CARDS---- */
