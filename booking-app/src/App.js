@@ -1,36 +1,6 @@
-// import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-//
-// class App extends Component {
-//
-//     componentDidMount(){
-//         this.fetcher();
-//     }
-//
-//     fetcher = () => {
-// fetch('http://localhost:3000/booking')
-//     .then(function(response ){
-//                 return response.json();
-//             }).then((fetched) => {
-//                 console.log(fetched)
-//             }).catch(function(error) {
-//                 console.log(error);
-//             });
-//     }
-//   render() {
-//     return (
-//       <div className="App">
-//         Hej
-//       </div>
-//     );
-//   }
-// }
-// //
-// export default App;
-
 import React from 'react';
 import Booking from './components/Booking';
+import ContactPage from './components/ContactPage';
 import './App.css';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -45,6 +15,7 @@ const Home = () => (
 const Contact = () => (
   <div>
     <h2>Contact</h2>
+    <ContactPage />
   </div>
 );
 
