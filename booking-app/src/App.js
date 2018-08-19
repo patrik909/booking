@@ -7,6 +7,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route,} from 'react-router-dom';
 import Home from './components/Home.js';
 import Navbar from './components/Navbar.js';
+import Footer from './components/Footer.js';
+
 
 // const Home = () => (
 //   <div>
@@ -41,11 +43,16 @@ const BasicExample = () => (
 
       <hr /> */}
       <Navbar />
+
       <Route exact path="/" component={Home} />
       <Route path="/Contact" component={Contact} />
       <Route path="/Reservation" component={Reservation} />
+      <Footer />
+
       </div>
+      
   </Router>
+  
 );
 
 export default BasicExample;
