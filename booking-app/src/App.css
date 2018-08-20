@@ -67,71 +67,52 @@ nav ul li {
 
 /* ---- CONTACT PAGE STYLING ---- */
 
-#ContactWrapper {
-  display: flex;
-  flex-direction: column;
-  padding: 0 20px 20px 20px;
-}
-
-#ContactForm {
-  display: flex;
-  flex-direction: column;
-}
-
-#ContactForm input {
-  padding: 8px;
-  margin-bottom: 20px;
-}
-
-#ContactForm textarea {
+#MapWrapper {
   width: 100%;
-  resize: none;
-  box-sizing: border-box;
+  height: 300px;
 }
 
-#ContactWrapper .underline {
-  margin: 40px 0;
+#ContactDetailsWrapper {
+  padding: 60px 0;
 }
 
-#ContactWrapper h3 {
+#ContactDetailsWrapper p {
   text-align: center;
+  margin: 0;
 }
 
-#ContactInfo p {
-  text-align: center;
-  margin: 8px;
+#ContactDetailsWrapper img {
+  margin-right: 10px;
+  height: 20px;
 }
 
-@media screen and (min-width: 650px) {
-  #ContactWrapper {
-    flex-direction: row;
+@media screen and (min-width: 750px) {
+  #MapWrapper {
+    height: 400px;
+  }
+  #ContactDetailsLeft,
+  #ContactDetailsRight {
+    padding: 0 40px;
   }
 
-  #ContactWrapper .underline {
-    display: none;
+  #ContactDetailsLeft p {
+    text-align: right;
   }
 
-  #ContactForm {
-    width: 50%;
-    padding-right: 10px;
-  }
-
-  #ContactInfo {
-    width: 50%;
-    padding-left: 10px;
+  #ContactDetailsRight p {
+    text-align: left;
   }
 }
 
 /* FOOTER  */
 
-footer{
-  background-color:gray;
-    color: white;
-    text-align: center;
-    margin: 0 auto;
-    height: 130px;
-    padding: 10px 0 0 0;
-    font-size: 1.5em;
-    max-width: 100%;
-
+footer {
+  background-color: gray;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  height: 130px;
+  padding: 10px 0 0 0;
+  font-size: 1.5em;
+  max-width: 100%;
 }
