@@ -111,8 +111,17 @@ footer {
   color: white;
   text-align: center;
   margin: 0 auto;
-  height: 130px;
+  height: 200px;
   padding: 10px 0 0 0;
   font-size: 1.5em;
-  max-width: 100%;
+  width: 100%;
+}
+
+.social-media-icon {
+  padding: 20px 10px 10px 10px;
+  display: inline-block;
+}
+
+.fa {
+  color: white;
 }

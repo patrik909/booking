@@ -1,14 +1,16 @@
 import React from 'react';
 import Booking from './components/Booking';
 import ContactPage from './components/ContactPage';
+import AdminPage from './components/AdminPage';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
-import { BrowserRouter as Router, Route,} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/Home.js';
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
 
+//Fontawesome stuff
+import '../node_modules/font-awesome/css/font-awesome.css';
 
 // const Home = () => (
 //   <div>
@@ -16,6 +18,8 @@ import Footer from './components/Footer.js';
 //     <h3>Kors i krösamoset</h3>
 //   </div>
 // )
+
+const Admin = () => <AdminPage />;
 
 const Contact = () => <ContactPage />;
 
@@ -28,8 +32,8 @@ const Reservation = () => (
 
 const BasicExample = () => (
   <Router>
-   <div>
-   {/* <ul>
+    <div>
+      {/* <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -47,12 +51,10 @@ const BasicExample = () => (
       <Route exact path="/" component={Home} />
       <Route path="/Contact" component={Contact} />
       <Route path="/Reservation" component={Reservation} />
+      <Route path="/Admin" component={Admin} />
       <Footer />
-
-      </div>
-      
+    </div>
   </Router>
-  
 );
 
 export default BasicExample;

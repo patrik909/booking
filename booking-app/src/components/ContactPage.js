@@ -1,5 +1,4 @@
 import React from 'react';
-import InputField from './subcomponents/InputField.js';
 import Map from './subcomponents/Map.js';
 import MapPin from './../images/map-pin.svg';
 import Mail from './../images/mail.svg';
@@ -14,18 +13,18 @@ function ContactPage() {
       <div id="ContactDetailsWrapper" class="row">
         <div id="ContactDetailsLeft" class="col-sm-12 col-md-6">
           <p>
-            <img src={MapPin} />
+            <img src={MapPin} alt="Map pin" />
             Gatgatan 13
           </p>
           <p>111 11 Stockholm</p>
         </div>
         <div id="ContactDetailsRight" class="col-sm-12 col-md-6">
           <p>
-            <img src={Phone} />
+            <img src={Phone} alt="Phone logo" />
             070 000 00 00
           </p>
           <p>
-            <img src={Mail} />
+            <img src={Mail} alt="Mail logo" />
             <a href="mailto:contact@lelious.se">contact@lelious.se</a>
           </p>
         </div>
