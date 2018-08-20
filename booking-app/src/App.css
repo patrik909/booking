@@ -121,3 +121,17 @@ nav ul li {
     padding-left: 10px;
   }
 }
+
+/* FOOTER  */
+
+footer{
+  background-color:gray;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    height: 130px;
+    padding: 10px 0 0 0;
+    font-size: 1.5em;
+    max-width: 100%;
+
+}

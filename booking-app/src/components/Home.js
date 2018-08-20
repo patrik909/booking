@@ -49,7 +49,7 @@ class Home extends Component {
 
 
                 </main>
-                <footer>credits</footer>
+               
             </div>
 
         );
