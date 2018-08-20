@@ -1,6 +1,7 @@
 const fs = require('fs');
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const betterSqlite3 = require('better-sqlite3');
 const db = connectDatabase();
 db.pragma('foreign_keys = ON');
@@ -21,14 +22,14 @@ function connectDatabase() {
     }
 }
 
-// app.use((req, res, next) => {
-//     res.header('Access-Control-Allow-Origin', '*');
-//     res.header(
-//         'Access-Control-Allow-Headers',
-//         'Origin, X-Requested-With, Content-Type, Accept'
-//     );
-//     next();
-// });
+app.use(bodyParser.json());
+
+app.put('/booking/:id', (req, res) => {
+    const booking = req.body;
+    const bookingId = req.params.id;
+    const updatedBooking = updateBooking(bookingId, booking);
+    res.send(updatedBooking);
+});
 
 app.get('/create-details', (req, res) => {
     if (!req.query.guestId) {
@@ -135,6 +136,23 @@ app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(err.status || 500).send({ message: err.message });
 });
+
+const updateBooking = (bookingId, booking) => {
+    db.prepare(
+        /*sql*/ `
+    UPDATE 
+      details 
+    SET 
+      num_of_guests = ?,
+      time = ?,
+      date = ?
+    WHERE 
+      id = ?
+    `
+    ).run(booking.numOfGuests, booking.time, booking.date, bookingId);
+
+    return getBooking(bookingId);
+};
 
 const createDetails = (guestId, numOfGuests, time, date) => {
     db.prepare(
