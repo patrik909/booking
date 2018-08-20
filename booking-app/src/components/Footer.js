@@ -7,17 +7,29 @@ class Footer extends Component {
         <footer>
           <p>Follow us</p>
           <div className="social-media-icon">
-            <a href="https://sv-se.facebook.com" target="_blank">
+            <a
+              href="https://sv-se.facebook.com"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               <i className="fa fa-facebook-square fa-2x" aria-hidden="true" />
             </a>
           </div>
           <div className="social-media-icon">
-            <a href="https://twitter.com" target="_blank">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               <i className="fa fa-twitter-square fa-2x" aria-hidden="true" />
             </a>
           </div>
           <div className="social-media-icon">
-            <a href="https://www.instagram.com" target="_blank">
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               <i className="fa fa-instagram fa-2x" aria-hidden="true" />
             </a>
           </div>
