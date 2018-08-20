@@ -7,7 +7,7 @@ class Footer extends Component {
       <div className="footerdiv">
         <footer>
        
-        <p>© Le'licious AB 201 </p>
+        <p>© Le'licious AB 2018 </p>
     </footer>
       </div>
     );
