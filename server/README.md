@@ -8,7 +8,7 @@ To start up the API you need to clone this repo and install it's dependencies.
 
 ### Prerequisites
 
-Run the following to install Express and better-sqlite3
+Run the following to install **Express** and **better-sqlite3**
 
 ```
 yarn

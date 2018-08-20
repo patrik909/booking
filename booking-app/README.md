@@ -1,5 +1,5 @@
 # Booking
-Resturant webpage where guest can book tables.
+App built with react.
 
 # Getting started
 To start up the app you need to clone this repo and install it's dependencies.
