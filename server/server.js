@@ -24,13 +24,6 @@ function connectDatabase() {
 
 app.use(bodyParser.json());
 
-app.put('/booking/:id', (req, res) => {
-    const booking = req.body;
-    const bookingId = req.params.id;
-    const updatedBooking = updateBooking(bookingId, booking);
-    res.send(updatedBooking);
-});
-
 app.get('/create-details', (req, res) => {
     if (!req.query.guestId) {
         const err = new Error('guestId is required');
@@ -95,6 +88,18 @@ app.get('/create-guest', (req, res) => {
     res.send(guest);
 });
 
+app.get('/guests', (req, res) => {
+    const guests = getGuests();
+    res.send(guests);
+});
+
+app.put('/booking/:id', (req, res) => {
+    const booking = req.body;
+    const bookingId = req.params.id;
+    const updatedBooking = updateBooking(bookingId, booking);
+    res.send(updatedBooking);
+});
+
 app.get('/create-booking', (req, res) => {
     if (!req.query.guestId) {
         const err = new Error('guestId must be specified');
@@ -111,14 +116,13 @@ app.get('/create-booking', (req, res) => {
     res.send(booking);
 });
 
-app.get('/guests', (req, res) => {
-    const guests = getGuests();
-    res.send(guests);
-});
-
-app.get('/delete-booking/:id', (req, res) => {
-    const booking = deleteBooking(req.params.id);
-    res.send(booking);
+app.delete('/booking/:id', (req, res) => {
+    const result = deleteBooking(req.params.id);
+    if (result.changes === 0) {
+        res.status(404).send({ message: 'booking not found' });
+    } else {
+        res.status(204).end();
+    }
 });
 
 app.get('/booking/:id', (req, res) => {
@@ -217,9 +221,24 @@ const getGuests = () => {
 };
 
 const deleteBooking = bookingId => {
+    // db.prepare(/*sql*/`DELETE FROM details WHERE id = ?`).run(detailsId)
     return db
-        .prepare(/*sql*/ `DELETE FROM booking WHERE id = ?`)
+        .prepare(
+            /*sql*/ `
+    DELETE 
+        FROM details 
+    WHERE 
+        id = 
+    (SELECT 
+        details_id 
+    FROM 
+        booking 
+    WHERE id = ?)`
+        )
         .run(bookingId);
+    // return db
+    //     .prepare(/*sql*/ `DELETE FROM booking WHERE id = ?`)
+    //     .run(bookingId);
 };
 
 const getBooking = bookingId => {
