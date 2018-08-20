@@ -160,3 +160,22 @@ Response on request:
   "details_id": 1
 }
 ```
+
+## To Delete information
+
+To delete a booking use
+
+```
+api/delete-booking/id
+```
+
+where id is the booking id.
+
+Response to request:
+
+```
+{
+  "changes": 1,
+  "lastInsertROWID": 0
+}
+```
