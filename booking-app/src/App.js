@@ -1,6 +1,7 @@
 import React from 'react';
 import Booking from './components/Booking';
 import ContactPage from './components/ContactPage';
+import AdminPage from './components/AdminPage';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -17,6 +18,8 @@ import '../node_modules/font-awesome/css/font-awesome.css';
 //     <h3>Kors i krösamoset</h3>
 //   </div>
 // )
+
+const Admin = () => <AdminPage />;
 
 const Contact = () => <ContactPage />;
 
@@ -48,6 +51,7 @@ const BasicExample = () => (
       <Route exact path="/" component={Home} />
       <Route path="/Contact" component={Contact} />
       <Route path="/Reservation" component={Reservation} />
+      <Route path="/Admin" component={Admin} />
       <Footer />
     </div>
   </Router>

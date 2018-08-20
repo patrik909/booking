@@ -115,6 +115,16 @@ app.get('/guests', (req, res) => {
     res.send(guests);
 });
 
+app.get('/delete-booking/:id', (req, res) => {
+    const booking = deleteBooking(req.params.id);
+    res.send(booking);
+});
+
+app.get('/booking/:id', (req, res) => {
+    const booking = getBooking(req.params.id);
+    res.send(booking);
+});
+
 app.get('/booking', (req, res) => {
     const bookings = getBookings();
     res.send(bookings);
@@ -188,6 +198,30 @@ const getGuests = () => {
     return db.prepare(/* sql */ `SELECT * FROM guest`).all();
 };
 
+const deleteBooking = bookingId => {
+    return db
+        .prepare(/*sql*/ `DELETE FROM booking WHERE id = ?`)
+        .run(bookingId);
+};
+
+const getBooking = bookingId => {
+    return db
+        .prepare(
+            /* sql */ `
+        SELECT 
+          * FROM booking 
+        JOIN
+            details ON details.id = 
+            booking.details_id
+        JOIN
+            guest ON guest.id =
+            booking.guest_id
+        WHERE 
+            booking.id = ?`
+        )
+        .get(bookingId);
+};
+
 const getBookings = () => {
     return db
         .prepare(
@@ -196,7 +230,10 @@ const getBookings = () => {
             * FROM booking 
         JOIN
             details ON details.id = 
-            booking.details_id`
+            booking.details_id
+        JOIN
+            guest ON guest.id =
+            booking.guest_id`
         )
         .all();
 };
