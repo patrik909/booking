@@ -1,27 +1,28 @@
 {
-  "name": "booking-app",
-  "version": "1.0.0",
-  "main": "server.js",
-  "scripts": {
-    "start": "nodemon server.js"
-  },
-  "author": "",
-  "license": "UNLICENSED",
-  "description": "",
-  "dependencies": {
-    "better-sqlite3": "^4.1.4",
-    "express": "^4.16.3"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "tabWidth": 4,
-    "arrowParens": "avoid"
-  },
-  "devDependencies": {
-    "husky": "^0.14.3",
-    "nodemon": "^1.18.3",
-    "prettier": "^1.14.2",
-    "pretty-quick": "^1.6.0"
-  }
+    "name": "booking-app",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+        "start": "nodemon server.js",
+        "precommit": "pretty-quick --staged"
+    },
+    "author": "",
+    "license": "UNLICENSED",
+    "description": "",
+    "dependencies": {
+        "better-sqlite3": "^4.1.4",
+        "express": "^4.16.3"
+    },
+    "prettier": {
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "arrowParens": "avoid"
+    },
+    "devDependencies": {
+        "husky": "^0.14.3",
+        "nodemon": "^1.18.3",
+        "prettier": "^1.14.2",
+        "pretty-quick": "^1.6.0"
+    }
 }
