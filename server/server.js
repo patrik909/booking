@@ -221,7 +221,6 @@ const getGuests = () => {
 };
 
 const deleteBooking = bookingId => {
-    // db.prepare(/*sql*/`DELETE FROM details WHERE id = ?`).run(detailsId)
     return db
         .prepare(
             /*sql*/ `
@@ -236,9 +235,6 @@ const deleteBooking = bookingId => {
     WHERE id = ?)`
         )
         .run(bookingId);
-    // return db
-    //     .prepare(/*sql*/ `DELETE FROM booking WHERE id = ?`)
-    //     .run(bookingId);
 };
 
 const getBooking = bookingId => {
