@@ -195,7 +195,19 @@ const getGuests = () => {
 
 const getBooking = bookingId => {
     return db
-        .prepare(/* sql */ `SELECT * FROM booking WHERE id = ?`)
+        .prepare(
+            /* sql */ `
+        SELECT 
+          * FROM booking 
+        JOIN
+            details ON details.id = 
+            booking.details_id
+        JOIN
+            guest ON guest.id =
+            booking.guest_id
+        WHERE 
+            booking.id = ?`
+        )
         .get(bookingId);
 };
 
@@ -207,7 +219,10 @@ const getBookings = () => {
             * FROM booking 
         JOIN
             details ON details.id = 
-            booking.details_id`
+            booking.details_id
+        JOIN
+            guest ON guest.id =
+            booking.guest_id`
         )
         .all();
 };
