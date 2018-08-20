@@ -6,8 +6,10 @@ const db = connectDatabase();
 db.pragma("foreign_keys = ON");
 
 function connectDatabase() {
+  // looks for an existing databasefile to connect with
   try {
     return new betterSqlite3("./booking_app.db", { fileMustExist: true });
+  // if there is no existing database a new one is created
   } catch (err) {
     const db = new betterSqlite3("./booking_app.db", {
       fileMustExist: false
@@ -198,4 +200,5 @@ const getBookings = () => {
     .all();
 };
 
+// starts the server on port 4001
 app.listen(4001, () => console.log("Booking app listening on port 4001!"));
