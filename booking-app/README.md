@@ -1,12 +1,14 @@
 # Booking-app
+
 App built with react.
 
 # Getting started
+
 To start up the app you need to clone this repo and install it's dependencies.
 
 ### Prerequisites
 
-Run the following to install **react**, **react-day-picker**, **bootstrap** and **react-router**.
+Run the following to install **react**, **react-day-picker**, **bootstrap**, **fontawesome** and **react-router**.
 
 ```
 yarn
@@ -19,6 +21,7 @@ npm install
 ```
 
 ### Start the server
+
 Run the following to start the server
 
 ```
