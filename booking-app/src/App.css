@@ -86,6 +86,29 @@ nav ul li {
   height: 20px;
 }
 
+/* ---- ADMIN PAGE STYLING ---- */
+
+#AdminWrapper ul {
+  padding: 0;
+}
+
+#AdminWrapper li {
+  display: flex;
+}
+
+/* FOOTER  */
+
+footer {
+  background-color: gray;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  height: 130px;
+  padding: 10px 0 0 0;
+  font-size: 1.5em;
+  max-width: 100%;
+}
+
 @media screen and (min-width: 750px) {
   #MapWrapper {
     height: 400px;
@@ -102,17 +125,4 @@ nav ul li {
   #ContactDetailsRight p {
     text-align: left;
   }
-}
-
-/* FOOTER  */
-
-footer {
-  background-color: gray;
-  color: white;
-  text-align: center;
-  margin: 0 auto;
-  height: 130px;
-  padding: 10px 0 0 0;
-  font-size: 1.5em;
-  max-width: 100%;
 }

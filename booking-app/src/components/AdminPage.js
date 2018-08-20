@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-//import InputField from './subcomponents/InputField.js';
+import InputField from './subcomponents/InputField.js';
 
 class AdminPage extends Component {
   state = {
     allBookings: [],
+    nameSearch: '',
   };
 
   componentDidMount() {
     this.fetchBookings();
   }
-  /** --- Booking Details --- **/
 
   fetchBookings = () => {
     fetch(`api/booking`)
@@ -22,9 +22,64 @@ class AdminPage extends Component {
       });
   };
 
+  handleFirstNameInput = event => {
+    this.setState({ nameSearch: event.target.value });
+  };
+
+  updateBooking = event => {
+    event.preventDefault();
+  };
+
+  deleteBooking = event => {
+    event.preventDefault();
+
+    fetch(`api/delete-booking/${event.target.value}`)
+      .then(response => response.json())
+      .then(allBookings => {
+        this.fetchBookings();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   render() {
-    console.log(this.state.allBookings);
-    return <div />;
+    return (
+      <div id="AdminWrapper">
+        <InputField
+          type={'text'}
+          name={'filterFirstName'}
+          handle={this.handleFirstNameInput}
+          placeholder={'Name'}
+        />
+        <ul>
+          {this.state.allBookings.map((booking, i) => {
+            if (
+              booking.firstname.includes(this.state.nameSearch) ||
+              booking.lastname.includes(this.state.nameSearch)
+            ) {
+              return (
+                <li key={i}>
+                  <p>
+                    {booking.firstname} {booking.lastname} {booking.phone}{' '}
+                    {booking.email}
+                  </p>
+                  <div className="bookingDate">
+                    {booking.time} | {booking.date}
+                  </div>
+                  <div className="handleBookingsButtons">
+                    <button onClick={this.updateBooking}>Update</button>
+                    <button value={booking.id} onClick={this.deleteBooking}>
+                      Delete
+                    </button>
+                  </div>
+                </li>
+              );
+            }
+          })}
+        </ul>
+      </div>
+    );
   }
 }
 
