@@ -52,7 +52,7 @@ To get all bookings use
 api/booking
 ```
 
-Response
+Response to request:
 
 ```
 {
@@ -65,13 +65,31 @@ Response
   }
 ```
 
+To get a specific booking use
+
+```
+api/booking/id
+```
+
+where id is the booking id of the booking you want.
+
+Response to request:
+
+```
+{
+  "id": 1,
+  "guest_id": 1,
+  "details_id": 1
+}
+```
+
 To get all guests use
 
 ```
 api/guests
 ```
 
-Response
+Response to request:
 
 ```
 {
