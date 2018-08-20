@@ -1,4 +1,4 @@
-# Booking
+# Booking-app
 App built with react.
 
 # Getting started
