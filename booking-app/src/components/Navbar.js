@@ -9,6 +9,7 @@ import {
   Nav,
   NavItem,
   NavLink,
+  NavbarBrand,
 } from 'reactstrap';
 
 class NavbarBootstrap extends Component {
@@ -32,7 +33,9 @@ class NavbarBootstrap extends Component {
     return (
       <div className="navbarDiv">
         <Navbar color="light" light expand="md">
-          {/* <NavbarBrand href="/">reactstrap</NavbarBrand> */}
+          <NavbarBrand>
+            <Link to="/">L</Link>
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
