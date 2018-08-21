@@ -10,6 +10,12 @@ h2 {
   text-align: center;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
 .underline {
   border-bottom: 1px solid black;
   width: 100%;
@@ -87,6 +93,25 @@ nav ul li {
 }
 
 /* ---- ADMIN PAGE STYLING ---- */
+
+#adminControlButtons {
+  display: flex;
+  justify-content: center;
+}
+
+#adminControlButtons button {
+  color: white;
+  background: black;
+  border-radius: 3px;
+  margin: 20px 5px;
+  width: 200px;
+  height: 50px;
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/*------*/
 
 #AdminWrapper ul {
   font-size: 0.8em;
