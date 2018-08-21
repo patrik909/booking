@@ -89,11 +89,23 @@ nav ul li {
 /* ---- ADMIN PAGE STYLING ---- */
 
 #AdminWrapper ul {
+  font-size: 0.8em;
   padding: 0;
 }
 
 #AdminWrapper li {
   display: flex;
+  height: 50px;
+}
+
+.adminCustomerName {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  height: 100%;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  box-sizing: border-box;
 }
 
 /* FOOTER  */

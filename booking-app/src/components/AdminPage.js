@@ -60,10 +60,11 @@ class AdminPage extends Component {
             ) {
               return (
                 <li key={i}>
-                  <p>
-                    {booking.firstname} {booking.lastname} {booking.phone}{' '}
-                    {booking.email}
-                  </p>
+                  <div className="adminCustomerName">
+                    {booking.firstname} {booking.lastname}
+                  </div>
+                  <div className="adminCustomerPhone">{booking.phone}</div>
+                  <span>{booking.email}</span>
                   <div className="bookingDate">
                     {booking.time} | {booking.date}
                   </div>
