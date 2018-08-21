@@ -18,8 +18,11 @@ h2 {
 .hide {
   display: none !important;
 }
-
-.navbarDiv {
+/* ----NAVBAR---- */
+.navbar-nav .nav-link {
+  text-align: center;
+}
+/* .navbarDiv {
   padding: 0;
   margin: 0;
   background: #dbdbdb;
@@ -43,12 +46,12 @@ nav ul {
 nav ul li {
   letter-spacing: 2px;
   margin: 30px 0;
-}
-/* ----HOME PAGE STYLING---- */
+} */
+/* ----HOME PAGE ---- */
 
 /* ----CARDS---- */
 
-/* ---- BOOKING PAGE STYLING ---- */
+/* ---- BOOKING PAGE  ---- */
 
 #BookingWrapper {
   text-align: center;
@@ -65,7 +68,7 @@ nav ul li {
   padding: 6px;
 }
 
-/* ---- CONTACT PAGE STYLING ---- */
+/* ---- CONTACT PAGE  ---- */
 
 #MapWrapper {
   width: 100%;
@@ -156,4 +159,11 @@ footer {
 
 .fa {
   color: white;
+}
+
+.fa-envelope-o,
+.fa-phone,
+.fa-map-marker {
+  color: black;
+  margin: 10px;
 }
