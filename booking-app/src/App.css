@@ -53,6 +53,7 @@ nav ul li {
   background-image: url(images/home-header.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 @media screen and (min-width: 768px) {
