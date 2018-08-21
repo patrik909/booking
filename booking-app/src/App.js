@@ -4,11 +4,13 @@ import ContactPage from './components/ContactPage';
 import AdminPage from './components/AdminPage';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/Home.js';
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
+
+//Fontawesome stuff
+import '../node_modules/font-awesome/css/font-awesome.css';
 
 // const Home = () => (
 //   <div>
