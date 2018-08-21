@@ -6,7 +6,7 @@ class Reservation extends Component {
     return (
       <div className="reservation-wrapper">
         <div className="jumbotron  jumbotron-fluid reservation-jumbo">
-          <div className="container">
+          <div className="container container-jumbo">
             <h1 className="display-4">Reservation</h1>
             <p className="lead">Join in and enjoy the dining experience</p>
           </div>

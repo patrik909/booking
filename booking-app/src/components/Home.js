@@ -11,7 +11,7 @@ class Home extends Component {
       <div className="wrapper home-wrapper">
         <div className="reservation-wrapper">
           <div className="jumbotron  jumbotron-fluid home-jumbo">
-            <div className="container">
+            <div className="container container-jumbo">
               <h1 className="display-4">Le'licious </h1>
               <p className="lead">Your heaven for tasty food</p>
 
