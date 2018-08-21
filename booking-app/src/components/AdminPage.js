@@ -5,7 +5,7 @@ import AdminControlButtons from './subcomponents/AdminControlButtons.js';
 class AdminPage extends Component {
   state = {
     adminCreateBookingClass: 'hide',
-    adminViewChangeBookingClass: 'hide',
+    adminChangeViewBookingClass: 'hide',
     /*--- WIP below---*/
 
     allBookings: [],
@@ -26,10 +26,10 @@ class AdminPage extends Component {
   handleAdminPage = page => {
     if (page === 'openCreateBooking') {
       this.setState({ adminCreateBookingClass: 'show' });
-      this.setState({ adminViewChangeBookingClass: 'hide' });
+      this.setState({ adminChangeViewBookingClass: 'hide' });
     } else {
       this.setState({ adminCreateBookingClass: 'hide' });
-      this.setState({ adminViewChangeBookingClass: 'show' });
+      this.setState({ adminChangeViewBookingClass: 'show' });
     }
   };
 
@@ -101,7 +101,7 @@ class AdminPage extends Component {
         </div>
         <div
           id="viewChangeBooking"
-          className={this.state.adminViewChangeBookingClass}
+          className={this.state.adminChangeViewBookingClass}
         >
           <InputField
             type={'text'}
