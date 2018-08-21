@@ -16,7 +16,7 @@ h2 {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 /* ----NAVBAR---- */
 .navbar-nav .nav-link {
@@ -87,6 +87,38 @@ nav ul li {
 #ContactDetailsWrapper img {
   margin-right: 10px;
   height: 20px;
+}
+
+/* ---- ADMIN PAGE STYLING ---- */
+
+#AdminWrapper ul {
+  font-size: 0.8em;
+  padding: 0;
+}
+
+#AdminWrapper li {
+  display: flex;
+  height: 50px;
+}
+
+.adminCustomerName,
+.adminCustomerPhone,
+.adminCustomerEmail,
+.bookingDate,
+.handleBookingsButtons {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  height: 100%;
+  padding-left: 10px;
+  border-right: 1px solid black;
+  box-sizing: border-box;
+}
+
+#updateBox {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
 }
 
 @media screen and (min-width: 750px) {

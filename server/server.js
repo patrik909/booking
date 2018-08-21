@@ -22,28 +22,85 @@ function connectDatabase() {
     }
 }
 
+const throwError = (code, msg) => {
+    const err = new Error(msg);
+    err.status = code;
+    throw err;
+};
+
 app.use(bodyParser.json());
 
+// ENDPOINTS FOR BOOKING
+app.get('/booking', (req, res) => {
+    const bookings = getBookings();
+    res.send(bookings);
+});
+
+app.get('/booking/:id', (req, res) => {
+    const booking = getBooking(req.params.id);
+
+    if (!booking) {
+        throwError(404, 'booking not found');
+    }
+
+    res.send(booking);
+});
+
+app.get('/create-booking', (req, res) => {
+    if (!req.query.guestId) {
+        throwError(400, 'guestId is missing');
+    }
+    if (!req.query.detailsId) {
+        throwError(400, 'detailsId is missing');
+    }
+
+    const booking = createBooking(req.query.guestId, req.query.detailsId);
+
+    res.send(booking);
+});
+
+app.put('/booking/:id', (req, res) => {
+    const booking = req.body;
+
+    if (!booking.hasOwnProperty('numOfGuests')) {
+        throwError(404, 'number of guests is missing');
+    }
+    if (!booking.hasOwnProperty('time')) {
+        throwError(400, 'time is missing');
+    }
+    if (!booking.hasOwnProperty('date')) {
+        throwError(400, 'date is missing');
+    }
+
+    const bookingId = req.params.id;
+    const updatedBooking = updateBooking(bookingId, booking);
+
+    res.send(updatedBooking);
+});
+
+app.delete('/booking/:id', (req, res) => {
+    const result = deleteBooking(req.params.id);
+
+    if (result.changes === 0) {
+        throwError(404, 'booking not found');
+    }
+
+    res.status(204).end();
+});
+
+// ENDPOINTS FOR DETAILS
 app.get('/create-details', (req, res) => {
     if (!req.query.guestId) {
-        const err = new Error('guestId is required');
-        err.status = 400;
-        throw err;
+        throwError(400, 'guestId is missing');
     }
     if (!req.query.numOfGuests) {
-        const err = new Error('numberOfGuests must be specified');
-        err.status = 400;
-        throw err;
+        throwError(400, 'numOfGuests is missing');
     }
     if (!req.query.time) {
-        const err = new Error('time must be specified');
-        err.status = 400;
-        throw err;
+        throwError(400, 'time is missing');
     }
     if (!req.query.date) {
-        const err = new Error('date must be specified');
-        err.status = 400;
-        throw err;
+        throwError(400, 'date is missing');
     }
 
     const details = createDetails(
@@ -56,26 +113,24 @@ app.get('/create-details', (req, res) => {
     res.send(details);
 });
 
+// ENDPOINTS FOR GUEST
+app.get('/guests', (req, res) => {
+    const guests = getGuests();
+    res.send(guests);
+});
+
 app.get('/create-guest', (req, res) => {
     if (!req.query.firstname) {
-        const err = new Error('firstname is required');
-        err.status = 400;
-        throw err;
+        throwError(400, 'firstname is missing');
     }
     if (!req.query.lastname) {
-        const err = new Error('lastname is required');
-        err.status = 400;
-        throw err;
+        throwError(400, 'lastname is missing');
     }
     if (!req.query.email) {
-        const err = new Error('email is required');
-        err.status = 400;
-        throw err;
+        throwError(400, 'email is missing');
     }
     if (!req.query.phone) {
-        const err = new Error('phonenumber is required');
-        err.status = 400;
-        throw err;
+        throwError(400, 'phone is missing');
     }
 
     const guest = createGuest(
@@ -86,53 +141,6 @@ app.get('/create-guest', (req, res) => {
     );
 
     res.send(guest);
-});
-
-app.get('/guests', (req, res) => {
-    const guests = getGuests();
-    res.send(guests);
-});
-
-app.put('/booking/:id', (req, res) => {
-    const booking = req.body;
-    const bookingId = req.params.id;
-    const updatedBooking = updateBooking(bookingId, booking);
-    res.send(updatedBooking);
-});
-
-app.get('/create-booking', (req, res) => {
-    if (!req.query.guestId) {
-        const err = new Error('guestId must be specified');
-        err.status = 400;
-        throw err;
-    }
-    if (!req.query.detailsId) {
-        const err = new Error('detailsId must be specified');
-        err.status = 400;
-        throw err;
-    }
-
-    const booking = createBooking(req.query.guestId, req.query.detailsId);
-    res.send(booking);
-});
-
-app.delete('/booking/:id', (req, res) => {
-    const result = deleteBooking(req.params.id);
-    if (result.changes === 0) {
-        res.status(404).send({ message: 'booking not found' });
-    } else {
-        res.status(204).end();
-    }
-});
-
-app.get('/booking/:id', (req, res) => {
-    const booking = getBooking(req.params.id);
-    res.send(booking);
-});
-
-app.get('/booking', (req, res) => {
-    const bookings = getBookings();
-    res.send(bookings);
 });
 
 // returns error message as json in browser
@@ -170,8 +178,19 @@ const createDetails = (guestId, numOfGuests, time, date) => {
     return db
         .prepare(
             /* sql */ `
-            select * from details where id = 
-            (select seq from sqlite_sequence where name = 'details')`
+            SELECT 
+                * 
+            FROM 
+                details 
+            WHERE 
+                id = 
+                (SELECT 
+                    seq 
+                FROM 
+                    sqlite_sequence 
+                WHERE 
+                    name = 'details'
+                )`
         )
         .get();
 };
@@ -209,9 +228,17 @@ const createBooking = (guestId, detailsId) => {
         .prepare(
             /* sql */ `
             SELECT 
-                * FROM booking WHERE id = 
-            (SELECT 
-                seq FROM sqlite_sequence WHERE name = 'booking')`
+                * 
+            FROM 
+                booking 
+            WHERE 
+                id = 
+                (SELECT 
+                    seq 
+                FROM 
+                    sqlite_sequence
+                WHERE
+                    name = 'booking')`
         )
         .get();
 };
@@ -224,15 +251,15 @@ const deleteBooking = bookingId => {
     return db
         .prepare(
             /*sql*/ `
-    DELETE 
-        FROM details 
-    WHERE 
-        id = 
-    (SELECT 
-        details_id 
-    FROM 
-        booking 
-    WHERE id = ?)`
+            DELETE 
+                FROM details 
+            WHERE 
+                id = 
+            (SELECT 
+                details_id 
+            FROM 
+                booking 
+            WHERE id = ?)`
         )
         .run(bookingId);
 };
