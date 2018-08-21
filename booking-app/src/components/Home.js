@@ -18,7 +18,7 @@ class Home extends Component {
               <p className="lead">
                 <Link to="/Reservation">
                   <button type="button" className="btn btn-primary btn-lg">
-                    Book a table here
+                    Book a table
                   </button>
                 </Link>
               </p>
