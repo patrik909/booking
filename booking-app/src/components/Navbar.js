@@ -16,8 +16,8 @@ class NavbarBootstrap extends Component {
   constructor(props) {
     super(props);
 
-    //  state for the hamburger navbar the state
-    //  changes depending if the dropdown is open or not
+    /*state for the hamburger navbar the state
+      changes depending if the dropdown is open or not*/
 
     this.toggle = this.toggle.bind(this);
     this.state = {
