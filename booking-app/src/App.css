@@ -93,6 +93,12 @@ nav ul li {
 
 /* ---- ADMIN PAGE STYLING ---- */
 
+#adminWrapper,
+.container-full {
+  width: 1000px;
+  margin: auto;
+}
+
 #adminControlButtons {
   display: flex;
   justify-content: center;
@@ -110,14 +116,39 @@ nav ul li {
   letter-spacing: 1px;
 }
 
+#changeViewBooking header {
+  margin: auto;
+  text-align: center;
+  font-size: 0.9em;
+  background: black;
+  padding: 10px 0;
+  border-radius: 10px;
+  width: 450px;
+}
+
+#changeViewBooking header p {
+  display: inline;
+  color: white;
+  margin-right: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+#changeViewBooking header input {
+  padding: 5px 8px;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 3px;
+}
+
 /*------*/
 
-#AdminWrapper ul {
+#adminWrapper ul {
   font-size: 0.8em;
   padding: 0;
 }
 
-#AdminWrapper li {
+#adminWrapper li {
   display: flex;
   height: 50px;
 }
