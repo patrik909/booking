@@ -39,7 +39,10 @@ class NavbarBootstrap extends Component {
               L <img src={ChefHat} alt="Chef Hat" />
             </Link>
           </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
+          <NavbarToggler onClick={this.toggle}>
+            {' '}
+            <span className="fa fa-reorder" />
+          </NavbarToggler>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>

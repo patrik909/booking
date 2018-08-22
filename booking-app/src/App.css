@@ -37,6 +37,12 @@ h2 {
   text-align: center;
 }
 
+.navbar-light .navbar-toggler {
+  border-color: azure !important;
+}
+.fa-reorder {
+  color: azure;
+}
 li a {
   color: white;
   font-family: 'Cardo', serif;
