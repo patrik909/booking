@@ -5,13 +5,11 @@ class AdminPage extends Component {
   state = {
     allBookings: [],
     nameSearch: '',
-    updateThisCustomersName: '',
-    updateThisCustomersPhone: '',
-    updateThisCustomersEmail: '',
     updateThisCustomersNumOfGuests: '',
     updateThisCustomersBookedTime: '',
     updateThisCustomersBookedDate: '',
     updateBoxClass: 'hide',
+    selectedBooking: 0,
   };
 
   componentDidMount() {
@@ -33,29 +31,35 @@ class AdminPage extends Component {
     this.setState({ nameSearch: event.target.value });
   };
 
-  updateThisBooking = event => {
-    event.preventDefault();
-    fetch(`api/booking/${event.target.value}`)
+  openEditbox = id => {
+    this.setState({
+      updateBoxClass: 'show',
+      selectedBooking: id,
+    });
+  };
+
+  updateThisBooking = (values, bookingId) => {
+    fetch(`api/booking/${bookingId}`, {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    })
       .then(response => response.json())
       .then(booking => {
         this.setState({
-          updateThisCustomersName: booking.firstname + ' ' + booking.lastname,
-        });
-        this.setState({ updateThisCustomersPhone: booking.phone });
-        this.setState({ updateThisCustomersEmail: booking.email });
-        this.setState({
           updateThisCustomersNumOfGuests: booking.num_of_guests,
+          updateThisCustomersBookedTime: booking.time,
+          updateThisCustomersBookedDate: booking.date,
+          updateBoxClass: 'hide',
         });
-        this.setState({ updateThisCustomersBookedTime: booking.time });
-        this.setState({ updateThisCustomersBookedDate: booking.date });
-        this.setState({ updateBoxClass: 'show' });
       })
       .catch(error => {
         console.log(error);
       });
   };
-
-  updateBooking = event => {};
 
   cancelUpdateBooking = event => {
     event.preventDefault();
@@ -63,6 +67,7 @@ class AdminPage extends Component {
   };
 
   deleteBooking = event => {
+    console.log(event.target.value);
     fetch(`api/booking/${event.target.value}`, {
       method: 'DELETE',
     })
@@ -83,13 +88,13 @@ class AdminPage extends Component {
           placeholder={'Name'}
         />
         <ul>
-          {this.state.allBookings.map((booking, i) => {
+          {this.state.allBookings.map(booking => {
             if (
               booking.firstname.includes(this.state.nameSearch) ||
               booking.lastname.includes(this.state.nameSearch)
             ) {
               return (
-                <li key={i}>
+                <li key={booking.bookgingId}>
                   <div className="adminCustomerName">
                     {booking.firstname} {booking.lastname}
                   </div>
@@ -99,10 +104,18 @@ class AdminPage extends Component {
                     {booking.time} | {booking.date}
                   </div>
                   <div className="handleBookingsButtons">
-                    <button value={booking.id} onClick={this.updateThisBooking}>
+                    <button
+                      value={booking.bookingId}
+                      onClick={event => {
+                        this.openEditbox(event.target.value);
+                      }}
+                    >
                       Update
                     </button>
-                    <button value={booking.id} onClick={this.deleteBooking}>
+                    <button
+                      value={booking.bookingId}
+                      onClick={this.deleteBooking}
+                    >
                       Delete
                     </button>
                   </div>
@@ -111,12 +124,24 @@ class AdminPage extends Component {
             }
           })}
         </ul>
-        <div id="updateBox" className={this.state.updateBoxClass}>
+        <form
+          onSubmit={event => {
+            const values = {
+              numOfGuests: event.target.guests.value,
+              time: event.target.time.value,
+              date: event.target.date.value,
+            };
+            event.preventDefault();
+            this.updateThisBooking(values, this.state.selectedBooking);
+          }}
+          id="updateBox"
+          className={this.state.updateBoxClass}
+        >
           <p>{this.state.updateThisCustomersName}</p>
           <p>{this.state.updateThisCustomersPhone}</p>
           <p>{this.state.updateThisCustomersEmail}</p>
           <p>Guest(s): {this.state.updateThisCustomersNumOfGuests}</p>
-          <select>
+          <select name="guests">
             <option value="1">1 Guest</option>
             <option value="2">2 Guests</option>
             <option value="3">3 Guests</option>
@@ -125,14 +150,18 @@ class AdminPage extends Component {
             <option value="6">6 Guests</option>
           </select>
           <p>{this.state.updateThisCustomersBookedTime}</p>
-          <select>
+          <select name="time">
             <option value="19.00">19.00</option>
             <option value="21.00">21.00</option>
           </select>
-          <input type="date" value={this.state.updateThisCustomersBookedDate} />
+          <input
+            type="date"
+            name="date"
+            value={this.state.updateThisCustomersBookedDate}
+          />
           <button onClick={this.cancelUpdateBooking}>Cancel!</button>
-          <button onClick={this.updateBooking}>Update now!</button>
-        </div>
+          <input type="submit" value="Update now!" />
+        </form>
       </div>
     );
   }
