@@ -46,17 +46,18 @@ app.get('/booking/:id', (req, res) => {
     res.send(booking);
 });
 
-app.get('/create-booking', (req, res) => {
-    if (!req.query.guestId) {
+app.post('/booking', (req, res) => {
+    const booking = req.body;
+
+    if (!booking.hasOwnProperty('guestId')) {
         throwError(400, 'guestId is missing');
     }
-    if (!req.query.detailsId) {
+    if (!booking.hasOwnProperty('detailsId')) {
         throwError(400, 'detailsId is missing');
     }
 
-    const booking = createBooking(req.query.guestId, req.query.detailsId);
-
-    res.send(booking);
+    const newBooking = createBooking(booking);
+    res.send(newBooking);
 });
 
 app.put('/booking/:id', (req, res) => {
@@ -74,7 +75,6 @@ app.put('/booking/:id', (req, res) => {
 
     const bookingId = req.params.id;
     const updatedBooking = updateBooking(bookingId, booking);
-
     res.send(updatedBooking);
 });
 
@@ -89,28 +89,24 @@ app.delete('/booking/:id', (req, res) => {
 });
 
 // ENDPOINTS FOR DETAILS
-app.get('/create-details', (req, res) => {
-    if (!req.query.guestId) {
+app.post('/details', (req, res) => {
+    const details = req.body;
+
+    if (!details.hasOwnProperty('guestId')) {
         throwError(400, 'guestId is missing');
     }
-    if (!req.query.numOfGuests) {
+    if (!details.hasOwnProperty('numOfGuests')) {
         throwError(400, 'numOfGuests is missing');
     }
-    if (!req.query.time) {
+    if (!details.hasOwnProperty('time')) {
         throwError(400, 'time is missing');
     }
-    if (!req.query.date) {
+    if (!details.hasOwnProperty('date')) {
         throwError(400, 'date is missing');
     }
 
-    const details = createDetails(
-        req.query.guestId,
-        req.query.numOfGuests,
-        req.query.time,
-        req.query.date
-    );
-
-    res.send(details);
+    const newDetails = createDetails(details);
+    res.send(newDetails);
 });
 
 // ENDPOINTS FOR GUEST
@@ -119,28 +115,24 @@ app.get('/guests', (req, res) => {
     res.send(guests);
 });
 
-app.get('/create-guest', (req, res) => {
-    if (!req.query.firstname) {
+app.post('/guest', (req, res) => {
+    const guest = req.body;
+
+    if (!guest.hasOwnProperty('firstname')) {
         throwError(400, 'firstname is missing');
     }
-    if (!req.query.lastname) {
+    if (!guest.hasOwnProperty('lastname')) {
         throwError(400, 'lastname is missing');
     }
-    if (!req.query.email) {
+    if (!guest.hasOwnProperty('email')) {
         throwError(400, 'email is missing');
     }
-    if (!req.query.phone) {
+    if (!guest.hasOwnProperty('phone')) {
         throwError(400, 'phone is missing');
     }
 
-    const guest = createGuest(
-        req.query.firstname,
-        req.query.lastname,
-        req.query.email,
-        req.query.phone
-    );
-
-    res.send(guest);
+    const newGuest = createGuest(guest);
+    res.send(newGuest);
 });
 
 // returns error message as json in browser
@@ -166,14 +158,19 @@ const updateBooking = (bookingId, booking) => {
     return getBooking(bookingId);
 };
 
-const createDetails = (guestId, numOfGuests, time, date) => {
+const createDetails = details => {
     db.prepare(
         /* sql */ `
     INSERT
         INTO details (guest_id, num_of_guests, time, date)
     VALUES
         (?, ?, ?, ?)`
-    ).run(parseInt(guestId) || null, parseInt(numOfGuests) || null, time, date);
+    ).run(
+        parseInt(details.guestId) || null,
+        parseInt(details.numOfGuests) || null,
+        details.time,
+        details.date
+    );
 
     return db
         .prepare(
@@ -195,14 +192,14 @@ const createDetails = (guestId, numOfGuests, time, date) => {
         .get();
 };
 
-const createGuest = (firstname, lastname, email, phone) => {
+const createGuest = guest => {
     db.prepare(
         /* sql */ `
         INSERT 
             INTO guest (firstname, lastname, email, phone) 
         VALUES
             (?, ?, ?, ?)`
-    ).run(firstname, lastname, email, phone);
+    ).run(guest.firstname, guest.lastname, guest.email, guest.phone);
 
     return db
         .prepare(
@@ -215,14 +212,14 @@ const createGuest = (firstname, lastname, email, phone) => {
         .get();
 };
 
-const createBooking = (guestId, detailsId) => {
+const createBooking = booking => {
     db.prepare(
         /* sql */ `
         INSERT
             INTO booking (guest_id, details_id)
         VALUES
             (?, ?)`
-    ).run(guestId, detailsId);
+    ).run(booking.guestId, booking.detailsId);
 
     return db
         .prepare(
@@ -287,13 +284,25 @@ const getBookings = () => {
         .prepare(
             /* sql */ `
         SELECT
-            * FROM booking 
+            booking.id as bookingId,
+            booking.guest_id as guestId,
+            details_id as detailsId,
+            details.id as detailsId,
+            num_of_guests,
+            time,
+            date,
+            firstname,
+            lastname,
+            email,
+            phone 
+        FROM 
+            booking 
         JOIN
             details ON details.id = 
-            booking.details_id
+           detailsId
         JOIN
             guest ON guest.id =
-            booking.guest_id`
+            guestId`
         )
         .all();
 };
