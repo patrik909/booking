@@ -11,7 +11,7 @@ class Home extends Component {
       <div className="wrapper home-wrapper">
         <div className="reservation-wrapper">
           <div className="jumbotron  jumbotron-fluid home-jumbo">
-            <div className="container">
+            <div className="container container-jumbo">
               <h1 className="display-4">Le'licious </h1>
               <p className="lead">Your heaven for tasty food</p>
 
@@ -26,7 +26,30 @@ class Home extends Component {
           </div>
         </div>
         <main>
-          <div className="card bg-dark text-white">
+          {/* card section */}
+          <div className="card-group">
+            <div className="card">
+              <img className="card-img-top" src={TestImage} alt="Card  cap" />
+              <div className="card-img-overlay">
+                <h2 className="card-title">Lovely atmosphere</h2>
+              </div>
+            </div>
+
+            <div className="card">
+              <img className="card-img-top" src={TestImage} alt="Card cap" />
+              <div className="card-img-overlay">
+                <h2 className="card-title">Heavenly food</h2>
+              </div>
+            </div>
+
+            <div className="card">
+              <img className="card-img-top" src={TestImage} alt="Card  cap" />
+              <div className="card-img-overlay">
+                <h2 className="card-title">Lovely drinks</h2>
+              </div>
+            </div>
+          </div>
+          {/* <div className="card bg-dark text-white">
             <img className="card-img" src={TestImage} alt="Card" />
             <div className="card-img-overlay">
               <h5 className="card-title">Card title</h5>
@@ -63,7 +86,7 @@ class Home extends Component {
               </p>
               <p className="card-text">Last updated 3 mins ago</p>
             </div>
-          </div>
+          </div> */}
         </main>
       </div>
     );
