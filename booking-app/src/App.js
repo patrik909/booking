@@ -1,9 +1,10 @@
 import React from 'react';
-import Booking from './components/Booking';
-import ContactPage from './components/ContactPage';
-import AdminPage from './components/AdminPage';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import AdminPage from './components/AdminPage';
 import Home from './components/Home.js';
+import ContactPage from './components/ContactPage';
+import ReservationPage from './components/ReservationPage.js';
+// import Booking from './components/Booking';
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
 
@@ -23,13 +24,14 @@ const Admin = () => <AdminPage />;
 
 const Contact = () => <ContactPage />;
 
-const Reservation = () => (
-  <div>
-    <h2>Reservation</h2>
-    <Booking />
-  </div>
-);
+const Reservation = () => <ReservationPage />;
 
+// const Reservation = () => (
+//   <div>
+//     <h2>Reservation</h2>
+//     <Booking />
+//   </div>
+// );
 const BasicExample = () => (
   <Router>
     <div>

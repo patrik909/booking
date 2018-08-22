@@ -47,9 +47,39 @@ nav ul li {
   letter-spacing: 2px;
   margin: 30px 0;
 } */
-/* ----HOME PAGE ---- */
 
+/* ----HOME PAGE ---- */
+.home-jumbo {
+  background-image: url(images/home-header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron {
+  background-attachment: fixed;
+}
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    height: 500px;
+  }
+  .container-jumbo {
+    position: relative;
+    top: 50px;
+  }
+}
 /* ----CARDS---- */
+.card-group {
+  margin: 10px;
+}
+.card-title {
+  color: white;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+  margin-top: 100px;
+}
+.card {
+  margin: 10px;
+}
 
 /* ---- BOOKING PAGE  ---- */
 
@@ -66,6 +96,32 @@ nav ul li {
 #BookingWrapper input {
   margin-bottom: 15px;
   padding: 6px;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.display-4 {
+  color: azure;
+}
+
+.lead {
+  color: azure;
+  text-align: center;
+}
+.reservation-jumbo {
+  background-image: url(images/reservation-header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  z-index: -2;
+}
+
+main {
+  margin-top: -35px;
 }
 
 /* ---- CONTACT PAGE  ---- */
