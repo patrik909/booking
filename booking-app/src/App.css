@@ -50,6 +50,15 @@ li a {
   padding: 50px;
   font-size: 1.2em;
 }
+
+li a:hover {
+  color: #cbbb9f;
+  text-decoration: none;
+}
+
+.navbar-brand a:hover {
+  color: azure;
+}
 .navbar {
   background-color: rgb(73, 1, 1);
 }
