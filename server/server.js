@@ -287,13 +287,25 @@ const getBookings = () => {
         .prepare(
             /* sql */ `
         SELECT
-            * FROM booking 
+            booking.id as bookingId,
+            booking.guest_id as guestId,
+            details_id as detailsId,
+            details.id as detailsId,
+            num_of_guests,
+            time,
+            date,
+            firstname,
+            lastname,
+            email,
+            phone 
+        FROM 
+            booking 
         JOIN
             details ON details.id = 
-            booking.details_id
+           detailsId
         JOIN
             guest ON guest.id =
-            booking.guest_id`
+            guestId`
         )
         .all();
 };
