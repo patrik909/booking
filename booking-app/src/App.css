@@ -1,3 +1,16 @@
+/* ---FONTS---- */
+@import url('https://fonts.googleapis.com/css?family=Cardo:400,700|Dancing+Script|Pacifico');
+/* @font-face {
+  font-family: 'Dancing Script', cursive;
+  src: url('https://fonts.googleapis.com/css?family=Dancing+Script');
+}
+
+@font-face {
+  font-family: 'Abril Fatface', cursive;
+  src: url('https://fonts.googleapis.com/css?family=Dancing+Script');
+}
+ */
+
 .App {
   display: flex;
   flex-direction: column;
@@ -18,10 +31,39 @@ h2 {
 .hide {
   display: none !important;
 }
+
 /* ----NAVBAR---- */
 .navbar-nav .nav-link {
   text-align: center;
 }
+
+li a {
+  color: white;
+  font-family: 'Cardo', serif;
+  font-weight: 400;
+  padding: 50px;
+  font-size: 1.4em;
+}
+.navbar {
+  background-color: rgb(73, 1, 1);
+}
+
+.navbar-brand a {
+  font-family: 'Dancing Script', cursive;
+  color: azure;
+  font-size: 2em;
+  text-decoration: none;
+}
+
+.navbar-brand a:hover {
+  text-decoration: none !important;
+}
+
+.navbar-brand img {
+  width: 10%;
+  height: 10%;
+}
+
 /* .navbarDiv {
   padding: 0;
   margin: 0;
@@ -58,6 +100,22 @@ nav ul li {
 .jumbotron {
   background-attachment: fixed;
 }
+
+.display-4 img {
+  width: 5%;
+  height: 5%;
+}
+
+.lead .btn-primary {
+  color: #fff;
+  background-color: rgb(253, 176, 81);
+  border-color: #ffbc68;
+}
+
+.lead .btn-primary:hover {
+  background-color: rgb(255, 171, 68);
+  border-color: #ffbc68;
+}
 @media screen and (min-width: 768px) {
   .jumbotron {
     height: 500px;
@@ -66,6 +124,10 @@ nav ul li {
     position: relative;
     top: 50px;
   }
+  /* .card-title {
+    position: relative;
+    top: 90px;
+  } */
 }
 /* ----CARDS---- */
 .card-group {
@@ -75,7 +137,6 @@ nav ul li {
   color: white;
   border-bottom: 2px solid white;
   border-top: 2px solid white;
-  margin-top: 100px;
 }
 .card {
   margin: 10px;
@@ -105,6 +166,7 @@ h2 {
 
 .display-4 {
   color: azure;
+  font-family: 'Dancing Script', cursive;
 }
 
 .lead {
@@ -115,13 +177,19 @@ h2 {
   background-image: url(images/reservation-header.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
-  position: relative;
-  z-index: -2;
+  background-position: center bottom;
 }
 
 main {
   margin-top: -35px;
+}
+
+@media screen and (min-width: 768px) {
+  .reservation-jumbo {
+    background-position: center center;
+    position: relative;
+    z-index: -2;
+  }
 }
 
 /* ---- CONTACT PAGE  ---- */
@@ -198,11 +266,11 @@ main {
 /* FOOTER  */
 
 footer {
-  background-color: gray;
+  background-color: rgb(73, 1, 1);
   color: white;
   text-align: center;
   margin: 0 auto;
-  height: 200px;
+  height: 270px;
   padding: 10px 0 0 0;
   font-size: 1.5em;
   width: 100%;

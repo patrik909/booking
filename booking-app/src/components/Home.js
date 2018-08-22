@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 // import {Button} from 'reactstrap';
 // import Jumbotron from './HomeJumbotron';
 
 import TestImage from './../images/test.jpg';
+import ChefHat from './../images/chef-hat.svg';
 
 class Home extends Component {
   render() {
@@ -12,7 +14,10 @@ class Home extends Component {
         <div className="reservation-wrapper">
           <div className="jumbotron  jumbotron-fluid home-jumbo">
             <div className="container container-jumbo">
-              <h1 className="display-4">Le'licious </h1>
+              <h1 className="display-4">
+                Le'licious
+                <img src={ChefHat} alt="Chef Hat" />
+              </h1>
               <p className="lead">Your heaven for tasty food</p>
 
               <p className="lead">
@@ -31,7 +36,9 @@ class Home extends Component {
             <div className="card">
               <img className="card-img-top" src={TestImage} alt="Card  cap" />
               <div className="card-img-overlay">
-                <h2 className="card-title">Lovely atmosphere</h2>
+                <div className="card-block text-center">
+                  <h2 className="card-title">Lovely atmosphere</h2>
+                </div>
               </div>
             </div>
 
