@@ -68,6 +68,18 @@ nav ul li {
   }
 }
 /* ----CARDS---- */
+.card-group {
+  margin: 10px;
+}
+.card-title {
+  color: white;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+  margin-top: 100px;
+}
+.card {
+  margin: 10px;
+}
 
 /* ---- BOOKING PAGE  ---- */
 

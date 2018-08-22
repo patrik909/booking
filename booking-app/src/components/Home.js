@@ -26,7 +26,42 @@ class Home extends Component {
           </div>
         </div>
         <main>
-          <div className="card bg-dark text-white">
+          {/* card section */}
+          <div className="card-group">
+            <div className="card">
+              <img
+                className="card-img-top"
+                src={TestImage}
+                alt="Card image cap"
+              />
+              <div className="card-img-overlay">
+                <h2 className="card-title">Lovely atmosphere</h2>
+              </div>
+            </div>
+
+            <div className="card">
+              <img
+                className="card-img-top"
+                src={TestImage}
+                alt="Card image cap"
+              />
+              <div className="card-img-overlay">
+                <h2 className="card-title">Heavenly food</h2>
+              </div>
+            </div>
+
+            <div className="card">
+              <img
+                className="card-img-top"
+                src={TestImage}
+                alt="Card image cap"
+              />
+              <div className="card-img-overlay">
+                <h2 className="card-title">Lovely drinks</h2>
+              </div>
+            </div>
+          </div>
+          {/* <div className="card bg-dark text-white">
             <img className="card-img" src={TestImage} alt="Card" />
             <div className="card-img-overlay">
               <h5 className="card-title">Card title</h5>
@@ -63,7 +98,7 @@ class Home extends Component {
               </p>
               <p className="card-text">Last updated 3 mins ago</p>
             </div>
-          </div>
+          </div> */}
         </main>
       </div>
     );
