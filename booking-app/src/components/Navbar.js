@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ChefHat from './../images/chef-hat.svg';
 
 // Reactsrap navbar
 import {
@@ -32,9 +33,11 @@ class NavbarBootstrap extends Component {
   render() {
     return (
       <div className="navbarDiv">
-        <Navbar color="light" light expand="md">
+        <Navbar light expand="md">
           <NavbarBrand>
-            <Link to="/">L</Link>
+            <Link to="/">
+              L <img src={ChefHat} alt="Chef Hat" />
+            </Link>
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
