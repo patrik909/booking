@@ -48,11 +48,13 @@ class NavbarBootstrap extends Component {
               <NavItem>
                 <NavLink>
                   <Link to="/">Home</Link>
+                  <hr />
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink>
                   <Link to="/Reservation">Reservation</Link>
+                  <hr />
                 </NavLink>
               </NavItem>
               <NavItem>
