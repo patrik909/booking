@@ -37,12 +37,18 @@ h2 {
   text-align: center;
 }
 
+.navbar-light .navbar-toggler {
+  border-color: azure !important;
+}
+.fa-reorder {
+  color: azure;
+}
 li a {
   color: white;
   font-family: 'Cardo', serif;
   font-weight: 400;
   padding: 50px;
-  font-size: 1.4em;
+  font-size: 1.2em;
 }
 .navbar {
   background-color: rgb(73, 1, 1);
@@ -62,6 +68,16 @@ li a {
 .navbar-brand img {
   width: 10%;
   height: 10%;
+}
+
+li hr {
+  background-color: rgb(100, 36, 36);
+}
+@media screen and (min-width: 768px) {
+  li hr {
+    display: none;
+    color: rgb(100, 36, 36);
+  }
 }
 
 /* .navbarDiv {
@@ -213,6 +229,13 @@ main {
   height: 20px;
 }
 
+.fa-envelope-o,
+.fa-phone,
+.fa-map-marker {
+  color: black;
+  margin: 10px;
+}
+
 /* ---- ADMIN PAGE STYLING ---- */
 
 #AdminWrapper ul {
@@ -270,24 +293,43 @@ footer {
   color: white;
   text-align: center;
   margin: 0 auto;
-  height: 270px;
+  height: 260px;
   padding: 10px 0 0 0;
-  font-size: 1.5em;
+  font-size: 1em;
   width: 100%;
 }
-
+.social-media {
+  margin: 10px 10px;
+}
 .social-media-icon {
-  padding: 20px 10px 10px 10px;
+  padding: 10px;
   display: inline-block;
 }
 
+.footer-text,
+.social-media,
+.freepik {
+  margin-top: 10px;
+}
 .fa {
   color: white;
 }
 
-.fa-envelope-o,
-.fa-phone,
-.fa-map-marker {
-  color: black;
-  margin: 10px;
+.freepik,
+.credit {
+  color: rgb(112, 67, 67);
+}
+
+.freepik a {
+  color: rgb(112, 67, 67);
+}
+
+.freepik a:hover {
+  color: rgb(224, 233, 233);
+}
+
+@media screen and (min-width: 750px) {
+  footer {
+    height: 200px;
+  }
 }
