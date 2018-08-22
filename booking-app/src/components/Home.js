@@ -29,33 +29,21 @@ class Home extends Component {
           {/* card section */}
           <div className="card-group">
             <div className="card">
-              <img
-                className="card-img-top"
-                src={TestImage}
-                alt="Card image cap"
-              />
+              <img className="card-img-top" src={TestImage} alt="Card  cap" />
               <div className="card-img-overlay">
                 <h2 className="card-title">Lovely atmosphere</h2>
               </div>
             </div>
 
             <div className="card">
-              <img
-                className="card-img-top"
-                src={TestImage}
-                alt="Card image cap"
-              />
+              <img className="card-img-top" src={TestImage} alt="Card cap" />
               <div className="card-img-overlay">
                 <h2 className="card-title">Heavenly food</h2>
               </div>
             </div>
 
             <div className="card">
-              <img
-                className="card-img-top"
-                src={TestImage}
-                alt="Card image cap"
-              />
+              <img className="card-img-top" src={TestImage} alt="Card  cap" />
               <div className="card-img-overlay">
                 <h2 className="card-title">Lovely drinks</h2>
               </div>
