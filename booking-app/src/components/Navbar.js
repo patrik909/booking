@@ -52,7 +52,7 @@ class NavbarBootstrap extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink>
+                <NavLink onClick={this.toggle}>
                   <Link to="/Reservation">Reservation</Link>
                   <hr />
                 </NavLink>
