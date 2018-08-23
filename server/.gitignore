@@ -2,3 +2,4 @@
 .DS_Store
 booking_app.db
 package-lock.json
+mailCredentials.js

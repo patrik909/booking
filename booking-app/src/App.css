@@ -1,15 +1,5 @@
 /* ---FONTS---- */
-@import url('https://fonts.googleapis.com/css?family=Cardo:400,700|Dancing+Script|Pacifico');
-/* @font-face {
-  font-family: 'Dancing Script', cursive;
-  src: url('https://fonts.googleapis.com/css?family=Dancing+Script');
-}
-
-@font-face {
-  font-family: 'Abril Fatface', cursive;
-  src: url('https://fonts.googleapis.com/css?family=Dancing+Script');
-}
- */
+@import url('https://fonts.googleapis.com/css?family=Cardo:400,700|Dancing+Script');
 
 .App {
   display: flex;
@@ -48,35 +38,30 @@ button {
 .fa-reorder {
   color: azure;
 }
-li a {
-  color: white;
-  font-family: 'Cardo', serif;
+a.nav-link {
+  color: white !important;
+  font-family: 'Cardo', serif !important;
   font-weight: 400;
-  padding: 50px;
   font-size: 1.2em;
+  letter-spacing: 2px;
 }
 
-li a:hover {
-  color: #cbbb9f;
-  text-decoration: none;
+a.nav-link:hover {
+  color: #cbbb9f !important;
+  text-decoration: none !important;
 }
 
 .navbar-brand a:hover {
-  color: azure;
+  color: azure !important;
 }
 .navbar {
   background-color: rgb(73, 1, 1);
 }
 
-.navbar-brand a {
+a.navbar-brand {
   font-family: 'Dancing Script', cursive;
-  color: azure;
+  color: azure !important ;
   font-size: 2em;
-  text-decoration: none;
-}
-
-.navbar-brand a:hover {
-  text-decoration: none !important;
 }
 
 .navbar-brand img {
@@ -91,6 +76,11 @@ li hr {
   li hr {
     display: none;
     color: rgb(100, 36, 36);
+  }
+
+  .nav-item {
+    margin-left: 35px;
+    margin-right: 35px;
   }
 }
 
@@ -136,15 +126,15 @@ nav ul li {
   height: 5%;
 }
 
-.lead .btn-primary {
+.btn-primary {
   color: #fff;
-  background-color: rgb(253, 176, 81);
-  border-color: #ffbc68;
+  background-color: rgb(253, 176, 81) !important;
+  border-color: #ffbc68 !important ;
 }
 
-.lead .btn-primary:hover {
-  background-color: rgb(255, 171, 68);
-  border-color: #ffbc68;
+.btn-primary:hover {
+  background-color: rgb(253, 165, 57) !important;
+  border-color: #ffbc68 !important;
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
@@ -370,10 +360,61 @@ main {
 #adminUpdateDiv {
   margin-top: -90px;
   position: absolute;
-  background: blue;
-  height: 400px;
-  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  color: black;
+  height: 500px;
+  width: 75%;
   z-index: 1;
+}
+
+#adminUpdateDiv h3 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.2em;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: black;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+}
+
+#adminUpdateDiv button {
+  background: black;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+#adminUpdateButtons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#customersBookingWrapper {
+  padding: 50px 70px;
+}
+
+#customersBookingDetails {
+  text-align: center;
+  border-right: 1px solid black;
+}
+
+#customersBookingDetails p {
+  margin: 0;
+}
+
+#customersBookingDetails p span {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 800;
 }
 
 @media screen and (min-width: 750px) {
