@@ -1,15 +1,5 @@
 /* ---FONTS---- */
-@import url('https://fonts.googleapis.com/css?family=Cardo:400,700|Dancing+Script|Pacifico');
-/* @font-face {
-  font-family: 'Dancing Script', cursive;
-  src: url('https://fonts.googleapis.com/css?family=Dancing+Script');
-}
-
-@font-face {
-  font-family: 'Abril Fatface', cursive;
-  src: url('https://fonts.googleapis.com/css?family=Dancing+Script');
-}
- */
+@import url('https://fonts.googleapis.com/css?family=Cardo:400,700|Dancing+Script');
 
 .App {
   display: flex;
@@ -43,35 +33,30 @@ h2 {
 .fa-reorder {
   color: azure;
 }
-li a {
-  color: white;
-  font-family: 'Cardo', serif;
+a.nav-link {
+  color: white !important;
+  font-family: 'Cardo', serif !important;
   font-weight: 400;
-  padding: 50px;
   font-size: 1.2em;
+  letter-spacing: 2px;
 }
 
-li a:hover {
-  color: #cbbb9f;
-  text-decoration: none;
+a.nav-link:hover {
+  color: #cbbb9f !important;
+  text-decoration: none !important;
 }
 
 .navbar-brand a:hover {
-  color: azure;
+  color: azure !important;
 }
 .navbar {
   background-color: rgb(73, 1, 1);
 }
 
-.navbar-brand a {
+a.navbar-brand {
   font-family: 'Dancing Script', cursive;
-  color: azure;
+  color: azure !important ;
   font-size: 2em;
-  text-decoration: none;
-}
-
-.navbar-brand a:hover {
-  text-decoration: none !important;
 }
 
 .navbar-brand img {
@@ -86,6 +71,11 @@ li hr {
   li hr {
     display: none;
     color: rgb(100, 36, 36);
+  }
+
+  .nav-item {
+    margin-left: 50px;
+    margin-right: 50px;
   }
 }
 
