@@ -126,15 +126,15 @@ nav ul li {
   height: 5%;
 }
 
-.lead .btn-primary {
+.btn-primary {
   color: #fff;
-  background-color: rgb(253, 176, 81);
-  border-color: #ffbc68;
+  background-color: rgb(253, 176, 81) !important;
+  border-color: #ffbc68 !important ;
 }
 
-.lead .btn-primary:hover {
-  background-color: rgb(255, 171, 68);
-  border-color: #ffbc68;
+.btn-primary:hover {
+  background-color: rgb(253, 165, 57) !important;
+  border-color: #ffbc68 !important;
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
