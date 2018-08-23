@@ -12,7 +12,8 @@
     "dependencies": {
         "better-sqlite3": "^4.1.4",
         "body-parser": "^1.18.3",
-        "express": "^4.16.3"
+        "express": "^4.16.3",
+        "nodemailer": "^4.6.8"
     },
     "prettier": {
         "singleQuote": true,
