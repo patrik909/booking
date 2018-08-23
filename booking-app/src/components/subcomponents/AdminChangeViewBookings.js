@@ -6,11 +6,7 @@ import Button from '../parts/Button.js';
 class AdminChangeViewBookings extends Component {
   state = {
     customersNameFilter: '',
-<<<<<<< HEAD
     updateDivClass: 'hide',
-=======
-    updateDivClass: 'show',
->>>>>>> master
     customersName: '',
     customersPhone: '',
     customersEmail: '',
