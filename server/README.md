@@ -176,8 +176,17 @@ Request body:
 
 ```
 {
-    "guestId": 1,
-    "detailsId": 1
+    "guest": {
+    	"firstname": "Jane",
+    	"lastname": "Doe",
+    	"email": "example@mail.com",
+      "phone": "000 000 00"
+    },
+    "details": {
+      "num_of_guests": 2,
+      "time": "21:00",
+      "date": "2018-08-30"
+    }
 }
 ```
 
@@ -187,7 +196,14 @@ Response body:
 {
   "id": 1,
   "guest_id": 1,
-  "details_id": 1
+  "details_id": 1,
+  "num_of_guests": 2,
+  "time": "21.00",
+  "date": "2018-08-30",
+  "firstname": "Jane",
+  "lastname": "Doe",
+  "email": "example@mail.com",
+  "phone": "000 000 00"
 }
 ```
 

@@ -1,6 +1,8 @@
 const fs = require('fs');
 const express = require('express');
 const app = express();
+const nodemailer = require('nodemailer');
+const mailCredentials = require('./mailCredentials.js');
 const bodyParser = require('body-parser');
 const betterSqlite3 = require('better-sqlite3');
 const db = connectDatabase();
@@ -21,6 +23,14 @@ function connectDatabase() {
         return db;
     }
 }
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: mailCredentials.USER,
+        pass: mailCredentials.PASS,
+    },
+});
 
 const throwError = (code, msg) => {
     const err = new Error(msg);
@@ -49,14 +59,61 @@ app.get('/booking/:id', (req, res) => {
 app.post('/booking', (req, res) => {
     const booking = req.body;
 
-    if (!booking.hasOwnProperty('guestId')) {
-        throwError(400, 'guestId is missing');
+    if (!booking.hasOwnProperty('guest')) {
+        throwError(400, 'guest is missing');
     }
-    if (!booking.hasOwnProperty('detailsId')) {
-        throwError(400, 'detailsId is missing');
+    if (!booking.hasOwnProperty('details')) {
+        throwError(400, 'details is missing');
     }
 
-    const newBooking = createBooking(booking);
+    const newBooking = createBooking(booking.guest, booking.details);
+
+    const mailOptions = {
+        from: mailCredentials.USER,
+        // use own email in dev
+        // use newBooking.email in deploy
+        to: mailCredentials.USER,
+        subject: 'Booking confirmation',
+        html: `<h3>
+                    Dear 
+                    <span style="text-transform:capitalize">
+                        ${newBooking.firstname},
+                    </span>
+                </h3>
+                <p style="margin-bottom:2rem">
+                    Your booking request has been <span style="font-weight:bold">confirmed</span>.
+                </p>
+                <h3>Your booking:</h3>
+                <p>
+                    <span style="text-transform:capitalize">
+                        ${newBooking.firstname}
+                    </span> 
+                    <span style="text-transform:capitalize">
+                        ${newBooking.lastname}
+                    </span>
+                </p>
+                <p>
+                    ${newBooking.num_of_guests} people
+                </p>
+                <p style="margin-bottom:1.5rem">
+                    ${newBooking.date}, ${newBooking.time} PM
+                </p>
+                <p style="margin-bottom:3rem">
+                    In case you have to cancel your reservation 
+                    <a href="#">
+                        please follow this link.
+                    </a>
+                </p>
+                <p>Sincerely,</p>
+                <p>the staff at Le'licous</p>
+        `,
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+        if (err) console.log(err);
+        else console.log(info);
+    });
+
     res.send(newBooking);
 });
 
@@ -79,11 +136,60 @@ app.put('/booking/:id', (req, res) => {
 });
 
 app.delete('/booking/:id', (req, res) => {
-    const result = deleteBooking(req.params.id);
-
-    if (result.changes === 0) {
+    const bookingDetails = getBooking(req.params.id);
+    if (!bookingDetails) {
         throwError(404, 'booking not found');
     }
+
+    const result = deleteBooking(req.params.id);
+    if (result.changes === 0) {
+        throwError(500, 'booking could not be deleted');
+    }
+
+    const mailOptions = {
+        from: mailCredentials.USER,
+        // use own email in dev
+        // use newBooking.email in deploy
+        to: mailCredentials.USER,
+        subject: 'Booking cancellation',
+        html: `<h3>
+                    Dear 
+                    <span style="text-transform:capitalize">
+                        ${bookingDetails.firstname},
+                    </span>
+                </h3>
+                <p style="margin-bottom:2rem">
+                    Your booking has been <span style="font-weight:bold">cancelled</span> at your request.
+                </p>
+                <h3>Booking details for cancelled booking:</h3>
+                <p>
+                    <span style="text-transform:capitalize">
+                        ${bookingDetails.firstname}
+                    </span> 
+                    <span style="text-transform:capitalize">
+                        ${bookingDetails.lastname}
+                    </span>
+                </p>
+                <p>
+                    ${bookingDetails.num_of_guests} people
+                </p>
+                <p style="margin-bottom:1.5rem">
+                    ${bookingDetails.date}, ${bookingDetails.time} PM
+                </p>
+                <p style="margin-bottom:1.5rem">
+                    You are always welcome to make a new booking on our 
+                    <a href="http://localhost:3000/Reservation">webpage</a>
+                    or by calling 070 000 00 00.
+                </p>
+                <p>Sincerely,</p>
+                <p>the staff at Le'licous</p>
+                `,
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+        if (err) console.log(err);
+        else console.log(info);
+    });
 
     res.status(204).end();
 });
@@ -212,32 +318,40 @@ const createGuest = guest => {
         .get();
 };
 
-const createBooking = booking => {
+const createBooking = (guest, details) => {
     db.prepare(
-        /* sql */ `
+        /*sql*/ `
+        INSERT 
+            INTO guest (firstname, lastname, email, phone) 
+        VALUES
+            (?, ?, ?, ?)`
+    ).run(guest.firstname, guest.lastname, guest.email, guest.phone);
+
+    db.prepare(
+        /*sql*/ `
+        INSERT
+            INTO details (guest_id, num_of_guests, time, date)
+        VALUES
+            ((SELECT seq FROM sqlite_sequence WHERE name = 'guest'), ?, ?, ?)`
+    ).run(parseInt(details.numOfGuests) || null, details.time, details.date);
+
+    db.prepare(
+        /*sql*/ `
         INSERT
             INTO booking (guest_id, details_id)
         VALUES
-            (?, ?)`
-    ).run(booking.guestId, booking.detailsId);
+            (
+                (SELECT seq FROM sqlite_sequence WHERE name = 'guest'), 
+                (SELECT seq FROM sqlite_sequence WHERE name = 'details')
+            )`
+    ).run();
 
-    return db
+    const bookingIdRow = db
         .prepare(
-            /* sql */ `
-            SELECT 
-                * 
-            FROM 
-                booking 
-            WHERE 
-                id = 
-                (SELECT 
-                    seq 
-                FROM 
-                    sqlite_sequence
-                WHERE
-                    name = 'booking')`
+            /*sql*/ `SELECT seq FROM sqlite_sequence WHERE name = 'booking'`
         )
         .get();
+    return getBooking(bookingIdRow.seq);
 };
 
 const getGuests = () => {
