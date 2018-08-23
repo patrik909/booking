@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AdminUpdateBookings from './AdminUpdateBookings.js';
 import InputField from '../parts/InputField.js';
 import Button from '../parts/Button.js';
 
@@ -20,8 +21,7 @@ class AdminChangeViewBookings extends Component {
     });
   };
 
-  closeUpdateDiv = event => {
-    event.preventDefault();
+  closeUpdateDiv = () => {
     this.setState({
       updateDivClass: 'hide',
       bookingToUpdate: '',
@@ -92,9 +92,10 @@ class AdminChangeViewBookings extends Component {
             }
           })}
         </ul>
-        <div id="updateDiv" className={this.state.updateDivClass}>
-          <Button onClick={this.closeUpdateDiv} innerText={'Cancel'} />
-        </div>
+        <AdminUpdateBookings
+          closeUpdateDiv={this.closeUpdateDiv}
+          updateDivClass={this.state.updateDivClass}
+        />
       </div>
     );
   }

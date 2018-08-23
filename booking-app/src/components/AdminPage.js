@@ -71,11 +71,6 @@ class AdminPage extends Component {
       });
   };
 
-  cancelUpdateBooking = event => {
-    event.preventDefault();
-    this.setState({ updateBoxClass: 'hide' });
-  };
-
   render() {
     return (
       <div id="adminWrapper" className="container-full">

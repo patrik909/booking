@@ -326,12 +326,6 @@ main {
   box-sizing: border-box;
 }
 
-#updateBox {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-}
-
 @media screen and (min-width: 750px) {
   #MapWrapper {
     height: 400px;
