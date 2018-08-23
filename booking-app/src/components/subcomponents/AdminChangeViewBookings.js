@@ -5,11 +5,39 @@ import Button from '../parts/Button.js';
 class AdminChangeViewBookings extends Component {
   state = {
     customersNameFilter: '',
+    updateDivClass: 'hide',
+    bookingToUpdate: '',
   };
 
   handleCustomersNameFilter = event => {
     this.setState({ customersNameFilter: event.target.value });
-    console.log(event.target.value);
+  };
+
+  openUpdateDiv = id => {
+    this.setState({
+      updateDivClass: 'show',
+      bookingToUpdate: id,
+    });
+  };
+
+  closeUpdateDiv = event => {
+    event.preventDefault();
+    this.setState({
+      updateDivClass: 'hide',
+      bookingToUpdate: '',
+    });
+  };
+
+  deleteBooking = event => {
+    fetch(`api/booking/${event.target.value}`, {
+      method: 'DELETE',
+    })
+      .then(booking => {
+        this.props.fetchAllBookings();
+      })
+      .catch(() => {
+        console.log('error');
+      });
   };
 
   render() {
@@ -48,20 +76,28 @@ class AdminChangeViewBookings extends Component {
                   <div className="col-md-1">{booking.time}</div>
                   <div className="col-md-2">{booking.date}</div>
                   <div>
-                    <Button innerText={'Update'} />
-                    <Button innerText={'Delete'} />
+                    <Button
+                      value={booking.bookingId}
+                      onClick={this.openUpdateDiv}
+                      innerText={'Update'}
+                    />
+                    <Button
+                      value={booking.bookingId}
+                      onClick={this.deleteBooking}
+                      innerText={'Delete'}
+                    />
                   </div>
                 </li>
               );
             }
           })}
         </ul>
+        <div id="updateDiv" className={this.state.updateDivClass}>
+          <Button onClick={this.closeUpdateDiv} innerText={'Cancel'} />
+        </div>
       </div>
     );
   }
 }
 
 export default AdminChangeViewBookings;
-
-//            name={'filterFirstName'}
-//            handle={this.handleFirstNameInput}

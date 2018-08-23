@@ -1,3 +1,16 @@
+/* ---FONTS---- */
+@import url('https://fonts.googleapis.com/css?family=Cardo:400,700|Dancing+Script|Pacifico');
+/* @font-face {
+  font-family: 'Dancing Script', cursive;
+  src: url('https://fonts.googleapis.com/css?family=Dancing+Script');
+}
+
+@font-face {
+  font-family: 'Abril Fatface', cursive;
+  src: url('https://fonts.googleapis.com/css?family=Dancing+Script');
+}
+ */
+
 .App {
   display: flex;
   flex-direction: column;
@@ -24,7 +37,64 @@ button {
   display: none !important;
 }
 
-.navbarDiv {
+/* ----NAVBAR---- */
+.navbar-nav .nav-link {
+  text-align: center;
+}
+
+.navbar-light .navbar-toggler {
+  border-color: azure !important;
+}
+.fa-reorder {
+  color: azure;
+}
+li a {
+  color: white;
+  font-family: 'Cardo', serif;
+  font-weight: 400;
+  padding: 50px;
+  font-size: 1.2em;
+}
+
+li a:hover {
+  color: #cbbb9f;
+  text-decoration: none;
+}
+
+.navbar-brand a:hover {
+  color: azure;
+}
+.navbar {
+  background-color: rgb(73, 1, 1);
+}
+
+.navbar-brand a {
+  font-family: 'Dancing Script', cursive;
+  color: azure;
+  font-size: 2em;
+  text-decoration: none;
+}
+
+.navbar-brand a:hover {
+  text-decoration: none !important;
+}
+
+.navbar-brand img {
+  width: 10%;
+  height: 10%;
+}
+
+li hr {
+  background-color: rgb(100, 36, 36);
+}
+@media screen and (min-width: 768px) {
+  li hr {
+    display: none;
+    color: rgb(100, 36, 36);
+  }
+}
+
+/* .navbarDiv {
   padding: 0;
   margin: 0;
   background: #dbdbdb;
@@ -48,12 +118,61 @@ nav ul {
 nav ul li {
   letter-spacing: 2px;
   margin: 30px 0;
+} */
+
+/* ----HOME PAGE ---- */
+.home-jumbo {
+  background-image: url(images/home-header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-/* ----HOME PAGE STYLING---- */
 
+.jumbotron {
+  background-attachment: fixed;
+}
+
+.display-4 img {
+  width: 5%;
+  height: 5%;
+}
+
+.lead .btn-primary {
+  color: #fff;
+  background-color: rgb(253, 176, 81);
+  border-color: #ffbc68;
+}
+
+.lead .btn-primary:hover {
+  background-color: rgb(255, 171, 68);
+  border-color: #ffbc68;
+}
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    height: 500px;
+  }
+  .container-jumbo {
+    position: relative;
+    top: 50px;
+  }
+  /* .card-title {
+    position: relative;
+    top: 90px;
+  } */
+}
 /* ----CARDS---- */
+.card-group {
+  margin: 10px;
+}
+.card-title {
+  color: white;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+}
+.card {
+  margin: 10px;
+}
 
-/* ---- BOOKING PAGE STYLING ---- */
+/* ---- BOOKING PAGE  ---- */
 
 #BookingWrapper {
   text-align: center;
@@ -70,7 +189,40 @@ nav ul li {
   padding: 6px;
 }
 
-/* ---- CONTACT PAGE STYLING ---- */
+h1,
+h2 {
+  text-align: center;
+}
+
+.display-4 {
+  color: azure;
+  font-family: 'Dancing Script', cursive;
+}
+
+.lead {
+  color: azure;
+  text-align: center;
+}
+.reservation-jumbo {
+  background-image: url(images/reservation-header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+main {
+  margin-top: -35px;
+}
+
+@media screen and (min-width: 768px) {
+  .reservation-jumbo {
+    background-position: center center;
+    position: relative;
+    z-index: -2;
+  }
+}
+
+/* ---- CONTACT PAGE  ---- */
 
 #MapWrapper {
   width: 100%;
@@ -89,6 +241,13 @@ nav ul li {
 #ContactDetailsWrapper img {
   margin-right: 10px;
   height: 20px;
+}
+
+.fa-envelope-o,
+.fa-phone,
+.fa-map-marker {
+  color: black;
+  margin: 10px;
 }
 
 /* ---- ADMIN PAGE STYLING ---- */
@@ -194,21 +353,47 @@ nav ul li {
 /* FOOTER  */
 
 footer {
-  background-color: gray;
+  background-color: rgb(73, 1, 1);
   color: white;
   text-align: center;
   margin: 0 auto;
-  height: 200px;
+  height: 260px;
   padding: 10px 0 0 0;
-  font-size: 1.5em;
+  font-size: 1em;
   width: 100%;
 }
-
+.social-media {
+  margin: 10px 10px;
+}
 .social-media-icon {
-  padding: 20px 10px 10px 10px;
+  padding: 10px;
   display: inline-block;
 }
 
+.footer-text,
+.social-media,
+.freepik {
+  margin-top: 10px;
+}
 .fa {
   color: white;
+}
+
+.freepik,
+.credit {
+  color: rgb(112, 67, 67);
+}
+
+.freepik a {
+  color: rgb(112, 67, 67);
+}
+
+.freepik a:hover {
+  color: rgb(224, 233, 233);
+}
+
+@media screen and (min-width: 750px) {
+  footer {
+    height: 200px;
+  }
 }
