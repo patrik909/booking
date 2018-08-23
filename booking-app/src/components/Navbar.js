@@ -17,7 +17,7 @@ class NavbarBootstrap extends Component {
   constructor(props) {
     super(props);
 
-    /*state for the hamburger navbar the state
+    /*state for the hamburger navbar The state
       changes depending if the dropdown is open or not*/
 
     this.toggle = this.toggle.bind(this);
@@ -46,7 +46,7 @@ class NavbarBootstrap extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink>
+                <NavLink onClick={this.toggle}>
                   <Link to="/">Home</Link>
                   <hr />
                 </NavLink>
@@ -58,26 +58,13 @@ class NavbarBootstrap extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink>
+                <NavLink onClick={this.toggle}>
                   <Link to="/Contact">Contact</Link>
                 </NavLink>
               </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
-        {/*       
-        <nav className="navbar navbar-expand-lg">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/Reservation">Reservation</Link>
-            </li>
-            <li>
-              <Link to="/Contact">Contact</Link>
-            </li>
-          </ul>*/}
       </div>
     );
   }
