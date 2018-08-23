@@ -74,13 +74,38 @@ app.post('/booking', (req, res) => {
         // use newBooking.email in deploy
         to: mailCredentials.USER,
         subject: 'Booking confirmation',
-        html: `<p>Dear ${newBooking.firstname},</p>
-                <p>We have received the following booking:</p>
-                <p>Number of guests: ${newBooking.num_of_guests}</p>
-                <p>Date: ${newBooking.date}</p>
-                <p>Time: ${newBooking.time}</p>
-                <a href="#">To cancel your reservation please follow this link</a>
-                <p>Sincerely, Pierre Ostron</p>
+        html: `<h3>
+                    Dear 
+                    <span style="text-transform:capitalize">
+                        ${newBooking.firstname},
+                    </span>
+                </h3>
+                <p style="margin-bottom:2rem">
+                    Your booking request has been <span style="font-weight:bold">confirmed</span>.
+                </p>
+                <h3>Your booking:</h3>
+                <p>
+                    <span style="text-transform:capitalize">
+                        ${newBooking.firstname}
+                    </span> 
+                    <span style="text-transform:capitalize">
+                        ${newBooking.lastname}
+                    </span>
+                </p>
+                <p>
+                    ${newBooking.num_of_guests} people
+                </p>
+                <p style="margin-bottom:1.5rem">
+                    ${newBooking.date}, ${newBooking.time} PM
+                </p>
+                <p style="margin-bottom:3rem">
+                    In case you have to cancel your reservation 
+                    <a href="#">
+                        please follow this link.
+                    </a>
+                </p>
+                <p>Sincerely,</p>
+                <p>the staff at Le'licous</p>
         `,
     };
 
@@ -127,13 +152,38 @@ app.delete('/booking/:id', (req, res) => {
         // use newBooking.email in deploy
         to: mailCredentials.USER,
         subject: 'Booking cancellation',
-        html: `<p>Dear ${bookingDetails.firstname},</p>
-                <p>We have received a cancellation of the following booking:</p>
-                <p>Number of guests: ${bookingDetails.num_of_guests}</p>
-                <p>Date: ${bookingDetails.date}</p>
-                <p>Time: ${bookingDetails.time}</p>
-                <p>Sincerely, Pierre Ostron</p>
-        `,
+        html: `<h3>
+                    Dear 
+                    <span style="text-transform:capitalize">
+                        ${bookingDetails.firstname},
+                    </span>
+                </h3>
+                <p style="margin-bottom:2rem">
+                    Your booking has been <span style="font-weight:bold">cancelled</span> at your request.
+                </p>
+                <h3>Booking details for cancelled booking:</h3>
+                <p>
+                    <span style="text-transform:capitalize">
+                        ${bookingDetails.firstname}
+                    </span> 
+                    <span style="text-transform:capitalize">
+                        ${bookingDetails.lastname}
+                    </span>
+                </p>
+                <p>
+                    ${bookingDetails.num_of_guests} people
+                </p>
+                <p style="margin-bottom:1.5rem">
+                    ${bookingDetails.date}, ${bookingDetails.time} PM
+                </p>
+                <p style="margin-bottom:1.5rem">
+                    You are always welcome to make a new booking on our 
+                    <a href="http://localhost:3000/Reservation">webpage</a>
+                    or by calling 070 000 00 00.
+                </p>
+                <p>Sincerely,</p>
+                <p>the staff at Le'licous</p>
+                `,
     };
 
     transporter.sendMail(mailOptions, (err, info) => {
