@@ -252,9 +252,13 @@ main {
 
 /* ---- ADMIN PAGE STYLING ---- */
 
-#adminWrapper,
-.container-full {
-  width: 1000px;
+#adminWrapper {
+  background: rgb(73, 1, 1);
+}
+
+#adminWrapper .container-full {
+  width: 900px;
+  min-height: 400px;
   margin: auto;
 }
 
@@ -300,30 +304,76 @@ main {
   border-radius: 3px;
 }
 
-/*------*/
+#bookingListTitles {
+  margin-top: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: black;
+  background: white;
+}
+
+#bookingListTitles {
+  border-left: 1px solid black;
+}
 
 #adminWrapper ul {
   font-size: 0.8em;
   padding: 0;
+  border-left: 1px solid white;
 }
 
-#adminWrapper li {
+#adminWrapper ul li {
   display: flex;
   height: 50px;
+  transition: 100ms;
+  border-bottom: 1px solid white;
+  color: white;
+  font-size: 0.9em;
+  letter-spacing: 1px;
 }
 
-.adminCustomerName,
-.adminCustomerPhone,
-.adminCustomerEmail,
-.bookingDate,
-.handleBookingsButtons {
+#adminWrapper ul li:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#adminWrapper ul div {
+  padding: 5px;
+}
+
+#bookingListTitles div {
+  padding: 5px;
+  border-right: 1px solid black;
+}
+
+.customersName,
+.customersPhone,
+.customersEmail,
+.customersBookedTime,
+.customersBookedDate,
+.customersButton {
   display: flex;
   align-items: center;
-  width: 150px;
-  height: 100%;
-  padding-left: 10px;
-  border-right: 1px solid black;
-  box-sizing: border-box;
+  border-right: 1px solid white;
+}
+
+.customersButton {
+  flex-direction: column;
+}
+
+.customersButton button {
+  width: 100%;
+  background: white;
+  color: black;
+}
+
+#adminUpdateDiv {
+  margin-top: -90px;
+  position: absolute;
+  background: blue;
+  height: 400px;
+  width: 100%;
+  z-index: 1;
 }
 
 @media screen and (min-width: 750px) {

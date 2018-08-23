@@ -1,26 +1,11 @@
 import React, { Component } from 'react';
 import Button from '../parts/Button.js';
 
-class AdminControlButtons extends Component {
-  openCreateBooking = () => {
-    this.props.manageAdminPage('openCreateBooking');
-  };
-
-  openViewChangeBooking = () => {
-    this.props.manageAdminPage('openViewChangeBooking');
-  };
-
+class AdminCreateBooking extends Component {
+  state = {};
   render() {
-    return (
-      <div id="adminControlButtons">
-        <Button innerText="Create Booking" onClick={this.openCreateBooking} />
-        <Button
-          innerText="View/Change Bookings"
-          onClick={this.openViewChangeBooking}
-        />
-      </div>
-    );
+    return <div id="adminCreateBooking" />;
   }
 }
 
-export default AdminControlButtons;
+export default AdminCreateBooking;
