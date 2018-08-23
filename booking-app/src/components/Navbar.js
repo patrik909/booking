@@ -34,32 +34,33 @@ class NavbarBootstrap extends Component {
     return (
       <div className="navbarDiv">
         <Navbar light expand="md">
-          <NavbarBrand>
-            <Link to="/">
-              L <img src={ChefHat} alt="Chef Hat" />
-            </Link>
+          <NavbarBrand tag={props => <Link to="/" {...props} />}>
+            {/* <Link to="/"> */}L <img src={ChefHat} alt="Chef Hat" />
+            {/* </Link> */}
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle}>
-            {' '}
             <span className="fa fa-reorder" />
           </NavbarToggler>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink onClick={this.toggle}>
-                  <Link to="/">Home</Link>
+                <NavLink tag={props => <Link to="/" {...props} />}>
+                  {/* <Link to="/">Home</Link> */}
+                  Home
                   <hr />
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink onClick={this.toggle}>
-                  <Link to="/Reservation">Reservation</Link>
+                <NavLink tag={props => <Link to="/Reservation" {...props} />}>
+                  {/* <Link  to="/Reservation">Reservation</Link> */}
+                  Reservation
                   <hr />
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink onClick={this.toggle}>
-                  <Link to="/Contact">Contact</Link>
+                <NavLink tag={props => <Link to="/Contact" {...props} />}>
+                  {/* <Link to="/Contact">Contact</Link> */}
+                  Contact
                 </NavLink>
               </NavItem>
             </Nav>
