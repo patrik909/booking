@@ -46,7 +46,7 @@ class CancellationPage extends Component {
         {!this.state.isCancellationConfirmed ? (
           <div className="cancellation-inner-wrapper">
             <h2 className="cancellation-header">
-              Mange booking #{this.props.match.params.id}
+              Manage booking #{this.props.match.params.id}
             </h2>
             <div>
               <div className="booking-details">
