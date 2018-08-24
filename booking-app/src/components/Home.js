@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-// import {Button} from 'reactstrap';
-// import Jumbotron from './HomeJumbotron';
-
+//images
 import TestImage from './../images/test.jpg';
 import ChefHat from './../images/chef-hat.svg';
 
