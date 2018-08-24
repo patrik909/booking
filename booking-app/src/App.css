@@ -330,10 +330,61 @@ main {
 #adminUpdateDiv {
   margin-top: -90px;
   position: absolute;
-  background: blue;
-  height: 400px;
-  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  color: black;
+  height: 500px;
+  width: 75%;
   z-index: 1;
+}
+
+#adminUpdateDiv h3 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.2em;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: black;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+}
+
+#adminUpdateDiv button {
+  background: black;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+#adminUpdateButtons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#customersBookingWrapper {
+  padding: 50px 70px;
+}
+
+#customersBookingDetails {
+  text-align: center;
+  border-right: 1px solid black;
+}
+
+#customersBookingDetails p {
+  margin: 0;
+}
+
+#customersBookingDetails p span {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 800;
 }
 
 @media screen and (min-width: 750px) {
