@@ -203,9 +203,7 @@ main {
   height: 20px;
 }
 
-.fa-envelope-o,
-.fa-phone,
-.fa-map-marker {
+#ContactDetailsWrapper .fa {
   color: black;
   margin: 10px;
 }
