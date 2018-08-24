@@ -35,8 +35,7 @@ class NavbarBootstrap extends Component {
       <div className="navbarDiv">
         <Navbar light expand="md">
           <NavbarBrand tag={props => <Link to="/" {...props} />}>
-            {/* <Link to="/"> */}L <img src={ChefHat} alt="Chef Hat" />
-            {/* </Link> */}
+            L <img src={ChefHat} alt="Chef Hat" />
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle}>
             <span className="fa fa-reorder" />
@@ -45,21 +44,18 @@ class NavbarBootstrap extends Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink tag={props => <Link to="/" {...props} />}>
-                  {/* <Link to="/">Home</Link> */}
                   Home
                   <hr />
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink tag={props => <Link to="/Reservation" {...props} />}>
-                  {/* <Link  to="/Reservation">Reservation</Link> */}
                   Reservation
                   <hr />
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink tag={props => <Link to="/Contact" {...props} />}>
-                  {/* <Link to="/Contact">Contact</Link> */}
                   Contact
                 </NavLink>
               </NavItem>
