@@ -435,6 +435,33 @@ main {
   }
 }
 
+.cancellation-wrapper {
+  margin: 1rem;
+  height: 100%;
+}
+
+.btn-wrapper,
+.confirmation-wrapper {
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-around;
+  width: 25rem;
+}
+
+.confirmation-wrapper {
+  flex-wrap: wrap;
+  width: 30rem;
+}
+
+.fa-check-circle-o {
+  width: 100%;
+  color: #77dd77 !important;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 /* FOOTER  */
 
 footer {
