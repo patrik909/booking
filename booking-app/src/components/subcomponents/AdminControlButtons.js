@@ -6,18 +6,27 @@ class AdminControlButtons extends Component {
     this.props.manageAdminPage('openCreateBooking');
   };
 
-  openViewChangeBooking = () => {
-    this.props.manageAdminPage('openChangeViewBooking');
+  openViewUpdateBooking = () => {
+    this.props.manageAdminPage('openViewUpdateBooking');
   };
 
   render() {
     return (
-      <div id="adminControlButtons">
-        <Button innerText="Create Booking" onClick={this.openCreateBooking} />
-        <Button
-          innerText="Change/View Bookings"
-          onClick={this.openViewChangeBooking}
-        />
+      <div id="adminControlButtons" className="row">
+        <div className="col-md-6">
+          <Button
+            innerText="Create Booking"
+            onClick={this.openCreateBooking}
+            className="btn btn-primary btn-lg"
+          />
+        </div>
+        <div className="col-md-6">
+          <Button
+            innerText="View/Update Bookings"
+            onClick={this.openViewUpdateBooking}
+            className="btn btn-primary btn-lg"
+          />
+        </div>
       </div>
     );
   }

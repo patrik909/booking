@@ -10,7 +10,7 @@
 }
 
 #root {
-  background: black;
+  background-color: rgb(73, 1, 1);
 }
 
 h2 {
@@ -216,29 +216,30 @@ main {
 
 /* ---- ADMIN PAGE STYLING ---- */
 
-#adminWrapper {
-  background: rgb(73, 1, 1);
-}
-
-#adminWrapper .container-full {
-  width: 900px;
+#adminWrapper,
+.container-full {
+  width: 800px;
   min-height: 400px;
   margin: auto;
 }
 
+/* ADMIN CONTROL BUTTONS */
+
 #adminControlButtons {
-  display: flex;
-  justify-content: center;
+  width: 500px;
+  margin: auto;
+}
+
+#adminControlButtons div {
+  padding: 0;
 }
 
 #adminControlButtons button {
-  color: white;
-  background: black;
-  border-radius: 3px;
-  margin: 20px 5px;
-  width: 200px;
-  height: 50px;
-  font-size: 0.8em;
+  border-radius: 10px;
+  width: 230px;
+  padding: 15px 0;
+  margin: 10px;
+  font-size: 0.9em;
   font-weight: 600;
   letter-spacing: 1px;
 }
