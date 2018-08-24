@@ -7,6 +7,7 @@ class AdminChangeViewBookings extends Component {
   state = {
     customersNameFilter: '',
     updateDivClass: 'hide',
+    customersBookingId: '',
     customersName: '',
     customersPhone: '',
     customersEmail: '',
@@ -25,8 +26,10 @@ class AdminChangeViewBookings extends Component {
     })
       .then(res => res.json())
       .then(booking => {
+        console.log(booking);
         this.setState({
           updateDivClass: 'show',
+          customersBookingId: booking.id,
           customersName: booking.firstname + ' ' + booking.lastname,
           customersPhone: booking.phone,
           customersEmail: booking.email,
@@ -64,6 +67,7 @@ class AdminChangeViewBookings extends Component {
     return (
       <div id="changeViewBooking" className={this.props.className}>
         <AdminUpdateBookings
+          selectedBookingId={this.state.customersBookingId}
           selectedBookingName={this.state.customersName}
           selectedBookingPhone={this.state.customersPhone}
           selectedBookingEmail={this.state.customersEmail}
