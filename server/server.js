@@ -100,7 +100,9 @@ app.post('/booking', (req, res) => {
                 </p>
                 <p style="margin-bottom:3rem">
                     In case you have to cancel your reservation 
-                    <a href="#">
+                    <a href="http://localhost:3000/Cancellation/${
+                        newBooking.id
+                    }">
                         please follow this link.
                     </a>
                 </p>

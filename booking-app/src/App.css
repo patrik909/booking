@@ -9,6 +9,10 @@
   margin: 0;
 }
 
+#root {
+  background: black;
+}
+
 h2 {
   text-align: center;
 }
@@ -84,32 +88,6 @@ li hr {
   }
 }
 
-/* .navbarDiv {
-  padding: 0;
-  margin: 0;
-  background: #dbdbdb;
-}
-
-nav {
-  margin: auto;
-  padding: 0;
-  width: 900px;
-}
-
-nav ul {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-}
-
-nav ul li {
-  letter-spacing: 2px;
-  margin: 30px 0;
-} */
-
 /* ----HOME PAGE ---- */
 .home-jumbo {
   background-image: url(images/home-header.jpg);
@@ -144,10 +122,6 @@ nav ul li {
     position: relative;
     top: 50px;
   }
-  /* .card-title {
-    position: relative;
-    top: 90px;
-  } */
 }
 /* ----CARDS---- */
 .card-group {
@@ -433,6 +407,33 @@ main {
   #ContactDetailsRight p {
     text-align: left;
   }
+}
+
+.cancellation-wrapper {
+  margin: 1rem;
+  height: 100%;
+}
+
+.btn-wrapper,
+.confirmation-wrapper {
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-around;
+  width: 25rem;
+}
+
+.confirmation-wrapper {
+  flex-wrap: wrap;
+  width: 30rem;
+}
+
+.fa-check-circle-o {
+  width: 100%;
+  color: #77dd77 !important;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 /* FOOTER  */
