@@ -12,13 +12,6 @@ class AdminChangeViewBookings extends Component {
     customersNameFilter: '',
     customersDateFilter: '',
     updateDivClass: 'hide',
-    customersBookingId: '',
-    customersName: '',
-    customersPhone: '',
-    customersEmail: '',
-    customersNumOfGuests: '',
-    customersBookedTime: '',
-    customersBookedDate: '',
   };
 
   componentWillReceiveProps(props) {
@@ -30,7 +23,8 @@ class AdminChangeViewBookings extends Component {
   };
 
   handleCustomersDateFilter = event => {
-    //      const numToString = event.target.value.toString();
+    console.log(event.target.value);
+    //gör sträng
     //    this.setState({ customersDateFilter: numToString });
   };
 
@@ -44,13 +38,6 @@ class AdminChangeViewBookings extends Component {
         this.setState({
           updateDivClass: 'show',
           selectedBooking: booking,
-          //          customersBookingId: booking.id,
-          //          customersName: booking.firstname + ' ' + booking.lastname,
-          //          customersPhone: booking.phone,
-          //          customersEmail: booking.email,
-          //          customersNumOfGuests: booking.num_of_guests,
-          //          customersBookedTime: booking.time,
-          //          customersBookedDate: booking.date,
         });
       })
       .catch(() => {
@@ -98,44 +85,13 @@ class AdminChangeViewBookings extends Component {
           timeDateTitle={'Time | Date'}
           optionsTitle={'Options'}
         />
-        <AdminAllBookingsList allBookings={'hej'} />
-        <ul id="allBookingsList" className="container">
-          {this.state.allBookings.map((booking, i) => {
-            if (
-              booking.firstname.includes(this.state.customersNameFilter) ||
-              booking.lastname.includes(this.state.customersNameFilter)
-            ) {
-              return (
-                <li key={i} className="row">
-                  <div className="customersName col-md-3">
-                    {booking.firstname} {booking.lastname}
-                  </div>
-                  <div className="customersPhone col-md-2">{booking.phone}</div>
-                  <div className="customersEmail col-md-3">{booking.email}</div>
-                  <div className="customersBookedDate col-md-1">
-                    {booking.num_of_guests}
-                  </div>
-                  <div className="customersBookedDate col-md-2">
-                    {booking.time} | {booking.date}
-                  </div>
-                  <div className="customersButton col-md-1">
-                    {' '}
-                    <Button
-                      value={booking.bookingId}
-                      onClick={this.openUpdateDiv}
-                      innerText={'Update'}
-                    />
-                    <Button
-                      value={booking.bookingId}
-                      onClick={this.deleteBooking}
-                      innerText={'Delete'}
-                    />
-                  </div>
-                </li>
-              );
-            }
-          })}
-        </ul>
+        <AdminAllBookingsList
+          allBookings={this.state.allBookings}
+          customersNameFilter={' NA MN'}
+          customersDateFilter={' DA TE'}
+          buttonUpdate={this.openUpdateDiv}
+          buttonDelete={this.deleteBooking}
+        />
       </div>
     );
   }
