@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AdminControlButtons from './subcomponents/AdminControlButtons.js';
 import AdminCreateBooking from './subcomponents/AdminCreateBooking.js';
-import AdminChangeViewBookings from './subcomponents/AdminChangeViewBookings.js';
+import AdminViewUpdateBookings from './subcomponents/AdminViewUpdateBookings.js';
 
 class AdminPage extends Component {
   state = {
@@ -40,7 +40,7 @@ class AdminPage extends Component {
       <div id="adminWrapper" className="container">
         <AdminControlButtons manageAdminPage={this.handleAdminPage} />
         <AdminCreateBooking />
-        <AdminChangeViewBookings
+        <AdminViewUpdateBookings
           fetchAllBookings={this.fetchBookings}
           allBookings={this.state.allBookings}
           className={this.state.adminViewUpdateBookingClass}

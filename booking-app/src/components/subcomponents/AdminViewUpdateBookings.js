@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import AdminUpdateBookings from './AdminUpdateBookings.js';
-import AdminViewUpdateListHeader from './AdminViewUpdateListHeader.js';
-import AdminViewBookingListTitles from './AdminViewBookingListTitles.js';
+import AdminViewUpdateListHeader from '../parts/AdminViewUpdateListHeader.js';
+import AdminViewBookingListTitles from '../parts/AdminViewBookingListTitles.js';
 import AdminAllBookingsList from './AdminAllBookingsList.js';
-import Button from '../parts/Button.js';
 
 class AdminChangeViewBookings extends Component {
   state = {
@@ -23,9 +22,7 @@ class AdminChangeViewBookings extends Component {
   };
 
   handleCustomersDateFilter = event => {
-    console.log(event.target.value);
-    //gör sträng
-    //    this.setState({ customersDateFilter: numToString });
+    this.setState({ customersDateFilter: event.target.value });
   };
 
   openUpdateDiv = event => {
@@ -65,7 +62,6 @@ class AdminChangeViewBookings extends Component {
   };
 
   render() {
-    console.log(this.state.allBookings);
     return (
       <div id="changeViewBooking" className={this.props.className}>
         <AdminUpdateBookings
@@ -86,9 +82,9 @@ class AdminChangeViewBookings extends Component {
           optionsTitle={'Options'}
         />
         <AdminAllBookingsList
-          allBookings={this.state.allBookings}
-          customersNameFilter={' NA MN'}
-          customersDateFilter={' DA TE'}
+          allBookings={0}
+          customersNameFilter={this.state.customersNameFilter}
+          customersDateFilter={this.state.customersDateFilter}
           buttonUpdate={this.openUpdateDiv}
           buttonDelete={this.deleteBooking}
         />

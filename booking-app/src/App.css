@@ -275,6 +275,14 @@ main {
   border-radius: 3px;
 }
 
+#changeViewBooking header input[type='date'] {
+  text-transform: uppercase;
+}
+
+#changeViewBooking header input[type='date']::-webkit-inner-spin-button {
+  display: none;
+}
+
 /* ADMIN VIEW/UPDATE BOOKING LIST */
 
 #bookingListTitles {
@@ -354,6 +362,15 @@ main {
 
 #adminWrapper ul li div button:hover:nth-child(2) {
   background: #e80b0b;
+  color: white;
+}
+
+#noResultFound p {
+  padding: 30px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-align: center;
   color: white;
 }
 
