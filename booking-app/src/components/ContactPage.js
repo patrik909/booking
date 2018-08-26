@@ -4,6 +4,7 @@ import Map from './subcomponents/Map.js';
 function ContactPage() {
   return (
     <div id="ContactWrapper">
+      <h1>Contact or visit us!</h1>
       <div id="MapWrapper">
         <Map />
       </div>

@@ -10,8 +10,6 @@
     "@kupibilet/react-day-picker": "^7.1.6",
     "bootstrap": "^4.1.3",
     "font-awesome": "^4.7.0",
-    "i": "^0.3.6",
-    "npm": "^6.4.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-router-dom": "^4.3.1",
