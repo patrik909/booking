@@ -15,12 +15,7 @@ function AdminViewUpdateListHeader(props) {
       </div>
       <div id="filterCustomerByDate" className="col-md-6">
         <p>Filter by Date</p>
-        <InputField
-          type={'text'}
-          name={'customersNameFilter'}
-          handle={props.inputDateHandle}
-          placeholder={'YYYY-MM-DD'}
-        />
+        <InputField type={'date'} handle={props.inputDateHandle} />
       </div>
     </header>
   );

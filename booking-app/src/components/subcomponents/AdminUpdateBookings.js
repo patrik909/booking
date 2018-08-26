@@ -4,7 +4,14 @@ import '@kupibilet/react-day-picker/lib/style.css';
 import Button from '../parts/Button.js';
 
 class AdminUpdateBookings extends Component {
-  state = {};
+  state = {
+    selectedBooking: [],
+  };
+
+  componentWillReceiveProps(props) {
+    this.setState({ selectedBooking: props.selectedBooking });
+    console.log(props.allBookings);
+  }
 
   closeUpdateDiv = event => {
     event.preventDefault();
@@ -43,24 +50,29 @@ class AdminUpdateBookings extends Component {
             <p>
               <span>Name</span>
             </p>
-            <p>{this.props.selectedBookingName}</p>
+            <p>
+              {this.state.selectedBooking.firstname +
+                ' ' +
+                this.state.selectedBooking.lastname}
+            </p>
             <p>
               <span>Phone</span>
             </p>
-            <p>{this.props.selectedBookingPhone}</p>
+            <p>{this.state.selectedBooking.phone}</p>
             <p>
               <span>Email</span>
             </p>
-            <p>{this.props.selectedBookingEmail}</p>
+            <p>{this.state.selectedBooking.email}</p>
             <p>
               <span>Number of Guests</span>
             </p>
-            <p>{this.props.selectedBookingNumOfGuests}</p>
+            <p>{this.state.selectedBooking.num_of_guests}</p>
             <p>
               <span>At:</span>
             </p>
             <p>
-              {this.props.selectedBookingTime} |{this.props.selectedBookingDate}
+              {this.state.selectedBooking.time} |
+              {this.state.selectedBooking.date}
             </p>
           </div>
           <div className="col-md-7">

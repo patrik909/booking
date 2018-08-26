@@ -216,8 +216,9 @@ main {
 
 #adminWrapper,
 .container-full {
-  width: 800px;
+  width: 900px;
   min-height: 400px;
+  padding: 0;
   margin: auto;
 }
 
@@ -274,7 +275,10 @@ main {
   border-radius: 3px;
 }
 
+/* ADMIN VIEW/UPDATE BOOKING LIST */
+
 #bookingListTitles {
+  margin: 0;
   margin-top: 20px;
   font-size: 0.8em;
   font-weight: 600;
@@ -286,60 +290,72 @@ main {
   background: white;
   box-sizing: border-box;
   padding: 5px;
+  padding-left: 7px;
+}
+
+#bookingListTitles div {
   border-right: 1px solid black;
-  border-top: 1px solid black;
 }
 
 #bookingListTitles div:nth-child(1) {
-  border-left: 1px solid black;
-}
-
-/*
-#adminWrapper ul {
-  font-size: 0.8em;
-  padding: 0;
   border-left: 1px solid white;
 }
 
-#adminWrapper ul li {
-  display: flex;
-  height: 50px;
-  transition: 100ms;
-  border-bottom: 1px solid white;
+#adminWrapper ul {
   color: white;
-  font-size: 0.9em;
-  letter-spacing: 1px;
+  font-size: 0.8em;
+  box-sizing: border-box;
+  border-left: 1px solid white;
+  padding: 0;
+}
+
+#adminWrapper ul li {
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid white;
+  transition: 100ms;
 }
 
 #adminWrapper ul li:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
-#adminWrapper ul div {
-  padding: 5px;
-}
-
-.customersName,
-.customersPhone,
-.customersEmail,
-.customersBookedTime,
-.customersBookedDate,
-.customersButton {
+#adminWrapper ul li div {
   display: flex;
   align-items: center;
+  box-sizing: border-box;
   border-right: 1px solid white;
+  height: 100%;
 }
 
-.customersButton {
+#adminWrapper ul li div:nth-child(6) {
+  display: flex;
   flex-direction: column;
+  padding: 0 10px;
 }
 
-.customersButton button {
-  width: 100%;
-  background: white;
+#adminWrapper ul li div button {
+  font-weight: 600;
+  font-size: 0.85em;
   color: black;
+  width: 100%;
+  margin: 3px 3px 1px 3px;
+  border-radius: 5px;
+  transition: 100ms;
 }
 
+#adminWrapper ul li div button:hover:nth-child(1) {
+  background: #138e0c;
+  color: white;
+}
+
+#adminWrapper ul li div button:hover:nth-child(2) {
+  background: #e80b0b;
+  color: white;
+}
+
+/*
 #adminUpdateDiv {
   margin-top: -90px;
   position: absolute;

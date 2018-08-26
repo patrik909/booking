@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import AdminUpdateBookings from './AdminUpdateBookings.js';
 import AdminViewUpdateListHeader from './AdminViewUpdateListHeader.js';
-import InputField from '../parts/InputField.js';
+import AdminViewBookingListTitles from './AdminViewBookingListTitles.js';
+import AdminAllBookingsList from './AdminAllBookingsList.js';
 import Button from '../parts/Button.js';
 
 class AdminChangeViewBookings extends Component {
   state = {
+    selectedBooking: [],
+    allBookings: [],
     customersNameFilter: '',
+    customersDateFilter: '',
     updateDivClass: 'hide',
     customersBookingId: '',
     customersName: '',
@@ -17,12 +21,17 @@ class AdminChangeViewBookings extends Component {
     customersBookedDate: '',
   };
 
+  componentWillReceiveProps(props) {
+    this.setState({ allBookings: props.allBookings });
+  }
+
   handleCustomersNameFilter = event => {
     this.setState({ customersNameFilter: event.target.value });
   };
 
   handleCustomersDateFilter = event => {
-    console.log(event.target.value);
+    //      const numToString = event.target.value.toString();
+    //    this.setState({ customersDateFilter: numToString });
   };
 
   openUpdateDiv = event => {
@@ -34,13 +43,14 @@ class AdminChangeViewBookings extends Component {
         console.log(booking);
         this.setState({
           updateDivClass: 'show',
-          customersBookingId: booking.id,
-          customersName: booking.firstname + ' ' + booking.lastname,
-          customersPhone: booking.phone,
-          customersEmail: booking.email,
-          customersNumOfGuests: booking.num_of_guests,
-          customersBookedTime: booking.time,
-          customersBookedDate: booking.date,
+          selectedBooking: booking,
+          //          customersBookingId: booking.id,
+          //          customersName: booking.firstname + ' ' + booking.lastname,
+          //          customersPhone: booking.phone,
+          //          customersEmail: booking.email,
+          //          customersNumOfGuests: booking.num_of_guests,
+          //          customersBookedTime: booking.time,
+          //          customersBookedDate: booking.date,
         });
       })
       .catch(() => {
@@ -68,16 +78,11 @@ class AdminChangeViewBookings extends Component {
   };
 
   render() {
+    console.log(this.state.allBookings);
     return (
       <div id="changeViewBooking" className={this.props.className}>
         <AdminUpdateBookings
-          selectedBookingId={this.state.customersBookingId}
-          selectedBookingName={this.state.customersName}
-          selectedBookingPhone={this.state.customersPhone}
-          selectedBookingEmail={this.state.customersEmail}
-          selectedBookingNumOfGuests={this.state.customersNumOfGuests}
-          selectedBookingDate={this.state.customersBookedDate}
-          selectedBookingTime={this.state.customersBookedTime}
+          selectedBooking={this.state.selectedBooking}
           closeUpdateDiv={this.closeUpdateDiv}
           updateDivClass={this.state.updateDivClass}
         />
@@ -85,18 +90,17 @@ class AdminChangeViewBookings extends Component {
           inputNameHandle={this.handleCustomersNameFilter}
           inputDateHandle={this.handleCustomersDateFilter}
         />
-
-        <div id="bookingListTitles" className="row">
-          <div className="col-md-3">Customers name</div>
-          <div className="col-md-2">Phone number</div>
-          <div className="col-md-3">Email</div>
-          <div className="col-md-1">Time</div>
-          <div className="col-md-2">Date</div>
-          <div className="col-md-1">Options</div>
-        </div>
-
-        <ul id="allBookingsList">
-          {this.props.allBookings.map((booking, i) => {
+        <AdminViewBookingListTitles
+          nameTitle={'Customers name'}
+          phoneTitle={'Phone number'}
+          emailTitle={'Email'}
+          numOfGuestsTitle={'Guest(s)'}
+          timeDateTitle={'Time | Date'}
+          optionsTitle={'Options'}
+        />
+        <AdminAllBookingsList allBookings={'hej'} />
+        <ul id="allBookingsList" className="container">
+          {this.state.allBookings.map((booking, i) => {
             if (
               booking.firstname.includes(this.state.customersNameFilter) ||
               booking.lastname.includes(this.state.customersNameFilter)
@@ -108,11 +112,11 @@ class AdminChangeViewBookings extends Component {
                   </div>
                   <div className="customersPhone col-md-2">{booking.phone}</div>
                   <div className="customersEmail col-md-3">{booking.email}</div>
-                  <div className="customersBookedTime col-md-1">
-                    {booking.time}
+                  <div className="customersBookedDate col-md-1">
+                    {booking.num_of_guests}
                   </div>
                   <div className="customersBookedDate col-md-2">
-                    {booking.date}
+                    {booking.time} | {booking.date}
                   </div>
                   <div className="customersButton col-md-1">
                     {' '}
