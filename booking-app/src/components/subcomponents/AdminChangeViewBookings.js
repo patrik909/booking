@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AdminUpdateBookings from './AdminUpdateBookings.js';
+import AdminViewUpdateListHeader from './AdminViewUpdateListHeader.js';
 import InputField from '../parts/InputField.js';
 import Button from '../parts/Button.js';
 
@@ -18,6 +19,10 @@ class AdminChangeViewBookings extends Component {
 
   handleCustomersNameFilter = event => {
     this.setState({ customersNameFilter: event.target.value });
+  };
+
+  handleCustomersDateFilter = event => {
+    console.log(event.target.value);
   };
 
   openUpdateDiv = event => {
@@ -63,7 +68,6 @@ class AdminChangeViewBookings extends Component {
   };
 
   render() {
-    console.log(this.state.customersBookedTime);
     return (
       <div id="changeViewBooking" className={this.props.className}>
         <AdminUpdateBookings
@@ -77,15 +81,11 @@ class AdminChangeViewBookings extends Component {
           closeUpdateDiv={this.closeUpdateDiv}
           updateDivClass={this.state.updateDivClass}
         />
-        <header>
-          <p>Filter by name</p>
-          <InputField
-            type={'text'}
-            name={'customersNameFilter'}
-            handle={this.handleCustomersNameFilter}
-            placeholder={'Customers name'}
-          />
-        </header>
+        <AdminViewUpdateListHeader
+          inputNameHandle={this.handleCustomersNameFilter}
+          inputDateHandle={this.handleCustomersDateFilter}
+        />
+
         <div id="bookingListTitles" className="row">
           <div className="col-md-3">Customers name</div>
           <div className="col-md-2">Phone number</div>
@@ -94,6 +94,7 @@ class AdminChangeViewBookings extends Component {
           <div className="col-md-2">Date</div>
           <div className="col-md-1">Options</div>
         </div>
+
         <ul id="allBookingsList">
           {this.props.allBookings.map((booking, i) => {
             if (

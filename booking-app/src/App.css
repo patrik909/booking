@@ -245,25 +245,30 @@ main {
 /* ADMIN VIEW/UPDATE SEARCHFIELD */
 
 #changeViewBooking header {
-  margin: auto;
-  text-align: center;
   font-size: 0.9em;
-  background: black;
-  padding: 10px 0;
-  border-radius: 10px;
-  width: 450px;
+  padding: 25px 0 15px 0;
+  color: white;
+}
+
+#changeViewBooking header div {
+  display: flex;
+  align-items: center;
+}
+
+#filterCustomerByName {
+  display: flex;
+  justify-content: flex-end;
 }
 
 #changeViewBooking header p {
-  display: inline;
-  color: white;
-  margin-right: 10px;
+  margin: 0 10px 0 0;
   font-weight: 600;
   letter-spacing: 1px;
 }
 
 #changeViewBooking header input {
   padding: 5px 8px;
+  font-size: 0.9em;
   letter-spacing: 1px;
   border: none;
   border-radius: 3px;
@@ -271,17 +276,25 @@ main {
 
 #bookingListTitles {
   margin-top: 20px;
-  font-size: 0.9em;
+  font-size: 0.8em;
   font-weight: 600;
   letter-spacing: 1px;
   color: black;
-  background: white;
 }
 
-#bookingListTitles {
+#bookingListTitles div {
+  background: white;
+  box-sizing: border-box;
+  padding: 5px;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+}
+
+#bookingListTitles div:nth-child(1) {
   border-left: 1px solid black;
 }
 
+/*
 #adminWrapper ul {
   font-size: 0.8em;
   padding: 0;
@@ -304,11 +317,6 @@ main {
 
 #adminWrapper ul div {
   padding: 5px;
-}
-
-#bookingListTitles div {
-  padding: 5px;
-  border-right: 1px solid black;
 }
 
 .customersName,
@@ -391,6 +399,7 @@ main {
   margin-top: 10px;
   font-weight: 800;
 }
+*/
 
 @media screen and (min-width: 750px) {
   #MapWrapper {
