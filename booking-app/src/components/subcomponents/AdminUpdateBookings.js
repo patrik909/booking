@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import DayPicker from '@kupibilet/react-day-picker';
 import '@kupibilet/react-day-picker/lib/style.css';
-import InputField from '../parts/InputField.js';
 import Button from '../parts/Button.js';
 
 class AdminUpdateBookings extends Component {

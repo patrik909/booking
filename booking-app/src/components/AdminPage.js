@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import InputField from './subcomponents/InputField.js';
 import AdminControlButtons from './subcomponents/AdminControlButtons.js';
 import AdminCreateBooking from './subcomponents/AdminCreateBooking.js';
 import AdminChangeViewBookings from './subcomponents/AdminChangeViewBookings.js';

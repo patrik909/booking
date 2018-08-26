@@ -239,10 +239,12 @@ main {
   width: 230px;
   padding: 15px 0;
   margin: 10px;
-  font-size: 0.9em;
-  font-weight: 600;
+  font-size: 0.8em;
+  font-weight: 800;
   letter-spacing: 1px;
 }
+
+/* ADMIN VIEW/UPDATE SEARCHFIELD */
 
 #changeViewBooking header {
   margin: auto;

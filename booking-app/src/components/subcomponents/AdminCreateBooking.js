@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from '../parts/Button.js';
 
 class AdminCreateBooking extends Component {
   state = {};
