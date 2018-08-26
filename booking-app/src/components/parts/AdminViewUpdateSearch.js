@@ -1,9 +1,9 @@
 import React from 'react';
 import InputField from '../parts/InputField.js';
 
-function AdminViewUpdateListHeader(props) {
+function AdminViewUpdateSearch(props) {
   return (
-    <header className="row">
+    <div id="bookingSearch" className="row">
       <div id="filterCustomerByName" className="col-md-6">
         <p>Filter by name</p>
         <InputField
@@ -17,8 +17,8 @@ function AdminViewUpdateListHeader(props) {
         <p>Filter by Date</p>
         <InputField type={'date'} handle={props.inputDateHandle} />
       </div>
-    </header>
+    </div>
   );
 }
 
-export default AdminViewUpdateListHeader;
+export default AdminViewUpdateSearch;

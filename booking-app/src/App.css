@@ -245,13 +245,13 @@ main {
 
 /* ADMIN VIEW/UPDATE SEARCHFIELD */
 
-#changeViewBooking header {
+#bookingSearch {
   font-size: 0.9em;
   padding: 25px 0 15px 0;
   color: white;
 }
 
-#changeViewBooking header div {
+#bookingSearch div {
   display: flex;
   align-items: center;
 }
@@ -261,13 +261,13 @@ main {
   justify-content: flex-end;
 }
 
-#changeViewBooking header p {
+#bookingSearch p {
   margin: 0 10px 0 0;
   font-weight: 600;
   letter-spacing: 1px;
 }
 
-#changeViewBooking header input {
+#bookingSearch input {
   padding: 5px 8px;
   font-size: 0.9em;
   letter-spacing: 1px;
@@ -275,11 +275,11 @@ main {
   border-radius: 3px;
 }
 
-#changeViewBooking header input[type='date'] {
+#bookingSearch input[type='date'] {
   text-transform: uppercase;
 }
 
-#changeViewBooking header input[type='date']::-webkit-inner-spin-button {
+#bookingSearch input[type='date']::-webkit-inner-spin-button {
   display: none;
 }
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import AdminUpdateBookings from './AdminUpdateBookings.js';
-import AdminViewUpdateListHeader from '../parts/AdminViewUpdateListHeader.js';
+import AdminViewUpdateSearch from '../parts/AdminViewUpdateSearch.js';
 import AdminViewBookingListTitles from '../parts/AdminViewBookingListTitles.js';
-import AdminAllBookingsList from './AdminAllBookingsList.js';
+import AdminAllBookingsList from '../parts/AdminAllBookingsList.js';
 
 class AdminChangeViewBookings extends Component {
   state = {
@@ -69,7 +69,7 @@ class AdminChangeViewBookings extends Component {
           closeUpdateDiv={this.closeUpdateDiv}
           updateDivClass={this.state.updateDivClass}
         />
-        <AdminViewUpdateListHeader
+        <AdminViewUpdateSearch
           inputNameHandle={this.handleCustomersNameFilter}
           inputDateHandle={this.handleCustomersDateFilter}
         />
@@ -82,7 +82,7 @@ class AdminChangeViewBookings extends Component {
           optionsTitle={'Options'}
         />
         <AdminAllBookingsList
-          allBookings={0}
+          allBookings={this.state.allBookings}
           customersNameFilter={this.state.customersNameFilter}
           customersDateFilter={this.state.customersDateFilter}
           buttonUpdate={this.openUpdateDiv}

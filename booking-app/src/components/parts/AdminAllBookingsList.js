@@ -38,14 +38,6 @@ function AdminAllBookingsList(props) {
                 </div>
               </li>
             );
-          } else {
-            return (
-              <div id="noResultFound" className="row">
-                <p className="col-md-12">
-                  No result that matched your search found..
-                </p>
-              </div>
-            );
           }
         })}
       </ul>
