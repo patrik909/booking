@@ -23,6 +23,7 @@ function connectDatabase() {
     }
 }
 
+// connects our email to nodemailer
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -31,6 +32,7 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+// util functions to create and throw errors
 const throwError = (code, msg) => {
     const err = new Error(msg);
     err.status = code;
@@ -53,6 +55,7 @@ app.post('/booking', (req, res) => {
 
     const newBooking = createBooking(booking.guest, booking.details);
 
+    // when a new booking is made the user gets a confirmation email
     const mailOptions = {
         from: mailCredentials.USER,
         // use own email in dev
@@ -135,6 +138,8 @@ app.delete('/booking/:id', (req, res) => {
         throwError(500, 'booking could not be deleted');
     }
 
+    // when user deletes a booking either by the email link in their confirmation
+    // email or if the booking is deleted by a admin sh/e gets a confirmation email
     const mailOptions = {
         from: mailCredentials.USER,
         // use own email in dev
