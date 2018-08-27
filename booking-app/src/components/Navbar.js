@@ -25,11 +25,17 @@ class NavbarBootstrap extends Component {
       isOpen: false,
     };
   }
+
   toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
+    const mediaScreen = window.matchMedia('(max-width:768px)');
+    /*if the screen matches with the max-width close the navbar when you click on an navitem*/
+    if (mediaScreen.matches) {
+      this.setState({
+        isOpen: !this.state.isOpen,
+      });
+    }
   }
+
   render() {
     return (
       <div className="navbarDiv">
@@ -43,19 +49,28 @@ class NavbarBootstrap extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink tag={props => <Link to="/" {...props} />}>
+                <NavLink
+                  onClick={this.toggle}
+                  tag={props => <Link to="/" {...props} />}
+                >
                   Home
                   <hr />
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={props => <Link to="/Reservation" {...props} />}>
+                <NavLink
+                  onClick={this.toggle}
+                  tag={props => <Link to="/Reservation" {...props} />}
+                >
                   Reservation
                   <hr />
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={props => <Link to="/Contact" {...props} />}>
+                <NavLink
+                  onClick={this.toggle}
+                  tag={props => <Link to="/Contact" {...props} />}
+                >
                   Contact
                 </NavLink>
               </NavItem>
