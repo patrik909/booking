@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import InputField from './subcomponents/InputField.js';
-import Datepicker from './Datepicker'
+import Datepicker from './Datepicker';
 
 //import DayPicker from '@kupibilet/react-day-picker';
 //import '@kupibilet/react-day-picker/lib/style.css';
@@ -16,6 +16,12 @@ class BookingPage extends Component {
     email: '',
     phoneNumber: '',
     guestDetailsClass: 'hide',
+    /** --- Error Messages --- **/
+    errorName: '',
+    errorLastName: '',
+    errorEmail: '',
+    errorPhoneNumber: '',
+
     /** --- GDPR Details --- **/
     submitBoxClass: 'hide',
   };
@@ -36,15 +42,33 @@ class BookingPage extends Component {
 
   setGuestDetails = event => {
     event.preventDefault();
-    if (
-      this.state.firstName !== '' &&
-      this.state.lastName !== '' &&
-      this.state.email !== '' &&
-      this.state.phoneNumber !== ''
-    ) {
+    /*if one of the fields are 
+   empty an error message will be displayed */
+    if (this.state.firstName === '') {
+      this.setState({ errorName: 'Please enter your name!' });
+    }
+    if (this.state.lastName === '') {
+      this.setState({ errorLastName: 'Please enter your last name!' });
+    }
+    if (this.state.email === '') {
+      this.setState({ errorEmail: 'Please enter your email!' });
+    }
+    if (this.state.phoneNumber === '') {
+      this.setState({ errorPhoneNumber: 'Please enter your phone number!' });
+    } else {
       this.setState({ submitBoxClass: 'show' });
       this.setState({ guestDetailsClass: 'hide' });
     }
+
+    //  if (
+    //     this.state.firstName !== '' &&
+    //     this.state.lastName !== '' &&
+    //     this.state.email !== '' &&
+    //     this.state.phoneNumber !== ''
+    //   ) {
+    //     this.setState({ submitBoxClass: 'show' });
+    //     this.setState({ guestDetailsClass: 'hide' });
+    //   }
   };
 
   backGuestDetails = event => {
@@ -59,14 +83,20 @@ class BookingPage extends Component {
   };
 
   handleLastNameInput = event => {
+    console.log(event.target.value);
+
     this.setState({ lastName: event.target.value });
   };
 
   handleEmailInput = event => {
+    console.log(event.target.value);
+
     this.setState({ email: event.target.value });
   };
 
   handlePhoneNumberInput = event => {
+    console.log(event.target.value);
+
     this.setState({ phoneNumber: event.target.value });
   };
 
@@ -74,23 +104,24 @@ class BookingPage extends Component {
 
   submitGuestDetails = event => {
     event.preventDefault();
+
     console.log(this.state.firstName);
     console.log(this.state.lastName);
     console.log(this.state.email);
     console.log(this.state.phoneNumber);
 
-    fetch(
-      `api/create-guest?firstname=${this.state.firstName}&lastname=${
-        this.state.lastName
-      }&email=${this.state.email}&phone=${this.state.phoneNumber}`
-    )
-      .then(response => response.json())
-      .then(fetched => {
-        console.log(fetched);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    // fetch(
+    //   `api/create-guest?firstname=${this.state.firstName}&lastname=${
+    //     this.state.lastName
+    //   }&email=${this.state.email}&phone=${this.state.phoneNumber}`
+    // )
+    //   .then(response => response.json())
+    //   .then(fetched => {
+    //     console.log(fetched);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   };
 
   cancelBooking = event => {
@@ -105,6 +136,24 @@ class BookingPage extends Component {
   };
 
   render() {
+    //if its in an error state then display the error message
+    let errorNameMessage = null;
+    let errorLastNameMessage = null;
+    let errorEmailMessage = null;
+    let errorPhoneMessage = null;
+
+    if (this.state.errorName) {
+      errorNameMessage = <p>{this.state.errorName}</p>;
+    }
+    if (this.state.errorLastName) {
+      errorLastNameMessage = <p>{this.state.errorLastName}</p>;
+    }
+    if (this.state.errorEmail) {
+      errorEmailMessage = <p>{this.state.errorEmail}</p>;
+    }
+    if (this.state.errorPhoneNumber) {
+      errorPhoneMessage = <p>{this.state.errorPhoneNumber}</p>;
+    }
     return (
       <div id="BookingWrapper">
         <div id="BookingDetails" className={this.state.bookingDetailsClass}>
@@ -131,28 +180,37 @@ class BookingPage extends Component {
               placeholder={'First name'}
               handle={this.handleFirstNameInput}
             />
+            <p className="text-danger">{errorNameMessage}</p>
+
             <InputField
               type={'text'}
               name={'lastname'}
               placeholder={'Last name'}
               handle={this.handleLastNameInput}
             />
+            <p className="text-danger">{errorLastNameMessage}</p>
+
             <InputField
               type={'text'}
               name={'email'}
               placeholder={'Email'}
               handle={this.handleEmailInput}
             />
+            <p className="text-danger">{errorEmailMessage}</p>
+
             <InputField
-              type={'number'}
+              type={'tel'}
               name={'phonenumber'}
               placeholder={'Phone number'}
               handle={this.handlePhoneNumberInput}
             />
+
+            <p className="text-danger">{errorPhoneMessage}</p>
+
             <button type="submit" onClick={this.backGuestDetails}>
               Back
             </button>
-            <button type="submit" onClick={this.setGuestDetails}>
+            <button type="submit" value="Next" onClick={this.setGuestDetails}>
               Next
             </button>
           </form>
@@ -165,6 +223,7 @@ class BookingPage extends Component {
           <p>
             {this.state.firstName} {this.state.lastName}
           </p>
+
           <p>{this.state.email}</p>
           <p>{this.state.phoneNumber}</p>
           <button type="submit" onClick={this.cancelBooking}>
