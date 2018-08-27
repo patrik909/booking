@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import InputField from './subcomponents/InputField.js';
-import DayPicker from '@kupibilet/react-day-picker';
-import '@kupibilet/react-day-picker/lib/style.css';
+import Datepicker from './Datepicker'
+
+//import DayPicker from '@kupibilet/react-day-picker';
+//import '@kupibilet/react-day-picker/lib/style.css';
 
 class BookingPage extends Component {
   state = {
@@ -107,7 +109,7 @@ class BookingPage extends Component {
       <div id="BookingWrapper">
         <div id="BookingDetails" className={this.state.bookingDetailsClass}>
           <p>Booking Details</p>
-          <DayPicker onClick={this.lol} />
+          <Datepicker />
           <select onChange={this.setAmountOfGuests}>
             <option value="1">1 Guest</option>
             <option value="2">2 Guests</option>
