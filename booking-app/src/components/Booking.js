@@ -56,15 +56,10 @@ class BookingPage extends Component {
     if (this.state.phoneNumber === '') {
       this.setState({ errorPhoneNumber: 'Please enter your phone number!' });
     } else {
-      this.state.firstName !== '' &&
-        this.state.lastName !== '' &&
-        this.state.email !== '' &&
-        this.state.phoneNumber !== '';
-      {
-        this.setState({ submitBoxClass: 'show' });
-        this.setState({ guestDetailsClass: 'hide' });
-      }
+      this.setState({ submitBoxClass: 'show' });
+      this.setState({ guestDetailsClass: 'hide' });
     }
+
     //  if (
     //     this.state.firstName !== '' &&
     //     this.state.lastName !== '' &&
