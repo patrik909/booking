@@ -309,6 +309,10 @@ main {
   border-left: 1px solid white;
 }
 
+#bookingListTitles div:nth-child(6) {
+  border-right: 1px solid white;
+}
+
 #adminWrapper ul {
   color: white;
   font-size: 0.8em;
@@ -374,15 +378,13 @@ main {
   color: white;
 }
 
-/*
 #adminUpdateDiv {
   margin-top: -90px;
   position: absolute;
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   color: black;
-  height: 500px;
-  width: 75%;
+  width: 900px;
   z-index: 1;
 }
 
@@ -399,25 +401,8 @@ main {
   color: white;
 }
 
-#adminUpdateDiv button {
-  background: black;
-  color: white;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding: 5px 10px;
-  border-radius: 5px;
-  text-align: center;
-  margin: 0 10px;
-}
-
-#adminUpdateButtons {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
 #customersBookingWrapper {
-  padding: 50px 70px;
+  padding: 50px 50px 50px 50px;
 }
 
 #customersBookingDetails {
@@ -434,7 +419,31 @@ main {
   margin-top: 10px;
   font-weight: 800;
 }
-*/
+
+#adminUpdateButtons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#adminUpdateButtons input {
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+#adminUpdateButtons input:nth-child(1) {
+  background: grey;
+}
+
+#adminUpdateButtons input:nth-child(2) {
+  background: #138e0c;
+}
 
 @media screen and (min-width: 750px) {
   #MapWrapper {

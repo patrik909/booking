@@ -10,12 +10,14 @@ class AdminUpdateBookings extends Component {
 
   componentWillReceiveProps(props) {
     this.setState({ selectedBooking: props.selectedBooking });
-    console.log(props.allBookings);
   }
 
-  closeUpdateDiv = event => {
-    event.preventDefault();
+  closeUpdateDiv = () => {
     this.props.closeUpdateDiv();
+  };
+
+  lol = event => {
+    console.log(event.target.value.time);
   };
 
   updateThisBooking = (values, bookingId) => {
@@ -31,22 +33,49 @@ class AdminUpdateBookings extends Component {
     })
       .then(response => response.json())
       .then(booking => {
-        console.log(booking);
-        //        this.setState({
-        //          updateBoxClass: 'hide'
-        //        });
+        this.closeUpdateDiv();
       })
       .catch(error => {
         console.log(error);
       });
   };
 
+  selectNumOfGuests = () => {
+    let numOfGuestOptions = [
+      '1 Guest',
+      '2 Guests',
+      '3 Guests',
+      '4 Guests',
+      '5 Guests',
+      '6 Guests',
+    ];
+
+    return (
+      <select name="guests">
+        {numOfGuestOptions.map((item, i) => {
+          if (i === this.state.selectedBooking.num_of_guests - 1) {
+            return (
+              <option value={i + 1} selected>
+                {item}
+              </option>
+            );
+          } else {
+            return <option value={i + 1}>{item}</option>;
+          }
+        })}
+      </select>
+    );
+  };
+
   render() {
     return (
-      <div id="adminUpdateDiv" className={this.props.updateDivClass}>
+      <div
+        id="adminUpdateDiv"
+        className={this.props.updateDivClass + ' container'}
+      >
         <div id="customersBookingWrapper" className="row">
-          <div id="customersBookingDetails" className="col-md-5">
-            <h3>Current details</h3>
+          <div id="customersBookingDetails" className="col-md-4">
+            <h3>Details</h3>
             <p>
               <span>Name</span>
             </p>
@@ -71,55 +100,60 @@ class AdminUpdateBookings extends Component {
               <span>At:</span>
             </p>
             <p>
-              {this.state.selectedBooking.time} |
-              {this.state.selectedBooking.date}
+              {this.state.selectedBooking.time +
+                ' | ' +
+                this.state.selectedBooking.date}
             </p>
           </div>
-          <div className="col-md-7">
+
+          <div className="col-md-8">
             <h3>Update details</h3>
-            <DayPicker />
-            <form
-              onSubmit={event => {
-                const values = {
-                  numOfGuests: event.target.guests.value,
-                  time: event.target.time.value,
-                  date: event.target.date.value,
-                };
-                event.preventDefault();
-                this.updateThisBooking(values, this.props.selectedBookingId);
-              }}
-              id="updateBox"
-              className={this.state.updateBoxClass}
-            >
-              <p>{this.state.updateThisCustomersName}</p>
-              <p>{this.state.updateThisCustomersPhone}</p>
-              <p>{this.state.updateThisCustomersEmail}</p>
-              <p>Guest(s): {this.state.updateThisCustomersNumOfGuests}</p>
-              <select name="guests">
-                <option value="1">1 Guest</option>
-                <option value="2">2 Guests</option>
-                <option value="3">3 Guests</option>
-                <option value="4">4 Guests</option>
-                <option value="5">5 Guests</option>
-                <option value="6">6 Guests</option>
-              </select>
-              <p>{this.state.updateThisCustomersBookedTime}</p>
-              <select name="time">
-                <option value="19.00">19.00</option>
-                <option value="21.00">21.00</option>
-              </select>
-              <input
-                type="date"
-                name="date"
-                value={this.state.updateThisCustomersBookedDate}
-              />
-              <input type="submit" value="Update now!" />
-            </form>
+            <div className="row">
+              <div className="col-md-7">
+                <DayPicker />
+              </div>
+              <div className="col-md-5">
+                <form
+                  onSubmit={event => {
+                    const values = {
+                      numOfGuests: event.target.guests.value,
+                      time: event.target.time.value,
+                      date: event.target.date.value,
+                    };
+                    event.preventDefault();
+                    this.updateThisBooking(
+                      values,
+                      this.state.selectedBooking.id
+                    );
+                  }}
+                  name="updateBooking"
+                  id="updateBox"
+                  className={this.state.updateBoxClass}
+                >
+                  {this.selectNumOfGuests()}
+
+                  <p>{this.state.updateThisCustomersBookedTime}</p>
+                  <select name="time">
+                    <option value="19.00">19.00</option>
+                    <option value="21.00">21.00</option>
+                  </select>
+                  <input
+                    type="date"
+                    name="date"
+                    value={this.state.updateThisCustomersBookedDate}
+                  />
+                  <div id="adminUpdateButtons">
+                    <input
+                      onClick={this.closeUpdateDiv}
+                      type="submit"
+                      value="Cancel"
+                    />
+                    <input type="submit" form="updateBox" value="Update" />
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
-        </div>
-        <div id="adminUpdateButtons">
-          <Button onClick={this.closeUpdateDiv} innerText={'Cancel'} />
-          <Button onClick={this.closeUpdateDiv} innerText={'Update'} />
         </div>
       </div>
     );

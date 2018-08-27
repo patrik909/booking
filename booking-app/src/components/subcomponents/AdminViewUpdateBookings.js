@@ -10,7 +10,7 @@ class AdminChangeViewBookings extends Component {
     allBookings: [],
     customersNameFilter: '',
     customersDateFilter: '',
-    updateDivClass: 'hide',
+    updateDivClass: 'show',
   };
 
   componentWillReceiveProps(props) {
