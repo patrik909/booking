@@ -42,7 +42,7 @@ class BookingPage extends Component {
 
   setGuestDetails = event => {
     event.preventDefault();
-    /*if the one of the fields are 
+    /*if one of the fields are 
    empty an error message will be displayed */
     if (this.state.firstName === '') {
       this.setState({ errorName: 'Please enter your name!' });
