@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import Datepicker from './Datepicker';
 import BookingDetails from './parts/BookingDetails.js';
 import BookingGuestDetails from './parts/BookingGuestDetails.js';
 import BookingSubmitBooking from './parts/BookingSubmitBooking.js';
 import BookingSubmitted from './parts/BookingSubmitted.js';
-
-BookingDetails;
 
 class BookingPage extends Component {
   state = {
@@ -138,11 +135,14 @@ class BookingPage extends Component {
   };
 
   render() {
-    console.log(this.state.amountOfGuests);
     return (
       <div id="BookingWrapper" className="container">
         {this.state.addBookingDiv === 'bookingDetails' ? (
-          <BookingDetails />
+          <BookingDetails
+            getDate={this.getDate}
+            setAmountOfGuests={this.setAmountOfGuests}
+            submitBookingDetails={this.submitBookingDetails}
+          />
         ) : this.state.addBookingDiv === 'guestDetails' ? (
           <BookingGuestDetails
             handleFirstNameInput={this.handleFirstNameInput}
