@@ -110,6 +110,9 @@ app.post('/booking', (req, res) => {
 // update a booking
 app.put('/booking/:id', (req, res) => {
     const booking = req.body;
+    const bookingInformation = getBooking(req.params.id);
+
+    console.log(booking);
 
     if (!booking.hasOwnProperty('numOfGuests')) {
         throwError(404, 'number of guests is missing');
@@ -120,6 +123,48 @@ app.put('/booking/:id', (req, res) => {
     if (!booking.hasOwnProperty('date')) {
         throwError(400, 'date is missing');
     }
+
+    const mailOptions = {
+        from: mailCredentials.USER,
+        // use own email in dev
+        // use newBooking.email in deploy
+        to: mailCredentials.USER,
+        subject: 'Booking updated!',
+        html: `<h3>
+                    Dear 
+                    <span style="text-transform:capitalize">
+                        ${bookingInformation.firstname},
+                    </span>
+                </h3>
+                <p style="margin-bottom:2rem">
+                    Your booking has been <span style="font-weight:bold">updated</span> at your request.
+                </p>
+                <h3>Booking details for your updated booking:</h3>
+                <p>
+                    <span style="text-transform:capitalize">
+                        ${bookingInformation.firstname}
+                    </span> 
+                    <span style="text-transform:capitalize">
+                        ${bookingInformation.lastname}
+                    </span>
+                </p>
+                <p>
+                    ${booking.numOfGuests} people
+                </p>
+                <p style="margin-bottom:1.5rem">
+                    ${booking.date}, ${booking.time} PM
+                </p>
+                <p style="margin-bottom:1.5rem">
+                    Sincerely,
+                </p>
+                <p>the staff at Le'licous</p>
+                `,
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+        if (err) console.log(err);
+        else console.log(info);
+    });
 
     const bookingId = req.params.id;
     const updatedBooking = updateBooking(bookingId, booking);
