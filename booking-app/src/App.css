@@ -567,37 +567,37 @@ h2 {
 }
 
 /* CANCELLATION PAGE */
-
-.cancellation-wrapper {
-  padding: 3rem;
-  height: 100%;
+.margin-auto {
+  margin: auto;
 }
 
-.cancellation-inner-wrapper {
-  width: 30rem;
-  margin: auto;
+.text-center {
+  text-align: center;
+}
+
+.margins-normal {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.wrapper {
+  padding: 3rem;
   color: white;
 }
 
-.cancellation-header {
+.heading {
   margin-bottom: 2rem;
+  padding: 0rem !important;
 }
 
 .booking-details {
   margin-bottom: 2.5rem;
+  margin: auto;
 }
 
 .btn-container {
   text-align: center;
-}
-
-.confirmation-wrapper {
-  margin: auto;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  width: 40rem !important;
-  text-align: center;
-  color: white;
+  margin-top: 2.5rem;
 }
 
 .fa-check-circle-o {
@@ -658,4 +658,12 @@ footer {
 
 .freepik {
   font-size: 0.5em;
+}
+
+.cancellation-inner-wrapper {
+  width: 30rem;
+}
+
+.wrapper {
+  padding: 1rem;
 }
