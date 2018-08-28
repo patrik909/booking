@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import InputField from './subcomponents/InputField.js';
+import InputField from './parts/InputField.js';
 import Datepicker from './Datepicker';
 import BookingGuestDetails from './parts/BookingGuestDetails.js';
 import BookingSubmitBooking from './parts/BookingSubmitBooking.js';
@@ -70,18 +70,22 @@ class BookingPage extends Component {
   };
 
   handleFirstNameInput = event => {
+    console.log(event.target.value);
     this.setState({ firstName: event.target.value });
   };
 
   handleLastNameInput = event => {
+    console.log(event.target.value);
     this.setState({ lastName: event.target.value });
   };
 
   handleEmailInput = event => {
+    console.log(event.target.value);
     this.setState({ email: event.target.value });
   };
 
   handlePhoneNumberInput = event => {
+    console.log(event.target.value);
     this.setState({ phoneNumber: event.target.value });
   };
 
@@ -159,9 +163,9 @@ class BookingPage extends Component {
       return (
         <BookingGuestDetails
           handleFirstNameInput={this.handleFirstNameInput}
-          handleFirstNameInput={this.handleLastNameInput}
-          handleFirstNameInput={this.handleEmailInput}
-          handleFirstNameInput={this.handlePhoneNumberInput}
+          handleLastNameInput={this.handleLastNameInput}
+          handleEmailInput={this.handleEmailInput}
+          handlePhoneNumberInput={this.handlePhoneNumberInput}
           backGuestDetails={this.backGuestDetails}
           setGuestDetails={this.setGuestDetails}
           errorNameMessage={errorNameMessage}
@@ -171,11 +175,22 @@ class BookingPage extends Component {
         />
       );
     } else if (this.state.addBookingDiv === 'submitBooking') {
-      return <BookingSubmitBooking cancelBooking={this.cancelBooking} />;
+      return (
+        <BookingSubmitBooking
+          cancelBooking={this.cancelBooking}
+          name={this.state.firstName + ' ' + this.state.lastName}
+          email={this.state.email}
+          phone={this.state.phoneNumber}
+        />
+      );
     }
   };
 
   render() {
+    console.log(this.state.firstName);
+    console.log(this.state.lastName);
+    console.log(this.state.email);
+    console.log(this.state.phoneNumber);
     return (
       <div id="BookingWrapper" className="container">
         {this.bookingInfo()}

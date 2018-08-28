@@ -19,8 +19,8 @@ function BookingGuestDetails(props) {
           type={'text'}
           name={'lastname'}
           placeholder={'Last name'}
-          className={'col-md-12'}
           handle={props.handleLastNameInput}
+          className={'col-md-12'}
         />
         <p className="text-danger">{props.errorLastNameMessage}</p>
         <InputField
@@ -40,12 +40,12 @@ function BookingGuestDetails(props) {
         />
         <p className="text-danger">{props.errorPhoneMessage}</p>
         <div id="guestDetailsButtons" className="row">
-          <div className="col-6">
+          <div className="col-6 backButtonBooking">
             <Button type="submit" onClick={props.backGuestDetails}>
               Back
             </Button>
           </div>
-          <div className="col-6">
+          <div className="col-6 nextButtonBooking">
             <Button type="submit" onClick={props.setGuestDetails}>
               Next
             </Button>
