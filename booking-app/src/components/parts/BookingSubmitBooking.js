@@ -25,7 +25,7 @@ function BookingSubmitBooking(props) {
           </Button>
         </div>
         <div className="col-6 nextButtonBooking">
-          <Button type="submit" onClick={props.submitGuestDetails}>
+          <Button type="submit" onClick={props.submitBooking}>
             Book
           </Button>
         </div>

@@ -4,13 +4,11 @@ import Datepicker from './Datepicker';
 import BookingGuestDetails from './parts/BookingGuestDetails.js';
 import BookingSubmitBooking from './parts/BookingSubmitBooking.js';
 
-//import DayPicker from '@kupibilet/react-day-picker';
-//import '@kupibilet/react-day-picker/lib/style.css';
-
 class BookingPage extends Component {
   state = {
     /** --- Booking Details --- **/
     amountOfGuests: '',
+    date: '',
     /** --- Guest Details --- **/
     firstName: '',
     lastName: '',
@@ -23,7 +21,7 @@ class BookingPage extends Component {
     errorPhoneNumber: '',
     /** --- GDPR Details --- **/
     submitBoxClass: 'hide',
-    addBookingDiv: 'submitBooking',
+    addBookingDiv: 'bookingDetails',
   };
 
   componentDidMount() {}
@@ -40,7 +38,6 @@ class BookingPage extends Component {
   };
 
   setGuestDetails = event => {
-    console.log(isNaN(this.state.phoneNumber));
     event.preventDefault();
     /*if one of the fields are 
    empty an error message will be displayed */
@@ -70,47 +67,56 @@ class BookingPage extends Component {
   };
 
   handleFirstNameInput = event => {
-    console.log(event.target.value);
     this.setState({ firstName: event.target.value });
   };
 
   handleLastNameInput = event => {
-    console.log(event.target.value);
     this.setState({ lastName: event.target.value });
   };
 
   handleEmailInput = event => {
-    console.log(event.target.value);
     this.setState({ email: event.target.value });
   };
 
   handlePhoneNumberInput = event => {
-    console.log(event.target.value);
     this.setState({ phoneNumber: event.target.value });
   };
 
   /** ---- SUBMIT & GDPR ---- **/
 
-  submitGuestDetails = event => {
+  submitBooking = (event, values) => {
     event.preventDefault();
 
-    console.log(this.state.firstName);
-    console.log(this.state.lastName);
-    console.log(this.state.email);
-    console.log(this.state.phoneNumber);
+    values = {
+      guest: {
+        firstname: this.state.firstName,
+        lastname: this.state.lastName,
+        email: this.state.email,
+        phone: this.state.phoneNumber,
+      },
+      details: {
+        numOfGuests: this.state.amountOfGuests,
+        // waiting from progress from datepicker.js
+        time: '21.00',
+        date: this.state.date,
+      },
+    };
 
-    // fetch(
-    //   `api/create-guest?firstname=${this.state.firstName}&lastname=${
-    //     this.state.lastName
-    //   }&email=${this.state.email}&phone=${this.state.phoneNumber}`
-    // )
-    //   .then(response => response.json())
-    //   .then(fetched => {
-    //     console.log(fetched);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
+    fetch('api/booking', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    })
+      .then(response => response.json())
+      .then(booking => {
+        console.log(booking);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   cancelBooking = event => {
@@ -120,6 +126,10 @@ class BookingPage extends Component {
     this.setState({ email: '' });
     this.setState({ phoneNumber: '' });
     this.setState({ addBookingDiv: 'bookingDetails' });
+  };
+
+  getDate = date => {
+    this.setState({ date });
   };
 
   bookingInfo = () => {
@@ -145,7 +155,7 @@ class BookingPage extends Component {
       return (
         <div id="BookingDetails">
           <p>Booking Details</p>
-          <Datepicker />
+          <Datepicker getDate={this.getDate} />
           <select onChange={this.setAmountOfGuests}>
             <option value="1">1 Guest</option>
             <option value="2">2 Guests</option>
@@ -178,6 +188,7 @@ class BookingPage extends Component {
       return (
         <BookingSubmitBooking
           cancelBooking={this.cancelBooking}
+          submitBooking={this.submitBooking}
           name={this.state.firstName + ' ' + this.state.lastName}
           email={this.state.email}
           phone={this.state.phoneNumber}
@@ -187,10 +198,6 @@ class BookingPage extends Component {
   };
 
   render() {
-    console.log(this.state.firstName);
-    console.log(this.state.lastName);
-    console.log(this.state.email);
-    console.log(this.state.phoneNumber);
     return (
       <div id="BookingWrapper" className="container">
         {this.bookingInfo()}
