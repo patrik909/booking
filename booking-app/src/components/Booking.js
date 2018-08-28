@@ -186,7 +186,7 @@ class BookingPage extends Component {
         />
       );
     } else if (this.state.addBookingDiv === 'bookingSubmitted') {
-      <BookingSubmitted />;
+      return <BookingSubmitted firstName={'Patrik'} />;
     }
   };
 
