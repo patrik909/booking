@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import Datepicker from './Datepicker';
+import BookingDetails from './parts/BookingDetails.js';
 import BookingGuestDetails from './parts/BookingGuestDetails.js';
 import BookingSubmitBooking from './parts/BookingSubmitBooking.js';
 import BookingSubmitted from './parts/BookingSubmitted.js';
+
+BookingDetails;
 
 class BookingPage extends Component {
   state = {
@@ -37,7 +40,10 @@ class BookingPage extends Component {
   /** ----- Guest Details----- **/
 
   submitBookingDetails = event => {
-    this.setState({ addBookingDiv: 'guestDetails' });
+    this.state.amountOfGuests && this.state.date
+      ? this.setState({ addBookingDiv: 'guestDetails' })
+      : //felmeddelande
+        null;
   };
 
   setGuestDetails = event => {
@@ -132,24 +138,11 @@ class BookingPage extends Component {
   };
 
   render() {
+    console.log(this.state.amountOfGuests);
     return (
       <div id="BookingWrapper" className="container">
         {this.state.addBookingDiv === 'bookingDetails' ? (
-          <div id="BookingDetails">
-            <p>Booking Details</p>
-            <Datepicker getDate={this.getDate} />
-            <select onChange={this.setAmountOfGuests}>
-              <option value="1">1 Guest</option>
-              <option value="2">2 Guests</option>
-              <option value="3">3 Guests</option>
-              <option value="4">4 Guests</option>
-              <option value="5">5 Guests</option>
-              <option value="6">6 Guests</option>
-            </select>
-            <button type="submit" onClick={this.submitBookingDetails}>
-              Next
-            </button>
-          </div>
+          <BookingDetails />
         ) : this.state.addBookingDiv === 'guestDetails' ? (
           <BookingGuestDetails
             handleFirstNameInput={this.handleFirstNameInput}
