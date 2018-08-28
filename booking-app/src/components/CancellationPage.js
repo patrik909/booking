@@ -3,8 +3,8 @@ import { withRouter } from 'react-router';
 
 class CancellationPage extends Component {
   state = {
-    booking: [],
-    isBookingMissing: false,
+    booking: null,
+    isBookingMissing: true,
     isCancellationConfirmed: false,
   };
 
@@ -16,7 +16,7 @@ class CancellationPage extends Component {
         Accept: 'application/json',
       },
     })
-      .then(booking => {
+      .then(() => {
         this.setState({ isCancellationConfirmed: true });
       })
       .catch(err => {
@@ -32,12 +32,17 @@ class CancellationPage extends Component {
         Accept: 'application/json',
       },
     })
-      .then(res => res.json())
-      .then(booking => {
-        if (booking.message === 'booking not found') {
-          this.setState({ isBookingMissing: true });
+      .then(res => {
+        if (!res.ok) {
+          return { isBookingMissing: true };
         }
-        this.setState({ booking });
+        return res.json().then(booking => ({
+          booking,
+          isBookingMissing: false,
+        }));
+      })
+      .then(bookingState => {
+        this.setState(bookingState);
       })
       .catch(error => {
         console.log(error, 'error');
