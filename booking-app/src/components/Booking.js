@@ -4,13 +4,11 @@ import BookingGuestDetails from './parts/BookingGuestDetails.js';
 import BookingSubmitBooking from './parts/BookingSubmitBooking.js';
 import BookingSubmitted from './parts/BookingSubmitted.js';
 
-//import DayPicker from '@kupibilet/react-day-picker';
-//import '@kupibilet/react-day-picker/lib/style.css';
-
 class BookingPage extends Component {
   state = {
     /** --- Booking Details --- **/
     amountOfGuests: '',
+    date: '',
     /** --- Guest Details --- **/
     firstName: '',
     lastName: '',
@@ -23,7 +21,7 @@ class BookingPage extends Component {
     errorPhoneNumber: '',
     /** --- GDPR Details --- **/
     submitBoxClass: 'hide',
-    addBookingDiv: 'bookingSubmitted',
+    addBookingDiv: 'bookingDetails',
   };
 
   componentDidMount() {}
@@ -40,7 +38,6 @@ class BookingPage extends Component {
   };
 
   setGuestDetails = event => {
-    console.log(isNaN(this.state.phoneNumber));
     event.preventDefault();
     /*if one of the fields are 
    empty an error message will be displayed */
@@ -70,49 +67,56 @@ class BookingPage extends Component {
   };
 
   handleFirstNameInput = event => {
-    console.log(event.target.value);
     this.setState({ firstName: event.target.value });
   };
 
   handleLastNameInput = event => {
-    console.log(event.target.value);
     this.setState({ lastName: event.target.value });
   };
 
   handleEmailInput = event => {
-    console.log(event.target.value);
     this.setState({ email: event.target.value });
   };
 
   handlePhoneNumberInput = event => {
-    console.log(event.target.value);
     this.setState({ phoneNumber: event.target.value });
   };
 
   /** ---- SUBMIT & GDPR ---- **/
 
-  submitGuestDetails = event => {
+  submitBooking = (event, values) => {
     event.preventDefault();
 
-    console.log(this.state.firstName);
-    console.log(this.state.lastName);
-    console.log(this.state.email);
-    console.log(this.state.phoneNumber);
+    values = {
+      guest: {
+        firstname: this.state.firstName,
+        lastname: this.state.lastName,
+        email: this.state.email,
+        phone: this.state.phoneNumber,
+      },
+      details: {
+        numOfGuests: this.state.amountOfGuests,
+        // waiting from progress from datepicker.js
+        time: '21.00',
+        date: this.state.date,
+      },
+    };
 
-    // fetch(
-    //   `api/create-guest?firstname=${this.state.firstName}&lastname=${
-    //     this.state.lastName
-    //   }&email=${this.state.email}&phone=${this.state.phoneNumber}`
-    // )
-    //   .then(response => response.json())
-    //   .then(fetched => {
-    //     console.log(fetched);
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
-
-    this.setState({ addBookingDiv: 'bookingSubmitted' });
+    fetch('api/booking', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    })
+      .then(response => response.json())
+      .then(booking => {
+        console.log(booking);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   cancelBooking = event => {
@@ -124,76 +128,49 @@ class BookingPage extends Component {
     this.setState({ addBookingDiv: 'bookingDetails' });
   };
 
-  bookingInfo = () => {
-    //if its in an error state then display the error message
-    let errorNameMessage = null;
-    let errorLastNameMessage = null;
-    let errorEmailMessage = null;
-    let errorPhoneMessage = null;
-
-    if (this.state.errorName) {
-      errorNameMessage = <p>{this.state.errorName}</p>;
-    }
-    if (this.state.errorLastName) {
-      errorLastNameMessage = <p>{this.state.errorLastName}</p>;
-    }
-    if (this.state.errorEmail) {
-      errorEmailMessage = <p>{this.state.errorEmail}</p>;
-    }
-    if (this.state.errorPhoneNumber) {
-      errorPhoneMessage = <p>{this.state.errorPhoneNumber}</p>;
-    }
-    if (this.state.addBookingDiv === 'bookingDetails') {
-      return (
-        <div id="BookingDetails">
-          <p>Booking Details</p>
-          <Datepicker />
-          <select onChange={this.setAmountOfGuests}>
-            <option value="1">1 Guest</option>
-            <option value="2">2 Guests</option>
-            <option value="3">3 Guests</option>
-            <option value="4">4 Guests</option>
-            <option value="5">5 Guests</option>
-            <option value="6">6 Guests</option>
-          </select>
-          <button type="submit" onClick={this.submitBookingDetails}>
-            Next
-          </button>
-        </div>
-      );
-    } else if (this.state.addBookingDiv === 'guestDetails') {
-      return (
-        <BookingGuestDetails
-          handleFirstNameInput={this.handleFirstNameInput}
-          handleLastNameInput={this.handleLastNameInput}
-          handleEmailInput={this.handleEmailInput}
-          handlePhoneNumberInput={this.handlePhoneNumberInput}
-          backGuestDetails={this.backGuestDetails}
-          setGuestDetails={this.setGuestDetails}
-          errorNameMessage={errorNameMessage}
-          errorLastNameMessage={errorLastNameMessage}
-          errorEmailMessage={errorEmailMessage}
-          errorPhoneMessage={errorPhoneMessage}
-        />
-      );
-    } else if (this.state.addBookingDiv === 'submitBooking') {
-      return (
-        <BookingSubmitBooking
-          cancelBooking={this.cancelBooking}
-          name={this.state.firstName + ' ' + this.state.lastName}
-          email={this.state.email}
-          phone={this.state.phoneNumber}
-        />
-      );
-    } else if (this.state.addBookingDiv === 'bookingSubmitted') {
-      <BookingSubmitted />;
-    }
+  getDate = date => {
+    this.setState({ date });
   };
 
   render() {
     return (
       <div id="BookingWrapper" className="container">
-        {this.bookingInfo()}
+        {this.state.addBookingDiv === 'bookingDetails' ? (
+          <div id="BookingDetails">
+            <p>Booking Details</p>
+            <Datepicker getDate={this.getDate} />
+            <select onChange={this.setAmountOfGuests}>
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+              <option value="6">6 Guests</option>
+            </select>
+            <button type="submit" onClick={this.submitBookingDetails}>
+              Next
+            </button>
+          </div>
+        ) : this.state.addBookingDiv === 'guestDetails' ? (
+          <BookingGuestDetails
+            handleFirstNameInput={this.handleFirstNameInput}
+            handleLastNameInput={this.handleLastNameInput}
+            handleEmailInput={this.handleEmailInput}
+            handlePhoneNumberInput={this.handlePhoneNumberInput}
+            backGuestDetails={this.backGuestDetails}
+            setGuestDetails={this.setGuestDetails}
+          />
+        ) : this.state.addBookingDiv === 'submitBooking' ? (
+          <BookingSubmitBooking
+            cancelBooking={this.cancelBooking}
+            submitBooking={this.submitBooking}
+            name={this.state.firstName + ' ' + this.state.lastName}
+            email={this.state.email}
+            phone={this.state.phoneNumber}
+          />
+        ) : (
+          this.state.addBookingDiv === 'bookingSubmitted'(<BookingSubmitted />)
+        )}
       </div>
     );
   }
