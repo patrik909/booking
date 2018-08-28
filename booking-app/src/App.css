@@ -284,6 +284,10 @@ h2 {
   margin-left: 20px;
 }
 
+#bookingSubmitted {
+  height: 300px;
+}
+
 /* ---- CONTACT PAGE  ---- */
 #ContactWrapper {
   color: white;

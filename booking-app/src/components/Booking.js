@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import InputField from './parts/InputField.js';
 import Datepicker from './Datepicker';
 import BookingGuestDetails from './parts/BookingGuestDetails.js';
 import BookingSubmitBooking from './parts/BookingSubmitBooking.js';
+import BookingSubmitted from './parts/BookingSubmitted.js';
 
 //import DayPicker from '@kupibilet/react-day-picker';
 //import '@kupibilet/react-day-picker/lib/style.css';
@@ -23,7 +23,7 @@ class BookingPage extends Component {
     errorPhoneNumber: '',
     /** --- GDPR Details --- **/
     submitBoxClass: 'hide',
-    addBookingDiv: 'submitBooking',
+    addBookingDiv: 'bookingSubmitted',
   };
 
   componentDidMount() {}
@@ -111,6 +111,8 @@ class BookingPage extends Component {
     //   .catch(error => {
     //     console.log(error);
     //   });
+
+    this.setState({ addBookingDiv: 'bookingSubmitted' });
   };
 
   cancelBooking = event => {
@@ -183,14 +185,12 @@ class BookingPage extends Component {
           phone={this.state.phoneNumber}
         />
       );
+    } else if (this.state.addBookingDiv === 'bookingSubmitted') {
+      <BookingSubmitted />;
     }
   };
 
   render() {
-    console.log(this.state.firstName);
-    console.log(this.state.lastName);
-    console.log(this.state.email);
-    console.log(this.state.phoneNumber);
     return (
       <div id="BookingWrapper" className="container">
         {this.bookingInfo()}
