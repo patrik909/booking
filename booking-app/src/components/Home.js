@@ -10,7 +10,7 @@ import EnjoyDinner from './../images/enjoy-dinner.jpg';
 class Home extends Component {
   render() {
     return (
-      <div className="wrapper home-wrapper">
+      <div className=" home-wrapper">
         <div className="reservation-wrapper">
           <div className="jumbotron  jumbotron-fluid home-jumbo">
             <div className="container container-jumbo">
