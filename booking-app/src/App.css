@@ -10,7 +10,7 @@
 }
 
 #root {
-  background-color: rgb(73, 1, 1);
+  background-color: #cecece;
 }
 
 h2 {
@@ -116,7 +116,7 @@ li hr {
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
-    height: 500px;
+    height: 400px;
   }
   .container-jumbo {
     position: relative;
@@ -138,21 +138,6 @@ li hr {
 
 /* ---- BOOKING PAGE  ---- */
 
-#BookingWrapper {
-  text-align: center;
-  width: 300px;
-}
-
-#BookingWrapper form {
-  display: flex;
-  flex-direction: column;
-}
-
-#BookingWrapper input {
-  margin-bottom: 15px;
-  padding: 6px;
-}
-
 h1,
 h2 {
   text-align: center;
@@ -167,6 +152,10 @@ h2 {
   color: azure;
   text-align: center;
 }
+
+.jumbotron {
+  margin-bottom: 0 !important;
+}
 .reservation-jumbo {
   background-image: url(images/reservation-header.jpg);
   background-repeat: no-repeat;
@@ -174,15 +163,116 @@ h2 {
   background-position: center bottom;
 }
 
-main {
-  margin-top: -35px;
-}
-
 @media screen and (min-width: 768px) {
   .reservation-jumbo {
     background-position: center center;
     position: relative;
   }
+}
+
+#BookingWrapper {
+  text-align: center;
+}
+
+#BookingWrapper form {
+  display: flex;
+  flex-direction: column;
+}
+
+#BookingWrapper input {
+  margin-bottom: 15px;
+  padding: 6px;
+}
+
+#GuestDetails h2 {
+  color: white;
+  margin: 30px 0 10px 0;
+  font-weight: 700;
+  font-size: 1.8em;
+  letter-spacing: 5px;
+}
+
+#GuestDetails input {
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  margin: 0;
+  margin-top: 20px;
+}
+
+#GuestDetails p {
+  margin: 0;
+  margin-top: 2px;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+#guestDetailsButtons {
+  display: flex;
+  justify-content: center;
+}
+
+#guestDetailsButtons div {
+  margin-bottom: 40px;
+}
+
+#guestDetailsButtons button {
+  margin-top: 25px;
+  width: 100px;
+}
+
+#submitBooking {
+  width: 400px;
+  margin: auto;
+}
+
+#submitBooking h2 {
+  margin: 30px 0;
+  font-weight: 700;
+  font-size: 1.8em;
+  letter-spacing: 3px;
+}
+
+#submitBooking .underline {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+#submitBooking p {
+  letter-spacing: 0.5px;
+}
+
+#submitBooking .book {
+  font-weight: 600;
+  background: black;
+  color: white;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+#gdprDetails {
+  font-weight: 600;
+}
+
+#submitBookingButtons {
+  margin-bottom: 40px;
+}
+
+#submitBookingButtons button {
+  margin-top: 25px;
+  width: 100px;
+}
+
+#cancelBooking {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#submitDetails {
+  display: flex;
+  justify-content: flex-start;
 }
 
 /* ---- CONTACT PAGE  ---- */
