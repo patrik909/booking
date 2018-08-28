@@ -10,7 +10,7 @@
 }
 
 #root {
-  background-color: rgb(73, 1, 1);
+  background-color: #cecece;
 }
 
 h2 {
@@ -116,7 +116,7 @@ li hr {
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
-    height: 500px;
+    height: 400px;
   }
   .container-jumbo {
     position: relative;
@@ -172,7 +172,6 @@ h2 {
 
 #BookingWrapper {
   text-align: center;
-  width: 300px;
 }
 
 #BookingWrapper form {
@@ -221,6 +220,59 @@ h2 {
 #guestDetailsButtons button {
   margin-top: 25px;
   width: 100px;
+}
+
+#submitBooking {
+  width: 400px;
+  margin: auto;
+}
+
+#submitBooking h2 {
+  margin: 30px 0;
+  font-weight: 700;
+  font-size: 1.8em;
+  letter-spacing: 3px;
+}
+
+#submitBooking .underline {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+#submitBooking p {
+  letter-spacing: 0.5px;
+}
+
+#submitBooking .book {
+  font-weight: 600;
+  background: black;
+  color: white;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+#gdprDetails {
+  font-weight: 600;
+}
+
+#submitBookingButtons {
+  margin-bottom: 40px;
+}
+
+#submitBookingButtons button {
+  margin-top: 25px;
+  width: 100px;
+}
+
+#cancelBooking {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#submitDetails {
+  display: flex;
+  justify-content: flex-start;
 }
 
 /* ---- CONTACT PAGE  ---- */
@@ -506,37 +558,37 @@ h2 {
 }
 
 /* CANCELLATION PAGE */
-
-.cancellation-wrapper {
-  padding: 3rem;
-  height: 100%;
+.margin-auto {
+  margin: auto;
 }
 
-.cancellation-inner-wrapper {
-  width: 30rem;
-  margin: auto;
+.text-center {
+  text-align: center;
+}
+
+.margins-normal {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.wrapper {
+  padding: 3rem;
   color: white;
 }
 
-.cancellation-header {
+.heading {
   margin-bottom: 2rem;
+  padding: 0rem !important;
 }
 
 .booking-details {
   margin-bottom: 2.5rem;
+  margin: auto;
 }
 
 .btn-container {
   text-align: center;
-}
-
-.confirmation-wrapper {
-  margin: auto;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  width: 40rem !important;
-  text-align: center;
-  color: white;
+  margin-top: 2.5rem;
 }
 
 .fa-check-circle-o {
@@ -603,4 +655,12 @@ footer .underline {
 
 .freepik {
   font-size: 0.5em;
+}
+
+.cancellation-inner-wrapper {
+  width: 30rem;
+}
+
+.wrapper {
+  padding: 1rem;
 }
