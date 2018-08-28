@@ -14,17 +14,17 @@ function BookingSubmitBooking(props) {
         </p>
       </div>
       <div id="gdprDetails" className="col-12">
-        <p>{'Patrik Eriksson'}</p>
-        <p>{'patrik@patrik.se'}</p>
-        <p>{'070 00 000 00'}</p>
+        <p>{props.name}</p>
+        <p>{props.email}</p>
+        <p>{props.phone}</p>
       </div>
       <div id="submitBookingButtons" className="row">
-        <div id="cancelBooking" className="col-6">
+        <div className="col-6 backButtonBooking">
           <Button type="submit" onClick={props.cancelBooking}>
             Cancel
           </Button>
         </div>
-        <div id="submitDetails" className="col-6">
+        <div className="col-6 nextButtonBooking">
           <Button type="submit" onClick={props.submitGuestDetails}>
             Book
           </Button>

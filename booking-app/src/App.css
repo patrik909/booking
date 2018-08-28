@@ -184,6 +184,12 @@ h2 {
   padding: 6px;
 }
 
+#GuestDetails {
+  max-width: 420px;
+  padding: 0 10px;
+  margin: auto;
+}
+
 #GuestDetails h2 {
   color: white;
   margin: 30px 0 10px 0;
@@ -208,11 +214,6 @@ h2 {
   font-weight: 500;
 }
 
-#guestDetailsButtons {
-  display: flex;
-  justify-content: center;
-}
-
 #guestDetailsButtons div {
   margin-bottom: 40px;
 }
@@ -223,7 +224,7 @@ h2 {
 }
 
 #submitBooking {
-  width: 400px;
+  max-width: 420px;
   margin: auto;
 }
 
@@ -265,14 +266,22 @@ h2 {
   width: 100px;
 }
 
-#cancelBooking {
+.backButtonBooking {
   display: flex;
   justify-content: flex-end;
 }
 
-#submitDetails {
+.backButtonBooking button {
+  margin-right: 20px;
+}
+
+.nextButtonBooking {
   display: flex;
   justify-content: flex-start;
+}
+
+.nextButtonBooking button {
+  margin-left: 20px;
 }
 
 /* ---- CONTACT PAGE  ---- */
@@ -611,12 +620,6 @@ footer {
   width: 100%;
 }
 
-footer .underline {
-  border-top: 1px solid white;
-  width: 70%;
-  margin: auto;
-  margin-bottom: 30px;
-}
 .social-media {
   margin: 10px 10px;
 }
