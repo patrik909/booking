@@ -187,7 +187,7 @@ h2 {
 
 #GuestDetails h2 {
   color: white;
-  margin: 30px 0;
+  margin: 30px 0 10px 0;
   font-weight: 700;
   font-size: 1.8em;
   letter-spacing: 5px;
@@ -198,12 +198,15 @@ h2 {
   padding: 8px;
   border-radius: 10px;
   margin: 0;
-  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 #GuestDetails p {
   margin: 0;
-  margin-bottom: 5px;
+  margin-top: 2px;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  font-weight: 500;
 }
 
 #guestDetailsButtons {
@@ -216,6 +219,7 @@ h2 {
 }
 
 #guestDetailsButtons button {
+  margin-top: 25px;
   width: 100px;
 }
 
