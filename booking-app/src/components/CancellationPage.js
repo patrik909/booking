@@ -4,7 +4,7 @@ import { withRouter, Redirect } from 'react-router';
 class CancellationPage extends Component {
   state = {
     booking: [],
-    error: false,
+    isBookingMissing: false,
     isCancellationConfirmed: false,
   };
 
@@ -36,7 +36,7 @@ class CancellationPage extends Component {
       .then(booking => {
         console.log(booking.message);
         if (booking.message === 'booking not found') {
-          this.setState({ error: true });
+          this.setState({ isBookingMissing: true });
         }
         this.setState({ booking });
       })
@@ -44,11 +44,11 @@ class CancellationPage extends Component {
         console.log(error, 'error');
       });
   }
-
+  re;
   render() {
     return (
       <div className="wrapper">
-        {!this.state.isCancellationConfirmed && !this.state.error ? (
+        {!this.state.isCancellationConfirmed && !this.state.isBookingMissing ? (
           <div className="container margin-auto ">
             <h2 className="heading col-12">
               Manage booking #{this.props.match.params.id}
@@ -89,7 +89,7 @@ class CancellationPage extends Component {
               A confirmation has been sent to {this.state.booking.email}
             </p>
           </div>
-        ) : this.state.error ? (
+        ) : this.state.isBookingMissing ? (
           <div className="wrapper margins-normal margin-auto container">
             <h2 className="heading col-12">Booking not found</h2>
             <div className="text-center">
