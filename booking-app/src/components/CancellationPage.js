@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Redirect } from 'react-router';
+import { withRouter } from 'react-router';
 
 class CancellationPage extends Component {
   state = {
