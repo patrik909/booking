@@ -24,8 +24,11 @@ class BookingPage extends Component {
     addBookingDiv: 'bookingDetails',
   };
 
-  componentDidMount() {}
   /** --- Booking Details --- **/
+
+  getDate = date => {
+    this.setState({ date });
+  };
 
   setAmountOfGuests = event => {
     this.setState({ amountOfGuests: event.target.value });
@@ -128,10 +131,6 @@ class BookingPage extends Component {
     this.setState({ addBookingDiv: 'bookingDetails' });
   };
 
-  getDate = date => {
-    this.setState({ date });
-  };
-
   render() {
     return (
       <div id="BookingWrapper" className="container">
@@ -159,6 +158,10 @@ class BookingPage extends Component {
             handlePhoneNumberInput={this.handlePhoneNumberInput}
             backGuestDetails={this.backGuestDetails}
             setGuestDetails={this.setGuestDetails}
+            errorName={this.state.errorName}
+            errorLastName={this.state.errorLastName}
+            errorEmail={this.state.errorEmail}
+            errorPhoneNumber={this.state.errorPhoneNumber}
           />
         ) : this.state.addBookingDiv === 'submitBooking' ? (
           <BookingSubmitBooking
