@@ -9,13 +9,11 @@ class BookingPage extends Component {
   state = {
     /** --- Booking Details --- **/
     amountOfGuests: '',
-    bookingDetailsClass: 'show',
     /** --- Guest Details --- **/
     firstName: '',
     lastName: '',
     email: '',
     phoneNumber: '',
-    guestDetailsClass: 'hide',
     /** --- Error Messages --- **/
     errorName: '',
     errorLastName: '',
@@ -24,6 +22,7 @@ class BookingPage extends Component {
 
     /** --- GDPR Details --- **/
     submitBoxClass: 'hide',
+    addBookingDiv: 'bookingDetails',
   };
 
   componentDidMount() {}
@@ -36,8 +35,7 @@ class BookingPage extends Component {
   /** ----- Guest Details----- **/
 
   submitBookingDetails = event => {
-    this.setState({ bookingDetailsClass: 'hide' });
-    this.setState({ guestDetailsClass: 'show' });
+    this.setState({ addBookingDiv: 'guestDetails' });
   };
 
   setGuestDetails = event => {
@@ -56,25 +54,17 @@ class BookingPage extends Component {
     if (this.state.phoneNumber === '') {
       this.setState({ errorPhoneNumber: 'Please enter your phone number!' });
     } else {
-      this.setState({ submitBoxClass: 'show' });
-      this.setState({ guestDetailsClass: 'hide' });
+      this.setState({ addBookingDiv: 'submitBooking' });
     }
-
-    //  if (
-    //     this.state.firstName !== '' &&
-    //     this.state.lastName !== '' &&
-    //     this.state.email !== '' &&
-    //     this.state.phoneNumber !== ''
-    //   ) {
-    //     this.setState({ submitBoxClass: 'show' });
-    //     this.setState({ guestDetailsClass: 'hide' });
-    //   }
   };
 
   backGuestDetails = event => {
     event.preventDefault();
-    this.setState({ bookingDetailsClass: 'show' });
-    this.setState({ guestDetailsClass: 'hide' });
+    this.setState({ addBookingDiv: 'bookingDetails' });
+    this.setState({ errorName: '' });
+    this.setState({ errorLastName: '' });
+    this.setState({ errorEmail: '' });
+    this.setState({ errorPhoneNumber: '' });
   };
 
   handleFirstNameInput = event => {
@@ -130,12 +120,10 @@ class BookingPage extends Component {
     this.setState({ lastName: '' });
     this.setState({ email: '' });
     this.setState({ phoneNumber: '' });
-    this.setState({ bookingDetailsClass: 'show' });
-    this.setState({ guestDetailsClass: 'hide' });
-    this.setState({ submitBoxClass: 'hide' });
+    this.setState({ addBookingDiv: 'bookingDetails' });
   };
 
-  render() {
+  bookingInfo = () => {
     //if its in an error state then display the error message
     let errorNameMessage = null;
     let errorLastNameMessage = null;
@@ -154,9 +142,9 @@ class BookingPage extends Component {
     if (this.state.errorPhoneNumber) {
       errorPhoneMessage = <p>{this.state.errorPhoneNumber}</p>;
     }
-    return (
-      <div id="BookingWrapper">
-        <div id="BookingDetails" className={this.state.bookingDetailsClass}>
+    if (this.state.addBookingDiv === 'bookingDetails') {
+      return (
+        <div id="BookingDetails">
           <p>Booking Details</p>
           <Datepicker />
           <select onChange={this.setAmountOfGuests}>
@@ -171,7 +159,10 @@ class BookingPage extends Component {
             Next
           </button>
         </div>
-        <div id="GuestDetails" className={this.state.guestDetailsClass}>
+      );
+    } else if (this.state.addBookingDiv === 'guestDetails') {
+      return (
+        <div id="GuestDetails">
           <p>Guest details</p>
           <form>
             <InputField
@@ -215,7 +206,10 @@ class BookingPage extends Component {
             </button>
           </form>
         </div>
-        <div id="" className={this.state.submitBoxClass}>
+      );
+    } else if (this.state.addBookingDiv === 'submitBooking') {
+      return (
+        <div id="">
           <p>
             We're storing your personal details to enhance your experience, when
             pressing accept you give us the right to save the information below:
@@ -233,8 +227,12 @@ class BookingPage extends Component {
             Book
           </button>
         </div>
-      </div>
-    );
+      );
+    }
+  };
+
+  render() {
+    return <div id="BookingWrapper">{this.bookingInfo()}</div>;
   }
 }
 export default BookingPage;
