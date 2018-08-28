@@ -34,7 +34,6 @@ class CancellationPage extends Component {
     })
       .then(res => res.json())
       .then(booking => {
-        console.log(booking.message);
         if (booking.message === 'booking not found') {
           this.setState({ isBookingMissing: true });
         }
