@@ -191,6 +191,11 @@ h2 {
   letter-spacing: 3px;
 }
 
+#amountOfGuestsDropdown {
+  width: 150px;
+  padding: 10px;
+}
+
 #GuestDetails {
   max-width: 420px;
   padding: 0 10px;
