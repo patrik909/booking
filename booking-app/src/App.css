@@ -467,6 +467,7 @@ main {
 .cancellation-inner-wrapper {
   width: 30rem;
   margin: auto;
+  color: white;
 }
 
 .cancellation-header {
@@ -487,6 +488,7 @@ main {
   margin-bottom: 2rem;
   width: 40rem !important;
   text-align: center;
+  color: white;
 }
 
 .fa-check-circle-o {
