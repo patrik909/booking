@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 //images
 import TestImage from './../images/test.jpg';
 import ChefHat from './../images/chef-hat.svg';
+import Drinks from './../images/drinks.jpg';
+import EnjoyDinner from './../images/enjoy-dinner.jpg';
 
 class Home extends Component {
   render() {
@@ -32,7 +34,7 @@ class Home extends Component {
           {/* card section */}
           <div className="card-group">
             <div className="card">
-              <img className="card-img-top" src={TestImage} alt="Card  cap" />
+              <img className="card-img-top" src={EnjoyDinner} alt="Card  cap" />
               <div className="card-img-overlay">
                 <div className="card-block text-center">
                   <h2 className="card-title">Lovely atmosphere</h2>
@@ -48,7 +50,7 @@ class Home extends Component {
             </div>
 
             <div className="card">
-              <img className="card-img-top" src={TestImage} alt="Card  cap" />
+              <img className="card-img-top" src={Drinks} alt="Card  cap" />
               <div className="card-img-overlay">
                 <h2 className="card-title">Lovely drinks</h2>
               </div>
