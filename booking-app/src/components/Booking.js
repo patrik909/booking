@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import InputField from './subcomponents/InputField.js';
 import Datepicker from './Datepicker';
 import BookingGuestDetails from './parts/BookingGuestDetails.js';
+import BookingSubmitBooking from './parts/BookingSubmitBooking.js';
 
 //import DayPicker from '@kupibilet/react-day-picker';
 //import '@kupibilet/react-day-picker/lib/style.css';
@@ -20,10 +21,9 @@ class BookingPage extends Component {
     errorLastName: '',
     errorEmail: '',
     errorPhoneNumber: '',
-
     /** --- GDPR Details --- **/
     submitBoxClass: 'hide',
-    addBookingDiv: 'guestDetails',
+    addBookingDiv: 'submitBooking',
   };
 
   componentDidMount() {}
@@ -171,26 +171,7 @@ class BookingPage extends Component {
         />
       );
     } else if (this.state.addBookingDiv === 'submitBooking') {
-      return (
-        <div id="">
-          <p>
-            We're storing your personal details to enhance your experience, when
-            pressing accept you give us the right to save the information below:
-          </p>
-          <p>
-            {this.state.firstName} {this.state.lastName}
-          </p>
-
-          <p>{this.state.email}</p>
-          <p>{this.state.phoneNumber}</p>
-          <button type="submit" onClick={this.cancelBooking}>
-            Cancel
-          </button>
-          <button type="submit" onClick={this.submitGuestDetails}>
-            Book
-          </button>
-        </div>
-      );
+      return <BookingSubmitBooking cancelBooking={this.cancelBooking} />;
     }
   };
 
