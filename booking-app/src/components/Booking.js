@@ -112,7 +112,7 @@ class BookingPage extends Component {
     })
       .then(response => response.json())
       .then(booking => {
-        console.log(booking);
+        this.setState({ addBookingDiv: 'bookingSubmitted' });
       })
       .catch(error => {
         console.log(error);
@@ -168,9 +168,9 @@ class BookingPage extends Component {
             email={this.state.email}
             phone={this.state.phoneNumber}
           />
-        ) : (
-          this.state.addBookingDiv === 'bookingSubmitted'(<BookingSubmitted />)
-        )}
+        ) : this.state.addBookingDiv === 'bookingSubmitted' ? (
+          <BookingSubmitted firstName={this.state.firstName} />
+        ) : null}
       </div>
     );
   }
