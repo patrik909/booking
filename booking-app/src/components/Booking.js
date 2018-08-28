@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InputField from './subcomponents/InputField.js';
 import Datepicker from './Datepicker';
+import BookingGuestDetails from './parts/BookingGuestDetails.js';
 
 //import DayPicker from '@kupibilet/react-day-picker';
 //import '@kupibilet/react-day-picker/lib/style.css';
@@ -22,7 +23,7 @@ class BookingPage extends Component {
 
     /** --- GDPR Details --- **/
     submitBoxClass: 'hide',
-    addBookingDiv: 'bookingDetails',
+    addBookingDiv: 'guestDetails',
   };
 
   componentDidMount() {}
@@ -39,6 +40,7 @@ class BookingPage extends Component {
   };
 
   setGuestDetails = event => {
+    console.log(isNaN(this.state.phoneNumber));
     event.preventDefault();
     /*if one of the fields are 
    empty an error message will be displayed */
@@ -48,7 +50,7 @@ class BookingPage extends Component {
     if (this.state.lastName === '') {
       this.setState({ errorLastName: 'Please enter your last name!' });
     }
-    if (this.state.email === '') {
+    if (this.state.email === '' && !this.state.email.includes('@')) {
       this.setState({ errorEmail: 'Please enter your email!' });
     }
     if (this.state.phoneNumber === '') {
@@ -68,25 +70,18 @@ class BookingPage extends Component {
   };
 
   handleFirstNameInput = event => {
-    console.log(event.target.value);
     this.setState({ firstName: event.target.value });
   };
 
   handleLastNameInput = event => {
-    console.log(event.target.value);
-
     this.setState({ lastName: event.target.value });
   };
 
   handleEmailInput = event => {
-    console.log(event.target.value);
-
     this.setState({ email: event.target.value });
   };
 
   handlePhoneNumberInput = event => {
-    console.log(event.target.value);
-
     this.setState({ phoneNumber: event.target.value });
   };
 
@@ -162,50 +157,18 @@ class BookingPage extends Component {
       );
     } else if (this.state.addBookingDiv === 'guestDetails') {
       return (
-        <div id="GuestDetails">
-          <p>Guest details</p>
-          <form>
-            <InputField
-              type={'text'}
-              name={'firstname'}
-              placeholder={'First name'}
-              handle={this.handleFirstNameInput}
-            />
-            <p className="text-danger">{errorNameMessage}</p>
-
-            <InputField
-              type={'text'}
-              name={'lastname'}
-              placeholder={'Last name'}
-              handle={this.handleLastNameInput}
-            />
-            <p className="text-danger">{errorLastNameMessage}</p>
-
-            <InputField
-              type={'text'}
-              name={'email'}
-              placeholder={'Email'}
-              handle={this.handleEmailInput}
-            />
-            <p className="text-danger">{errorEmailMessage}</p>
-
-            <InputField
-              type={'tel'}
-              name={'phonenumber'}
-              placeholder={'Phone number'}
-              handle={this.handlePhoneNumberInput}
-            />
-
-            <p className="text-danger">{errorPhoneMessage}</p>
-
-            <button type="submit" onClick={this.backGuestDetails}>
-              Back
-            </button>
-            <button type="submit" value="Next" onClick={this.setGuestDetails}>
-              Next
-            </button>
-          </form>
-        </div>
+        <BookingGuestDetails
+          handleFirstNameInput={this.handleFirstNameInput}
+          handleFirstNameInput={this.handleLastNameInput}
+          handleFirstNameInput={this.handleEmailInput}
+          handleFirstNameInput={this.handlePhoneNumberInput}
+          backGuestDetails={this.backGuestDetails}
+          setGuestDetails={this.setGuestDetails}
+          errorNameMessage={errorNameMessage}
+          errorLastNameMessage={errorLastNameMessage}
+          errorEmailMessage={errorEmailMessage}
+          errorPhoneMessage={errorPhoneMessage}
+        />
       );
     } else if (this.state.addBookingDiv === 'submitBooking') {
       return (
@@ -232,7 +195,11 @@ class BookingPage extends Component {
   };
 
   render() {
-    return <div id="BookingWrapper">{this.bookingInfo()}</div>;
+    return (
+      <div id="BookingWrapper" className="container">
+        {this.bookingInfo()}
+      </div>
+    );
   }
 }
 export default BookingPage;

@@ -138,6 +138,38 @@ li hr {
 
 /* ---- BOOKING PAGE  ---- */
 
+h1,
+h2 {
+  text-align: center;
+}
+
+.display-4 {
+  color: azure;
+  font-family: 'Dancing Script', cursive;
+}
+
+.lead {
+  color: azure;
+  text-align: center;
+}
+
+.jumbotron {
+  margin-bottom: 0 !important;
+}
+.reservation-jumbo {
+  background-image: url(images/reservation-header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+@media screen and (min-width: 768px) {
+  .reservation-jumbo {
+    background-position: center center;
+    position: relative;
+  }
+}
+
 #BookingWrapper {
   text-align: center;
   width: 300px;
@@ -153,36 +185,38 @@ li hr {
   padding: 6px;
 }
 
-h1,
-h2 {
-  text-align: center;
+#GuestDetails h2 {
+  color: white;
+  margin: 30px 0;
+  font-weight: 700;
+  font-size: 1.8em;
+  letter-spacing: 5px;
 }
 
-.display-4 {
-  color: azure;
-  font-family: 'Dancing Script', cursive;
+#GuestDetails input {
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
-.lead {
-  color: azure;
-  text-align: center;
-}
-.reservation-jumbo {
-  background-image: url(images/reservation-header.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center bottom;
+#GuestDetails p {
+  margin: 0;
+  margin-bottom: 5px;
 }
 
-main {
-  margin-top: -35px;
+#guestDetailsButtons {
+  display: flex;
+  justify-content: center;
 }
 
-@media screen and (min-width: 768px) {
-  .reservation-jumbo {
-    background-position: center center;
-    position: relative;
-  }
+#guestDetailsButtons div {
+  margin-bottom: 40px;
+}
+
+#guestDetailsButtons button {
+  width: 100px;
 }
 
 /* ---- CONTACT PAGE  ---- */
