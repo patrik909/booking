@@ -35,24 +35,27 @@ class Home extends Component {
           <div className="card-group">
             <div className="card">
               <img className="card-img-top" src={EnjoyDinner} alt="Card  cap" />
-              <div className="card-img-overlay">
-                <div className="card-block text-center">
+              <div className="card-img-overlay d-flex">
+                <div className="my-auto mx-auto text-center">
                   <h2 className="card-title">Lovely atmosphere</h2>
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <img className="card-img-top" src={TestImage} alt="Card  cap" />
+              <div className="card-img-overlay d-flex">
+                <div className="my-auto mx-auto text-center">
+                  <h2 className="card-title">Heavenly food</h2>
                 </div>
               </div>
             </div>
 
             <div className="card">
-              <img className="card-img-top" src={TestImage} alt="Card cap" />
-              <div className="card-img-overlay">
-                <h2 className="card-title">Heavenly food</h2>
-              </div>
-            </div>
-
-            <div className="card">
               <img className="card-img-top" src={Drinks} alt="Card  cap" />
-              <div className="card-img-overlay">
-                <h2 className="card-title">Lovely drinks</h2>
+              <div className="card-img-overlay d-flex">
+                <div className="my-auto mx-auto text-center">
+                  <h2 className="card-title">Amazing drinks</h2>
+                </div>
               </div>
             </div>
           </div>
