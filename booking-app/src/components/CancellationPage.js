@@ -44,7 +44,7 @@ class CancellationPage extends Component {
         console.log(error, 'error');
       });
   }
-  re;
+
   render() {
     return (
       <div className="wrapper">
