@@ -5,6 +5,7 @@ class Footer extends Component {
     return (
       <div className="footerDiv">
         <footer>
+          <div className="underline" />
           <div className="social-media">
             <p className="footer-text">Follow us</p>
             <div className="social-media-icon">

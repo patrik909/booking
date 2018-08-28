@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import DayPicker from '@kupibilet/react-day-picker';
 import '@kupibilet/react-day-picker/lib/style.css';
-import Button from '../parts/Button.js';
 
 class AdminUpdateBookings extends Component {
   state = {
@@ -60,7 +59,11 @@ class AdminUpdateBookings extends Component {
               </option>
             );
           } else {
-            return <option value={i + 1}>{item}</option>;
+            return (
+              <option key={i} value={i + 1}>
+                {item}
+              </option>
+            );
           }
         })}
       </select>
