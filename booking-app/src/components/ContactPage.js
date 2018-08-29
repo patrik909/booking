@@ -24,7 +24,7 @@ function ContactPage() {
           <p>
             <i className="fa fa-envelope-o" aria-hidden="true" />
 
-            <a href="mailto:contact@lelious.se">contact@lelious.se</a>
+            <a href="mailto:contact@lelicious.se">contact@lelicious.se</a>
           </p>
         </div>
       </div>
