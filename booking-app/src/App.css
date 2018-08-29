@@ -194,6 +194,18 @@ h2 {
   padding: 6px;
 }
 
+#bookingDetails h2 {
+  margin: 30px 0;
+  font-weight: 700;
+  font-size: 1.8em;
+  letter-spacing: 3px;
+}
+
+#amountOfGuestsDropdown {
+  width: 150px;
+  padding: 10px;
+}
+
 #GuestDetails {
   max-width: 420px;
   padding: 0 10px;
@@ -201,7 +213,6 @@ h2 {
 }
 
 #GuestDetails h2 {
-  color: white;
   margin: 30px 0 10px 0;
   font-weight: 700;
   font-size: 1.8em;
@@ -292,6 +303,27 @@ h2 {
 
 .nextButtonBooking button {
   margin-left: 20px;
+}
+
+#bookingSubmitted {
+  height: 300px;
+}
+
+#submittedBooking {
+  max-width: 420px;
+  padding: 0 10px;
+  margin: auto;
+}
+
+#submittedBooking h2 {
+  margin: 30px 0;
+  font-weight: 700;
+  font-size: 1.8em;
+  letter-spacing: 3px;
+}
+
+#submittedBooking p {
+  margin-bottom: 80px;
 }
 
 /* ---- CONTACT PAGE  ---- */
