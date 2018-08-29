@@ -10,7 +10,7 @@
 }
 
 #root {
-  background-color: #cecece;
+  background-color: rgb(250, 243, 220);
 }
 
 h2 {
@@ -132,13 +132,18 @@ li hr {
 .card-group {
   margin: 10px;
 }
+.card-img-top {
+  opacity: 0.9;
+}
 .card-title {
-  color: white;
+  color: rgb(255, 249, 249);
   border-bottom: 2px solid white;
   border-top: 2px solid white;
 }
+
 .card {
   margin: 10px;
+  border: 1px solid transparent;
 }
 
 /* ---- BOOKING PAGE  ---- */
@@ -291,7 +296,7 @@ h2 {
 
 /* ---- CONTACT PAGE  ---- */
 #ContactWrapper {
-  color: white;
+  color: black;
 }
 
 #MapWrapper {
@@ -315,10 +320,13 @@ h2 {
 }
 
 #ContactDetailsWrapper .fa {
-  color: white;
+  color: black;
   margin: 10px;
 }
 
+#ContactDetailsWrapper a {
+  color: black;
+}
 /* ---- ADMIN PAGE STYLING ---- */
 
 #adminWrapper,
