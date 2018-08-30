@@ -30,17 +30,14 @@ class BookingPage extends Component {
 
   getTime = time => {
     this.setState({ time });
-    console.log(time);
   };
 
   getDate = date => {
     this.setState({ date });
-    console.log(date);
   };
 
   setAmountOfGuests = event => {
     this.setState({ amountOfGuests: event.target.value });
-    console.log(event.target.value);
   };
 
   /** ----- Guest Details----- **/
