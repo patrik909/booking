@@ -6,7 +6,7 @@ import AdminViewUpdateBookings from './subcomponents/AdminViewUpdateBookings.js'
 class AdminPage extends Component {
   state = {
     adminCreateBookingClass: 'hide',
-    adminViewUpdateBookingClass: 'hide',
+    adminViewUpdateBookingClass: 'show',
     allBookings: [],
   };
 
@@ -15,13 +15,15 @@ class AdminPage extends Component {
   }
 
   handleAdminPage = page => {
-    if (page === 'openCreateBooking') {
-      this.setState({ adminCreateBookingClass: 'show' });
-      this.setState({ adminViewUpdateBookingClass: 'hide' });
-    } else {
-      this.setState({ adminCreateBookingClass: 'hide' });
-      this.setState({ adminViewUpdateBookingClass: 'show' });
-    }
+    page === 'openCreateBooking'
+      ? this.setState({
+          adminCreateBookingClass: 'show',
+          adminViewUpdateBookingClass: 'hide',
+        })
+      : this.setState({
+          adminCreateBookingClass: 'hide',
+          adminViewUpdateBookingClass: 'show',
+        });
   };
 
   fetchBookings = () => {

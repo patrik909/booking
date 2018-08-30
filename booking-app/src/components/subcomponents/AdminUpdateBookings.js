@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import DayPicker from '@kupibilet/react-day-picker';
-import '@kupibilet/react-day-picker/lib/style.css';
+import Button from '../parts/Button.js';
+import Datepicker from '../Datepicker';
 
 class AdminUpdateBookings extends Component {
   state = {
     selectedBooking: [],
+    newTime: '',
+    newDate: '',
   };
 
   componentWillReceiveProps(props) {
@@ -15,8 +17,18 @@ class AdminUpdateBookings extends Component {
     this.props.closeUpdateDiv();
   };
 
-  lol = event => {
-    console.log(event.target.value.time);
+  getDate = date => {
+    this.setState({ newDate: date });
+  };
+
+  getTime = time => {
+    this.setState({ newTime: time });
+  };
+
+  setTime = event => {
+    //      event.preventDefault();
+    //      this.setState({newTime: event.target.value})
+    //      console.log(event.target.value)
   };
 
   updateThisBooking = (values, bookingId) => {
@@ -32,6 +44,7 @@ class AdminUpdateBookings extends Component {
     })
       .then(response => response.json())
       .then(booking => {
+        console.log(booking);
         this.closeUpdateDiv();
       })
       .catch(error => {
@@ -109,19 +122,19 @@ class AdminUpdateBookings extends Component {
             </p>
           </div>
 
-          <div className="col-md-8">
+          <div id="customersUpdateDetails" className="col-md-8">
             <h3>Update details</h3>
             <div className="row">
-              <div className="col-md-7">
-                <DayPicker />
+              <div className="col-md-8">
+                <Datepicker getDate={this.getDate} getTime={this.getTime} />
               </div>
-              <div className="col-md-5">
+              <div className="col-md-4">
                 <form
                   onSubmit={event => {
                     const values = {
                       numOfGuests: event.target.guests.value,
-                      time: event.target.time.value,
-                      date: event.target.date.value,
+                      time: this.state.newTime,
+                      date: this.state.newDate,
                     };
                     event.preventDefault();
                     this.updateThisBooking(
@@ -134,17 +147,21 @@ class AdminUpdateBookings extends Component {
                   className={this.state.updateBoxClass}
                 >
                   {this.selectNumOfGuests()}
-
+                  <div>
+                    <Button
+                      className={'yo'}
+                      onClick={this.setTime}
+                      innerText={'18.00'}
+                      value={'18.00'}
+                    />
+                    <Button
+                      className={'yo'}
+                      onClick={this.setTime}
+                      innerText={'21.00'}
+                      value={'21.00'}
+                    />
+                  </div>
                   <p>{this.state.updateThisCustomersBookedTime}</p>
-                  <select name="time">
-                    <option value="19.00">19.00</option>
-                    <option value="21.00">21.00</option>
-                  </select>
-                  <input
-                    type="date"
-                    name="date"
-                    value={this.state.updateThisCustomersBookedDate}
-                  />
                   <div id="adminUpdateButtons">
                     <input
                       onClick={this.closeUpdateDiv}
