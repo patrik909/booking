@@ -22,7 +22,7 @@ const Contact = () => <ContactPage />;
 
 const Reservation = () => <ReservationPage />;
 
-const BasicExample = () => (
+const App = () => (
   <Router>
     <div>
       <Navbar />
@@ -36,4 +36,4 @@ const BasicExample = () => (
   </Router>
 );
 
-export default BasicExample;
+export default App;
