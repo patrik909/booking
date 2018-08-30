@@ -267,9 +267,240 @@ const bookings = [
         "date": "2018-08-22"
   },
     
+ {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },
+
     
   
     ]
+
+var dates = []
+var fullyBookedDates = []
 
 
 // group all bookings per day
@@ -281,9 +512,6 @@ function groupBy(arrayToGroup, keyToGroupBy) {
 }
 
 //console.log(groupBy(bookings, 'date'))
-
-var dates = []
-var fullyBookedDates = []
 
 const bookingsByDay = groupBy(bookings, 'date')
 // For each day see if the amount of bookings are greater than X. 
@@ -305,22 +533,24 @@ function checkFullyBookedDays() {
 
 
 function checkFullyBookedTimes2(days) {
-const seating1 = []
+    const seating1 = []
 
-for (let date of dates) {
+    for (let date of dates) {
 
-        for (var i = 0; i < date.seat1.length; i++) {
-            if (date.seat1[i].date === days) {
-                seating1.push(date.seat1[0].date)
+            for (var i = 0; i < date.seat1.length; i++) {
+                if (date.seat1[i].date === days) {
+                    seating1.push(date.seat1[0].date)
+                }
             }
         }
+    
+        if (seating1.length >= 15) {
+            return "hide"}
+        else {
+            return "allGood"
+        }
     }
-    if (seating1.length >= 15) {
-        return "hide"}
-    else {
-        return "allGood"
-    }
-}
+
 
 function checkFullyBookedTimes1(days) {
     const seating2 = []
@@ -335,7 +565,6 @@ function checkFullyBookedTimes1(days) {
     }
 
     if (seating2.length >= 15) {
-        //console.log(seating1)
         return "hide"
     }
         else {
@@ -355,11 +584,8 @@ export default class Datepicker extends React.Component {
         this.handleDayClick = this.handleDayClick.bind(this);
         this.state = {
             selectedDay: undefined,
-            availibleTimes: "",
             seating1class: "",
             seating2class: ""
-            
-
         };
     }
 
@@ -382,16 +608,16 @@ export default class Datepicker extends React.Component {
         this.setState({
             selectedDay: day,
             seating1class : checkFullyBookedTimes2(day.toLocaleDateString()),
-            seating2class : checkFullyBookedTimes1(day.toLocaleDateString())
-            
+            seating2class : checkFullyBookedTimes1(day.toLocaleDateString()),
+
         });
-        
+        this.props.getDate(day.toLocaleDateString());
+        console.log(new Date().toLocaleDateString());
     }
 
     render() {
-        return ( <
-                div >
-
+        return ( <div >
+                 
                 <DayPicker onDayClick = {this.handleDayClick}
                 
                 selectedDays = {this.state.selectedDay}
@@ -400,15 +626,17 @@ export default class Datepicker extends React.Component {
 //                    new Date(2018, 7, 30),
 //                    new Date(2018, 7, 31),
                         {
-                    before: new Date(),
+                    //before: new Date(),
                     },
                   ]
                 }
 
-                /> {
+                /> 
+                
+                {
                 this.state.selectedDay ? ( 
                     <div >
-                    <p> You clicked {this.state.selectedDay.toLocaleDateString(), console.log(this.state.availibleTimes) 
+                    <p> You clicked {this.state.selectedDay.toLocaleDateString() 
 }</p> 
                     <p> Avalible times: < /p> 
                     <div className = {this.state.seating1class}> 18.00 < /div> 
@@ -417,7 +645,6 @@ export default class Datepicker extends React.Component {
                 ) : ( <
                     p > Please select a day. < /p>
                 )
-            } <
-            /div>
+            } </div>
     );
 }}
