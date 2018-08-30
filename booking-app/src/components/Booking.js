@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import BookingDetails from './parts/BookingDetails.js';
-import BookingGuestDetails from './parts/BookingGuestDetails.js';
+import { Button } from 'reactstrap';
+import BookingDetailsContent from './parts/BookingDetails.js';
+import BookingGuestDetailsContent from './parts/BookingGuestDetails.js';
 import BookingSubmitBooking from './parts/BookingSubmitBooking.js';
 import BookingSubmitted from './parts/BookingSubmitted.js';
 
@@ -22,7 +23,7 @@ class BookingPage extends Component {
     errorPhoneNumber: '',
     /** --- GDPR Details --- **/
     submitBoxClass: 'hide',
-    addBookingDiv: 'bookingDetails',
+    addBookingDiv: 'guestDetails',
   };
 
   /** --- Booking Details --- **/
@@ -146,25 +147,48 @@ class BookingPage extends Component {
     return (
       <div id="BookingWrapper" className="container">
         {this.state.addBookingDiv === 'bookingDetails' ? (
-          <BookingDetails
-            getDate={this.getDate}
-            getTime={this.getTime}
-            setAmountOfGuests={this.setAmountOfGuests}
-            submitBookingDetails={this.submitBookingDetails}
-          />
+          <div id="bookingDetails" className="row">
+            <h2 className="col-12">Booking Details</h2>
+            <BookingDetailsContent
+              getDate={this.getDate}
+              getTime={this.getTime}
+              setAmountOfGuests={this.setAmountOfGuests}
+              submitBookingDetails={this.submitBookingDetails}
+            />
+            <div className="col-12">
+              <Button type="submit" onClick={this.submitBookingDetails}>
+                Next
+              </Button>
+            </div>
+          </div>
         ) : this.state.addBookingDiv === 'guestDetails' ? (
-          <BookingGuestDetails
-            handleFirstNameInput={this.handleFirstNameInput}
-            handleLastNameInput={this.handleLastNameInput}
-            handleEmailInput={this.handleEmailInput}
-            handlePhoneNumberInput={this.handlePhoneNumberInput}
-            backGuestDetails={this.backGuestDetails}
-            setGuestDetails={this.setGuestDetails}
-            errorName={this.state.errorName}
-            errorLastName={this.state.errorLastName}
-            errorEmail={this.state.errorEmail}
-            errorPhoneNumber={this.state.errorPhoneNumber}
-          />
+          <div id="bookingGuestDetails" className="row">
+            <h2 className="col-12">Guest Details</h2>
+            <BookingGuestDetailsContent
+              handleFirstNameInput={this.handleFirstNameInput}
+              handleLastNameInput={this.handleLastNameInput}
+              handleEmailInput={this.handleEmailInput}
+              handlePhoneNumberInput={this.handlePhoneNumberInput}
+              backGuestDetails={this.backGuestDetails}
+              setGuestDetails={this.setGuestDetails}
+              errorName={this.state.errorName}
+              errorLastName={this.state.errorLastName}
+              errorEmail={this.state.errorEmail}
+              errorPhoneNumber={this.state.errorPhoneNumber}
+            />
+            <div id="guestDetailsButtons" className="row">
+              <div className="backButtonBooking">
+                <Button type="submit" onClick={this.backGuestDetails}>
+                  Back
+                </Button>
+              </div>
+              <div className="nextButtonBooking">
+                <Button type="submit" onClick={this.setGuestDetails}>
+                  Next
+                </Button>
+              </div>
+            </div>
+          </div>
         ) : this.state.addBookingDiv === 'submitBooking' ? (
           <BookingSubmitBooking
             cancelBooking={this.cancelBooking}

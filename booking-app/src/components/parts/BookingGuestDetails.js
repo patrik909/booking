@@ -23,9 +23,8 @@ function BookingGuestDetails(props) {
   }
 
   return (
-    <div id="GuestDetails">
-      <h2>Guest Details</h2>
-      <form className="row">
+    <div id="guestDetailsContent" className="col-12">
+      <form>
         <InputField
           type={'text'}
           name={'firstname'}
@@ -58,18 +57,6 @@ function BookingGuestDetails(props) {
           handle={props.handlePhoneNumberInput}
         />
         <p className="text-danger">{errorPhoneMessage}</p>
-        <div id="guestDetailsButtons" className="row">
-          <div className="col-6 backButtonBooking">
-            <Button type="submit" onClick={props.backGuestDetails}>
-              Back
-            </Button>
-          </div>
-          <div className="col-6 nextButtonBooking">
-            <Button type="submit" onClick={props.setGuestDetails}>
-              Next
-            </Button>
-          </div>
-        </div>
       </form>
     </div>
   );

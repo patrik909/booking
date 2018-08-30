@@ -6,7 +6,7 @@ import AdminViewUpdateBookings from './subcomponents/AdminViewUpdateBookings.js'
 class AdminPage extends Component {
   state = {
     adminCreateBookingClass: 'hide',
-    adminViewUpdateBookingClass: 'show',
+    adminViewUpdateBookingClass: 'hide',
     allBookings: [],
   };
 
