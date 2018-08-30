@@ -19,14 +19,7 @@ const bookings = [
         "time": "seat2",
         "date": "2018-08-21"
   },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
+
     {
         "id": 1,
         "guest_id": 1,
@@ -35,14 +28,7 @@ const bookings = [
         "time": "seat2",
         "date": "2018-08-21"
   },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
+
     {
         "id": 1,
         "guest_id": 1,
@@ -51,14 +37,7 @@ const bookings = [
         "time": "seat2",
         "date": "2018-08-21"
   },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
+    
     {
         "id": 1,
         "guest_id": 1,
@@ -67,14 +46,7 @@ const bookings = [
         "time": "seat2",
         "date": "2018-08-21"
   },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
+    
     {
         "id": 1,
         "guest_id": 1,
@@ -83,14 +55,7 @@ const bookings = [
         "time": "seat2",
         "date": "2018-08-21"
   },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
+    
     {
         "id": 1,
         "guest_id": 1,
@@ -632,15 +597,15 @@ function checkFullyBookedTimes(days) {
     }
 
     if (seating1.length >= 15) {
-        console.log(seating1)
-        return seating1
+        //console.log(seating1)
+        return "seating1"
     
     } else if (seating2.length >= 15) {
-        console.log(seating2)
-        return seating2
+        //console.log(seating2)
+        return "seating2"
     }
         else {
-            return "mumma"
+            return "allGood"
         }
 
 }
@@ -657,7 +622,8 @@ export default class Datepicker extends React.Component {
         this.handleDayClick = this.handleDayClick.bind(this);
         this.state = {
             selectedDay: undefined,
-            availableTimes: undefined,
+            availibleTimes: "",
+
         };
     }
 
@@ -678,24 +644,27 @@ export default class Datepicker extends React.Component {
             return;
         }
         this.setState({
-            selectedDay: day
+            selectedDay: day,
+            availibleTimes : checkFullyBookedTimes(day.toLocaleDateString()),
         });
+        //console.log(day.toLocaleDateString())
+        //console.log(checkFullyBookedTimes(day.toLocaleDateString()))
+        //console.log(this.state.availibleTimes)
     }
 
     render() {
         return ( <
                 div >
 
-                <DayPicker onDayClick = 
-                    {[this.handleDayClick]}
-                                
+                <DayPicker onDayClick = {this.handleDayClick}
+                
                 selectedDays = {this.state.selectedDay}
 
                 disabledDays = {[
-                    new Date(2018, 7, 30),
-                    new Date(2018, 7, 31),
+//                    new Date(2018, 7, 30),
+//                    new Date(2018, 7, 31),
                         {
-                    before: new Date(),
+                    //before: new Date(),
                     },
                   ]
                 }
@@ -703,10 +672,11 @@ export default class Datepicker extends React.Component {
                 /> {
                 this.state.selectedDay ? ( 
                     <div >
-                    <p> You clicked {this.state.selectedDay.toLocaleDateString()}</p> 
-                    <p> Avalible times: < /p> <
-                    div> 18.00 < /div> <
-                    div> 21.00 < /div> < /
+                    <p> You clicked {this.state.selectedDay.toLocaleDateString()
+}</p> 
+                    <p> Avalible times: < /p> 
+                    <div> 18.00 < /div> 
+                    <div> 21.00 < /div> < /
                     div>
                 ) : ( <
                     p > Please select a day. < /p>
