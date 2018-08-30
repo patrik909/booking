@@ -7,7 +7,7 @@ function BookingDetails(props) {
     <div id="bookingDetails" className="row">
       <h2 className="col-12">Booking Details</h2>
       <div className="col-12">
-        <Datepicker getDate={props.getDate} />
+        <Datepicker getDate={props.getDate} getTime={props.getTime} />
       </div>
       <div className="col-12">
         <select id="amountOfGuestsDropdown" onChange={props.setAmountOfGuests}>
