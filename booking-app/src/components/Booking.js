@@ -44,7 +44,7 @@ class BookingPage extends Component {
 
   /** ----- Guest Details----- **/
 
-  submitBookingDetails = event => {
+  submitBookingDetails = () => {
     this.state.amountOfGuests && this.state.date
       ? this.setState({ addBookingDiv: 'guestDetails' })
       : //felmeddelande
@@ -73,11 +73,13 @@ class BookingPage extends Component {
 
   backGuestDetails = event => {
     event.preventDefault();
-    this.setState({ addBookingDiv: 'bookingDetails' });
-    this.setState({ errorName: '' });
-    this.setState({ errorLastName: '' });
-    this.setState({ errorEmail: '' });
-    this.setState({ errorPhoneNumber: '' });
+    this.setState({
+      addBookingDiv: 'bookingDetails',
+      errorName: '',
+      errorLastName: '',
+      errorEmail: '',
+      errorPhoneNumber: '',
+    });
   };
 
   handleFirstNameInput = event => {
@@ -110,7 +112,6 @@ class BookingPage extends Component {
       },
       details: {
         numOfGuests: this.state.amountOfGuests,
-        // waiting from progress from datepicker.js
         time: this.state.time,
         date: this.state.date,
       },
@@ -125,7 +126,7 @@ class BookingPage extends Component {
       body: JSON.stringify(values),
     })
       .then(response => response.json())
-      .then(booking => {
+      .then(() => {
         this.setState({ addBookingDiv: 'bookingSubmitted' });
       })
       .catch(error => {
@@ -133,13 +134,15 @@ class BookingPage extends Component {
       });
   };
 
-  cancelBooking = event => {
-    this.setState({ amountOfGuests: '' });
-    this.setState({ firstName: '' });
-    this.setState({ lastName: '' });
-    this.setState({ email: '' });
-    this.setState({ phoneNumber: '' });
-    this.setState({ addBookingDiv: 'bookingDetails' });
+  cancelBooking = () => {
+    this.setState({
+      amountOfGuests: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      addBookingDiv: 'bookingDetails',
+    });
   };
 
   render() {
