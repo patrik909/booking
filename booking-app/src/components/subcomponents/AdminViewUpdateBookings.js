@@ -15,14 +15,15 @@ class AdminChangeViewBookings extends Component {
 
   componentWillReceiveProps(props) {
     this.setState({ allBookings: props.allBookings });
+    this.props.fetchAllBookings();
   }
 
   handleCustomersNameFilter = event => {
-    this.setState({ customersNameFilter: event.target.value });
+    this.setState({ customersNameFilter: event.target.value.toLowerCase() });
   };
 
   handleCustomersDateFilter = event => {
-    this.setState({ customersDateFilter: event.target.value });
+    this.setState({ customersDateFilter: event.target.value.toLowerCase() });
   };
 
   openUpdateDiv = event => {
@@ -31,7 +32,6 @@ class AdminChangeViewBookings extends Component {
     })
       .then(res => res.json())
       .then(booking => {
-        console.log(booking);
         this.setState({
           updateDivClass: 'show',
           selectedBooking: booking,

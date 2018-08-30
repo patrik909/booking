@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 //images
-import TestImage from './../images/test.jpg';
+import TestImage from './../images/food.jpg';
 import ChefHat from './../images/chef-hat.svg';
+import Drinks from './../images/drinks.jpg';
+import EnjoyDinner from './../images/enjoy-dinner.jpg';
 
 class Home extends Component {
   render() {
     return (
-      <div className="wrapper home-wrapper">
+      <div className=" home-wrapper">
         <div className="reservation-wrapper">
           <div className="jumbotron  jumbotron-fluid home-jumbo">
             <div className="container container-jumbo">
@@ -32,25 +34,28 @@ class Home extends Component {
           {/* card section */}
           <div className="card-group">
             <div className="card">
-              <img className="card-img-top" src={TestImage} alt="Card  cap" />
-              <div className="card-img-overlay">
-                <div className="card-block text-center">
+              <img className="card-img-top" src={EnjoyDinner} alt="Card  cap" />
+              <div className="card-img-overlay d-flex">
+                <div className="my-auto mx-auto text-center">
                   <h2 className="card-title">Lovely atmosphere</h2>
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <img className="card-img-top" src={TestImage} alt="Card  cap" />
+              <div className="card-img-overlay d-flex">
+                <div className="my-auto mx-auto text-center">
+                  <h2 className="card-title">Heavenly food</h2>
                 </div>
               </div>
             </div>
 
             <div className="card">
-              <img className="card-img-top" src={TestImage} alt="Card cap" />
-              <div className="card-img-overlay">
-                <h2 className="card-title">Heavenly food</h2>
-              </div>
-            </div>
-
-            <div className="card">
-              <img className="card-img-top" src={TestImage} alt="Card  cap" />
-              <div className="card-img-overlay">
-                <h2 className="card-title">Lovely drinks</h2>
+              <img className="card-img-top" src={Drinks} alt="Card  cap" />
+              <div className="card-img-overlay d-flex">
+                <div className="my-auto mx-auto text-center">
+                  <h2 className="card-title">Amazing drinks</h2>
+                </div>
               </div>
             </div>
           </div>

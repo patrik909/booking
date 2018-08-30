@@ -106,66 +106,6 @@ Response body:
 
 ## Adding content
 
-### Create a new guest
-
-```
-POST api/guest
-```
-
-Request body:
-
-```
-{
-    "firstname": "Jane",
-    "lastname": "Doe",
-    "email": "example@email.com",
-    "phone": "000 000 00"
-}
-```
-
-Response body:
-
-```
-{
-  "id": 1,
-  "firstname": "Jane",
-  "lastname": "Doe",
-  "email": "example@email.com",
-  "phone": "000 000 00"
-}
-```
-
-### Create new details
-
-```
-POST api/details
-```
-
-Request body:
-
-```
-{
-    "guestId": 1,
-    "numOfGuests": 2,
-    "time": "21:00"
-    "date": "2018-08-30",
-}
-```
-
-Response body:
-
-```
-{
-  {
-    "id": 1,
-    "guest_id": 1,
-    "num_of_guests": 2,
-    "time": "21:00",
-    "date": "2018-08-30"
-}
-}
-```
-
 ### Create a new booking
 
 ```

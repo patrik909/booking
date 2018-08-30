@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
-import InputField from './subcomponents/InputField.js';
-import Datepicker from './Datepicker'
-
-//import DayPicker from '@kupibilet/react-day-picker';
-//import '@kupibilet/react-day-picker/lib/style.css';
+import BookingDetails from './parts/BookingDetails.js';
+import BookingGuestDetails from './parts/BookingGuestDetails.js';
+import BookingSubmitBooking from './parts/BookingSubmitBooking.js';
+import BookingSubmitted from './parts/BookingSubmitted.js';
 
 class BookingPage extends Component {
   state = {
     /** --- Booking Details --- **/
     amountOfGuests: '',
-    bookingDetailsClass: 'show',
+    date: '',
     /** --- Guest Details --- **/
     firstName: '',
     lastName: '',
     email: '',
     phoneNumber: '',
-    guestDetailsClass: 'hide',
+    /** --- Error Messages --- **/
+    errorName: '',
+    errorLastName: '',
+    errorEmail: '',
+    errorPhoneNumber: '',
     /** --- GDPR Details --- **/
     submitBoxClass: 'hide',
+    addBookingDiv: 'bookingDetails',
   };
 
-  componentDidMount() {}
   /** --- Booking Details --- **/
+
+  getDate = date => {
+    this.setState({ date });
+  };
 
   setAmountOfGuests = event => {
     this.setState({ amountOfGuests: event.target.value });
@@ -30,31 +37,42 @@ class BookingPage extends Component {
   /** ----- Guest Details----- **/
 
   submitBookingDetails = event => {
-    this.setState({ bookingDetailsClass: 'hide' });
-    this.setState({ guestDetailsClass: 'show' });
+    this.state.amountOfGuests && this.state.date
+      ? this.setState({ addBookingDiv: 'guestDetails' })
+      : //felmeddelande
+        null;
   };
 
   setGuestDetails = event => {
     event.preventDefault();
-    if (
-      this.state.firstName !== '' &&
-      this.state.lastName !== '' &&
-      this.state.email !== '' &&
-      this.state.phoneNumber !== ''
-    ) {
-      this.setState({ submitBoxClass: 'show' });
-      this.setState({ guestDetailsClass: 'hide' });
+    /*if one of the fields are 
+   empty an error message will be displayed */
+    if (this.state.firstName === '') {
+      this.setState({ errorName: 'Please enter your name!' });
+    }
+    if (this.state.lastName === '') {
+      this.setState({ errorLastName: 'Please enter your last name!' });
+    }
+    if (this.state.email === '' && !this.state.email.includes('@')) {
+      this.setState({ errorEmail: 'Please enter your email!' });
+    }
+    if (this.state.phoneNumber === '') {
+      this.setState({ errorPhoneNumber: 'Please enter your phone number!' });
+    } else {
+      this.setState({ addBookingDiv: 'submitBooking' });
     }
   };
 
   backGuestDetails = event => {
     event.preventDefault();
-    this.setState({ bookingDetailsClass: 'show' });
-    this.setState({ guestDetailsClass: 'hide' });
+    this.setState({ addBookingDiv: 'bookingDetails' });
+    this.setState({ errorName: '' });
+    this.setState({ errorLastName: '' });
+    this.setState({ errorEmail: '' });
+    this.setState({ errorPhoneNumber: '' });
   };
 
   handleFirstNameInput = event => {
-    console.log(event.target.value);
     this.setState({ firstName: event.target.value });
   };
 
@@ -72,21 +90,35 @@ class BookingPage extends Component {
 
   /** ---- SUBMIT & GDPR ---- **/
 
-  submitGuestDetails = event => {
+  submitBooking = (event, values) => {
     event.preventDefault();
-    console.log(this.state.firstName);
-    console.log(this.state.lastName);
-    console.log(this.state.email);
-    console.log(this.state.phoneNumber);
 
-    fetch(
-      `api/create-guest?firstname=${this.state.firstName}&lastname=${
-        this.state.lastName
-      }&email=${this.state.email}&phone=${this.state.phoneNumber}`
-    )
+    values = {
+      guest: {
+        firstname: this.state.firstName,
+        lastname: this.state.lastName,
+        email: this.state.email,
+        phone: this.state.phoneNumber,
+      },
+      details: {
+        numOfGuests: this.state.amountOfGuests,
+        // waiting from progress from datepicker.js
+        time: '21.00',
+        date: this.state.date,
+      },
+    };
+
+    fetch('api/booking', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    })
       .then(response => response.json())
-      .then(fetched => {
-        console.log(fetched);
+      .then(booking => {
+        this.setState({ addBookingDiv: 'bookingSubmitted' });
       })
       .catch(error => {
         console.log(error);
@@ -99,84 +131,44 @@ class BookingPage extends Component {
     this.setState({ lastName: '' });
     this.setState({ email: '' });
     this.setState({ phoneNumber: '' });
-    this.setState({ bookingDetailsClass: 'show' });
-    this.setState({ guestDetailsClass: 'hide' });
-    this.setState({ submitBoxClass: 'hide' });
+    this.setState({ addBookingDiv: 'bookingDetails' });
   };
 
   render() {
     return (
-      <div id="BookingWrapper">
-        <div id="BookingDetails" className={this.state.bookingDetailsClass}>
-          <p>Booking Details</p>
-          <Datepicker />
-          <select onChange={this.setAmountOfGuests}>
-            <option value="1">1 Guest</option>
-            <option value="2">2 Guests</option>
-            <option value="3">3 Guests</option>
-            <option value="4">4 Guests</option>
-            <option value="5">5 Guests</option>
-            <option value="6">6 Guests</option>
-          </select>
-          <button type="submit" onClick={this.submitBookingDetails}>
-            Next
-          </button>
-        </div>
-        <div id="GuestDetails" className={this.state.guestDetailsClass}>
-          <p>Guest details</p>
-          <form>
-            <InputField
-              type={'text'}
-              name={'firstname'}
-              placeholder={'First name'}
-              handle={this.handleFirstNameInput}
-            />
-            <InputField
-              type={'text'}
-              name={'lastname'}
-              placeholder={'Last name'}
-              handle={this.handleLastNameInput}
-            />
-            <InputField
-              type={'text'}
-              name={'email'}
-              placeholder={'Email'}
-              handle={this.handleEmailInput}
-            />
-            <InputField
-              type={'number'}
-              name={'phonenumber'}
-              placeholder={'Phone number'}
-              handle={this.handlePhoneNumberInput}
-            />
-            <button type="submit" onClick={this.backGuestDetails}>
-              Back
-            </button>
-            <button type="submit" onClick={this.setGuestDetails}>
-              Next
-            </button>
-          </form>
-        </div>
-        <div id="" className={this.state.submitBoxClass}>
-          <p>
-            We're storing your personal details to enhance your experience, when
-            pressing accept you give us the right to save the information below:
-          </p>
-          <p>
-            {this.state.firstName} {this.state.lastName}
-          </p>
-          <p>{this.state.email}</p>
-          <p>{this.state.phoneNumber}</p>
-          <button type="submit" onClick={this.cancelBooking}>
-            Cancel
-          </button>
-          <button type="submit" onClick={this.submitGuestDetails}>
-            Book
-          </button>
-        </div>
+      <div id="BookingWrapper" className="container">
+        {this.state.addBookingDiv === 'bookingDetails' ? (
+          <BookingDetails
+            getDate={this.getDate}
+            setAmountOfGuests={this.setAmountOfGuests}
+            submitBookingDetails={this.submitBookingDetails}
+          />
+        ) : this.state.addBookingDiv === 'guestDetails' ? (
+          <BookingGuestDetails
+            handleFirstNameInput={this.handleFirstNameInput}
+            handleLastNameInput={this.handleLastNameInput}
+            handleEmailInput={this.handleEmailInput}
+            handlePhoneNumberInput={this.handlePhoneNumberInput}
+            backGuestDetails={this.backGuestDetails}
+            setGuestDetails={this.setGuestDetails}
+            errorName={this.state.errorName}
+            errorLastName={this.state.errorLastName}
+            errorEmail={this.state.errorEmail}
+            errorPhoneNumber={this.state.errorPhoneNumber}
+          />
+        ) : this.state.addBookingDiv === 'submitBooking' ? (
+          <BookingSubmitBooking
+            cancelBooking={this.cancelBooking}
+            submitBooking={this.submitBooking}
+            name={this.state.firstName + ' ' + this.state.lastName}
+            email={this.state.email}
+            phone={this.state.phoneNumber}
+          />
+        ) : this.state.addBookingDiv === 'bookingSubmitted' ? (
+          <BookingSubmitted firstName={this.state.firstName} />
+        ) : null}
       </div>
     );
   }
 }
-
 export default BookingPage;

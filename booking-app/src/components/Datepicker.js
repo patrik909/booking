@@ -586,7 +586,6 @@ function checkFullyBookedTimes(days) {
         }
     }
 
-
     for (let date of dates) {
 
         for (var i = 0; i < date.seat2.length; i++) {
@@ -598,11 +597,11 @@ function checkFullyBookedTimes(days) {
 
     if (seating1.length >= 15) {
         //console.log(seating1)
-        return "seating1"
+        return "hide1"
     
     } else if (seating2.length >= 15) {
         //console.log(seating2)
-        return "seating2"
+        return "hide2"
     }
         else {
             return "allGood"
@@ -610,7 +609,7 @@ function checkFullyBookedTimes(days) {
 
 }
 
-checkFullyBookedTimes('2018-08-21')
+//checkFullyBookedTimes('2018-08-21')
 
 
 checkFullyBookedDays()
@@ -623,6 +622,9 @@ export default class Datepicker extends React.Component {
         this.state = {
             selectedDay: undefined,
             availibleTimes: "",
+            seating1class: "",
+            seating2class: ""
+            
 
         };
     }
@@ -646,6 +648,9 @@ export default class Datepicker extends React.Component {
         this.setState({
             selectedDay: day,
             availibleTimes : checkFullyBookedTimes(day.toLocaleDateString()),
+            seating1class : checkFullyBookedTimes(day.toLocaleDateString()),
+            seating2class : checkFullyBookedTimes(day.toLocaleDateString())
+            
         });
         //console.log(day.toLocaleDateString())
         //console.log(checkFullyBookedTimes(day.toLocaleDateString()))
@@ -672,11 +677,11 @@ export default class Datepicker extends React.Component {
                 /> {
                 this.state.selectedDay ? ( 
                     <div >
-                    <p> You clicked {this.state.selectedDay.toLocaleDateString()
+                    <p> You clicked {this.state.selectedDay.toLocaleDateString(), console.log(this.state.availibleTimes) 
 }</p> 
                     <p> Avalible times: < /p> 
-                    <div> 18.00 < /div> 
-                    <div> 21.00 < /div> < /
+                    <div className = {this.state.seating1class}> 18.00 < /div> 
+                    <div className = {this.state.seating2class}> 21.00 < /div> < /
                     div>
                 ) : ( <
                     p > Please select a day. < /p>
@@ -684,5 +689,4 @@ export default class Datepicker extends React.Component {
             } <
             /div>
     );
-}
-}
+}}

@@ -3,7 +3,8 @@ import { withRouter } from 'react-router';
 
 class CancellationPage extends Component {
   state = {
-    booking: [],
+    booking: null,
+    isBookingMissing: true,
     isCancellationConfirmed: false,
   };
 
@@ -15,7 +16,7 @@ class CancellationPage extends Component {
         Accept: 'application/json',
       },
     })
-      .then(booking => {
+      .then(() => {
         this.setState({ isCancellationConfirmed: true });
       })
       .catch(err => {
@@ -31,9 +32,17 @@ class CancellationPage extends Component {
         Accept: 'application/json',
       },
     })
-      .then(res => res.json())
-      .then(booking => {
-        this.setState({ booking });
+      .then(res => {
+        if (!res.ok) {
+          return { isBookingMissing: true };
+        }
+        return res.json().then(booking => ({
+          booking,
+          isBookingMissing: false,
+        }));
+      })
+      .then(bookingState => {
+        this.setState(bookingState);
       })
       .catch(error => {
         console.log(error, 'error');
@@ -42,14 +51,14 @@ class CancellationPage extends Component {
 
   render() {
     return (
-      <div className="cancellation-wrapper">
-        {!this.state.isCancellationConfirmed ? (
-          <div className="cancellation-inner-wrapper">
-            <h2 className="cancellation-header">
+      <div className="wrapper">
+        {!this.state.isCancellationConfirmed && !this.state.isBookingMissing ? (
+          <div className="container margin-auto ">
+            <h2 className="heading col-12">
               Manage booking #{this.props.match.params.id}
             </h2>
             <div>
-              <div className="booking-details">
+              <div className="booking-details col-sm-12 col-lg-8">
                 <h3>Booking details</h3>
                 <p>
                   {this.state.booking.firstname +
@@ -73,13 +82,31 @@ class CancellationPage extends Component {
               </div>
             </div>
           </div>
-        ) : (
-          <div className="confirmation-wrapper">
-            <i className="fa fa-check-circle-o fa-5x" aria-hidden="true" />
-            <h3>Your booking has been cancelled</h3>
-            <p>A confirmation has been sent to {this.state.booking.email}</p>
+        ) : this.state.isCancellationConfirmed ? (
+          <div className="wrapper container">
+            <i
+              className="fa fa-check-circle-o fa-5x row-12"
+              aria-hidden="true"
+            />
+            <h2 className="heading row-12">Your booking has been cancelled</h2>
+            <p className="text-center">
+              A confirmation has been sent to {this.state.booking.email}
+            </p>
           </div>
-        )}
+        ) : this.state.isBookingMissing ? (
+          <div className="wrapper margins-normal margin-auto container">
+            <h2 className="heading col-12">Booking not found</h2>
+            <div className="text-center">
+              <p className="col-12">
+                Your booking might allready been cancelled.
+              </p>
+              <p className="col-12">
+                Contact us at 070 000 00 00 or contact@lelious.se if you have
+                any trouble with your booking.
+              </p>
+            </div>
+          </div>
+        ) : null}
       </div>
     );
   }

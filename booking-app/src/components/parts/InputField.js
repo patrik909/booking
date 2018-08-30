@@ -6,6 +6,7 @@ function InputField(props) {
       type={props.type}
       name={props.name}
       onChange={props.handle}
+      className={props.className}
       placeholder={props.placeholder}
     />
   );
