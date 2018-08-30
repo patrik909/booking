@@ -19,525 +19,256 @@ const bookings = [
         "time": "seat2",
         "date": "2018-08-21"
   },
-
     {
         "id": 1,
         "guest_id": 1,
         "details_id": 1,
         "num_of_guests": 2,
-        "time": "seat2",
+        "time": "seat1",
         "date": "2018-08-21"
   },
-
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },
+     {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-22"
+  },
     {
         "id": 1,
         "guest_id": 1,
         "details_id": 1,
         "num_of_guests": 2,
         "time": "seat2",
-        "date": "2018-08-21"
+        "date": "2018-08-22"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
   },
     
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
     
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-21"
-  },
-    {
-        "id": 1,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-21"
-  },
-
-
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 2,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat1",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 3,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 4,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
-    {
-        "id": 5,
-        "guest_id": 1,
-        "details_id": 1,
-        "num_of_guests": 2,
-        "time": "seat2",
-        "date": "2018-08-24"
-  },
+  
     ]
 
 
@@ -573,11 +304,10 @@ function checkFullyBookedDays() {
 }
 
 
-function checkFullyBookedTimes(days) {
-    const seating1 = []
-    const seating2 = []
+function checkFullyBookedTimes2(days) {
+const seating1 = []
 
-    for (let date of dates) {
+for (let date of dates) {
 
         for (var i = 0; i < date.seat1.length; i++) {
             if (date.seat1[i].date === days) {
@@ -585,6 +315,15 @@ function checkFullyBookedTimes(days) {
             }
         }
     }
+    if (seating1.length >= 15) {
+        return "hide"}
+    else {
+        return "allGood"
+    }
+}
+
+function checkFullyBookedTimes1(days) {
+    const seating2 = []
 
     for (let date of dates) {
 
@@ -595,13 +334,9 @@ function checkFullyBookedTimes(days) {
         }
     }
 
-    if (seating1.length >= 15) {
+    if (seating2.length >= 15) {
         //console.log(seating1)
-        return "hide1"
-    
-    } else if (seating2.length >= 15) {
-        //console.log(seating2)
-        return "hide2"
+        return "hide"
     }
         else {
             return "allGood"
@@ -609,7 +344,6 @@ function checkFullyBookedTimes(days) {
 
 }
 
-//checkFullyBookedTimes('2018-08-21')
 
 
 checkFullyBookedDays()
@@ -647,14 +381,11 @@ export default class Datepicker extends React.Component {
         }
         this.setState({
             selectedDay: day,
-            availibleTimes : checkFullyBookedTimes(day.toLocaleDateString()),
-            seating1class : checkFullyBookedTimes(day.toLocaleDateString()),
-            seating2class : checkFullyBookedTimes(day.toLocaleDateString())
+            seating1class : checkFullyBookedTimes2(day.toLocaleDateString()),
+            seating2class : checkFullyBookedTimes1(day.toLocaleDateString())
             
         });
-        //console.log(day.toLocaleDateString())
-        //console.log(checkFullyBookedTimes(day.toLocaleDateString()))
-        //console.log(this.state.availibleTimes)
+        
     }
 
     render() {
@@ -669,7 +400,7 @@ export default class Datepicker extends React.Component {
 //                    new Date(2018, 7, 30),
 //                    new Date(2018, 7, 31),
                         {
-                    //before: new Date(),
+                    before: new Date(),
                     },
                   ]
                 }
