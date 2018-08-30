@@ -132,13 +132,14 @@ li hr {
 .card-group {
   margin: 10px;
 }
-.card-img-top {
-  opacity: 0.9;
-}
+
 .card-title {
   color: rgb(255, 249, 249);
   border-bottom: 2px solid white;
   border-top: 2px solid white;
+  text-shadow: 1px 1px 2px rgb(53, 52, 52);
+  margin-left: -1.3rem;
+  /* text-transform:uppercase; */
 }
 
 .card {
