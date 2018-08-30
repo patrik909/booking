@@ -112,6 +112,9 @@ li hr {
   background-attachment: fixed;
 }
 
+.home-headline {
+  font-family: 'Dancing Script', cursive;
+}
 .display-4 img {
   width: 5%;
   height: 5%;
@@ -163,7 +166,6 @@ h2 {
 
 .display-4 {
   color: azure;
-  font-family: 'Dancing Script', cursive;
 }
 
 .lead {
@@ -175,7 +177,7 @@ h2 {
   margin-bottom: 0 !important;
 }
 .reservation-jumbo {
-  background-image: url(images/reservation-header.jpg);
+  background-image: url(images/restaurant.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
@@ -367,6 +369,7 @@ h2 {
 #ContactDetailsWrapper a {
   color: black;
 }
+
 /* ---- ADMIN PAGE STYLING ---- */
 
 #adminWrapper,
