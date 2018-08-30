@@ -209,6 +209,16 @@ h2 {
   letter-spacing: 3px;
 }
 
+.DayPicker-Months {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#bookingDetails button {
+  margin: 20px;
+}
+
 #amountOfGuestsDropdown {
   width: 150px;
   padding: 10px;
@@ -371,16 +381,17 @@ h2 {
 
 #adminWrapper,
 .container-full {
-  width: 900px;
+  width: 1000px;
   min-height: 400px;
-  padding: 0;
+  padding: 25px 50px;
   margin: auto;
+  background-color: rgb(73, 1, 1);
 }
 
 /* ADMIN CONTROL BUTTONS */
 
 #adminControlButtons {
-  padding-top: 30px;
+  padding-top: 10px;
   width: 500px;
   margin: auto;
 }
