@@ -34,7 +34,7 @@ class AdminPage extends Component {
       <div id="adminWrapper" className="container">
         <AdminControlButtons manageAdminPage={this.handleAdminPage} />
         {this.state.displayAdminPageContent === 'adminCreateBooking' ? (
-          <AdminCreateBooking />
+          <AdminCreateBooking manageAdminPage={this.handleAdminPage} />
         ) : this.state.displayAdminPageContent === 'adminViewUpdateBookings' ? (
           <AdminViewUpdateBookings
             fetchAllBookings={this.fetchBookings}
