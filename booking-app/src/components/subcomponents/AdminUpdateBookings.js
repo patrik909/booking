@@ -7,8 +7,8 @@ class AdminUpdateBookings extends Component {
     selectedBooking: [],
     time: '',
     date: '',
-    seat1Class: '',
-    seat2Class: '',
+    firstSeatClass: 'hide',
+    secondSeatClass: 'hide',
   };
 
   componentWillReceiveProps(props) {
@@ -51,6 +51,14 @@ class AdminUpdateBookings extends Component {
       });
   };
 
+  isFirstSeatAvailable = seat => {
+    this.setState({ firstSeatClass: seat });
+  };
+
+  isSecondSeatAvailable = seat => {
+    this.setState({ secondSeatClass: seat });
+  };
+
   selectNumOfGuests = () => {
     let numOfGuestOptions = [
       '1 Guest',
@@ -80,14 +88,6 @@ class AdminUpdateBookings extends Component {
         })}
       </select>
     );
-  };
-
-  seat1Class = seat1 => {
-    this.setState({ seat1Class: seat1 });
-  };
-
-  seat2Class = seat2 => {
-    this.setState({ seat2Class: seat2 });
   };
 
   render() {
@@ -135,8 +135,8 @@ class AdminUpdateBookings extends Component {
               <div className="col-md-8">
                 <Datepicker
                   getDate={this.getDate}
-                  seat1Class={this.seat1Class}
-                  seat2Class={this.seat2Class}
+                  seat1Class={this.isFirstSeatAvailable}
+                  seat2Class={this.isSecondSeatAvailable}
                 />
               </div>
               <div className="col-md-4">
@@ -162,13 +162,13 @@ class AdminUpdateBookings extends Component {
                   <div id="availableTimes">
                     <p>Available times:</p>
                     <Button
-                      className={this.state.seat1Class}
+                      className={this.state.firstSeatClass}
                       onClick={this.setTime}
                       value={'18.00'}
                       innerText={'18.00'}
                     />
                     <Button
-                      className={this.state.seat2Class}
+                      className={this.state.secondSeatClass}
                       onClick={this.setTime}
                       value={'21.00'}
                       innerText={'21.00'}

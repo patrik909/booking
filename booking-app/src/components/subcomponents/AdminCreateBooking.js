@@ -86,6 +86,7 @@ class AdminCreateBooking extends Component {
         })
       : null;
 
+    //If no fields are empty, submit booking
     this.state.firstName !== '' &&
     this.state.lastName !== '' &&
     this.state.email !== '' &&
