@@ -1,14 +1,20 @@
 import React from 'react';
+import Button from './Button.js';
 
-function BookingSubmitted(props) {
+function AdminBookingSubmitted(props) {
   return (
-    <div id="submittedBooking">
-      <h2>Thank you, {props.firstName}</h2>
-      <p>
-        We've sent you an e-mail with all the information about your booking!
-      </p>
+    <div id="adminBookingSubmittedContent" className="row">
+      <h2>This booking has been created</h2>
+      <div id="bookedDetails">
+        <p>{props.name}</p>
+        <p>{props.email}</p>
+        <p>{props.phoneNumber}</p>
+        <p>{props.numOfGuests} Guest(s) </p>
+        <p>{props.timeDate}</p>
+      </div>
+      <Button onClick={props.closeCreateBooking} innerText={'OK'} />
     </div>
   );
 }
 
-export default BookingSubmitted;
+export default AdminBookingSubmitted;

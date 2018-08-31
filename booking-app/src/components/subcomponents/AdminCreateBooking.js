@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Datepicker from '../Datepicker';
 import Button from '../parts/Button.js';
 import BookingGuestDetails from '../parts/BookingGuestDetails.js';
+import AdminBookingSubmitted from '../parts/AdminBookingSubmitted.js';
 
 class AdminCreateBooking extends Component {
   state = {
@@ -43,6 +44,22 @@ class AdminCreateBooking extends Component {
     this.setState({ secondSeatClass: seat });
   };
 
+  handleFirstNameInput = event => {
+    this.setState({ firstName: event.target.value });
+  };
+
+  handleLastNameInput = event => {
+    this.setState({ lastName: event.target.value });
+  };
+
+  handleEmailInput = event => {
+    this.setState({ email: event.target.value });
+  };
+
+  handlePhoneNumberInput = event => {
+    this.setState({ phoneNumber: event.target.value });
+  };
+
   checkIfInputIsEmpty = event => {
     event.preventDefault();
     /*if one of the fields are 
@@ -79,10 +96,6 @@ class AdminCreateBooking extends Component {
       ? this.submitBooking()
       : null;
   };
-  closeCreateBooking = event => {
-    event.preventDefault();
-    this.setState({ displayAdminBookingContent: 'create' });
-  };
 
   submitBooking = values => {
     values = {
@@ -109,31 +122,33 @@ class AdminCreateBooking extends Component {
     })
       .then(response => response.json())
       .then(() => {
-        console.log('done');
-        this.setState({
-          createBooking: 'hide',
-          bookingSubmitted: 'show',
-        });
+        this.setState({ displayAdminBookingContent: 'submitted' });
       })
       .catch(error => {
         console.log(error);
       });
   };
 
-  handleFirstNameInput = event => {
-    this.setState({ firstName: event.target.value });
-  };
-
-  handleLastNameInput = event => {
-    this.setState({ lastName: event.target.value });
-  };
-
-  handleEmailInput = event => {
-    this.setState({ email: event.target.value });
-  };
-
-  handlePhoneNumberInput = event => {
-    this.setState({ phoneNumber: event.target.value });
+  closeCreateBooking = event => {
+    event.preventDefault();
+    //Takes you back to create booking page and resets state
+    this.setState({
+      time: '',
+      date: '',
+      numOfGuests: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      errorName: '',
+      errorLastName: '',
+      errorEmail: '',
+      errorPhoneNumber: '',
+      errorDateTimeNumOfGuests: '',
+      firstSeatClass: 'hide',
+      secondSeatClass: 'hide',
+      displayAdminBookingContent: 'create',
+    });
   };
 
   render() {
@@ -154,6 +169,9 @@ class AdminCreateBooking extends Component {
             <div id="guestTime" className="col-3">
               <p id="numOfGuests">Number of Guest(s)</p>
               <select id="numOfGuestsDropdown" onChange={this.setNumOfGuests}>
+                <option value="" selected>
+                  Choose Guest(s)
+                </option>
                 <option value="1">1 Guest</option>
                 <option value="2">2 Guests</option>
                 <option value="3">3 Guests</option>
@@ -195,18 +213,14 @@ class AdminCreateBooking extends Component {
             </div>
           </div>
         ) : this.state.displayAdminBookingContent === 'submitted' ? (
-          <div
-            id="adminBookingSubmittedContent"
-            className={this.state.bookingSubmitted + ' row'}
-          >
-            booking info:
-            <p>{this.state.firstName + ' ' + this.state.lastName}</p>
-            <p>{this.state.phoneNumber}</p>
-            <p>{this.state.email}</p>
-            <p>{this.state.numOfGuests}</p>
-            <p>{this.state.time + ' | ' + this.state.date}</p>
-            <Button onClick={this.closeCreateBooking} innerText={'Ok'} />
-          </div>
+          <AdminBookingSubmitted
+            name={this.state.firstName + ' ' + this.state.lastName}
+            email={this.state.email}
+            phoneNumber={this.state.phoneNumber}
+            numOfGuests={this.state.numOfGuests}
+            timeDate={this.state.time + ' | ' + this.state.date}
+            closeCreateBooking={this.closeCreateBooking}
+          />
         ) : null}
       </div>
     );
