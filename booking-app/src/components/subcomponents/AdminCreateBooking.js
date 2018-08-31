@@ -67,18 +67,18 @@ class AdminCreateBooking extends Component {
     }
     if (this.state.numOfGuests === '') {
       this.setState({
-        errorDateTimeNumOfGuests: `Please make sure you've choosen date, time and number of guests`,
+        errorDateTimeNumOfGuests: `Please make sure you've choosen a Date, Time and Number of Guests`,
       });
     }
 
     if (
       this.state.firstName !== '' &&
-      !this.state.lastName !== '' &&
-      !this.state.email !== '' &&
-      !this.state.phoneNumber !== '' &&
-      !this.state.numOfGuests !== '' &&
-      !this.state.time !== '' &&
-      !this.state.date !== ''
+      this.state.lastName !== '' &&
+      this.state.email !== '' &&
+      this.state.phoneNumber !== '' &&
+      this.state.numOfGuests !== '' &&
+      this.state.time !== '' &&
+      this.state.date !== ''
     ) {
       this.sendBooking();
     }
@@ -149,7 +149,7 @@ class AdminCreateBooking extends Component {
     console.log(this.state.date);
     console.log(this.state.time);
     return (
-      <div id="adminCreateBooking" className={this.props.className}>
+      <div id="adminCreateBooking">
         <div
           id="adminCreateBookingContent"
           className={this.state.createBooking + ' row'}
@@ -161,7 +161,7 @@ class AdminCreateBooking extends Component {
               seat2Class={this.seat2Class}
             />
           </div>
-          <div className="col-3">
+          <div id="guestTime" className="col-3">
             <p id="numOfGuests">Number of Guest(s)</p>
             <select id="numOfGuestsDropdown" onChange={this.setNumOfGuests}>
               <option value="1">1 Guest</option>
@@ -185,7 +185,7 @@ class AdminCreateBooking extends Component {
                 innerText={'21.00'}
               />
             </div>
-            <p>{this.state.errorDateTimeNumOfGuests}</p>
+            <p className="text-danger">{this.state.errorDateTimeNumOfGuests}</p>
           </div>
           <div id="adminGuestDetails" className="col-4">
             <BookingGuestDetails

@@ -9,11 +9,8 @@ class AdminPage extends Component {
     allBookings: [],
   };
 
-  componentDidMount() {
-    this.fetchBookings();
-  }
-
   handleAdminPage = page => {
+    //Receives props to decide which page to display
     page === 'openCreateBooking'
       ? this.setState({ adminPage: 'adminCreateBooking' })
       : page === 'openViewUpdateBooking'
@@ -42,7 +39,6 @@ class AdminPage extends Component {
           <AdminViewUpdateBookings
             fetchAllBookings={this.fetchBookings}
             allBookings={this.state.allBookings}
-            className={this.state.adminViewUpdateBookingClass}
           />
         ) : null}
       </div>

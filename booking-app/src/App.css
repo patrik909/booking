@@ -27,6 +27,16 @@ button {
   cursor: pointer;
 }
 
+.errorMessageHolder {
+  height: 15px;
+  font-size: 0.8em;
+  margin-bottom: 15px;
+}
+
+.errorMessageHolder p {
+  padding-bottom: 10px;
+}
+
 .underline {
   border-bottom: 1px solid black;
   width: 100%;
@@ -393,18 +403,22 @@ h2 {
   color: black;
 }
 
+/* ---------------------------- */
 /* ---- ADMIN PAGE STYLING ---- */
+/* ---------------------------- */
 
-#adminWrapper,
-.container-full {
+#adminWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 1000px;
-  min-height: 400px;
+  min-height: 450px;
   padding: 25px 50px;
   margin: auto;
   background-color: rgb(73, 1, 1);
 }
 
-/* ADMIN CONTROL BUTTONS */
+/* -- ADMIN CONTROL BUTTONS -- */
 
 #adminControlButtons {
   padding-top: 10px;
@@ -426,8 +440,78 @@ h2 {
   letter-spacing: 1px;
 }
 
+/* -- ADMIN CREATE BOOKING -- */
+
+#adminCreateBookingContent {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+#adminCreateBookingDatepicker div {
+  width: 100%;
+}
+
+#adminCreateBookingContent #guestTime {
+  text-align: center;
+}
+
+#adminCreateBookingContent #availableTimes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#adminCreateBookingContent #numOfGuests {
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+
+#adminCreateBookingContent #numOfGuests {
+  margin-top: 10px;
+}
+
+#adminCreateBookingContent select {
+  margin-bottom: 30px;
+}
+
+#adminCreateBookingContent #guestTime p {
+  margin-top: 30px;
+}
+
+#adminGuestDetails {
+  text-align: center;
+}
+
+#adminGuestDetails form {
+  margin-top: 10px;
+}
+
+#adminGuestDetails input {
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+#adminGuestDetails button {
+  padding: 2px 15px;
+  background: #138e0c;
+  color: white;
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 5px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+}
+
 /* ADMIN VIEW/UPDATE SEARCHFIELD */
 
+/*
 #adminCreateBooking input {
   border: none;
   padding: 8px;
@@ -437,28 +521,6 @@ h2 {
   margin-top: 10px;
 }
 
-#adminCreateBooking p {
-  font-size: 0.8em;
-  margin-bottom: 6px;
-}
-
-#adminCreateBooking #numOfGuests {
-  color: white;
-  margin: 0;
-  margin-top: 2px;
-  font-size: 0.8em;
-  letter-spacing: 1px;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
-#adminCreateBooking select {
-  margin-bottom: 30px;
-}
-
-#adminGuestDetails  {
-  width: 100%;
-}
 
 #adminGuestDetails button {
   padding: 2px 15px;
@@ -467,6 +529,9 @@ h2 {
   width: 85%;
   margin: 15px 20px;
 }
+*/
+
+/* ---- BELOW WIP ----- */
 
 #adminBookingSubmittedContent {
   display: flex;
