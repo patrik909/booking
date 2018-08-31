@@ -5,16 +5,16 @@ import AdminViewUpdateBookings from './subcomponents/AdminViewUpdateBookings.js'
 
 class AdminPage extends Component {
   state = {
-    adminPage: '',
+    displayAdminPageContent: '',
     allBookings: [],
   };
 
   handleAdminPage = page => {
     //Receives props to decide which page to display
     page === 'openCreateBooking'
-      ? this.setState({ adminPage: 'adminCreateBooking' })
+      ? this.setState({ displayAdminPageContent: 'adminCreateBooking' })
       : page === 'openViewUpdateBooking'
-        ? this.setState({ adminPage: 'adminViewUpdateBookings' })
+        ? this.setState({ displayAdminPageContent: 'adminViewUpdateBookings' })
         : null;
   };
 
@@ -33,9 +33,9 @@ class AdminPage extends Component {
     return (
       <div id="adminWrapper" className="container">
         <AdminControlButtons manageAdminPage={this.handleAdminPage} />
-        {this.state.adminPage === 'adminCreateBooking' ? (
-          <AdminCreateBooking className={this.state.adminCreateBookingClass} />
-        ) : this.state.adminPage === 'adminViewUpdateBookings' ? (
+        {this.state.displayAdminPageContent === 'adminCreateBooking' ? (
+          <AdminCreateBooking />
+        ) : this.state.displayAdminPageContent === 'adminViewUpdateBookings' ? (
           <AdminViewUpdateBookings
             fetchAllBookings={this.fetchBookings}
             allBookings={this.state.allBookings}
