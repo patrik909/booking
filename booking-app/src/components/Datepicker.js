@@ -394,9 +394,18 @@ export default class Datepicker extends React.Component {
       seating1class: checkFullyBookedTimes2(day.toLocaleDateString()),
       seating2class: checkFullyBookedTimes1(day.toLocaleDateString()),
     });
-
     this.props.getDate(day.toLocaleDateString());
+    setTimeout(() => {
+      this.seatClass();
+    });
   }
+
+  seatClass = () => {
+    this.props.seat1Class
+      ? (this.props.seat1Class(this.state.seating1class),
+        this.props.seat2Class(this.state.seating2class))
+      : null;
+  };
 
   getTime = event => {
     event.target.value === 'seat1'
@@ -407,21 +416,22 @@ export default class Datepicker extends React.Component {
   };
 
   render() {
+    console.log(this.state.seating1class);
     return (
       <div>
         <DayPicker
           onDayClick={this.handleDayClick}
           selectedDays={this.state.selectedDay}
           disabledDays={[
-            //                    new Date(2018, 7, 30),
-            //                    new Date(2018, 7, 31),
+            new Date(2018, 7, 30),
+            new Date(2018, 7, 31),
             {
-              before: new Date(),
+              //              before: new Date(),
             },
           ]}
         />{' '}
         {this.state.selectedDay ? (
-          <div>
+          <div id="youPicked">
             <p>
               {' '}
               You clicked{' '}

@@ -17,6 +17,11 @@ h2 {
   text-align: center;
 }
 
+/* TA BORT DENNA */
+#adminWrapper #youPicked {
+  display: none;
+}
+
 button {
   border: none;
   cursor: pointer;
@@ -423,6 +428,52 @@ h2 {
 
 /* ADMIN VIEW/UPDATE SEARCHFIELD */
 
+#adminCreateBooking input {
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  margin: 0;
+  margin-top: 10px;
+}
+
+#adminCreateBooking p {
+  font-size: 0.8em;
+  margin-bottom: 6px;
+}
+
+#adminCreateBooking #numOfGuests {
+  color: white;
+  margin: 0;
+  margin-top: 2px;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+#adminCreateBooking select {
+  margin-bottom: 30px;
+}
+
+#adminGuestDetails  {
+  width: 100%;
+}
+
+#adminGuestDetails button {
+  padding: 2px 15px;
+  background: #138e0c;
+  color: white;
+  width: 85%;
+  margin: 15px 20px;
+}
+
+#adminBookingSubmittedContent {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
 #bookingSearch {
   font-size: 0.9em;
   padding: 25px 0 15px 0;
@@ -598,7 +649,7 @@ h2 {
 
 #customersBookingDetails p span {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 15px;
   font-weight: 800;
 }
 
@@ -609,18 +660,21 @@ h2 {
 #adminUpdateButtons {
   width: 100%;
   display: flex;
-  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
 }
 
 #adminUpdateButtons input {
+  height: 30px;
   color: white;
   border: none;
   text-transform: uppercase;
   font-weight: 600;
+  font-size: 0.8em;
   padding: 5px 10px;
   border-radius: 5px;
   text-align: center;
-  margin: 0 10px;
+  margin-right: 10px;
 }
 
 #adminUpdateButtons input:nth-child(1) {
@@ -629,6 +683,38 @@ h2 {
 
 #adminUpdateButtons input:nth-child(2) {
   background: #138e0c;
+}
+
+#updateBox {
+  height: 135px;
+}
+
+#updateBox p {
+  font-weight: 600;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+#updateBox select {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#availableTimes {
+  display: flex;
+  flex-direction: column;
+}
+
+#availableTimes button {
+  margin: 5px 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+  background: #474747;
+  border-radius: 8px;
+  width: 75%;
 }
 
 @media screen and (min-width: 750px) {

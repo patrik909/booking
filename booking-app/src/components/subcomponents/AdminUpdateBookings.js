@@ -5,12 +5,18 @@ import Datepicker from '../Datepicker';
 class AdminUpdateBookings extends Component {
   state = {
     selectedBooking: [],
-    newTime: '',
-    newDate: '',
+    time: '',
+    date: '',
+    seat1Class: '',
+    seat2Class: '',
   };
 
   componentWillReceiveProps(props) {
-    this.setState({ selectedBooking: props.selectedBooking });
+    this.setState({
+      selectedBooking: props.selectedBooking,
+      time: props.selectedBooking.time,
+      date: props.selectedBooking.date,
+    });
   }
 
   closeUpdateDiv = () => {
@@ -18,22 +24,15 @@ class AdminUpdateBookings extends Component {
   };
 
   getDate = date => {
-    this.setState({ newDate: date });
-  };
-
-  getTime = time => {
-    this.setState({ newTime: time });
+    this.setState({ date: date });
   };
 
   setTime = event => {
-    //      event.preventDefault();
-    //      this.setState({newTime: event.target.value})
-    //      console.log(event.target.value)
+    event.preventDefault();
+    this.setState({ time: event.target.value });
   };
 
   updateThisBooking = (values, bookingId) => {
-    console.log(values);
-    console.log(bookingId);
     fetch(`api/booking/${bookingId}`, {
       method: 'PUT',
       headers: {
@@ -67,7 +66,7 @@ class AdminUpdateBookings extends Component {
         {numOfGuestOptions.map((item, i) => {
           if (i === this.state.selectedBooking.num_of_guests - 1) {
             return (
-              <option value={i + 1} selected>
+              <option key={i} value={i + 1} selected>
                 {item}
               </option>
             );
@@ -81,6 +80,14 @@ class AdminUpdateBookings extends Component {
         })}
       </select>
     );
+  };
+
+  seat1Class = seat1 => {
+    this.setState({ seat1Class: seat1 });
+  };
+
+  seat2Class = seat2 => {
+    this.setState({ seat2Class: seat2 });
   };
 
   render() {
@@ -126,15 +133,19 @@ class AdminUpdateBookings extends Component {
             <h3>Update details</h3>
             <div className="row">
               <div className="col-md-8">
-                <Datepicker getDate={this.getDate} getTime={this.getTime} />
+                <Datepicker
+                  getDate={this.getDate}
+                  seat1Class={this.seat1Class}
+                  seat2Class={this.seat2Class}
+                />
               </div>
               <div className="col-md-4">
                 <form
                   onSubmit={event => {
                     const values = {
                       numOfGuests: event.target.guests.value,
-                      time: this.state.newTime,
-                      date: this.state.newDate,
+                      time: this.state.time,
+                      date: this.state.date,
                     };
                     event.preventDefault();
                     this.updateThisBooking(
@@ -146,26 +157,28 @@ class AdminUpdateBookings extends Component {
                   id="updateBox"
                   className={this.state.updateBoxClass}
                 >
+                  <p>Number of Guest(s)</p>
                   {this.selectNumOfGuests()}
-                  <div>
+                  <div id="availableTimes">
+                    <p>Available times:</p>
                     <Button
-                      className={'yo'}
+                      className={this.state.seat1Class}
                       onClick={this.setTime}
-                      innerText={'18.00'}
                       value={'18.00'}
+                      innerText={'18.00'}
                     />
                     <Button
-                      className={'yo'}
+                      className={this.state.seat2Class}
                       onClick={this.setTime}
-                      innerText={'21.00'}
                       value={'21.00'}
+                      innerText={'21.00'}
                     />
                   </div>
                   <p>{this.state.updateThisCustomersBookedTime}</p>
                   <div id="adminUpdateButtons">
                     <input
                       onClick={this.closeUpdateDiv}
-                      type="submit"
+                      type="button"
                       value="Cancel"
                     />
                     <input type="submit" form="updateBox" value="Update" />
