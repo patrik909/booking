@@ -197,6 +197,7 @@ h2 {
 
 .jumbotron {
   margin-bottom: 0 !important;
+  letter-spacing: 2px;
   -webkit-box-shadow: -2px 8px 6px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: -2px 8px 6px 0px rgba(0, 0, 0, 0.1);
   box-shadow: -2px 8px 6px 0px rgba(0, 0, 0, 0.1);
