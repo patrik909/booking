@@ -1,7 +1,10 @@
 import React from 'react';
 import DayPicker from '@kupibilet/react-day-picker';
 import '@kupibilet/react-day-picker/lib/style.css';
+
 import Button from './parts/Button.js';
+
+//import Moment from '@kupibilet/react-day-picker';
 
 const bookings = [
   {
@@ -292,7 +295,251 @@ const bookings = [
     time: 'seat2',
     date: '2018-08-22',
   },
+
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat1',
+    date: '2018-08-24',
+  },
+  {
+    id: 1,
+    guest_id: 1,
+    details_id: 1,
+    num_of_guests: 2,
+    time: 'seat2',
+    date: '2018-08-24',
+  },
 ];
+
+var dates = [];
+var fullyBookedDates = [];
 
 // group all bookings per day
 function groupBy(arrayToGroup, keyToGroupBy) {
@@ -303,20 +550,11 @@ function groupBy(arrayToGroup, keyToGroupBy) {
   }, {});
 }
 
-//console.log(groupBy(bookings, 'date'))
-
-var dates = [];
-var fullyBookedDates = [];
-
 const bookingsByDay = groupBy(bookings, 'date');
-// For each day see if the amount of bookings are greater than X.
-// Returns new Dates.
 
 const fullyBookedDays = Object.keys(bookingsByDay).filter(day => {
   dates.push(groupBy(bookingsByDay[day], 'time'));
 });
-
-console.log(dates);
 
 function checkFullyBookedDays() {
   for (let date of dates) {
@@ -326,6 +564,23 @@ function checkFullyBookedDays() {
   }
 }
 
+//disable days in daypicker if fully booked
+function disableDays(dates) {
+  var moment = require('moment');
+  var list = [];
+  var formattedList = [];
+
+  for (var i = 0; i < dates.length; i++) {
+    list.push(moment(new Date(dates[i])));
+  }
+
+  for (var i = 0; i < list.length; i++) {
+    formattedList.push(list[i]._d);
+  }
+  return formattedList;
+}
+
+//check if first seat is fully booked
 function checkFullyBookedTimes2(days) {
   const seating1 = [];
 
@@ -336,13 +591,13 @@ function checkFullyBookedTimes2(days) {
       }
     }
   }
+
   if (seating1.length >= 15) {
     return 'hide';
-  } else {
-    return 'allGood';
   }
 }
 
+//check if seccond seat is fully booked
 function checkFullyBookedTimes1(days) {
   const seating2 = [];
 
@@ -355,15 +610,16 @@ function checkFullyBookedTimes1(days) {
   }
 
   if (seating2.length >= 15) {
-    //console.log(seating1)
     return 'hide';
-  } else {
-    return 'allGood';
   }
 }
 
 checkFullyBookedDays();
-console.log(fullyBookedDates);
+
+const modifiers = {
+  disabled: disableDays(fullyBookedDates),
+  //disabled: before: new Date(),
+};
 
 export default class Datepicker extends React.Component {
   constructor(props) {
@@ -371,7 +627,6 @@ export default class Datepicker extends React.Component {
     this.handleDayClick = this.handleDayClick.bind(this);
     this.state = {
       selectedDay: undefined,
-      availibleTimes: '',
       seating1class: '',
       seating2class: '',
     };
@@ -425,6 +680,7 @@ export default class Datepicker extends React.Component {
     return (
       <div>
         <DayPicker
+          modifiers={modifiers}
           onDayClick={this.handleDayClick}
           selectedDays={new Date(2018, 8, 30)}
           disabledDays={[
@@ -437,14 +693,7 @@ export default class Datepicker extends React.Component {
         />{' '}
         {this.state.selectedDay ? (
           <div id="youPicked">
-            <p>
-              {' '}
-              You clicked{' '}
-              {
-                (this.state.selectedDay.toLocaleDateString(),
-                console.log(this.state.availibleTimes))
-              }
-            </p>
+            <p> You clicked {this.state.selectedDay.toLocaleDateString()}</p>
             <p> Avalible times: </p>
             <Button
               className={this.state.seating1class}
@@ -453,7 +702,7 @@ export default class Datepicker extends React.Component {
               innerText={'18.00'}
             />
             <Button
-              className={this.state.seating1class}
+              className={this.state.seating2class}
               onClick={this.getTime}
               value={'seat2'}
               innerText={'21.00'}
