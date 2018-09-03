@@ -23,9 +23,8 @@ function BookingGuestDetails(props) {
   }
 
   return (
-    <div id="GuestDetails">
-      <h2>Guest Details</h2>
-      <form className="row">
+    <div id="guestDetailsContent" className="col-12">
+      <form>
         <InputField
           type={'text'}
           name={'firstname'}
@@ -33,7 +32,9 @@ function BookingGuestDetails(props) {
           handle={props.handleFirstNameInput}
           className={'col-md-12'}
         />
-        <p className="text-danger">{errorNameMessage}</p>
+        <div className="errorMessageHolder">
+          <p className="text-danger">{errorNameMessage}</p>
+        </div>
         <InputField
           type={'text'}
           name={'lastname'}
@@ -41,7 +42,9 @@ function BookingGuestDetails(props) {
           handle={props.handleLastNameInput}
           className={'col-md-12'}
         />
-        <p className="text-danger">{errorLastNameMessage}</p>
+        <div className="errorMessageHolder">
+          <p className="text-danger">{errorLastNameMessage}</p>
+        </div>
         <InputField
           type={'text'}
           name={'email'}
@@ -49,7 +52,9 @@ function BookingGuestDetails(props) {
           className={'col-md-12'}
           handle={props.handleEmailInput}
         />
-        <p className="text-danger">{errorEmailMessage}</p>
+        <div className="errorMessageHolder">
+          <p className="text-danger">{errorEmailMessage}</p>
+        </div>
         <InputField
           type={'num'}
           name={'phonenumber'}
@@ -57,18 +62,8 @@ function BookingGuestDetails(props) {
           className={'col-md-12'}
           handle={props.handlePhoneNumberInput}
         />
-        <p className="text-danger">{errorPhoneMessage}</p>
-        <div id="guestDetailsButtons" className="row">
-          <div className="col-6 backButtonBooking">
-            <Button type="submit" onClick={props.backGuestDetails}>
-              Back
-            </Button>
-          </div>
-          <div className="col-6 nextButtonBooking">
-            <Button type="submit" onClick={props.setGuestDetails}>
-              Next
-            </Button>
-          </div>
+        <div className="errorMessageHolder">
+          <p className="text-danger">{errorPhoneMessage}</p>
         </div>
       </form>
     </div>
