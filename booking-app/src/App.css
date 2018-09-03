@@ -169,6 +169,8 @@ li hr {
   border-bottom: 2px solid white;
   border-top: 2px solid white;
   text-shadow: 1px 1px 2px rgb(53, 52, 52);
+  margin-left: -1.3rem;
+  letter-spacing: 2px;
 }
 
 .card {
@@ -194,6 +196,10 @@ h2 {
 
 .jumbotron {
   margin-bottom: 0 !important;
+  letter-spacing: 2px;
+  -webkit-box-shadow: -2px 8px 6px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: -2px 8px 6px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: -2px 8px 6px 0px rgba(0, 0, 0, 0.1);
 }
 .reservation-jumbo {
   background-image: url(images/restaurant.jpg);
