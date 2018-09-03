@@ -13,11 +13,6 @@
   margin: 0;
 }
 
-.DayPicker-Day--highlighted {
-  background-color: orange;
-  color: white;
-}
-
 #root {
   background-color: rgb(250, 243, 220);
 }
@@ -31,18 +26,33 @@ button {
   cursor: pointer;
 }
 
+select {
+  height: 40px;
+  background: white;
+  border: 1px solid #919191;
+}
+
 .errorMessageHolder {
   height: 15px;
   font-size: 0.8em;
   margin-bottom: 15px;
 }
 
-.errorMessageHolder p {
-  padding-bottom: 10px;
-}
-
 .hide {
   display: none !important;
+}
+
+/** ---- DAY PICKER ---- */
+
+.DayPicker-Day--highlighted {
+  background-color: orange;
+  color: white;
+}
+
+.DayPicker-Months {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 /* ---------------------------- */
@@ -192,6 +202,8 @@ p.lead {
 
 #BookingWrapper {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 #BookingWrapper h2 {
@@ -201,20 +213,9 @@ p.lead {
   letter-spacing: 3px;
 }
 
-#BookingWrapper form {
-  display: flex;
-  flex-direction: column;
-}
-
 #BookingWrapper input {
   margin-bottom: 15px;
   padding: 6px;
-}
-
-.DayPicker-Months {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
 }
 
 #bookingDetails button {
@@ -222,18 +223,13 @@ p.lead {
 }
 
 #bookingDetailsContent select {
-  margin-bottom: 15px;
-}
-
-#amountOfGuestsDropdown {
-  width: 150px;
-  padding: 10px;
+  margin: 5px 0 15px 0;
+  height: 40px;
 }
 
 #bookingGuestDetails {
   max-width: 420px;
   padding: 0 10px;
-  margin: auto;
 }
 
 #bookingGuestDetails form {
@@ -244,20 +240,22 @@ p.lead {
   border: none;
   padding: 8px;
   border-radius: 10px;
+  text-indent: 5px;
   margin: 0;
-  margin-top: 20px;
 }
 
 #bookingGuestDetails p {
-  margin: 0;
-  margin-top: 2px;
+  margin: 2px 0 0 0;
+  paddding-bottom: 0;
   font-size: 0.9em;
   letter-spacing: 1px;
   font-weight: 500;
 }
 
 #guestDetailsButtons {
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 #guestDetailsButtons div {
@@ -269,7 +267,8 @@ p.lead {
   width: 100px;
 }
 
-#submitBooking {
+#submitBooking p {
+  font-size: 0.8em;
   max-width: 420px;
   margin: auto;
 }
@@ -278,6 +277,7 @@ p.lead {
   width: 80%;
   margin: auto;
   margin-bottom: 30px;
+  border-bottom: 1px solid black;
 }
 
 #submitBooking p {
@@ -294,6 +294,7 @@ p.lead {
 
 #gdprDetails {
   font-weight: 600;
+  margin: 25px 0 10px 0;
 }
 
 #submitBookingButtons {
@@ -932,5 +933,13 @@ footer {
     text-align: center;
     letter-spacing: 2px;
     font-size: 1.2em;
+  }
+
+  #submitBooking p {
+    font-size: 1em;
+  }
+
+  #gdprDetails {
+    margin: 30px 0 20px 0;
   }
 }
