@@ -682,7 +682,6 @@ export default class Datepicker extends React.Component {
         <DayPicker
           modifiers={modifiers}
           onDayClick={this.handleDayClick}
-          selectedDays={new Date(2018, 8, 30)}
           disabledDays={[
             new Date(2018, 7, 30),
             new Date(2018, 7, 31),

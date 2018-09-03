@@ -1,7 +1,5 @@
 import React from 'react';
 import DayPickerInput from '@kupibilet/react-day-picker/DayPickerInput';
-import '@kupibilet/react-day-picker/lib/style.css';
-
 import Button from './parts/Button.js';
 
 //import Moment from '@kupibilet/react-day-picker';
@@ -633,6 +631,7 @@ export default class Datepicker extends React.Component {
   }
 
   handleDayClick(day, { selected, disabled }) {
+    console.log(day);
     if (disabled) {
       // Day is disabled, do nothing
       return;
@@ -672,8 +671,11 @@ export default class Datepicker extends React.Component {
 
   render() {
     console.log(this.state.seating1class);
+    console.log('hej');
+
     return (
       <div>
+        {'hej'}
         <DayPickerInput
           modifiers={modifiers}
           onDayClick={this.handleDayClick}

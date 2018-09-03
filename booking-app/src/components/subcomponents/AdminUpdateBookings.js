@@ -134,12 +134,7 @@ class AdminUpdateBookings extends Component {
             <h3>Update details</h3>
             <div className="row">
               <div className="col-md-8">
-                <DatepickerInput
-                  getDate={this.getDate}
-                  seat1Class={this.isFirstSeatAvailable}
-                  seat2Class={this.isSecondSeatAvailable}
-                  customersDate={this.state.selectedBooking.date}
-                />
+                <DatepickerInput />
               </div>
               <div className="col-md-4">
                 <form
