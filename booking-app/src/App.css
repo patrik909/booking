@@ -240,6 +240,10 @@ h2 {
   margin: 20px;
 }
 
+#bookingDetailsContent select {
+  margin-bottom: 15px;
+}
+
 #amountOfGuestsDropdown {
   width: 150px;
   padding: 10px;
@@ -547,13 +551,11 @@ h2 {
   margin-top: 20px;
 }
 
-/* ADMIN VIEW/UPDATE SEARCHFIELD */
+/* -- ADMIN VIEW/UPDATE SEARCHFIELD -- */
 
 #changeViewBooking {
   width: 100%;
 }
-
-/* ---- BELOW WIP ----- */
 
 #bookingSearch {
   font-size: 0.9em;

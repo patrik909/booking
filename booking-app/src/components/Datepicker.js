@@ -625,7 +625,7 @@ checkFullyBookedDays();
 
 const modifiers = {
   disabled: disableDays(fullyBookedDates),
-  highlighted: '',
+  highlighted: new Date(),
 };
 
 export default class Datepicker extends React.Component {
@@ -687,26 +687,6 @@ export default class Datepicker extends React.Component {
     return (
       <div>
         <DayPicker modifiers={modifiers} onDayClick={this.handleDayClick} />
-        {this.state.selectedDay ? (
-          <div id="youPicked">
-            <p> You clicked {this.state.selectedDay.toLocaleDateString()}</p>
-            <p> Avalible times: </p>
-            <Button
-              className={this.state.seating1class}
-              onClick={this.getTime}
-              value={'seat1'}
-              innerText={'18.00'}
-            />
-            <Button
-              className={this.state.seating2class}
-              onClick={this.getTime}
-              value={'seat2'}
-              innerText={'21.00'}
-            />
-          </div>
-        ) : (
-          <p> Please select a day. </p>
-        )}{' '}
       </div>
     );
   }

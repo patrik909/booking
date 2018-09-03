@@ -28,12 +28,24 @@ class BookingPage extends Component {
     addBookingDiv: 'bookingDetails',
     firstSeatClass: '',
     secondSeatClass: '',
+    firstSeatActived: '',
+    secondSeatActived: '',
   };
 
   /** --- Booking Details --- **/
 
   setTime = event => {
+    console.log('hej');
     this.setState({ time: event.target.value });
+    event.target.value === '18.00'
+      ? this.setState({
+          firstSeatActived: 'activeTime',
+          secondSeatActived: '',
+        })
+      : this.setState({
+          firstSeatActived: '',
+          secondSeatActived: 'activeTime',
+        });
   };
 
   getDate = date => {
@@ -168,16 +180,24 @@ class BookingPage extends Component {
               getTime={this.getTime}
               setAmountOfGuests={this.setAmountOfGuests}
               submitBookingDetails={this.submitBookingDetails}
+              isFirstSeatAvailable={this.isFirstSeatAvailable}
+              isSecondSeatAvailable={this.isSecondSeatAvailable}
             />
             <div id="availableTimes">
               <OurButton
-                className={this.state.firstSeatClass}
+                className={
+                  this.state.firstSeatClass + ' ' + this.state.firstSeatActived
+                }
                 onClick={this.setTime}
                 value={'18.00'}
                 innerText={'18.00'}
               />
               <OurButton
-                className={this.state.secondSeatClass}
+                className={
+                  this.state.secondSeatClass +
+                  ' ' +
+                  this.state.secondSeatActived
+                }
                 onClick={this.setTime}
                 value={'21.00'}
                 innerText={'21.00'}
