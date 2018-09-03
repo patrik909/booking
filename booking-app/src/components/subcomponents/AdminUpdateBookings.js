@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../parts/Button.js';
 import Datepicker from '../Datepicker';
+import DayPickerInput from '@kupibilet/react-day-picker/DayPickerInput';
 
 class AdminUpdateBookings extends Component {
   state = {
@@ -174,7 +175,9 @@ class AdminUpdateBookings extends Component {
                       innerText={'21.00'}
                     />
                   </div>
+
                   <p>{this.state.updateThisCustomersBookedTime}</p>
+                  <DayPickerInput value={this.state.date} id="bookingDate" />
                   <div id="adminUpdateButtons">
                     <input
                       onClick={this.closeUpdateDiv}
