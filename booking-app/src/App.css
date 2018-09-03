@@ -22,11 +22,6 @@ h2 {
   text-align: center;
 }
 
-/* TA BORT DENNA */
-#adminWrapper #youPicked {
-  display: none;
-}
-
 button {
   border: none;
   cursor: pointer;
@@ -42,20 +37,7 @@ button {
   padding-bottom: 10px;
 }
 
-.underline {
-  border-bottom: 1px solid black;
-  width: 100%;
-}
-
 .hide {
-  display: none !important;
-}
-
-.hide1 {
-  display: none !important;
-}
-
-.hide2 {
   display: none !important;
 }
 
@@ -83,9 +65,6 @@ a.nav-link:hover {
   text-decoration: none !important;
 }
 
-.navbar-brand a:hover {
-  color: azure !important;
-}
 .navbar {
   background-color: rgb(73, 1, 1);
 }
@@ -94,11 +73,6 @@ a.navbar-brand {
   font-family: 'Dancing Script', cursive;
   color: azure !important ;
   font-size: 2em;
-}
-
-.navbar-brand img {
-  width: 10%;
-  height: 10%;
 }
 
 li hr {
