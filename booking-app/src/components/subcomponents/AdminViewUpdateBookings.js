@@ -13,9 +13,12 @@ class AdminChangeViewBookings extends Component {
     updateDivClass: 'hide',
   };
 
+  componentDidMount() {
+    this.props.fetchAllBookings();
+  }
+
   componentWillReceiveProps(props) {
     this.setState({ allBookings: props.allBookings });
-    this.props.fetchAllBookings();
   }
 
   handleCustomersNameFilter = event => {
@@ -47,6 +50,7 @@ class AdminChangeViewBookings extends Component {
       updateDivClass: 'hide',
       bookingToUpdate: '',
     });
+    this.props.fetchAllBookings();
   };
 
   deleteBooking = event => {

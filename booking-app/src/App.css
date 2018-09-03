@@ -9,6 +9,11 @@
   margin: 0;
 }
 
+.DayPicker-Day--highlighted {
+  background-color: orange;
+  color: white;
+}
+
 #root {
   background-color: rgb(250, 243, 220);
 }
@@ -17,9 +22,24 @@ h2 {
   text-align: center;
 }
 
+/* TA BORT DENNA */
+#adminWrapper #youPicked {
+  display: none;
+}
+
 button {
   border: none;
   cursor: pointer;
+}
+
+.errorMessageHolder {
+  height: 15px;
+  font-size: 0.8em;
+  margin-bottom: 15px;
+}
+
+.errorMessageHolder p {
+  padding-bottom: 10px;
 }
 
 .underline {
@@ -99,7 +119,7 @@ li hr {
 /* ----HOME PAGE ---- */
 
 .home-wrapper {
-  padding: 0;
+  padding: 0 0 10px 0;
   margin: 0;
 }
 .home-jumbo {
@@ -150,6 +170,7 @@ li hr {
   border-top: 2px solid white;
   text-shadow: 1px 1px 2px rgb(53, 52, 52);
   margin-left: -1.3rem;
+  letter-spacing: 2px;
 }
 
 .card {
@@ -175,6 +196,10 @@ h2 {
 
 .jumbotron {
   margin-bottom: 0 !important;
+  letter-spacing: 2px;
+  -webkit-box-shadow: -2px 8px 6px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: -2px 8px 6px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: -2px 8px 6px 0px rgba(0, 0, 0, 0.1);
 }
 .reservation-jumbo {
   background-image: url(images/restaurant.jpg);
@@ -221,25 +246,33 @@ h2 {
   margin: 20px;
 }
 
+#bookingDetailsContent select {
+  margin-bottom: 15px;
+}
+
 #amountOfGuestsDropdown {
   width: 150px;
   padding: 10px;
 }
 
-#GuestDetails {
+#bookingGuestDetails {
   max-width: 420px;
   padding: 0 10px;
   margin: auto;
 }
 
-#GuestDetails h2 {
+#bookingGuestDetails h2 {
   margin: 30px 0 10px 0;
   font-weight: 700;
   font-size: 1.8em;
   letter-spacing: 5px;
 }
 
-#GuestDetails input {
+#bookingGuestDetails form {
+  width: 100%;
+}
+
+#bookingGuestDetails input {
   border: none;
   padding: 8px;
   border-radius: 10px;
@@ -247,12 +280,16 @@ h2 {
   margin-top: 20px;
 }
 
-#GuestDetails p {
+#bookingGuestDetails p {
   margin: 0;
   margin-top: 2px;
   font-size: 0.9em;
   letter-spacing: 1px;
   font-weight: 500;
+}
+
+#guestDetailsButtons {
+  margin: auto;
 }
 
 #guestDetailsButtons div {
@@ -384,23 +421,27 @@ h2 {
   color: black;
 }
 
+/* ---------------------------- */
 /* ---- ADMIN PAGE STYLING ---- */
+/* ---------------------------- */
 
-#adminWrapper,
-.container-full {
+#adminWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 1000px;
-  min-height: 400px;
-  padding: 25px 50px;
+  min-height: 450px;
+  padding: 25px 20px;
   margin: auto;
   background-color: rgb(73, 1, 1);
 }
 
-/* ADMIN CONTROL BUTTONS */
+/* -- ADMIN CONTROL BUTTONS -- */
 
 #adminControlButtons {
   padding-top: 10px;
   width: 500px;
-  margin: auto;
 }
 
 #adminControlButtons div {
@@ -417,7 +458,110 @@ h2 {
   letter-spacing: 1px;
 }
 
-/* ADMIN VIEW/UPDATE SEARCHFIELD */
+/* -- ADMIN CREATE BOOKING -- */
+
+#adminCreateBookingContent {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+#adminCreateBookingDatepicker div {
+  width: 100%;
+}
+
+#adminCreateBookingContent #guestTime {
+  text-align: center;
+}
+
+#adminCreateBookingContent #availableTimes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#adminCreateBookingContent #numOfGuests {
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+
+#adminCreateBookingContent #numOfGuests {
+  margin-top: 10px;
+}
+
+#adminCreateBookingContent select {
+  margin-bottom: 30px;
+}
+
+#adminCreateBookingContent #guestTime p {
+  margin-top: 30px;
+}
+
+#adminGuestDetails {
+  text-align: center;
+}
+
+#adminGuestDetails form {
+  margin-top: 10px;
+}
+
+#adminGuestDetails input {
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+#adminGuestDetails button {
+  padding: 2px 15px;
+  background: #138e0c;
+  color: white;
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 5px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+}
+
+/* -- ADMIN SUBMITTED BOOKING -- */
+
+#adminBookingSubmittedContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  height: 300px;
+}
+
+#adminBookingSubmittedContent h2 {
+  margin: 30px;
+  font-weight: 800;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+}
+
+#adminBookingSubmittedContent #bookedDetails p {
+  letter-spacing: 1px;
+  font-size: 0.8em;
+  margin: 4px;
+}
+
+#adminBookingSubmittedContent button {
+  font-weight: 600;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* -- ADMIN VIEW/UPDATE SEARCHFIELD -- */
+
+#changeViewBooking {
+  width: 100%;
+}
 
 #bookingSearch {
   font-size: 0.9em;
@@ -555,10 +699,11 @@ h2 {
 #adminUpdateDiv {
   margin-top: -60px;
   position: absolute;
+  padding: 0;
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   color: black;
-  width: 900px;
+  width: 920px;
   z-index: 1;
 }
 
@@ -584,31 +729,42 @@ h2 {
   border-right: 1px solid black;
 }
 
+#customersBookingDetails h3 {
+  margin-bottom: 20px;
+}
+
 #customersBookingDetails p {
   margin: 0;
 }
 
 #customersBookingDetails p span {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 15px;
   font-weight: 800;
+}
+
+#customersUpdateDetails h3 {
+  margin-bottom: 30px;
 }
 
 #adminUpdateButtons {
   width: 100%;
   display: flex;
-  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
 }
 
 #adminUpdateButtons input {
+  height: 30px;
   color: white;
   border: none;
   text-transform: uppercase;
   font-weight: 600;
+  font-size: 0.8em;
   padding: 5px 10px;
   border-radius: 5px;
   text-align: center;
-  margin: 0 10px;
+  margin-right: 10px;
 }
 
 #adminUpdateButtons input:nth-child(1) {
@@ -617,6 +773,43 @@ h2 {
 
 #adminUpdateButtons input:nth-child(2) {
   background: #138e0c;
+}
+
+#updateBox {
+  height: 135px;
+}
+
+#updateBox p {
+  font-weight: 600;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+#updateBox select {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#availableTimes {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+#availableTimes button {
+  margin: 5px 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+  background: #474747;
+  border-radius: 8px;
+}
+
+.activeTime {
+  background: grey !important;
 }
 
 @media screen and (min-width: 750px) {

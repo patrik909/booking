@@ -47,6 +47,13 @@ export default class Datepicker extends React.Component {
     this.props.getDate(moment(day).format('YYYY-MM-DD'));
   };
 
+  seatClass = () => {
+    this.props.seat1Class
+      ? (this.props.seat1Class(this.state.seating1class),
+        this.props.seat2Class(this.state.seating2class))
+      : null;
+  };
+
   getTime = event => {
     event.target.value === 'seat1'
       ? this.props.getTime('18.00')

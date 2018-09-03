@@ -13,7 +13,7 @@ Clone or download this repository and follow this guide.
 
 ### Usage
 
-Run the following to install **react**, **react-day-picker**, **bootstrap**, **fontawesome** and **react-router**.
+Run the following to install **react**, **react-day-picker**, **moment**, **bootstrap**, **fontawesome** and **react-router**.
 
 ```
 yarn
