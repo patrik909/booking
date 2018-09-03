@@ -13,6 +13,10 @@ class AdminChangeViewBookings extends Component {
     updateDivClass: 'hide',
   };
 
+  componentDidMount() {
+    this.props.fetchAllBookings();
+  }
+
   componentWillReceiveProps(props) {
     this.setState({ allBookings: props.allBookings });
   }

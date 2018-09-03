@@ -5,25 +5,17 @@ import AdminViewUpdateBookings from './subcomponents/AdminViewUpdateBookings.js'
 
 class AdminPage extends Component {
   state = {
-    adminCreateBookingClass: 'hide',
-    adminViewUpdateBookingClass: 'hide',
+    displayAdminPageContent: '',
     allBookings: [],
   };
 
-  componentDidMount() {
-    this.fetchBookings();
-  }
-
   handleAdminPage = page => {
+    //Receives props to decide which page to display
     page === 'openCreateBooking'
-      ? this.setState({
-          adminCreateBookingClass: 'show',
-          adminViewUpdateBookingClass: 'hide',
-        })
-      : this.setState({
-          adminCreateBookingClass: 'hide',
-          adminViewUpdateBookingClass: 'show',
-        });
+      ? this.setState({ displayAdminPageContent: 'adminCreateBooking' })
+      : page === 'openViewUpdateBooking'
+        ? this.setState({ displayAdminPageContent: 'adminViewUpdateBookings' })
+        : null;
   };
 
   fetchBookings = () => {
@@ -41,12 +33,14 @@ class AdminPage extends Component {
     return (
       <div id="adminWrapper" className="container">
         <AdminControlButtons manageAdminPage={this.handleAdminPage} />
-        <AdminCreateBooking className={this.state.adminCreateBookingClass} />
-        <AdminViewUpdateBookings
-          fetchAllBookings={this.fetchBookings}
-          allBookings={this.state.allBookings}
-          className={this.state.adminViewUpdateBookingClass}
-        />
+        {this.state.displayAdminPageContent === 'adminCreateBooking' ? (
+          <AdminCreateBooking manageAdminPage={this.handleAdminPage} />
+        ) : this.state.displayAdminPageContent === 'adminViewUpdateBookings' ? (
+          <AdminViewUpdateBookings
+            fetchAllBookings={this.fetchBookings}
+            allBookings={this.state.allBookings}
+          />
+        ) : null}
       </div>
     );
   }

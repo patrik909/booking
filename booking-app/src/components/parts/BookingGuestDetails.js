@@ -32,7 +32,9 @@ function BookingGuestDetails(props) {
           handle={props.handleFirstNameInput}
           className={'col-md-12'}
         />
-        <p className="text-danger">{errorNameMessage}</p>
+        <div className="errorMessageHolder">
+          <p className="text-danger">{errorNameMessage}</p>
+        </div>
         <InputField
           type={'text'}
           name={'lastname'}
@@ -40,7 +42,9 @@ function BookingGuestDetails(props) {
           handle={props.handleLastNameInput}
           className={'col-md-12'}
         />
-        <p className="text-danger">{errorLastNameMessage}</p>
+        <div className="errorMessageHolder">
+          <p className="text-danger">{errorLastNameMessage}</p>
+        </div>
         <InputField
           type={'text'}
           name={'email'}
@@ -48,7 +52,9 @@ function BookingGuestDetails(props) {
           className={'col-md-12'}
           handle={props.handleEmailInput}
         />
-        <p className="text-danger">{errorEmailMessage}</p>
+        <div className="errorMessageHolder">
+          <p className="text-danger">{errorEmailMessage}</p>
+        </div>
         <InputField
           type={'num'}
           name={'phonenumber'}
@@ -56,7 +62,9 @@ function BookingGuestDetails(props) {
           className={'col-md-12'}
           handle={props.handlePhoneNumberInput}
         />
-        <p className="text-danger">{errorPhoneMessage}</p>
+        <div className="errorMessageHolder">
+          <p className="text-danger">{errorPhoneMessage}</p>
+        </div>
       </form>
     </div>
   );
