@@ -23,7 +23,7 @@ class BookingPage extends Component {
     errorPhoneNumber: '',
     /** --- GDPR Details --- **/
     submitBoxClass: 'hide',
-    addBookingDiv: 'guestDetails',
+    addBookingDiv: 'bookingDetails',
   };
 
   /** --- Booking Details --- **/
@@ -33,6 +33,7 @@ class BookingPage extends Component {
   };
 
   getDate = date => {
+    console.log(date);
     this.setState({ date });
   };
 
