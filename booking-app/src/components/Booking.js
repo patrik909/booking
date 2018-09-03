@@ -8,6 +8,7 @@ class BookingPage extends Component {
   state = {
     /** --- Booking Details --- **/
     amountOfGuests: '',
+    time: '',
     date: '',
     /** --- Guest Details --- **/
     firstName: '',
@@ -26,12 +27,19 @@ class BookingPage extends Component {
 
   /** --- Booking Details --- **/
 
+  getTime = time => {
+    this.setState({ time });
+    console.log(time);
+  };
+
   getDate = date => {
     this.setState({ date });
+    console.log(date);
   };
 
   setAmountOfGuests = event => {
     this.setState({ amountOfGuests: event.target.value });
+    console.log(event.target.value);
   };
 
   /** ----- Guest Details----- **/
@@ -103,7 +111,7 @@ class BookingPage extends Component {
       details: {
         numOfGuests: this.state.amountOfGuests,
         // waiting from progress from datepicker.js
-        time: '21.00',
+        time: this.state.time,
         date: this.state.date,
       },
     };
@@ -140,6 +148,7 @@ class BookingPage extends Component {
         {this.state.addBookingDiv === 'bookingDetails' ? (
           <BookingDetails
             getDate={this.getDate}
+            getTime={this.getTime}
             setAmountOfGuests={this.setAmountOfGuests}
             submitBookingDetails={this.submitBookingDetails}
           />

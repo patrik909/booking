@@ -6,7 +6,7 @@ import AdminViewUpdateBookings from './subcomponents/AdminViewUpdateBookings.js'
 class AdminPage extends Component {
   state = {
     adminCreateBookingClass: 'hide',
-    adminViewUpdateBookingClass: 'show',
+    adminViewUpdateBookingClass: 'hide',
     allBookings: [],
   };
 
@@ -39,7 +39,7 @@ class AdminPage extends Component {
     return (
       <div id="adminWrapper" className="container">
         <AdminControlButtons manageAdminPage={this.handleAdminPage} />
-        <AdminCreateBooking />
+        <AdminCreateBooking className={this.state.adminCreateBookingClass} />
         <AdminViewUpdateBookings
           fetchAllBookings={this.fetchBookings}
           allBookings={this.state.allBookings}
