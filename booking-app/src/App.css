@@ -1,6 +1,10 @@
 /* ---FONTS---- */
 @import url('https://fonts.googleapis.com/css?family=Cardo:400,700|Dancing+Script');
 
+/* ---------------------------- */
+/* --------  GENERAL  --------- */
+/* ---------------------------- */
+
 .App {
   display: flex;
   flex-direction: column;
@@ -97,6 +101,10 @@ li hr {
   background-color: rgb(100, 36, 36);
 }
 @media screen and (min-width: 768px) {
+  /* ---------------------------- */
+  /* ---------  NAVBAR  --------- */
+  /* ---------------------------- */
+
   .navbar {
     min-height: 120px;
   }
