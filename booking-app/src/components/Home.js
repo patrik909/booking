@@ -14,7 +14,7 @@ class Home extends Component {
         <div className="reservation-wrapper">
           <div className="jumbotron  jumbotron-fluid home-jumbo">
             <div className="container container-jumbo">
-              <h1 className="display-4">
+              <h1 className="display-4 home-headline">
                 Le'licious
                 <img src={ChefHat} alt="Chef Hat" />
               </h1>

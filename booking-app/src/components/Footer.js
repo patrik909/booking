@@ -38,23 +38,23 @@ class Footer extends Component {
 
           <p className="footer-text credit">© Le'licious AB 2018 </p>
           <div className="freepik">
-            Icons made by{' '}
+            Icons made by
             <a
               href="http://www.freepik.com"
               title="Freepik"
               rel="noopener noreferrer"
             >
               Freepik
-            </a>{' '}
-            from{' '}
+            </a>
+            from
             <a
               href="https://www.flaticon.com/"
               title="Flaticon"
               rel="noopener noreferrer"
             >
               www.flaticon.com
-            </a>{' '}
-            is licensed by{' '}
+            </a>
+            is licensed by
             <a
               href="http://creativecommons.org/licenses/by/3.0/"
               title="Creative Commons BY 3.0"
