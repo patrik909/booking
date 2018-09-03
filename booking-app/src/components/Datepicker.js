@@ -415,13 +415,18 @@ export default class Datepicker extends React.Component {
         : null;
   };
 
+  getSelectedDate = () => {
+    console.log(this.props.customersDate);
+  };
+
   render() {
+    console.log(this.state.selectedDay);
     console.log(this.state.seating1class);
     return (
       <div>
         <DayPicker
           onDayClick={this.handleDayClick}
-          selectedDays={this.state.selectedDay}
+          selectedDays={new Date(2018, 8, 30)}
           disabledDays={[
             new Date(2018, 7, 30),
             new Date(2018, 7, 31),

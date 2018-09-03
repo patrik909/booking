@@ -137,6 +137,7 @@ class AdminUpdateBookings extends Component {
                   getDate={this.getDate}
                   seat1Class={this.isFirstSeatAvailable}
                   seat2Class={this.isSecondSeatAvailable}
+                  customersDate={this.state.selectedBooking.date}
                 />
               </div>
               <div className="col-md-4">
