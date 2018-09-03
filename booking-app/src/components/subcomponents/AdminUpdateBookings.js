@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../parts/Button.js';
-import Datepicker from '../Datepicker';
+import DatepickerInput from '../DatepickerInput.js';
 import DayPickerInput from '@kupibilet/react-day-picker/DayPickerInput';
 
 class AdminUpdateBookings extends Component {
@@ -134,7 +134,7 @@ class AdminUpdateBookings extends Component {
             <h3>Update details</h3>
             <div className="row">
               <div className="col-md-8">
-                <Datepicker
+                <DatepickerInput
                   getDate={this.getDate}
                   seat1Class={this.isFirstSeatAvailable}
                   seat2Class={this.isSecondSeatAvailable}
