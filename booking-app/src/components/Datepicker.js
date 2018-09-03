@@ -1,377 +1,611 @@
 import React from 'react';
 import DayPicker from '@kupibilet/react-day-picker';
 import '@kupibilet/react-day-picker/lib/style.css';
+
 import Button from './parts/Button.js';
 
+//import Moment from '@kupibilet/react-day-picker';
+
+
 const bookings = [
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-21"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-21"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+     {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-22"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-22"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    
+ {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-21',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
+  },{
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat1",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
+    {
+        "id": 1,
+        "guest_id": 1,
+        "details_id": 1,
+        "num_of_guests": 2,
+        "time": "seat2",
+        "date": "2018-08-24"
   },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
-  },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
-  },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat1',
-    date: '2018-08-22',
-  },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
-  },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
-  },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
-  },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
-  },
-  {
-    id: 1,
-    guest_id: 1,
-    details_id: 1,
-    num_of_guests: 2,
-    time: 'seat2',
-    date: '2018-08-22',
-  },
-];
+    ]
+
+
+var dates = []
+var fullyBookedDates = []
+
 
 // group all bookings per day
 function groupBy(arrayToGroup, keyToGroupBy) {
-  return arrayToGroup.reduce((previous, current) => {
-    (previous[current[keyToGroupBy]] =
-      previous[current[keyToGroupBy]] || []).push(current);
-    return previous;
-  }, {});
+    return arrayToGroup.reduce((previous, current) => {
+        (previous[current[keyToGroupBy]] =
+            previous[current[keyToGroupBy]] || []).push(current);
+        return previous;
+    }, {});
 }
 
-//console.log(groupBy(bookings, 'date'))
-
-var dates = [];
-var fullyBookedDates = [];
 
 const bookingsByDay = groupBy(bookings, 'date');
-// For each day see if the amount of bookings are greater than X.
-// Returns new Dates.
+
 
 const fullyBookedDays = Object.keys(bookingsByDay).filter(day => {
-  dates.push(groupBy(bookingsByDay[day], 'time'));
+    dates.push(groupBy(bookingsByDay[day], 'time'));
 });
 
-console.log(dates);
+
 
 function checkFullyBookedDays() {
-  for (let date of dates) {
-    if (date.seat2.length >= 15 && date.seat1.length >= 15) {
-      fullyBookedDates.push(date.seat2[0].date);
+    for (let date of dates) {
+        if (date.seat2.length >= 15 && date.seat1.length >= 15) {
+            fullyBookedDates.push(date.seat2[0].date);
+        }
     }
-  }
 }
 
+
+
+//disable days in daypicker if fully booked
+function disableDays(dates) {
+    var moment = require('moment');
+    var list = []
+    var formattedList = []
+
+    for (var i = 0; i < dates.length; i++) {
+        list.push(moment(new Date(dates[i])));
+    }
+
+    for (var i = 0; i < list.length; i++) {
+        formattedList.push(list[i]._d)
+    }
+    return formattedList
+}
+
+
+
+//check if first seat is fully booked
 function checkFullyBookedTimes2(days) {
-  const seating1 = [];
+    const seating1 = [];
 
-  for (let date of dates) {
-    for (var i = 0; i < date.seat1.length; i++) {
-      if (date.seat1[i].date === days) {
-        seating1.push(date.seat1[0].date);
-      }
+    for (let date of dates) {
+
+        for (var i = 0; i < date.seat1.length; i++) {
+            if (date.seat1[i].date === days) {
+                seating1.push(date.seat1[0].date)
+            }
+        }
     }
-  }
-  if (seating1.length >= 15) {
-    return 'hide';
-  } else {
-    return 'allGood';
-  }
+
+    if (seating1.length >= 15) {
+        return "hide"
+    }
 }
 
+
+
+//check if seccond seat is fully booked
 function checkFullyBookedTimes1(days) {
-  const seating2 = [];
+    const seating2 = [];
 
-  for (let date of dates) {
-    for (var i = 0; i < date.seat2.length; i++) {
-      if (date.seat2[i].date === days) {
-        seating2.push(date.seat2[0].date);
-      }
+    for (let date of dates) {
+        for (var i = 0; i < date.seat2.length; i++) {
+            if (date.seat2[i].date === days) {
+                seating2.push(date.seat2[0].date);
+            }
+        }
     }
-  }
 
-  if (seating2.length >= 15) {
-    //console.log(seating1)
-    return 'hide';
-  } else {
-    return 'allGood';
-  }
+    if (seating2.length >= 15) {
+        return 'hide';
+    }
 }
+
 
 checkFullyBookedDays();
-console.log(fullyBookedDates);
+
+const modifiers = {
+    disabled: disableDays(fullyBookedDates),
+    //disabled: before: new Date(),
+};
+
 
 export default class Datepicker extends React.Component {
+    
   constructor(props) {
     super(props);
     this.handleDayClick = this.handleDayClick.bind(this);
     this.state = {
       selectedDay: undefined,
-      availibleTimes: '',
       seating1class: '',
       seating2class: '',
     };
@@ -394,7 +628,6 @@ export default class Datepicker extends React.Component {
       seating1class: checkFullyBookedTimes2(day.toLocaleDateString()),
       seating2class: checkFullyBookedTimes1(day.toLocaleDateString()),
     });
-
     this.props.getDate(day.toLocaleDateString());
   }
 
@@ -410,15 +643,16 @@ export default class Datepicker extends React.Component {
     return (
       <div>
         <DayPicker
+          modifiers={modifiers}
           onDayClick={this.handleDayClick}
           selectedDays={this.state.selectedDay}
-          disabledDays={[
-            //                    new Date(2018, 7, 30),
-            //                    new Date(2018, 7, 31),
-            {
-              before: new Date(),
-            },
-          ]}
+//          disabledDays={[
+//        new Date(2017, 3, 12),
+//        new Date(2017, 3, 2),
+//        {
+//          before: new Date(2018, 7, 6),
+//        },
+//      ]}
         />{' '}
         {this.state.selectedDay ? (
           <div>
@@ -426,8 +660,7 @@ export default class Datepicker extends React.Component {
               {' '}
               You clicked{' '}
               {
-                (this.state.selectedDay.toLocaleDateString(),
-                console.log(this.state.availibleTimes))
+                (this.state.selectedDay.toLocaleDateString())
               }
             </p>
             <p> Avalible times: </p>
@@ -438,7 +671,7 @@ export default class Datepicker extends React.Component {
               innerText={'18.00'}
             />
             <Button
-              className={this.state.seating1class}
+              className={this.state.seating2class}
               onClick={this.getTime}
               value={'seat2'}
               innerText={'21.00'}
@@ -447,7 +680,10 @@ export default class Datepicker extends React.Component {
         ) : (
           <p> Please select a day. </p>
         )}{' '}
+    
+  
       </div>
+
     );
   }
 }
