@@ -41,13 +41,17 @@ button {
   display: none !important;
 }
 
-/* ----NAVBAR---- */
-.navbar-nav .nav-link {
-  text-align: center;
-}
+/* ---------------------------- */
+/* ---------  NAVBAR  --------- */
+/* ---------------------------- */
 
 .navbar-light .navbar-toggler {
   border-color: azure !important;
+}
+
+.navbar-toggler {
+  padding: 7px 13px !important;
+  font-size: 1.4em !important;
 }
 .fa-reorder {
   color: azure;
@@ -57,7 +61,9 @@ a.nav-link {
   font-family: 'Cardo', serif !important;
   font-weight: 400;
   font-size: 1.2em;
-  letter-spacing: 2px;
+  text-align: center;
+  letter-spacing: 3px;
+  transition: 150ms;
 }
 
 a.nav-link:hover {
@@ -65,20 +71,39 @@ a.nav-link:hover {
   text-decoration: none !important;
 }
 
+.navbar-brand a:hover {
+  color: azure !important;
+}
 .navbar {
   background-color: rgb(73, 1, 1);
+  min-height: 90px;
 }
 
 a.navbar-brand {
   font-family: 'Dancing Script', cursive;
   color: azure !important ;
-  font-size: 2em;
+  margin-left: 8px;
+  font-size: 3em;
+  display: flex;
+  align-items: center;
+}
+
+a.navbar-brand img {
+  height: 35px;
+  margin-left: 10px;
 }
 
 li hr {
   background-color: rgb(100, 36, 36);
 }
 @media screen and (min-width: 768px) {
+  .navbar {
+    min-height: 120px;
+  }
+
+  a.navbar-brand {
+    margin-left: 35px;
+  }
   li hr {
     display: none;
     color: rgb(100, 36, 36);
