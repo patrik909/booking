@@ -577,8 +577,14 @@ function disableDays(dates) {
   for (var i = 0; i < list.length; i++) {
     formattedList.push(list[i]._d);
   }
-  console.log(formattedList);
   return formattedList;
+}
+
+function defaultDate(date) {
+  var moment = require('moment');
+  let formatedDate = moment(new Date(date));
+
+  return (modifiers['highlighted'] = formatedDate._d);
 }
 
 //check if first seat is fully booked
@@ -619,7 +625,7 @@ checkFullyBookedDays();
 
 const modifiers = {
   disabled: disableDays(fullyBookedDates),
-  //  disabled: before: new Date(),
+  highlighted: '',
 };
 
 export default class Datepicker extends React.Component {
@@ -631,6 +637,10 @@ export default class Datepicker extends React.Component {
       seating1class: '',
       seating2class: '',
     };
+  }
+
+  componentWillReceiveProps(props) {
+    defaultDate(props.selectedDate);
   }
 
   handleDayClick(day, { selected, disabled }) {
@@ -671,13 +681,9 @@ export default class Datepicker extends React.Component {
         : null;
   };
 
-  getSelectedDate = () => {
-    console.log(this.props.customersDate);
-  };
-
   render() {
-    console.log(this.state.selectedDay);
-    console.log(this.state.seating1class);
+    console.log(this.state.customersDate);
+    console.log(this.props.selectedDate);
     return (
       <div>
         <DayPicker modifiers={modifiers} onDayClick={this.handleDayClick} />

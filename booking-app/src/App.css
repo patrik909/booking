@@ -9,6 +9,11 @@
   margin: 0;
 }
 
+.DayPicker-Day--highlighted {
+  background-color: orange;
+  color: white;
+}
+
 #root {
   background-color: rgb(250, 243, 220);
 }
@@ -114,7 +119,7 @@ li hr {
 /* ----HOME PAGE ---- */
 
 .home-wrapper {
-  padding: 0;
+  padding: 0 0 10px 0;
   margin: 0;
 }
 .home-jumbo {
@@ -164,7 +169,6 @@ li hr {
   border-bottom: 2px solid white;
   border-top: 2px solid white;
   text-shadow: 1px 1px 2px rgb(53, 52, 52);
-  margin-left: -1.3rem;
 }
 
 .card {
@@ -414,10 +418,11 @@ h2 {
 #adminWrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   width: 1000px;
   min-height: 450px;
-  padding: 25px 50px;
+  padding: 25px 20px;
   margin: auto;
   background-color: rgb(73, 1, 1);
 }
@@ -427,7 +432,6 @@ h2 {
 #adminControlButtons {
   padding-top: 10px;
   width: 500px;
-  margin: auto;
 }
 
 #adminControlButtons div {
@@ -544,6 +548,10 @@ h2 {
 }
 
 /* ADMIN VIEW/UPDATE SEARCHFIELD */
+
+#changeViewBooking {
+  width: 100%;
+}
 
 /* ---- BELOW WIP ----- */
 
@@ -683,10 +691,11 @@ h2 {
 #adminUpdateDiv {
   margin-top: -60px;
   position: absolute;
+  padding: 0;
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   color: black;
-  width: 900px;
+  width: 920px;
   z-index: 1;
 }
 
@@ -775,8 +784,10 @@ h2 {
 }
 
 #availableTimes {
+  margin: auto;
   display: flex;
   flex-direction: column;
+  width: 150px;
 }
 
 #availableTimes button {
@@ -787,7 +798,6 @@ h2 {
   color: white;
   background: #474747;
   border-radius: 8px;
-  width: 75%;
 }
 
 .activeTime {

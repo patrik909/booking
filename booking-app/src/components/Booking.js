@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import OurButton from './parts/Button.js';
 import { Button } from 'reactstrap';
 import BookingDetailsContent from './parts/BookingDetails.js';
 import BookingGuestDetailsContent from './parts/BookingGuestDetails.js';
@@ -25,16 +26,28 @@ class BookingPage extends Component {
     /** --- GDPR Details --- **/
     submitBoxClass: 'hide',
     addBookingDiv: 'bookingDetails',
+    firstSeatClass: '',
+    secondSeatClass: '',
   };
 
   /** --- Booking Details --- **/
 
-  getTime = time => {
-    this.setState({ time });
+  setTime = event => {
+    this.setState({ time: event.target.value });
   };
 
   getDate = date => {
     this.setState({ date });
+  };
+
+  isFirstSeatAvailable = seat => {
+    console.log(seat);
+    this.setState({ firstSeatClass: seat });
+  };
+
+  isSecondSeatAvailable = seat => {
+    console.log(seat);
+    this.setState({ secondSeatClass: seat });
   };
 
   setAmountOfGuests = event => {
@@ -156,6 +169,20 @@ class BookingPage extends Component {
               setAmountOfGuests={this.setAmountOfGuests}
               submitBookingDetails={this.submitBookingDetails}
             />
+            <div id="availableTimes">
+              <OurButton
+                className={this.state.firstSeatClass}
+                onClick={this.setTime}
+                value={'18.00'}
+                innerText={'18.00'}
+              />
+              <OurButton
+                className={this.state.secondSeatClass}
+                onClick={this.setTime}
+                value={'21.00'}
+                innerText={'21.00'}
+              />
+            </div>
             <div className="col-12">
               <Button type="submit" onClick={this.submitBookingDetails}>
                 Next

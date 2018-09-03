@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../parts/Button.js';
-import DatepickerInput from '../DatepickerInput.js';
-import DayPickerInput from '@kupibilet/react-day-picker/DayPickerInput';
+import Datepicker from '../Datepicker.js';
 
 class AdminUpdateBookings extends Component {
   state = {
@@ -10,8 +9,8 @@ class AdminUpdateBookings extends Component {
     firstSeatActived: '',
     secondSeatActived: '',
     date: '',
-    firstSeatClass: 'hide',
-    secondSeatClass: 'hide',
+    firstSeatClass: '',
+    secondSeatClass: '',
   };
 
   componentWillReceiveProps(props) {
@@ -20,6 +19,15 @@ class AdminUpdateBookings extends Component {
       time: props.selectedBooking.time,
       date: props.selectedBooking.date,
     });
+    props.selectedBooking.time === '18.00'
+      ? this.setState({
+          firstSeatActived: 'activeTime',
+          secondSeatActived: '',
+        })
+      : this.setState({
+          firstSeatActived: '',
+          secondSeatActived: 'activeTime',
+        });
   }
 
   closeUpdateDiv = () => {
@@ -27,6 +35,10 @@ class AdminUpdateBookings extends Component {
   };
 
   getDate = date => {
+    this.setState({
+      firstSeatActived: '',
+      secondSeatActived: '',
+    });
     this.setState({ date: date });
     console.log(date);
   };
@@ -146,10 +158,11 @@ class AdminUpdateBookings extends Component {
             <h3>Update details</h3>
             <div className="row">
               <div className="col-md-8">
-                <DatepickerInput
+                <Datepicker
                   getDate={this.getDate}
                   seat1Class={this.isFirstSeatAvailable}
                   seat2Class={this.isSecondSeatAvailable}
+                  selectedDate={this.state.date}
                 />
               </div>
               <div className="col-md-4">
@@ -197,7 +210,6 @@ class AdminUpdateBookings extends Component {
                   </div>
 
                   <p>{this.state.updateThisCustomersBookedTime}</p>
-                  <DayPickerInput value={this.state.date} id="bookingDate" />
                   <div id="adminUpdateButtons">
                     <input
                       onClick={this.closeUpdateDiv}
