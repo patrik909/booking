@@ -24,9 +24,11 @@ h2 {
 button {
   border: none;
   cursor: pointer;
+  outline: none;
 }
 
 select {
+  outline: none;
   height: 40px;
   background: white;
   border: 1px solid #919191;
@@ -38,6 +40,10 @@ select {
   margin-bottom: 15px;
 }
 
+input {
+  outline: none;
+}
+
 .hide {
   display: none !important;
 }
@@ -47,6 +53,29 @@ select {
   margin: auto;
   margin-bottom: 30px;
   border-bottom: 1px solid black;
+}
+
+/* ---- AVAILABLE TIMES ---- */
+
+#availableTimes {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+#availableTimes button {
+  margin: 5px 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+  background: #474747;
+  border-radius: 8px;
+}
+
+.activeTime {
+  background: grey !important;
 }
 
 /** ---- DAY PICKER ---- */
@@ -390,7 +419,7 @@ p.lead {
 }
 
 /* ---------------------------- */
-/* -------  ADMIN PAGE  ------- */
+/* ----------  ADMIN  --------- */
 /* ---------------------------- */
 
 #adminWrapper {
@@ -514,7 +543,7 @@ p.lead {
 
 #adminBookingSubmittedContent h2 {
   margin: 30px;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.2em;
   letter-spacing: 2px;
 }
@@ -540,7 +569,7 @@ p.lead {
 
 #bookingSearch {
   font-size: 0.9em;
-  padding: 25px 0 15px 0;
+  padding: 15px 0 25px 0;
   color: white;
 }
 
@@ -577,6 +606,11 @@ p.lead {
 }
 
 /* ADMIN VIEW/UPDATE BOOKING LIST */
+
+#changeViewBooking {
+  width: 1000px;
+  padding: 20px;
+}
 
 #bookingListTitles {
   margin: 0;
@@ -662,15 +696,6 @@ p.lead {
   color: white;
 }
 
-#noResultFound p {
-  padding: 30px;
-  letter-spacing: 2px;
-  font-weight: 600;
-  font-size: 0.9em;
-  text-align: center;
-  color: white;
-}
-
 #adminUpdateDiv {
   margin-top: -60px;
   position: absolute;
@@ -678,7 +703,7 @@ p.lead {
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   color: black;
-  width: 920px;
+  width: 100%;
   z-index: 1;
 }
 
@@ -710,6 +735,7 @@ p.lead {
 
 #customersBookingDetails p {
   margin: 0;
+  text-align: center;
 }
 
 #customersBookingDetails p span {
@@ -726,7 +752,6 @@ p.lead {
   width: 100%;
   display: flex;
   align-items: flex-end;
-  height: 100%;
 }
 
 #adminUpdateButtons input {
@@ -759,37 +784,46 @@ p.lead {
   font-size: 0.8em;
   letter-spacing: 1px;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 #updateBox select {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
-#availableTimes {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  width: 150px;
+#updateBox #availableTimes {
+  height: 180px;
 }
 
-#availableTimes button {
-  margin: 5px 0;
-  font-size: 1.2em;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: white;
-  background: #474747;
-  border-radius: 8px;
-}
+/* ---------------------------- */
+/* ------- CANCELLATION ------- */
+/* ---------------------------- */
 
-.activeTime {
-  background: grey !important;
-}
-
-/* CANCELLATION PAGE */
 .margin-auto {
   margin: auto;
+  padding: 40px 0;
+  letter-spacing: 1px;
+}
+
+.margin-auto .underline {
+  max-width: 300px;
+}
+
+.margin-auto h2 {
+  font-weight: 700;
+}
+
+.margin-auto h3 {
+  margin-bottom: 30px;
+}
+
+.margin-auto p {
+  margin: 5px;
+}
+
+.margin-auto p span {
+  font-weight: 600;
 }
 
 .text-center {
@@ -803,6 +837,7 @@ p.lead {
 
 .wrapper {
   padding: 3rem;
+  letter-spacing: 1px;
 }
 
 .heading {
@@ -811,6 +846,7 @@ p.lead {
 }
 
 .booking-details {
+  text-align: center;
   margin-bottom: 2.5rem;
   margin: auto;
 }
@@ -827,7 +863,13 @@ p.lead {
   margin-bottom: 2rem;
 }
 
-/* FOOTER  */
+.cancellation-inner-wrapper {
+  width: 30rem;
+}
+
+/* ---------------------------- */
+/* ---------  FOOTER  --------- */
+/* ---------------------------- */
 
 footer {
   background-color: rgb(73, 1, 1);
@@ -870,25 +912,9 @@ footer {
   color: rgb(224, 233, 233);
 }
 
-@media screen and (min-width: 750px) {
-  footer {
-    height: 200px;
-  }
-}
-
 .freepik {
   font-size: 0.5em;
 }
-
-.cancellation-inner-wrapper {
-  width: 30rem;
-}
-
-.wrapper {
-  padding: 1rem;
-}
-
-/* --- CLEANED CSS BELOW --- */
 
 @media screen and (min-width: 768px) {
   /* ---------------------------- */
@@ -902,6 +928,7 @@ footer {
   a.navbar-brand {
     margin-left: 35px;
   }
+
   li hr {
     display: none;
     color: rgb(100, 36, 36);
@@ -952,6 +979,7 @@ footer {
   #mapWrapper {
     height: 400px;
   }
+
   #contactDetailsLeft,
   #contactDetailsRight {
     padding: 0 40px;
@@ -963,5 +991,12 @@ footer {
 
   #contactDetailsRight p {
     text-align: left;
+  }
+  /* ---------------------------- */
+  /* ---------  FOOTER  --------- */
+  /* ---------------------------- */
+
+  footer {
+    height: 200px;
   }
 }
