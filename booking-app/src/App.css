@@ -790,6 +790,10 @@ h2 {
   width: 75%;
 }
 
+.activeTime {
+  background: grey !important;
+}
+
 @media screen and (min-width: 750px) {
   #MapWrapper {
     height: 400px;

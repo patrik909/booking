@@ -9,6 +9,7 @@ class BookingPage extends Component {
   state = {
     /** --- Booking Details --- **/
     amountOfGuests: '',
+    timeActived: '',
     time: '',
     date: '',
     /** --- Guest Details --- **/

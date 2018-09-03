@@ -575,6 +575,7 @@ function disableDays(dates) {
   for (var i = 0; i < list.length; i++) {
     formattedList.push(list[i]._d);
   }
+  console.log(formattedList);
   return formattedList;
 }
 
@@ -627,34 +628,47 @@ export default class Datepicker extends React.Component {
       selectedDay: undefined,
       seating1class: '',
       seating2class: '',
+      isEmpty: true,
+      isDisabled: false,
     };
   }
 
-  handleDayClick(day, { selected, disabled }) {
-    console.log(day);
-    if (disabled) {
-      // Day is disabled, do nothing
-      return;
-    }
-    if (selected) {
-      // Unselect the day if already selected
-      this.setState({
-        selectedDay: undefined,
-      });
-      return;
-    }
+  handleDayChange = (selectedDay, modifiers, dayPickerInput) => {
+    const input = dayPickerInput.getInput();
     this.setState({
-      selectedDay: day,
-      seating1class: checkFullyBookedTimes2(day.toLocaleDateString()),
-      seating2class: checkFullyBookedTimes1(day.toLocaleDateString()),
+      selectedDay,
+      isEmpty: !input.value.trim(),
+      isValidDay: typeof selectedDay !== 'undefined',
+      isDisabled: modifiers.disabled === true,
     });
-    this.props.getDate(day.toLocaleDateString());
-    setTimeout(() => {
-      this.seatClass();
-    });
-  }
+  };
+
+  //  handleDayClick(day, { selected, disabled }) {
+  //    if (disabled) {
+  //      // Day is disabled, do nothing
+  //      return;
+  //    }
+  //    if (selected) {
+  //      // Unselect the day if already selected
+  //      this.setState({
+  //        selectedDay: undefined,
+  //      });
+  //      return;
+  //    }
+  //    this.setState({
+  //      selectedDay: day,
+  //      seating1class: checkFullyBookedTimes2(day.toLocaleDateString()),
+  //      seating2class: checkFullyBookedTimes1(day.toLocaleDateString()),
+  //    });
+  //    this.props.getDate(day.toLocaleDateString());
+  //      console.log(day)
+  //    setTimeout(() => {
+  //      this.seatClass();
+  //    });
+  //  }
 
   seatClass = () => {
+    console.log('hej');
     this.props.seat1Class
       ? (this.props.seat1Class(this.state.seating1class),
         this.props.seat2Class(this.state.seating2class))
@@ -671,23 +685,13 @@ export default class Datepicker extends React.Component {
 
   render() {
     console.log(this.state.seating1class);
-    console.log('hej');
-
     return (
       <div>
-        {'hej'}
         <DayPickerInput
           modifiers={modifiers}
-          onDayClick={this.handleDayClick}
+          onDayChange={this.handleDayChange}
           selectedDays={this.state.selectedDay}
-          disabledDays={[
-            new Date(2018, 7, 30),
-            new Date(2018, 7, 31),
-            {
-              //              before: new Date(),
-            },
-          ]}
-        />{' '}
+        />
         {this.state.selectedDay ? (
           <div id="youPicked">
             <p> You clicked {this.state.selectedDay.toLocaleDateString()}</p>

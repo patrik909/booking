@@ -7,6 +7,8 @@ class AdminUpdateBookings extends Component {
   state = {
     selectedBooking: [],
     time: '',
+    firstSeatActived: '',
+    secondSeatActived: '',
     date: '',
     firstSeatClass: 'hide',
     secondSeatClass: 'hide',
@@ -26,11 +28,21 @@ class AdminUpdateBookings extends Component {
 
   getDate = date => {
     this.setState({ date: date });
+    console.log(date);
   };
 
   setTime = event => {
     event.preventDefault();
     this.setState({ time: event.target.value });
+    event.target.value === '18.00'
+      ? this.setState({
+          firstSeatActived: 'activeTime',
+          secondSeatActived: '',
+        })
+      : this.setState({
+          firstSeatActived: '',
+          secondSeatActived: 'activeTime',
+        });
   };
 
   updateThisBooking = (values, bookingId) => {
@@ -134,7 +146,11 @@ class AdminUpdateBookings extends Component {
             <h3>Update details</h3>
             <div className="row">
               <div className="col-md-8">
-                <DatepickerInput />
+                <DatepickerInput
+                  getDate={this.getDate}
+                  seat1Class={this.isFirstSeatAvailable}
+                  seat2Class={this.isSecondSeatAvailable}
+                />
               </div>
               <div className="col-md-4">
                 <form
@@ -159,13 +175,21 @@ class AdminUpdateBookings extends Component {
                   <div id="availableTimes">
                     <p>Available times:</p>
                     <Button
-                      className={this.state.firstSeatClass}
+                      className={
+                        this.state.firstSeatClass +
+                        ' ' +
+                        this.state.firstSeatActived
+                      }
                       onClick={this.setTime}
                       value={'18.00'}
                       innerText={'18.00'}
                     />
                     <Button
-                      className={this.state.secondSeatClass}
+                      className={
+                        this.state.secondSeatClass +
+                        ' ' +
+                        this.state.secondSeatActived
+                      }
                       onClick={this.setTime}
                       value={'21.00'}
                       innerText={'21.00'}

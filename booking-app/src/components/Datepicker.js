@@ -563,7 +563,7 @@ function checkFullyBookedDays() {
     }
   }
 }
-
+//const jaha = ["2018-08-23" , "2018-08-15"]
 //disable days in daypicker if fully booked
 function disableDays(dates) {
   var moment = require('moment');
@@ -577,6 +577,7 @@ function disableDays(dates) {
   for (var i = 0; i < list.length; i++) {
     formattedList.push(list[i]._d);
   }
+  console.log(formattedList);
   return formattedList;
 }
 
@@ -618,7 +619,7 @@ checkFullyBookedDays();
 
 const modifiers = {
   disabled: disableDays(fullyBookedDates),
-  //disabled: before: new Date(),
+  //  disabled: before: new Date(),
 };
 
 export default class Datepicker extends React.Component {
@@ -679,17 +680,7 @@ export default class Datepicker extends React.Component {
     console.log(this.state.seating1class);
     return (
       <div>
-        <DayPicker
-          modifiers={modifiers}
-          onDayClick={this.handleDayClick}
-          disabledDays={[
-            new Date(2018, 7, 30),
-            new Date(2018, 7, 31),
-            {
-              //              before: new Date(),
-            },
-          ]}
-        />{' '}
+        <DayPicker modifiers={modifiers} onDayClick={this.handleDayClick} />
         {this.state.selectedDay ? (
           <div id="youPicked">
             <p> You clicked {this.state.selectedDay.toLocaleDateString()}</p>
