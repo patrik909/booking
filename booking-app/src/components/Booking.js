@@ -172,7 +172,7 @@ class BookingPage extends Component {
 
   render() {
     return (
-      <div id="BookingWrapper" className="container">
+      <div id="bookingWrapper" className="container">
         {this.state.addBookingDiv === 'bookingDetails' ? (
           <div id="bookingDetails" className="row">
             <h2 className="col-12">Booking Details</h2>

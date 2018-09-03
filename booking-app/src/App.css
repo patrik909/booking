@@ -42,6 +42,13 @@ select {
   display: none !important;
 }
 
+.underline {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 30px;
+  border-bottom: 1px solid black;
+}
+
 /** ---- DAY PICKER ---- */
 
 .DayPicker-Day--highlighted {
@@ -200,20 +207,20 @@ p.lead {
   background-position: center bottom;
 }
 
-#BookingWrapper {
+#bookingWrapper {
   text-align: center;
   display: flex;
   justify-content: center;
 }
 
-#BookingWrapper h2 {
+#bookingWrapper h2 {
   margin: 30px 0;
   font-weight: 700;
   font-size: 1.8em;
   letter-spacing: 3px;
 }
 
-#BookingWrapper input {
+#bookingWrapper input {
   margin-bottom: 15px;
   padding: 6px;
 }
@@ -271,13 +278,6 @@ p.lead {
   font-size: 0.8em;
   max-width: 420px;
   margin: auto;
-}
-
-#submitBooking .underline {
-  width: 80%;
-  margin: auto;
-  margin-bottom: 30px;
-  border-bottom: 1px solid black;
 }
 
 #submitBooking p {
@@ -338,41 +338,54 @@ p.lead {
   margin-bottom: 80px;
 }
 
-/* ---- CONTACT PAGE  ---- */
+/* ---------------------------- */
+/* --------  CONTACT  --------- */
+/* ---------------------------- */
 
-#ContactWrapper {
+#contactWrapper {
   color: black;
 }
+
 .row {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-#MapWrapper {
+
+#mapWrapper {
   width: 100%;
   height: 300px;
   color: white;
 }
 
-#ContactDetailsWrapper {
-  padding: 60px 0;
+#contactWrapper h2 {
+  margin: 30px 0;
 }
 
-#ContactDetailsWrapper p {
+#contactWrapper .underline {
+  max-width: 400px;
+}
+
+#contactDetailsWrapper {
+  padding-top: 10px;
+  padding-bottom: 60px;
+}
+
+#contactDetailsWrapper p {
   text-align: center;
   margin: 0;
 }
 
-#ContactDetailsWrapper img {
+#contactDetailsWrapper img {
   margin-right: 10px;
   height: 20px;
 }
 
-#ContactDetailsWrapper .fa {
+#contactDetailsWrapper .fa {
   color: black;
   margin: 10px;
 }
 
-#ContactDetailsWrapper a {
+#contactDetailsWrapper a {
   color: black;
 }
 
@@ -767,24 +780,6 @@ p.lead {
   background: grey !important;
 }
 
-@media screen and (min-width: 750px) {
-  #MapWrapper {
-    height: 400px;
-  }
-  #ContactDetailsLeft,
-  #ContactDetailsRight {
-    padding: 0 40px;
-  }
-
-  #ContactDetailsLeft p {
-    text-align: right;
-  }
-
-  #ContactDetailsRight p {
-    text-align: left;
-  }
-}
-
 /* CANCELLATION PAGE */
 .margin-auto {
   margin: auto;
@@ -941,5 +936,24 @@ footer {
 
   #gdprDetails {
     margin: 30px 0 20px 0;
+  }
+  /* ---------------------------- */
+  /* --------  BOOKING  --------- */
+  /* ---------------------------- */
+
+  #mapWrapper {
+    height: 400px;
+  }
+  #contactDetailsLeft,
+  #contactDetailsRight {
+    padding: 0 40px;
+  }
+
+  #contactDetailsLeft p {
+    text-align: right;
+  }
+
+  #contactDetailsRight p {
+    text-align: left;
   }
 }
