@@ -34,10 +34,11 @@ class BookingPage extends Component {
 
   /** --- Booking Details --- **/
 
-  handleTimeChanged = time => {
-    console.log('hej');
-    this.setState({ time });
-    time === '18.00'
+  setTime = event => {
+    event.target.value;
+    console.log(event.target.value);
+    this.setState({ time: event.target.value });
+    event.target.value === '18.00'
       ? this.setState({
           firstSeatActived: 'activeTime',
           secondSeatActived: '',
