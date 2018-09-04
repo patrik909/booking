@@ -322,16 +322,12 @@ p.lead {
 }
 
 #bookingDetails button {
-  margin: 20px 0;
-  padding: 10px 20px;
+  margin: 20px;
+  padding: 10px 15px;
 }
 
 .timeButtonContainer {
   margin-bottom: 2rem;
-}
-
-.timeButtonContainer button {
-  margin: 10px !important;
 }
 
 #bookingDetailsContent select {
