@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 //images
-import TestImage from './../images/food.jpg';
+import Food from './../images/food.jpg';
 import ChefHat from './../images/logo.svg';
 import Drinks from './../images/drinks.jpg';
 import EnjoyDinner from './../images/enjoy-dinner.jpg';
@@ -42,7 +42,7 @@ class Home extends Component {
               </div>
             </div>
             <div className="card">
-              <img className="card-img-top" src={TestImage} alt="Card  cap" />
+              <img className="card-img-top" src={Food} alt="Card  cap" />
               <div className="card-img-overlay d-flex">
                 <div className="my-auto mx-auto text-center">
                   <h2 className="card-title">Heavenly food</h2>
