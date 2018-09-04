@@ -14,9 +14,15 @@ function BookingSubmitBooking(props) {
         </p>
       </div>
       <div id="gdprDetails" className="col-12">
-        <p>{props.name}</p>
-        <p>{props.email}</p>
-        <p>{props.phone}</p>
+        <p>Booking information</p>
+        <br />
+        <p>date: {props.date}</p>
+        <p>time: {props.time}</p>
+        <p>number of guests: {props.amountOfGuests}</p>
+        <br />
+        <p>name: {props.name}</p>
+        <p>email: {props.email}</p>
+        <p>phonenumber: {props.phone}</p>
       </div>
       <div id="submitBookingButtons" className="row">
         <div className="col-6 backButtonBooking">

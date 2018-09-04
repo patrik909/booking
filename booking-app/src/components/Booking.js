@@ -210,6 +210,9 @@ class BookingPage extends Component {
             name={this.state.firstName + ' ' + this.state.lastName}
             email={this.state.email}
             phone={this.state.phoneNumber}
+            time={this.state.time}
+            date={this.state.date}
+            amountOfGuests={this.state.amountOfGuests}
           />
         ) : this.state.addBookingDiv === 'bookingSubmitted' ? (
           <BookingSubmitted firstName={this.state.firstName} />
