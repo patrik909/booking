@@ -117,7 +117,7 @@ a.nav-link {
 }
 
 a.nav-link:hover {
-  color: #cbbb9f !important;
+  color: rgb(250, 187, 110) !important;
   text-decoration: none !important;
 }
 
