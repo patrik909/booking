@@ -147,6 +147,10 @@ class AdminCreateBooking extends Component {
     });
   };
 
+  closeGlobalErrorMessage = () => {
+    this.setState({ globalErrorMessage: false });
+  };
+
   render() {
     return (
       <div id="adminCreateBooking">

@@ -3,9 +3,12 @@ import AdminUpdateBookings from './AdminUpdateBookings.js';
 import AdminViewUpdateSearch from '../parts/AdminViewUpdateSearch.js';
 import AdminViewBookingListTitles from '../parts/AdminViewBookingListTitles.js';
 import AdminAllBookingsList from '../parts/AdminAllBookingsList.js';
+import ErrorMessage from '../ErrorMessage.js';
+import ErrorMessageContent from '../parts/ErrorMessageContent.js';
 
 class AdminChangeViewBookings extends Component {
   state = {
+    globalErrorMessage: false,
     selectedBooking: [],
     allBookings: [],
     customersNameFilter: '',
@@ -61,13 +64,24 @@ class AdminChangeViewBookings extends Component {
         this.props.fetchAllBookings();
       })
       .catch(() => {
-        console.log('error');
+        this.setState({ globalErrorMessage: true });
       });
+  };
+
+  closeGlobalErrorMessage = () => {
+    this.setState({ globalErrorMessage: false });
   };
 
   render() {
     return (
       <div id="changeViewBooking" className={this.props.className}>
+        {this.state.globalErrorMessage === true ? (
+          <ErrorMessage element={document.getElementById('modal')}>
+            <ErrorMessageContent
+              closeGlobalErrorMessage={this.closeGlobalErrorMessage}
+            />
+          </ErrorMessage>
+        ) : null}
         <AdminUpdateBookings
           selectedBookingFirstname={this.state.selectedBooking.firstname}
           selectedBookingLastname={this.state.selectedBooking.lastname}
