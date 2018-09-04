@@ -38,7 +38,7 @@ class Footer extends Component {
 
           <p className="footer-text credit">© Le'licious AB 2018 </p>
           <div className="freepik">
-            Icons made by
+            Icons made by &nbsp;
             <a
               href="http://www.freepik.com"
               title="Freepik"
@@ -46,7 +46,7 @@ class Footer extends Component {
             >
               Freepik
             </a>
-            from
+            &nbsp; from &nbsp;
             <a
               href="https://www.flaticon.com/"
               title="Flaticon"
@@ -54,7 +54,7 @@ class Footer extends Component {
             >
               www.flaticon.com
             </a>
-            is licensed by
+            &nbsp; is licensed by&nbsp;
             <a
               href="http://creativecommons.org/licenses/by/3.0/"
               title="Creative Commons BY 3.0"

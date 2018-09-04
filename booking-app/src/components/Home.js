@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 //images
 import TestImage from './../images/food.jpg';
-import ChefHat from './../images/chef-hat.svg';
+import ChefHat from './../images/logo.svg';
 import Drinks from './../images/drinks.jpg';
 import EnjoyDinner from './../images/enjoy-dinner.jpg';
 
