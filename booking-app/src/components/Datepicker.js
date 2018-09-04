@@ -133,13 +133,13 @@ export default class Datepicker extends React.Component {
         <div id="availableTimes" className="row-md-12 row-lg-6">
           <p className="availableTimesInfo">Available times</p>
           <div className="timeButtonContainer">
-            <OurButton
+            <Button
               className={seating1class + ' ' + this.state.firstSeatActived}
               onClick={this.setTime}
               value={'18.00'}
               innerText={'18.00'}
             />
-            <OurButton
+            <Button
               className={seating2class + ' ' + this.state.secondSeatActived}
               onClick={this.setTime}
               value={'21.00'}
