@@ -1,6 +1,5 @@
 import React from 'react';
 import InputField from './InputField.js';
-import { Button } from 'reactstrap';
 
 function BookingGuestDetails(props) {
   //if its in an error state then display the error message
