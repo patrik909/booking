@@ -3,9 +3,12 @@ import Datepicker from '../Datepicker';
 import Button from '../parts/Button.js';
 import BookingGuestDetails from '../parts/BookingGuestDetails.js';
 import AdminBookingSubmitted from '../parts/AdminBookingSubmitted.js';
+import ErrorMessage from '../ErrorMessage.js';
+import ErrorMessageContent from '../parts/ErrorMessageContent.js';
 
 class AdminCreateBooking extends Component {
   state = {
+    globalErrorMessage: false,
     time: '',
     date: '',
     numOfGuests: '',
@@ -118,7 +121,7 @@ class AdminCreateBooking extends Component {
         this.setState({ displayAdminBookingContent: 'submitted' });
       })
       .catch(error => {
-        console.log(error);
+        this.setState({ globalErrorMessage: true });
       });
   };
 
@@ -147,6 +150,13 @@ class AdminCreateBooking extends Component {
   render() {
     return (
       <div id="adminCreateBooking">
+        {this.state.globalErrorMessage === true ? (
+          <ErrorMessage element={document.getElementById('modal')}>
+            <ErrorMessageContent
+              closeGlobalErrorMessage={this.closeGlobalErrorMessage}
+            />
+          </ErrorMessage>
+        ) : null}
         {this.state.displayAdminBookingContent === 'create' ? (
           <div
             id="adminCreateBookingContent"
