@@ -76,9 +76,6 @@ class AdminCreateBooking extends Component {
       });
     }
 
-    console.log(this.state.numOfGuests);
-    console.log(this.state.time);
-    console.log(this.state.date);
     //If no fields are empty, submit booking
     if (
       this.state.firstName !== '' &&
