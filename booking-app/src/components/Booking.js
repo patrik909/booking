@@ -170,7 +170,11 @@ class BookingPage extends Component {
             />
 
             <div className="col-12">
-              <Button type="submit" onClick={this.submitBookingDetails}>
+              <Button
+                className="col-md-12 col-lg-1"
+                type="submit"
+                onClick={this.submitBookingDetails}
+              >
                 Next
               </Button>
             </div>

@@ -130,21 +130,23 @@ export default class Datepicker extends React.Component {
           onDayClick={this.handleDayClick}
           selectedDays={this.state.selectedDay}
         />
-        <div id="availableTimes">
-          <Button
-            className={seating1class + ' ' + this.state.firstSeatActived}
-            onClick={this.setTime}
-            value={'18.00'}
-            innerText={'18.00'}
-          />
-          <Button
-            className={seating2class + ' ' + this.state.secondSeatActived}
-            onClick={this.setTime}
-            value={'21.00'}
-            innerText={'21.00'}
-          />
-        </div>
-        <div className="col-12">
+        <div id="availableTimes" className="row-md-12 row-lg-6">
+          <p className="availableTimesInfo">Available times</p>
+          <div className="timeButtonContainer">
+            <OurButton
+              className={seating1class + ' ' + this.state.firstSeatActived}
+              onClick={this.setTime}
+              value={'18.00'}
+              innerText={'18.00'}
+            />
+            <OurButton
+              className={seating2class + ' ' + this.state.secondSeatActived}
+              onClick={this.setTime}
+              value={'21.00'}
+              innerText={'21.00'}
+            />
+          </div>
+          <p className="availableTimesInfo">Choose number of guests</p>
           <select id="amountOfGuestsDropdown" onChange={this.setAmountOfGuests}>
             <option name="numOfGuests" disabled defaultValue>
               Number of Guests
