@@ -161,39 +161,40 @@ class AdminCreateBooking extends Component {
     return (
       <div id="adminCreateBooking">
         {this.state.displayAdminBookingContent === 'create' ? (
-          <div
-            id="adminCreateBookingContent"
-            className={this.state.createBooking + ' row'}
-          >
-            <div id="adminCreateBookingDatepicker" className="col-5">
-              <Datepicker
-                getDate={this.getDate}
-                setTime={this.setTime}
-                seat1Class={this.isFirstSeatAvailable}
-                seat2Class={this.isSecondSeatAvailable}
-                setAmountOfGuests={this.setAmountOfGuests}
-              />
+          <React.Fragment>
+            <div id="guestTime" className="col-12">
+              <p className="error-msg">{this.state.errorDateTimeNumOfGuests}</p>
             </div>
-            <div id="guestTime" className="col-3">
-              <p className="text-danger">
-                {this.state.errorDateTimeNumOfGuests}
-              </p>
+            <div
+              id="adminCreateBookingContent"
+              className={this.state.createBooking + ' row'}
+            >
+              <div id="adminCreateBookingDatepicker" className="col-6">
+                <Datepicker
+                  getDate={this.getDate}
+                  setTime={this.setTime}
+                  seat1Class={this.isFirstSeatAvailable}
+                  seat2Class={this.isSecondSeatAvailable}
+                  setAmountOfGuests={this.setAmountOfGuests}
+                />
+              </div>
+
+              <div id="adminGuestDetails" className="col-6">
+                <BookingGuestDetails
+                  handleFirstNameInput={this.handleFirstNameInput}
+                  handleLastNameInput={this.handleLastNameInput}
+                  handleEmailInput={this.handleEmailInput}
+                  handlePhoneNumberInput={this.handlePhoneNumberInput}
+                  setGuestDetails={this.setGuestDetails}
+                  errorName={this.state.errorName}
+                  errorLastName={this.state.errorLastName}
+                  errorEmail={this.state.errorEmail}
+                  errorPhoneNumber={this.state.errorPhoneNumber}
+                />
+                <Button onClick={this.checkIfInputIsEmpty} innerText={'Book'} />
+              </div>
             </div>
-            <div id="adminGuestDetails" className="col-4">
-              <BookingGuestDetails
-                handleFirstNameInput={this.handleFirstNameInput}
-                handleLastNameInput={this.handleLastNameInput}
-                handleEmailInput={this.handleEmailInput}
-                handlePhoneNumberInput={this.handlePhoneNumberInput}
-                setGuestDetails={this.setGuestDetails}
-                errorName={this.state.errorName}
-                errorLastName={this.state.errorLastName}
-                errorEmail={this.state.errorEmail}
-                errorPhoneNumber={this.state.errorPhoneNumber}
-              />
-              <Button onClick={this.checkIfInputIsEmpty} innerText={'Book'} />
-            </div>
-          </div>
+          </React.Fragment>
         ) : this.state.displayAdminBookingContent === 'submitted' ? (
           <AdminBookingSubmitted
             name={this.state.firstName + ' ' + this.state.lastName}

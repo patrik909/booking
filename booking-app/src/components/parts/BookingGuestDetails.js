@@ -9,16 +9,16 @@ function BookingGuestDetails(props) {
   let errorPhoneMessage = null;
 
   if (props.errorName) {
-    errorNameMessage = <p>{props.errorName}</p>;
+    errorNameMessage = <p className="error-msg">{props.errorName}</p>;
   }
   if (props.errorLastName) {
-    errorLastNameMessage = <p>{props.errorLastName}</p>;
+    errorLastNameMessage = <p className="error-msg">{props.errorLastName}</p>;
   }
   if (props.errorEmail) {
-    errorEmailMessage = <p>{props.errorEmail}</p>;
+    errorEmailMessage = <p className="error-msg">{props.errorEmail}</p>;
   }
   if (props.errorPhoneNumber) {
-    errorPhoneMessage = <p>{props.errorPhoneNumber}</p>;
+    errorPhoneMessage = <p className="error-msg">{props.errorPhoneNumber}</p>;
   }
 
   return (

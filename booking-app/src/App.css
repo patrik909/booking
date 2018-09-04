@@ -58,10 +58,15 @@ input {
 /* ---- AVAILABLE TIMES ---- */
 
 #availableTimes {
-  margin: auto;
+  margin: 0 10px;
   display: flex;
   flex-direction: column;
-  width: 150px;
+}
+
+.availableTimesInfo {
+  text-align: left;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 #availableTimes button {
@@ -273,8 +278,21 @@ p.lead {
   padding: 6px;
 }
 
+#bookingDetails {
+  justify-content: space-evenly;
+}
+
 #bookingDetails button {
-  margin: 20px 0 40px 0;
+  margin: 20px 0;
+  padding: 10px 20px;
+}
+
+.timeButtonContainer {
+  margin-bottom: 2rem;
+}
+
+.timeButtonContainer button {
+  margin: 10px !important;
 }
 
 #bookingDetailsContent select {
@@ -478,7 +496,7 @@ p.lead {
 /* -- ADMIN CREATE BOOKING -- */
 
 #adminCreateBookingContent {
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 10px;
 }
 
@@ -486,8 +504,26 @@ p.lead {
   width: 100%;
 }
 
+#adminCreateBookingDatepicker {
+  flex-direction: row;
+}
+
+#adminCreateBookingDatepicker p {
+  color: white !important;
+}
+
+#adminCreateBookingDatepicker .availableTimes {
+  width: 100%;
+}
+
 #adminCreateBookingContent #guestTime {
   text-align: center;
+}
+
+.error-msg {
+  margin: 5px 0px;
+  color: white;
+  text-align: left;
 }
 
 #adminCreateBookingContent #availableTimes {
