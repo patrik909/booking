@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
+import ErrorMessage from './ErrorMessage.js';
+import ErrorMessageContent from './parts/ErrorMessageContent.js';
 
 class CancellationPage extends Component {
   state = {
+    globalErrorMessage: false,
     booking: null,
     isBookingMissing: true,
     isCancellationConfirmed: false,
@@ -20,7 +23,7 @@ class CancellationPage extends Component {
         this.setState({ isCancellationConfirmed: true });
       })
       .catch(err => {
-        console.log(err, 'error');
+        this.setState({ globalErrorMessage: true });
       });
   };
 
@@ -45,13 +48,24 @@ class CancellationPage extends Component {
         this.setState(bookingState);
       })
       .catch(error => {
-        console.log(error, 'error');
+        this.setState({ globalErrorMessage: true });
       });
   }
+
+  closeGlobalErrorMessage = () => {
+    this.setState({ globalErrorMessage: false });
+  };
 
   render() {
     return (
       <div className="wrapper">
+        {this.state.globalErrorMessage === true ? (
+          <ErrorMessage element={document.getElementById('modal')}>
+            <ErrorMessageContent
+              closeGlobalErrorMessage={this.closeGlobalErrorMessage}
+            />
+          </ErrorMessage>
+        ) : null}
         {!this.state.isCancellationConfirmed && !this.state.isBookingMissing ? (
           <div className="container margin-auto ">
             <h2 className="heading col-12">

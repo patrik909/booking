@@ -4,9 +4,12 @@ import BookingDetailsContent from './parts/BookingDetails.js';
 import BookingGuestDetailsContent from './parts/BookingGuestDetails.js';
 import BookingSubmitBooking from './parts/BookingSubmitBooking.js';
 import BookingSubmitted from './parts/BookingSubmitted.js';
+import ErrorMessage from './ErrorMessage.js';
+import ErrorMessageContent from './parts/ErrorMessageContent.js';
 
 class BookingPage extends Component {
   state = {
+    globalErrorMessage: false,
     /** --- Booking Details --- **/
     amountOfGuests: '',
     time: '',
@@ -127,7 +130,7 @@ class BookingPage extends Component {
         this.setState({ addBookingDiv: 'bookingSubmitted' });
       })
       .catch(error => {
-        console.log(error);
+        this.setState({ globalErrorMessage: true });
       });
   };
 
@@ -142,9 +145,20 @@ class BookingPage extends Component {
     });
   };
 
+  closeGlobalErrorMessage = () => {
+    this.setState({ globalErrorMessage: false });
+  };
+
   render() {
     return (
       <div id="bookingWrapper" className="container">
+        {this.state.globalErrorMessage === true ? (
+          <ErrorMessage element={document.getElementById('modal')}>
+            <ErrorMessageContent
+              closeGlobalErrorMessage={this.closeGlobalErrorMessage}
+            />
+          </ErrorMessage>
+        ) : null}
         {this.state.addBookingDiv === 'bookingDetails' ? (
           <div id="bookingDetails" className="row">
             <h2 className="col-12">Booking Details</h2>
