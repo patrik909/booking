@@ -1,17 +1,16 @@
 /* ---FONTS---- */
 @import url('https://fonts.googleapis.com/css?family=Cardo:400,700|Dancing+Script');
 
+/* ---------------------------- */
+/* --------  GENERAL  --------- */
+/* ---------------------------- */
+
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0;
   margin: 0;
-}
-
-.DayPicker-Day--highlighted {
-  background-color: orange;
-  color: white;
 }
 
 #root {
@@ -25,6 +24,14 @@ h2 {
 button {
   border: none;
   cursor: pointer;
+  outline: none;
+}
+
+select {
+  outline: none;
+  height: 40px;
+  background: white;
+  border: 1px solid #919191;
 }
 
 .errorMessageHolder {
@@ -33,21 +40,68 @@ button {
   margin-bottom: 15px;
 }
 
-.errorMessageHolder p {
-  padding-bottom: 10px;
+input {
+  outline: none;
 }
 
 .hide {
   display: none !important;
 }
 
-/* ----NAVBAR---- */
-.navbar-nav .nav-link {
-  text-align: center;
+.underline {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 30px;
+  border-bottom: 1px solid black;
 }
+
+/* ---- AVAILABLE TIMES ---- */
+
+#availableTimes {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+#availableTimes button {
+  margin: 5px 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+  background: #474747;
+  border-radius: 8px;
+}
+
+.activeTime {
+  background: grey !important;
+}
+
+/** ---- DAY PICKER ---- */
+
+.DayPicker-Day--highlighted {
+  background-color: orange;
+  color: white;
+}
+
+.DayPicker-Months {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* ---------------------------- */
+/* ---------  NAVBAR  --------- */
+/* ---------------------------- */
 
 .navbar-light .navbar-toggler {
   border-color: azure !important;
+}
+
+.navbar-toggler {
+  padding: 7px 13px !important;
+  font-size: 1.4em !important;
 }
 .fa-reorder {
   color: azure;
@@ -57,7 +111,9 @@ a.nav-link {
   font-family: 'Cardo', serif !important;
   font-weight: 400;
   font-size: 1.2em;
-  letter-spacing: 2px;
+  text-align: center;
+  letter-spacing: 3px;
+  transition: 150ms;
 }
 
 a.nav-link:hover {
@@ -65,29 +121,30 @@ a.nav-link:hover {
   text-decoration: none !important;
 }
 
+.navbar-brand a:hover {
+  color: azure !important;
+}
 .navbar {
   background-color: rgb(73, 1, 1);
+  min-height: 90px;
 }
 
 a.navbar-brand {
   font-family: 'Dancing Script', cursive;
   color: azure !important ;
-  font-size: 2em;
+  margin-left: 8px;
+  font-size: 3em;
+  display: flex;
+  align-items: center;
+}
+
+a.navbar-brand img {
+  height: 35px;
+  margin-left: 10px;
 }
 
 li hr {
   background-color: rgb(100, 36, 36);
-}
-@media screen and (min-width: 768px) {
-  li hr {
-    display: none;
-    color: rgb(100, 36, 36);
-  }
-
-  .nav-item {
-    margin-left: 35px;
-    margin-right: 35px;
-  }
 }
 
 /* ----HOME PAGE ---- */
@@ -152,20 +209,23 @@ li hr {
   border: 1px solid transparent;
 }
 
-/* ---- BOOKING PAGE  ---- */
+/* ---------------------------- */
+/* --------  BOOKING  --------- */
+/* ---------------------------- */
 
-h1,
-h2 {
-  text-align: center;
-}
-
-.display-4 {
-  color: azure;
-}
-
-.lead {
+h1.display-4 {
   color: azure;
   text-align: center;
+  letter-spacing: 5px;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+p.lead {
+  color: azure;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 0.8em;
 }
 
 .jumbotron {
@@ -182,64 +242,36 @@ h2 {
   background-position: center bottom;
 }
 
-@media screen and (min-width: 768px) {
-  .reservation-jumbo {
-    background-position: center center;
-    position: relative;
-  }
-}
-
-#BookingWrapper {
+#bookingWrapper {
   text-align: center;
-}
-
-#BookingWrapper form {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
-#BookingWrapper input {
-  margin-bottom: 15px;
-  padding: 6px;
-}
-
-#bookingDetails h2 {
+#bookingWrapper h2 {
   margin: 30px 0;
   font-weight: 700;
   font-size: 1.8em;
   letter-spacing: 3px;
 }
 
-.DayPicker-Months {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
+#bookingWrapper input {
+  margin-bottom: 15px;
+  padding: 6px;
 }
 
 #bookingDetails button {
-  margin: 20px;
+  margin: 20px 0 40px 0;
 }
 
 #bookingDetailsContent select {
-  margin-bottom: 15px;
-}
-
-#amountOfGuestsDropdown {
-  width: 150px;
-  padding: 10px;
+  margin: 5px 0 15px 0;
+  height: 40px;
 }
 
 #bookingGuestDetails {
   max-width: 420px;
   padding: 0 10px;
-  margin: auto;
-}
-
-#bookingGuestDetails h2 {
-  margin: 30px 0 10px 0;
-  font-weight: 700;
-  font-size: 1.8em;
-  letter-spacing: 5px;
 }
 
 #bookingGuestDetails form {
@@ -250,20 +282,22 @@ h2 {
   border: none;
   padding: 8px;
   border-radius: 10px;
+  text-indent: 5px;
   margin: 0;
-  margin-top: 20px;
 }
 
 #bookingGuestDetails p {
-  margin: 0;
-  margin-top: 2px;
+  margin: 2px 0 0 0;
+  paddding-bottom: 0;
   font-size: 0.9em;
   letter-spacing: 1px;
   font-weight: 500;
 }
 
 #guestDetailsButtons {
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 #guestDetailsButtons div {
@@ -271,26 +305,14 @@ h2 {
 }
 
 #guestDetailsButtons button {
-  margin-top: 25px;
+  margin-top: 0px;
   width: 100px;
 }
 
-#submitBooking {
+#submitBooking p {
+  font-size: 0.8em;
   max-width: 420px;
   margin: auto;
-}
-
-#submitBooking h2 {
-  margin: 30px 0;
-  font-weight: 700;
-  font-size: 1.8em;
-  letter-spacing: 3px;
-}
-
-#submitBooking .underline {
-  width: 80%;
-  margin: auto;
-  margin-bottom: 30px;
 }
 
 #submitBooking p {
@@ -307,6 +329,7 @@ h2 {
 
 #gdprDetails {
   font-weight: 600;
+  margin: 25px 0 10px 0;
 }
 
 #submitBookingButtons {
@@ -346,57 +369,63 @@ h2 {
   margin: auto;
 }
 
-#submittedBooking h2 {
-  margin: 30px 0;
-  font-weight: 700;
-  font-size: 1.8em;
-  letter-spacing: 3px;
-}
-
 #submittedBooking p {
   margin-bottom: 80px;
 }
 
-/* ---- CONTACT PAGE  ---- */
+/* ---------------------------- */
+/* --------  CONTACT  --------- */
+/* ---------------------------- */
 
-#ContactWrapper {
+#contactWrapper {
   color: black;
 }
+
 .row {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-#MapWrapper {
+
+#mapWrapper {
   width: 100%;
   height: 300px;
   color: white;
 }
 
-#ContactDetailsWrapper {
-  padding: 60px 0;
+#contactWrapper h2 {
+  margin: 30px 0;
 }
 
-#ContactDetailsWrapper p {
+#contactWrapper .underline {
+  max-width: 400px;
+}
+
+#contactDetailsWrapper {
+  padding-top: 10px;
+  padding-bottom: 60px;
+}
+
+#contactDetailsWrapper p {
   text-align: center;
   margin: 0;
 }
 
-#ContactDetailsWrapper img {
+#contactDetailsWrapper img {
   margin-right: 10px;
   height: 20px;
 }
 
-#ContactDetailsWrapper .fa {
+#contactDetailsWrapper .fa {
   color: black;
   margin: 10px;
 }
 
-#ContactDetailsWrapper a {
+#contactDetailsWrapper a {
   color: black;
 }
 
 /* ---------------------------- */
-/* ---- ADMIN PAGE STYLING ---- */
+/* ----------  ADMIN  --------- */
 /* ---------------------------- */
 
 #adminWrapper {
@@ -404,7 +433,8 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 1000px;
+  min-width: 1000px;
+  max-width: 1000px;
   min-height: 450px;
   padding: 25px 20px;
   margin: auto;
@@ -453,6 +483,10 @@ h2 {
   align-items: center;
 }
 
+#adminCreateBookingContent #availableTimes button {
+  width: 100%;
+}
+
 #adminCreateBookingContent #numOfGuests {
   font-size: 0.8em;
   font-weight: 600;
@@ -477,6 +511,8 @@ h2 {
 }
 
 #adminGuestDetails form {
+  display: flex;
+  flex-direction: column;
   margin-top: 10px;
 }
 
@@ -492,7 +528,7 @@ h2 {
   padding: 2px 15px;
   background: #138e0c;
   color: white;
-  margin-top: 15px;
+  margin-top: 25px;
   text-transform: uppercase;
   font-weight: 600;
   font-size: 1em;
@@ -513,7 +549,7 @@ h2 {
 
 #adminBookingSubmittedContent h2 {
   margin: 30px;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.2em;
   letter-spacing: 2px;
 }
@@ -539,7 +575,7 @@ h2 {
 
 #bookingSearch {
   font-size: 0.9em;
-  padding: 25px 0 15px 0;
+  padding: 15px 0 25px 0;
   color: white;
 }
 
@@ -576,6 +612,11 @@ h2 {
 }
 
 /* ADMIN VIEW/UPDATE BOOKING LIST */
+
+#changeViewBooking {
+  width: 1000px;
+  padding: 20px;
+}
 
 #bookingListTitles {
   margin: 0;
@@ -661,15 +702,6 @@ h2 {
   color: white;
 }
 
-#noResultFound p {
-  padding: 30px;
-  letter-spacing: 2px;
-  font-weight: 600;
-  font-size: 0.9em;
-  text-align: center;
-  color: white;
-}
-
 #adminUpdateDiv {
   margin-top: -60px;
   position: absolute;
@@ -677,7 +709,7 @@ h2 {
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   color: black;
-  width: 920px;
+  width: 100%;
   z-index: 1;
 }
 
@@ -709,6 +741,7 @@ h2 {
 
 #customersBookingDetails p {
   margin: 0;
+  text-align: center;
 }
 
 #customersBookingDetails p span {
@@ -725,7 +758,6 @@ h2 {
   width: 100%;
   display: flex;
   align-items: flex-end;
-  height: 100%;
 }
 
 #adminUpdateButtons input {
@@ -758,55 +790,46 @@ h2 {
   font-size: 0.8em;
   letter-spacing: 1px;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 #updateBox select {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
-#availableTimes {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  width: 150px;
+#updateBox #availableTimes {
+  height: 180px;
 }
 
-#availableTimes button {
-  margin: 5px 0;
-  font-size: 1.2em;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: white;
-  background: #474747;
-  border-radius: 8px;
-}
+/* ---------------------------- */
+/* ------- CANCELLATION ------- */
+/* ---------------------------- */
 
-.activeTime {
-  background: grey !important;
-}
-
-@media screen and (min-width: 750px) {
-  #MapWrapper {
-    height: 400px;
-  }
-  #ContactDetailsLeft,
-  #ContactDetailsRight {
-    padding: 0 40px;
-  }
-
-  #ContactDetailsLeft p {
-    text-align: right;
-  }
-
-  #ContactDetailsRight p {
-    text-align: left;
-  }
-}
-
-/* CANCELLATION PAGE */
 .margin-auto {
   margin: auto;
+  padding: 40px 0;
+  letter-spacing: 1px;
+}
+
+.margin-auto .underline {
+  max-width: 300px;
+}
+
+.margin-auto h2 {
+  font-weight: 700;
+}
+
+.margin-auto h3 {
+  margin-bottom: 30px;
+}
+
+.margin-auto p {
+  margin: 5px;
+}
+
+.margin-auto p span {
+  font-weight: 600;
 }
 
 .text-center {
@@ -820,6 +843,7 @@ h2 {
 
 .wrapper {
   padding: 3rem;
+  letter-spacing: 1px;
 }
 
 .heading {
@@ -828,6 +852,7 @@ h2 {
 }
 
 .booking-details {
+  text-align: center;
   margin-bottom: 2.5rem;
   margin: auto;
 }
@@ -844,7 +869,13 @@ h2 {
   margin-bottom: 2rem;
 }
 
-/* FOOTER  */
+.cancellation-inner-wrapper {
+  width: 30rem;
+}
+
+/* ---------------------------- */
+/* ---------  FOOTER  --------- */
+/* ---------------------------- */
 
 footer {
   background-color: rgb(73, 1, 1);
@@ -887,20 +918,91 @@ footer {
   color: rgb(224, 233, 233);
 }
 
-@media screen and (min-width: 750px) {
-  footer {
-    height: 200px;
-  }
-}
-
 .freepik {
   font-size: 0.5em;
 }
 
-.cancellation-inner-wrapper {
-  width: 30rem;
-}
+@media screen and (min-width: 768px) {
+  /* ---------------------------- */
+  /* ---------  NAVBAR  --------- */
+  /* ---------------------------- */
 
-.wrapper {
-  padding: 1rem;
+  .navbar {
+    min-height: 120px;
+  }
+
+  a.navbar-brand {
+    margin-left: 35px;
+  }
+
+  li hr {
+    display: none;
+    color: rgb(100, 36, 36);
+  }
+
+  .nav-item {
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+
+  /* ---------------------------- */
+  /* --------  BOOKING  --------- */
+  /* ---------------------------- */
+
+  .reservation-jumbo {
+    background-position: center center;
+    position: relative;
+  }
+
+  h1.display-4 {
+    margin-top: 10px;
+    color: azure;
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 4em;
+    font-weight: 700;
+  }
+
+  p.lead {
+    color: azure;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+  }
+
+  #submitBooking p {
+    font-size: 1em;
+  }
+
+  #gdprDetails {
+    margin: 30px 0 20px 0;
+  }
+
+  /* ---------------------------- */
+  /* --------  BOOKING  --------- */
+  /* ---------------------------- */
+
+  #mapWrapper {
+    height: 400px;
+  }
+
+  #contactDetailsLeft,
+  #contactDetailsRight {
+    padding: 0 40px;
+  }
+
+  #contactDetailsLeft p {
+    text-align: right;
+  }
+
+  #contactDetailsRight p {
+    text-align: left;
+  }
+  /* ---------------------------- */
+  /* ---------  FOOTER  --------- */
+  /* ---------------------------- */
+
+  footer {
+    height: 200px;
+  }
 }
