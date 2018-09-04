@@ -2,7 +2,9 @@ import React from 'react';
 import DayPicker from '@kupibilet/react-day-picker';
 import moment from 'moment';
 import '@kupibilet/react-day-picker/lib/style.css';
-import OurButton from './parts/Button.js';
+import Button from './parts/Button.js';
+import ErrorMessage from './ErrorMessage.js';
+import ErrorMessageContent from './parts/ErrorMessageContent.js';
 
 // group all bookings per day
 const groupBy = (arrayToGroup, keyToGroupBy) => {
@@ -15,6 +17,7 @@ const groupBy = (arrayToGroup, keyToGroupBy) => {
 
 export default class Datepicker extends React.Component {
   state = {
+    globalErrorMessage: false,
     allBookings: [],
     selectedDay: new Date(),
     firstSeatActived: '',
@@ -28,7 +31,7 @@ export default class Datepicker extends React.Component {
         this.setState({ allBookings });
       })
       .catch(error => {
-        console.log(error);
+        this.setState({ globalErrorMessage: true });
       });
   }
 
@@ -67,6 +70,10 @@ export default class Datepicker extends React.Component {
 
   setAmountOfGuests = event => {
     this.props.setAmountOfGuests(event.target.value);
+  };
+
+  closeGlobalErrorMessage = () => {
+    this.setState({ globalErrorMessage: false });
   };
 
   render() {
@@ -111,19 +118,26 @@ export default class Datepicker extends React.Component {
 
     return (
       <div>
+        {this.state.globalErrorMessage === true ? (
+          <ErrorMessage element={document.getElementById('modal')}>
+            <ErrorMessageContent
+              closeGlobalErrorMessage={this.closeGlobalErrorMessage}
+            />
+          </ErrorMessage>
+        ) : null}
         <DayPicker
           modifiers={modifiers}
           onDayClick={this.handleDayClick}
           selectedDays={this.state.selectedDay}
         />
         <div id="availableTimes">
-          <OurButton
+          <Button
             className={seating1class + ' ' + this.state.firstSeatActived}
             onClick={this.setTime}
             value={'18.00'}
             innerText={'18.00'}
           />
-          <OurButton
+          <Button
             className={seating2class + ' ' + this.state.secondSeatActived}
             onClick={this.setTime}
             value={'21.00'}
