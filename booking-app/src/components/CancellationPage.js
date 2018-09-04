@@ -57,18 +57,22 @@ class CancellationPage extends Component {
             <h2 className="heading col-12">
               Manage booking #{this.props.match.params.id}
             </h2>
+            <div class="underline" />
             <div>
               <div className="booking-details col-sm-12 col-lg-8">
                 <h3>Booking details</h3>
                 <p>
-                  {this.state.booking.firstname +
-                    ' ' +
-                    this.state.booking.lastname}
+                  <span>
+                    {this.state.booking.firstname +
+                      ' ' +
+                      this.state.booking.lastname}
+                  </span>
                 </p>
-                <p>{this.state.booking.num_of_guests} people</p>
+                <p>{this.state.booking.num_of_guests} Guest(s)</p>
                 <p>
-                  {this.state.booking.date + ', ' + this.state.booking.time}
-                  PM
+                  <span>
+                    {this.state.booking.time + ' | ' + this.state.booking.date}
+                  </span>
                 </p>
               </div>
               <div className="btn-container">

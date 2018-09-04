@@ -21,6 +21,8 @@ class AdminCreateBooking extends Component {
     firstSeatClass: 'hide',
     secondSeatClass: 'hide',
     displayAdminBookingContent: 'create',
+    firstSeatActived: '',
+    secondSeatActived: '',
   };
 
   getDate = date => {
@@ -30,6 +32,15 @@ class AdminCreateBooking extends Component {
   setTime = event => {
     event.preventDefault();
     this.setState({ time: event.target.value });
+    event.target.value === '18.00'
+      ? this.setState({
+          firstSeatActived: 'activeTime',
+          secondSeatActived: '',
+        })
+      : this.setState({
+          firstSeatActived: '',
+          secondSeatActived: 'activeTime',
+        });
   };
 
   setNumOfGuests = event => {
@@ -182,13 +193,21 @@ class AdminCreateBooking extends Component {
               </select>
               <div id="availableTimes">
                 <Button
-                  className={this.state.firstSeatClass}
+                  className={
+                    this.state.firstSeatClass +
+                    ' ' +
+                    this.state.firstSeatActived
+                  }
                   onClick={this.setTime}
                   value={'18.00'}
                   innerText={'18.00'}
                 />
                 <Button
-                  className={this.state.secondSeatClass}
+                  className={
+                    this.state.secondSeatClass +
+                    ' ' +
+                    this.state.secondSeatActived
+                  }
                   onClick={this.setTime}
                   value={'21.00'}
                   innerText={'21.00'}

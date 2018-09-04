@@ -35,7 +35,6 @@ class BookingPage extends Component {
   /** --- Booking Details --- **/
 
   setTime = event => {
-    console.log('hej');
     this.setState({ time: event.target.value });
     event.target.value === '18.00'
       ? this.setState({
@@ -172,13 +171,13 @@ class BookingPage extends Component {
 
   render() {
     return (
-      <div id="BookingWrapper" className="container">
+      <div id="bookingWrapper" className="container">
         {this.state.addBookingDiv === 'bookingDetails' ? (
           <div id="bookingDetails" className="row">
             <h2 className="col-12">Booking Details</h2>
             <BookingDetailsContent
               getDate={this.getDate}
-              getTime={this.getTime}
+              getTime={this.handleTimeChanged}
               setAmountOfGuests={this.setAmountOfGuests}
               submitBookingDetails={this.submitBookingDetails}
               isFirstSeatAvailable={this.isFirstSeatAvailable}

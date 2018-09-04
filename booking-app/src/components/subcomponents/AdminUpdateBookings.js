@@ -11,6 +11,7 @@ class AdminUpdateBookings extends Component {
     date: '',
     firstSeatClass: '',
     secondSeatClass: '',
+    resetDate: '',
   };
 
   componentWillReceiveProps(props) {
@@ -32,6 +33,7 @@ class AdminUpdateBookings extends Component {
 
   closeUpdateDiv = () => {
     this.props.closeUpdateDiv();
+    this.setState({ resetDate: true });
   };
 
   getDate = date => {
@@ -40,7 +42,6 @@ class AdminUpdateBookings extends Component {
       secondSeatActived: '',
     });
     this.setState({ date: date });
-    console.log(date);
   };
 
   setTime = event => {
@@ -121,110 +122,108 @@ class AdminUpdateBookings extends Component {
         id="adminUpdateDiv"
         className={this.props.updateDivClass + ' container'}
       >
-        {this.props.updateDivClass === 'show' ? (
-          <div id="customersBookingWrapper" className="row">
-            <div id="customersBookingDetails" className="col-md-4">
-              <h3>Details</h3>
-              <p>
-                <span>Name</span>
-              </p>
-              <p>
-                {this.state.selectedBooking.firstname +
-                  ' ' +
-                  this.state.selectedBooking.lastname}
-              </p>
-              <p>
-                <span>Phone</span>
-              </p>
-              <p>{this.state.selectedBooking.phone}</p>
-              <p>
-                <span>Email</span>
-              </p>
-              <p>{this.state.selectedBooking.email}</p>
-              <p>
-                <span>Number of Guests</span>
-              </p>
-              <p>{this.state.selectedBooking.num_of_guests}</p>
-              <p>
-                <span>At:</span>
-              </p>
-              <p>
-                {this.state.selectedBooking.time +
-                  ' | ' +
-                  this.state.selectedBooking.date}
-              </p>
-            </div>
+        <div id="customersBookingWrapper" className="row">
+          <div id="customersBookingDetails" className="col-md-4">
+            <h3>Details</h3>
+            <p>
+              <span>Name</span>
+            </p>
+            <p>
+              {this.state.selectedBooking.firstname +
+                ' ' +
+                this.state.selectedBooking.lastname}
+            </p>
+            <p>
+              <span>Phone</span>
+            </p>
+            <p>{this.state.selectedBooking.phone}</p>
+            <p>
+              <span>Email</span>
+            </p>
+            <p>{this.state.selectedBooking.email}</p>
+            <p>
+              <span>Number of Guests</span>
+            </p>
+            <p>{this.state.selectedBooking.num_of_guests}</p>
+            <p>
+              <span>At:</span>
+            </p>
+            <p>
+              {this.state.selectedBooking.time +
+                ' | ' +
+                this.state.selectedBooking.date}
+            </p>
+          </div>
 
-            <div id="customersUpdateDetails" className="col-md-8">
-              <h3>Update details</h3>
-              <div className="row">
-                <div className="col-md-8">
-                  <Datepicker
-                    getDate={this.getDate}
-                    seat1Class={this.isFirstSeatAvailable}
-                    seat2Class={this.isSecondSeatAvailable}
-                    selectedDate={this.state.date}
-                  />
-                </div>
-                <div className="col-md-4">
-                  <form
-                    onSubmit={event => {
-                      const values = {
-                        numOfGuests: event.target.guests.value,
-                        time: this.state.time,
-                        date: this.state.date,
-                      };
-                      event.preventDefault();
-                      this.updateThisBooking(
-                        values,
-                        this.state.selectedBooking.id
-                      );
-                    }}
-                    name="updateBooking"
-                    id="updateBox"
-                    className={this.state.updateBoxClass}
-                  >
-                    <p>Number of Guest(s)</p>
-                    {this.selectNumOfGuests()}
-                    <div id="availableTimes">
-                      <p>Available times:</p>
-                      <Button
-                        className={
-                          this.state.firstSeatClass +
-                          ' ' +
-                          this.state.firstSeatActived
-                        }
-                        onClick={this.setTime}
-                        value={'18.00'}
-                        innerText={'18.00'}
-                      />
-                      <Button
-                        className={
-                          this.state.secondSeatClass +
-                          ' ' +
-                          this.state.secondSeatActived
-                        }
-                        onClick={this.setTime}
-                        value={'21.00'}
-                        innerText={'21.00'}
-                      />
-                    </div>
+          <div id="customersUpdateDetails" className="col-md-8">
+            <h3>Update details</h3>
+            <div className="row">
+              <div className="col-md-8">
+                <Datepicker
+                  getDate={this.getDate}
+                  seat1Class={this.isFirstSeatAvailable}
+                  seat2Class={this.isSecondSeatAvailable}
+                  selectedDate={this.state.date}
+                />
+              </div>
+              <div className="col-md-4">
+                <form
+                  onSubmit={event => {
+                    const values = {
+                      numOfGuests: event.target.guests.value,
+                      time: this.state.time,
+                      date: this.state.date,
+                    };
+                    event.preventDefault();
+                    this.updateThisBooking(
+                      values,
+                      this.state.selectedBooking.id
+                    );
+                  }}
+                  name="updateBooking"
+                  id="updateBox"
+                  className={this.state.updateBoxClass}
+                >
+                  <p>Number of Guest(s)</p>
+                  {this.selectNumOfGuests()}
+                  <div id="availableTimes">
+                    <p>Available times:</p>
+                    <Button
+                      className={
+                        this.state.firstSeatClass +
+                        ' ' +
+                        this.state.firstSeatActived
+                      }
+                      onClick={this.setTime}
+                      value={'18.00'}
+                      innerText={'18.00'}
+                    />
+                    <Button
+                      className={
+                        this.state.secondSeatClass +
+                        ' ' +
+                        this.state.secondSeatActived
+                      }
+                      onClick={this.setTime}
+                      value={'21.00'}
+                      innerText={'21.00'}
+                    />
+                  </div>
 
-                    <p>{this.state.updateThisCustomersBookedTime}</p>
-                    <div id="adminUpdateButtons">
-                      <input
-                        onClick={this.closeUpdateDiv}
-                        type="button"
-                        value="Cancel"
-                      />
-                      <input type="submit" form="updateBox" value="Update" />
-                    </div>
-                  </form>
-                </div>
+                  <p>{this.state.updateThisCustomersBookedTime}</p>
+                  <div id="adminUpdateButtons">
+                    <input
+                      onClick={this.closeUpdateDiv}
+                      type="button"
+                      value="Cancel"
+                    />
+                    <input type="submit" form="updateBox" value="Update" />
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-        ) : null}
+        </div>
       </div>
     );
   }

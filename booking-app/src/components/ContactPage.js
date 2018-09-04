@@ -3,20 +3,21 @@ import Map from './subcomponents/Map.js';
 
 function ContactPage() {
   return (
-    <div id="ContactWrapper">
-      <h1>Contact or visit us!</h1>
-      <div id="MapWrapper">
+    <div id="contactWrapper">
+      <div id="mapWrapper">
         <Map />
       </div>
-      <div id="ContactDetailsWrapper" className="row">
-        <div id="ContactDetailsLeft" className="col-sm-12 col-md-6">
+      <h2>Contact or visit us!</h2>
+      <div class="underline" />
+      <div id="contactDetailsWrapper" className="row">
+        <div id="contactDetailsLeft" className="col-sm-12 col-md-6">
           <p>
             <i className="fa fa-map-marker" aria-hidden="true" />
             Gatgatan 13
           </p>
           <p>111 11 Stockholm</p>
         </div>
-        <div id="ContactDetailsRight" className="col-sm-12 col-md-6">
+        <div id="contactDetailsRight" className="col-sm-12 col-md-6">
           <p>
             <i className="fa fa-phone" aria-hidden="true" />
             070 000 00 00
