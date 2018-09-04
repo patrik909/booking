@@ -44,9 +44,9 @@ class Footer extends Component {
               title="Freepik"
               rel="noopener noreferrer"
             >
-              Freepik &nbsp;{' '}
+              Freepik
             </a>
-            from &nbsp;{' '}
+            &nbsp; from &nbsp;
             <a
               href="https://www.flaticon.com/"
               title="Flaticon"
