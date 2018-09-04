@@ -18,11 +18,8 @@ class AdminCreateBooking extends Component {
     errorEmail: '',
     errorPhoneNumber: '',
     errorDateTimeNumOfGuests: '',
-    // firstSeatClass: 'hide',
-    // secondSeatClass: 'hide',
+
     displayAdminBookingContent: 'create',
-    // firstSeatActived: '',
-    // secondSeatActived: '',
   };
 
   getDate = date => {
@@ -34,17 +31,8 @@ class AdminCreateBooking extends Component {
   };
 
   setAmountOfGuests = amount => {
-    console.log(amount);
     this.setState({ numOfGuests: amount });
   };
-
-  // isFirstSeatAvailable = seat => {
-  //   this.setState({ firstSeatClass: seat });
-  // };
-
-  // isSecondSeatAvailable = seat => {
-  //   this.setState({ secondSeatClass: seat });
-  // };
 
   handleFirstNameInput = event => {
     this.setState({ firstName: event.target.value });
