@@ -190,6 +190,7 @@ li hr {
     top: 50px;
   }
 }
+
 /* ----CARDS---- */
 .card-group {
   margin: 10px;
@@ -211,12 +212,12 @@ li hr {
   margin: 10px;
   border: 1px solid transparent;
 }
+
 @media screen and (min-width: 576px) and (max-width: 982px) {
   .card-title {
     font-size: 1.2em;
   }
 }
-
 /* ---------------------------- */
 /* --------  BOOKING  --------- */
 /* ---------------------------- */
