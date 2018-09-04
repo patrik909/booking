@@ -35,8 +35,6 @@ class BookingPage extends Component {
   /** --- Booking Details --- **/
 
   setTime = event => {
-    event.target.value;
-    console.log(event.target.value);
     this.setState({ time: event.target.value });
     event.target.value === '18.00'
       ? this.setState({

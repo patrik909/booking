@@ -109,24 +109,6 @@ export default class Datepicker extends React.Component {
           onDayClick={this.handleDayClick}
           selectedDays={this.state.selectedDay}
         />
-        {this.state.selectedDay ? (
-          <div>
-            <Button
-              className={seating1class}
-              onClick={this.getTime}
-              value={'seat1'}
-              innerText={'18.00'}
-            />
-            <Button
-              className={seating2class}
-              onClick={this.getTime}
-              value={'seat2'}
-              innerText={'21.00'}
-            />
-          </div>
-        ) : (
-          <p> Please select a day. </p>
-        )}
       </div>
     );
   }
