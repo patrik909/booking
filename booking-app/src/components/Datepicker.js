@@ -2,7 +2,7 @@ import React from 'react';
 import DayPicker from '@kupibilet/react-day-picker';
 import moment from 'moment';
 import '@kupibilet/react-day-picker/lib/style.css';
-import Button from './parts/Button.js';
+import OurButton from './parts/Button.js';
 
 // group all bookings per day
 const groupBy = (arrayToGroup, keyToGroupBy) => {
@@ -17,6 +17,8 @@ export default class Datepicker extends React.Component {
   state = {
     allBookings: [],
     selectedDay: new Date(),
+    firstSeatActived: '',
+    secondSeatActived: '',
   };
 
   componentDidMount() {
@@ -54,22 +56,34 @@ export default class Datepicker extends React.Component {
       : null;
   };
 
-  getTime = event => {
-    event.target.value === 'seat1'
-      ? this.props.getTime('18.00')
-      : event.target.value === 'seat2'
-        ? this.props.getTime('21.00')
-        : null;
+  setTime = event => {
+    if (event.target.value === '18.00') {
+      this.setState({
+        firstSeatActived: 'activeTime',
+        secondSeatActived: '',
+      });
+      this.props.setTime('18.00');
+    } else {
+      this.setState({
+        firstSeatActived: '',
+        secondSeatActived: 'activeTime',
+      });
+      this.props.setTime('21.00');
+    }
+  };
+
+  setAmountOfGuests = event => {
+    this.props.setAmountOfGuests(event.target.value);
   };
 
   render() {
     const bookingsSeat1ByDate = groupBy(
-      this.state.allBookings.filter(booking => booking.time === 'seat1'),
+      this.state.allBookings.filter(booking => booking.time === '18.00'),
       'date'
     );
 
     const bookingsSeat2ByDate = groupBy(
-      this.state.allBookings.filter(booking => booking.time === 'seat2'),
+      this.state.allBookings.filter(booking => booking.time === '21.00'),
       'date'
     );
 
@@ -88,7 +102,7 @@ export default class Datepicker extends React.Component {
       groupBy(this.state.allBookings, 'date')
     )
       // filter out all dates which have maximum bookings
-      .filter(bookings => bookings.length >= 15 + 15)
+      .filter(bookings => bookings.length >= 30)
       // make the above array of arrays to one array
       .reduce(
         (flattenBookings, bookings) => flattenBookings.concat(bookings),
@@ -109,6 +123,33 @@ export default class Datepicker extends React.Component {
           onDayClick={this.handleDayClick}
           selectedDays={this.state.selectedDay}
         />
+        <div id="availableTimes">
+          <OurButton
+            className={seating1class + ' ' + this.state.firstSeatActived}
+            onClick={this.setTime}
+            value={'18.00'}
+            innerText={'18.00'}
+          />
+          <OurButton
+            className={seating2class + ' ' + this.state.secondSeatActived}
+            onClick={this.setTime}
+            value={'21.00'}
+            innerText={'21.00'}
+          />
+        </div>
+        <div className="col-12">
+          <select id="amountOfGuestsDropdown" onChange={this.setAmountOfGuests}>
+            <option name="numOfGuests" disabled selected>
+              Number of Guests
+            </option>
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5 Guests</option>
+            <option value="6">6 Guests</option>
+          </select>
+        </div>
       </div>
     );
   }

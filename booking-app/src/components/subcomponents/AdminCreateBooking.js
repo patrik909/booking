@@ -18,42 +18,33 @@ class AdminCreateBooking extends Component {
     errorEmail: '',
     errorPhoneNumber: '',
     errorDateTimeNumOfGuests: '',
-    firstSeatClass: 'hide',
-    secondSeatClass: 'hide',
+    // firstSeatClass: 'hide',
+    // secondSeatClass: 'hide',
     displayAdminBookingContent: 'create',
-    firstSeatActived: '',
-    secondSeatActived: '',
+    // firstSeatActived: '',
+    // secondSeatActived: '',
   };
 
   getDate = date => {
     this.setState({ date });
   };
 
-  setTime = event => {
-    event.preventDefault();
-    this.setState({ time: event.target.value });
-    event.target.value === '18.00'
-      ? this.setState({
-          firstSeatActived: 'activeTime',
-          secondSeatActived: '',
-        })
-      : this.setState({
-          firstSeatActived: '',
-          secondSeatActived: 'activeTime',
-        });
+  setTime = time => {
+    this.setState({ time });
   };
 
-  setNumOfGuests = event => {
-    this.setState({ numOfGuests: event.target.value });
+  setAmountOfGuests = amount => {
+    console.log(amount);
+    this.setState({ numOfGuests: amount });
   };
 
-  isFirstSeatAvailable = seat => {
-    this.setState({ firstSeatClass: seat });
-  };
+  // isFirstSeatAvailable = seat => {
+  //   this.setState({ firstSeatClass: seat });
+  // };
 
-  isSecondSeatAvailable = seat => {
-    this.setState({ secondSeatClass: seat });
-  };
+  // isSecondSeatAvailable = seat => {
+  //   this.setState({ secondSeatClass: seat });
+  // };
 
   handleFirstNameInput = event => {
     this.setState({ firstName: event.target.value });
@@ -97,6 +88,9 @@ class AdminCreateBooking extends Component {
         })
       : null;
 
+    console.log(this.state.numOfGuests);
+    console.log(this.state.time);
+    console.log(this.state.date);
     //If no fields are empty, submit booking
     this.state.firstName !== '' &&
     this.state.lastName !== '' &&
@@ -174,45 +168,13 @@ class AdminCreateBooking extends Component {
             <div id="adminCreateBookingDatepicker" className="col-5">
               <Datepicker
                 getDate={this.getDate}
+                setTime={this.setTime}
                 seat1Class={this.isFirstSeatAvailable}
                 seat2Class={this.isSecondSeatAvailable}
+                setAmountOfGuests={this.setAmountOfGuests}
               />
             </div>
             <div id="guestTime" className="col-3">
-              <p id="numOfGuests">Number of Guest(s)</p>
-              <select id="numOfGuestsDropdown" onChange={this.setNumOfGuests}>
-                <option value="" selected>
-                  Choose Guest(s)
-                </option>
-                <option value="1">1 Guest</option>
-                <option value="2">2 Guests</option>
-                <option value="3">3 Guests</option>
-                <option value="4">4 Guests</option>
-                <option value="5">5 Guests</option>
-                <option value="6">6 Guests</option>
-              </select>
-              <div id="availableTimes">
-                <Button
-                  className={
-                    this.state.firstSeatClass +
-                    ' ' +
-                    this.state.firstSeatActived
-                  }
-                  onClick={this.setTime}
-                  value={'18.00'}
-                  innerText={'18.00'}
-                />
-                <Button
-                  className={
-                    this.state.secondSeatClass +
-                    ' ' +
-                    this.state.secondSeatActived
-                  }
-                  onClick={this.setTime}
-                  value={'21.00'}
-                  innerText={'21.00'}
-                />
-              </div>
               <p className="text-danger">
                 {this.state.errorDateTimeNumOfGuests}
               </p>
