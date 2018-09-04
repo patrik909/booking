@@ -58,9 +58,7 @@ app.post('/booking', (req, res) => {
     // when a new booking is made the user gets a confirmation email
     const mailOptions = {
         from: mailCredentials.USER,
-        // use own email in dev
-        // use newBooking.email in deploy
-        to: mailCredentials.USER,
+        to: newBooking.email,
         subject: 'Booking confirmation',
         html: `<h3>
                     Dear 
@@ -126,9 +124,7 @@ app.put('/booking/:id', (req, res) => {
 
     const mailOptions = {
         from: mailCredentials.USER,
-        // use own email in dev
-        // use newBooking.email in deploy
-        to: mailCredentials.USER,
+        to: bookingInformation.email,
         subject: 'Booking updated!',
         html: `<h3>
                     Dear 
@@ -187,9 +183,7 @@ app.delete('/booking/:id', (req, res) => {
     // email or if the booking is deleted by a admin sh/e gets a confirmation email
     const mailOptions = {
         from: mailCredentials.USER,
-        // use own email in dev
-        // use newBooking.email in deploy
-        to: mailCredentials.USER,
+        to: bookingDetails.email,
         subject: 'Booking cancellation',
         html: `<h3>
                     Dear 
