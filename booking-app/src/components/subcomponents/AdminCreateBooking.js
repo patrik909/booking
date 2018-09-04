@@ -80,15 +80,17 @@ class AdminCreateBooking extends Component {
     console.log(this.state.time);
     console.log(this.state.date);
     //If no fields are empty, submit booking
-    this.state.firstName !== '' &&
-    this.state.lastName !== '' &&
-    this.state.email !== '' &&
-    this.state.phoneNumber !== '' &&
-    this.state.numOfGuests !== '' &&
-    this.state.time !== '' &&
-    this.state.date !== ''
-      ? this.submitBooking()
-      : null;
+    if (
+      this.state.firstName !== '' &&
+      this.state.lastName !== '' &&
+      this.state.email !== '' &&
+      this.state.phoneNumber !== '' &&
+      this.state.numOfGuests !== '' &&
+      this.state.time !== '' &&
+      this.state.date !== ''
+    ) {
+      this.submitBooking();
+    }
   };
 
   submitBooking = values => {

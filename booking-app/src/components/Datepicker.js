@@ -132,7 +132,7 @@ export default class Datepicker extends React.Component {
         </div>
         <div className="col-12">
           <select id="amountOfGuestsDropdown" onChange={this.setAmountOfGuests}>
-            <option name="numOfGuests" disabled selected>
+            <option name="numOfGuests" disabled defaultValue>
               Number of Guests
             </option>
             <option value="1">1 Guest</option>
