@@ -165,6 +165,7 @@ li hr {
 
 .home-headline {
   font-family: 'Dancing Script', cursive;
+  text-shadow: 1px 1px 2px rgb(53, 52, 52);
 }
 .display-4 img {
   width: 5%;
@@ -235,6 +236,7 @@ p.lead {
   text-align: center;
   letter-spacing: 1px;
   font-size: 0.8em;
+  text-shadow: 1px 1px 2px rgb(34, 33, 33);
 }
 
 .jumbotron {
@@ -297,7 +299,7 @@ p.lead {
 
 #bookingGuestDetails p {
   margin: 2px 0 0 0;
-  paddding-bottom: 0;
+  padding-bottom: 0;
   font-size: 0.9em;
   letter-spacing: 1px;
   font-weight: 500;
@@ -929,6 +931,7 @@ footer {
 
 .freepik {
   font-size: 0.5em;
+  letter-spacing: 0.5px;
 }
 
 @media screen and (min-width: 768px) {
