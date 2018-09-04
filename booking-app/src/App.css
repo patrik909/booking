@@ -55,6 +55,43 @@ input {
   border-bottom: 1px solid black;
 }
 
+/* ---- GLOBAL ERROR MESSAGE ---- */
+
+#globalErrorMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  padding: 20px;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+#globalErrorMessageContent {
+  font-size: 0.9em;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 10px;
+  color: black;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 40px 60px;
+}
+
+#globalErrorMessageContent button {
+  background: #474747;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 5px;
+}
+
 /* ---- AVAILABLE TIMES ---- */
 
 #availableTimes {
@@ -147,7 +184,9 @@ li hr {
   background-color: rgb(100, 36, 36);
 }
 
-/* ----HOME PAGE ---- */
+/* ---------------------------- */
+/* ----------  HOME  ---------- */
+/* ---------------------------- */
 
 .home-wrapper {
   padding: 0 0 10px 0;
