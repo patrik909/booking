@@ -1,61 +1,27 @@
 import React, { Component } from 'react';
-import Button from '../parts/Button.js';
 import Datepicker from '../Datepicker.js';
 
 class AdminUpdateBookings extends Component {
   state = {
-    selectedBooking: [],
     time: '',
-    firstSeatActived: '',
-    secondSeatActived: '',
+    numOfGuests: '',
     date: '',
-    firstSeatClass: '',
-    secondSeatClass: '',
-    resetDate: '',
   };
 
-  componentWillReceiveProps(props) {
-    this.setState({
-      selectedBooking: props.selectedBooking,
-      time: props.selectedBooking.time,
-      date: props.selectedBooking.date,
-    });
-    props.selectedBooking.time === '18.00'
-      ? this.setState({
-          firstSeatActived: 'activeTime',
-          secondSeatActived: '',
-        })
-      : this.setState({
-          firstSeatActived: '',
-          secondSeatActived: 'activeTime',
-        });
-  }
+  setTime = time => {
+    this.setState({ time });
+  };
+
+  setAmountOfGuests = amount => {
+    this.setState({ numOfGuests: amount });
+  };
 
   closeUpdateDiv = () => {
     this.props.closeUpdateDiv();
-    this.setState({ resetDate: true });
   };
 
   getDate = date => {
-    this.setState({
-      firstSeatActived: '',
-      secondSeatActived: '',
-    });
-    this.setState({ date: date });
-  };
-
-  setTime = event => {
-    event.preventDefault();
-    this.setState({ time: event.target.value });
-    event.target.value === '18.00'
-      ? this.setState({
-          firstSeatActived: 'activeTime',
-          secondSeatActived: '',
-        })
-      : this.setState({
-          firstSeatActived: '',
-          secondSeatActived: 'activeTime',
-        });
+    this.setState({ date });
   };
 
   updateThisBooking = (values, bookingId) => {
@@ -68,52 +34,12 @@ class AdminUpdateBookings extends Component {
       body: JSON.stringify(values),
     })
       .then(response => response.json())
-      .then(booking => {
-        console.log(booking);
+      .then(() => {
         this.closeUpdateDiv();
       })
       .catch(error => {
         console.log(error);
       });
-  };
-
-  isFirstSeatAvailable = seat => {
-    this.setState({ firstSeatClass: seat });
-  };
-
-  isSecondSeatAvailable = seat => {
-    this.setState({ secondSeatClass: seat });
-  };
-
-  selectNumOfGuests = () => {
-    let numOfGuestOptions = [
-      '1 Guest',
-      '2 Guests',
-      '3 Guests',
-      '4 Guests',
-      '5 Guests',
-      '6 Guests',
-    ];
-
-    return (
-      <select name="guests">
-        {numOfGuestOptions.map((item, i) => {
-          if (i === this.state.selectedBooking.num_of_guests - 1) {
-            return (
-              <option key={i} value={i + 1} selected>
-                {item}
-              </option>
-            );
-          } else {
-            return (
-              <option key={i} value={i + 1}>
-                {item}
-              </option>
-            );
-          }
-        })}
-      </select>
-    );
   };
 
   render() {
@@ -129,29 +55,29 @@ class AdminUpdateBookings extends Component {
               <span>Name</span>
             </p>
             <p>
-              {this.state.selectedBooking.firstname +
+              {this.props.selectedBookingFirstname +
                 ' ' +
-                this.state.selectedBooking.lastname}
+                this.props.selectedBookingLastname}
             </p>
             <p>
               <span>Phone</span>
             </p>
-            <p>{this.state.selectedBooking.phone}</p>
+            <p>{this.props.selectedBookingPhone}</p>
             <p>
               <span>Email</span>
             </p>
-            <p>{this.state.selectedBooking.email}</p>
+            <p>{this.props.selectedBookingEmail}</p>
             <p>
               <span>Number of Guests</span>
             </p>
-            <p>{this.state.selectedBooking.num_of_guests}</p>
+            <p>{this.props.selectedBookingNumOfGuests}</p>
             <p>
               <span>At:</span>
             </p>
             <p>
-              {this.state.selectedBooking.time +
+              {this.props.selectedBookingTime +
                 ' | ' +
-                this.state.selectedBooking.date}
+                this.props.selectedBookingDate}
             </p>
           </div>
 
@@ -161,55 +87,30 @@ class AdminUpdateBookings extends Component {
               <div className="col-md-8">
                 <Datepicker
                   getDate={this.getDate}
+                  setTime={this.setTime}
                   seat1Class={this.isFirstSeatAvailable}
                   seat2Class={this.isSecondSeatAvailable}
-                  selectedDate={this.state.date}
+                  setAmountOfGuests={this.setAmountOfGuests}
                 />
               </div>
               <div className="col-md-4">
                 <form
                   onSubmit={event => {
                     const values = {
-                      numOfGuests: event.target.guests.value,
+                      numOfGuests: this.state.numOfGuests,
                       time: this.state.time,
                       date: this.state.date,
                     };
                     event.preventDefault();
                     this.updateThisBooking(
                       values,
-                      this.state.selectedBooking.id
+                      this.props.selectedBookingId
                     );
                   }}
                   name="updateBooking"
                   id="updateBox"
                   className={this.state.updateBoxClass}
                 >
-                  <p>Number of Guest(s)</p>
-                  {this.selectNumOfGuests()}
-                  <div id="availableTimes">
-                    <p>Available times:</p>
-                    <Button
-                      className={
-                        this.state.firstSeatClass +
-                        ' ' +
-                        this.state.firstSeatActived
-                      }
-                      onClick={this.setTime}
-                      value={'18.00'}
-                      innerText={'18.00'}
-                    />
-                    <Button
-                      className={
-                        this.state.secondSeatClass +
-                        ' ' +
-                        this.state.secondSeatActived
-                      }
-                      onClick={this.setTime}
-                      value={'21.00'}
-                      innerText={'21.00'}
-                    />
-                  </div>
-
                   <p>{this.state.updateThisCustomersBookedTime}</p>
                   <div id="adminUpdateButtons">
                     <input

@@ -69,7 +69,14 @@ class AdminChangeViewBookings extends Component {
     return (
       <div id="changeViewBooking" className={this.props.className}>
         <AdminUpdateBookings
-          selectedBooking={this.state.selectedBooking}
+          selectedBookingFirstname={this.state.selectedBooking.firstname}
+          selectedBookingLastname={this.state.selectedBooking.lastname}
+          selectedBookingPhone={this.state.selectedBooking.phone}
+          selectedBookingEmail={this.state.selectedBooking.email}
+          selectedBookingNumOfGuests={this.state.selectedBooking.num_of_guests}
+          selectedBookingTime={this.state.selectedBooking.time}
+          selectedBookingDate={this.state.selectedBooking.date}
+          selectedBookingId={this.state.selectedBooking.id}
           closeUpdateDiv={this.closeUpdateDiv}
           updateDivClass={this.state.updateDivClass}
         />
