@@ -2,20 +2,28 @@ import React, { Component } from 'react';
 import AdminControlButtons from './subcomponents/AdminControlButtons.js';
 import AdminCreateBooking from './subcomponents/AdminCreateBooking.js';
 import AdminViewUpdateBookings from './subcomponents/AdminViewUpdateBookings.js';
+import ErrorMessage from './ErrorMessage.js';
+import ErrorMessageContent from './parts/ErrorMessageContent.js';
 
 class AdminPage extends Component {
   state = {
+    globalErrorMessage: false,
     displayAdminPageContent: '',
     allBookings: [],
   };
 
   handleAdminPage = page => {
     //Receives props to decide which page to display
-    page === 'openCreateBooking'
-      ? this.setState({ displayAdminPageContent: 'adminCreateBooking' })
-      : page === 'openViewUpdateBooking'
-        ? this.setState({ displayAdminPageContent: 'adminViewUpdateBookings' })
-        : null;
+    if (page === 'openCreateBooking') {
+      this.setState({
+        displayAdminPageContent: 'adminCreateBooking',
+      });
+    }
+    if (page === 'openViewUpdateBooking') {
+      this.setState({
+        displayAdminPageContent: 'adminViewUpdateBookings',
+      });
+    }
   };
 
   fetchBookings = () => {
@@ -25,13 +33,24 @@ class AdminPage extends Component {
         this.setState({ allBookings });
       })
       .catch(error => {
-        console.log(error);
+        this.setState({ globalErrorMessage: true });
       });
+  };
+
+  closeGlobalErrorMessage = () => {
+    this.setState({ globalErrorMessage: false });
   };
 
   render() {
     return (
       <div id="adminWrapper" className="container">
+        {this.state.globalErrorMessage === true ? (
+          <ErrorMessage element={document.getElementById('modal')}>
+            <ErrorMessageContent
+              closeGlobalErrorMessage={this.closeGlobalErrorMessage}
+            />
+          </ErrorMessage>
+        ) : null}
         <AdminControlButtons manageAdminPage={this.handleAdminPage} />
         {this.state.displayAdminPageContent === 'adminCreateBooking' ? (
           <AdminCreateBooking manageAdminPage={this.handleAdminPage} />

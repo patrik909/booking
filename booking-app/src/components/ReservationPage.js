@@ -11,7 +11,6 @@ class Reservation extends Component {
             <p className="lead">Join in and enjoy the dining experience</p>
           </div>
         </div>
-
         <Booking />
       </div>
     );

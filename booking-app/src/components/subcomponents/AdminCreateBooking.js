@@ -3,9 +3,12 @@ import Datepicker from '../Datepicker';
 import Button from '../parts/Button.js';
 import BookingGuestDetails from '../parts/BookingGuestDetails.js';
 import AdminBookingSubmitted from '../parts/AdminBookingSubmitted.js';
+import ErrorMessage from '../ErrorMessage.js';
+import ErrorMessageContent from '../parts/ErrorMessageContent.js';
 
 class AdminCreateBooking extends Component {
   state = {
+    globalErrorMessage: false,
     time: '',
     date: '',
     numOfGuests: '',
@@ -18,11 +21,7 @@ class AdminCreateBooking extends Component {
     errorEmail: '',
     errorPhoneNumber: '',
     errorDateTimeNumOfGuests: '',
-    // firstSeatClass: 'hide',
-    // secondSeatClass: 'hide',
     displayAdminBookingContent: 'create',
-    // firstSeatActived: '',
-    // secondSeatActived: '',
   };
 
   getDate = date => {
@@ -34,17 +33,8 @@ class AdminCreateBooking extends Component {
   };
 
   setAmountOfGuests = amount => {
-    console.log(amount);
     this.setState({ numOfGuests: amount });
   };
-
-  // isFirstSeatAvailable = seat => {
-  //   this.setState({ firstSeatClass: seat });
-  // };
-
-  // isSecondSeatAvailable = seat => {
-  //   this.setState({ secondSeatClass: seat });
-  // };
 
   handleFirstNameInput = event => {
     this.setState({ firstName: event.target.value });
@@ -66,41 +56,41 @@ class AdminCreateBooking extends Component {
     event.preventDefault();
     /*if one of the fields are 
    empty an error message will be displayed */
-    this.state.firstName === ''
-      ? this.setState({ errorName: 'Please enter your name!' })
-      : null;
 
-    this.state.lastName === ''
-      ? this.setState({ errorLastName: 'Please enter your last name!' })
-      : null;
+    if (this.state.firstName === '') {
+      this.setState({ errorName: 'Please enter your name!' });
+    }
 
-    this.state.email === ''
-      ? this.setState({ errorEmail: 'Please enter your email!' })
-      : null;
+    if (this.state.lastName === '') {
+      this.setState({ errorLastName: 'Please enter your last name!' });
+    }
 
-    this.state.phoneNumber === ''
-      ? this.setState({ errorPhoneNumber: 'Please enter your phone number!' })
-      : null;
+    if (this.state.email === '') {
+      this.setState({ errorEmail: 'Please enter your email!' });
+    }
 
-    this.state.numOfGuests === ''
-      ? this.setState({
-          errorDateTimeNumOfGuests: `Please make sure you've choosen a Date, Time and Number of Guests`,
-        })
-      : null;
+    if (this.state.phoneNumber === '') {
+      this.setState({ errorPhoneNumber: 'Please enter your phone number!' });
+    }
 
-    console.log(this.state.numOfGuests);
-    console.log(this.state.time);
-    console.log(this.state.date);
+    if (this.state.numOfGuests === '') {
+      this.setState({
+        errorDateTimeNumOfGuests: `Please make sure you've choosen a Date, Time and Number of Guests`,
+      });
+    }
+
     //If no fields are empty, submit booking
-    this.state.firstName !== '' &&
-    this.state.lastName !== '' &&
-    this.state.email !== '' &&
-    this.state.phoneNumber !== '' &&
-    this.state.numOfGuests !== '' &&
-    this.state.time !== '' &&
-    this.state.date !== ''
-      ? this.submitBooking()
-      : null;
+    if (
+      this.state.firstName !== '' &&
+      this.state.lastName !== '' &&
+      this.state.email !== '' &&
+      this.state.phoneNumber !== '' &&
+      this.state.numOfGuests !== '' &&
+      this.state.time !== '' &&
+      this.state.date !== ''
+    ) {
+      this.submitBooking();
+    }
   };
 
   submitBooking = values => {
@@ -131,7 +121,7 @@ class AdminCreateBooking extends Component {
         this.setState({ displayAdminBookingContent: 'submitted' });
       })
       .catch(error => {
-        console.log(error);
+        this.setState({ globalErrorMessage: true });
       });
   };
 
@@ -157,9 +147,20 @@ class AdminCreateBooking extends Component {
     });
   };
 
+  closeGlobalErrorMessage = () => {
+    this.setState({ globalErrorMessage: false });
+  };
+
   render() {
     return (
       <div id="adminCreateBooking">
+        {this.state.globalErrorMessage === true ? (
+          <ErrorMessage element={document.getElementById('modal')}>
+            <ErrorMessageContent
+              closeGlobalErrorMessage={this.closeGlobalErrorMessage}
+            />
+          </ErrorMessage>
+        ) : null}
         {this.state.displayAdminBookingContent === 'create' ? (
           <React.Fragment>
             <div id="guestTime" className="col-12">

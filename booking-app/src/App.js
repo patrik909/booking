@@ -5,7 +5,6 @@ import AdminPage from './components/AdminPage';
 import Home from './components/Home.js';
 import ContactPage from './components/ContactPage';
 import ReservationPage from './components/ReservationPage.js';
-// import Booking from './components/Booking';
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
 

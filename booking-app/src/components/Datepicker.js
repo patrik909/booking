@@ -2,7 +2,9 @@ import React from 'react';
 import DayPicker from '@kupibilet/react-day-picker';
 import moment from 'moment';
 import '@kupibilet/react-day-picker/lib/style.css';
-import OurButton from './parts/Button.js';
+import Button from './parts/Button.js';
+import ErrorMessage from './ErrorMessage.js';
+import ErrorMessageContent from './parts/ErrorMessageContent.js';
 
 // group all bookings per day
 const groupBy = (arrayToGroup, keyToGroupBy) => {
@@ -15,6 +17,7 @@ const groupBy = (arrayToGroup, keyToGroupBy) => {
 
 export default class Datepicker extends React.Component {
   state = {
+    globalErrorMessage: false,
     allBookings: [],
     selectedDay: new Date(),
     firstSeatActived: '',
@@ -28,7 +31,7 @@ export default class Datepicker extends React.Component {
         this.setState({ allBookings });
       })
       .catch(error => {
-        console.log(error);
+        this.setState({ globalErrorMessage: true });
       });
   }
 
@@ -49,13 +52,6 @@ export default class Datepicker extends React.Component {
     this.props.getDate(moment(day).format('YYYY-MM-DD'));
   };
 
-  seatClass = () => {
-    this.props.seat1Class
-      ? (this.props.seat1Class(this.state.seating1class),
-        this.props.seat2Class(this.state.seating2class))
-      : null;
-  };
-
   setTime = event => {
     if (event.target.value === '18.00') {
       this.setState({
@@ -74,6 +70,10 @@ export default class Datepicker extends React.Component {
 
   setAmountOfGuests = event => {
     this.props.setAmountOfGuests(event.target.value);
+  };
+
+  closeGlobalErrorMessage = () => {
+    this.setState({ globalErrorMessage: false });
   };
 
   render() {
@@ -117,7 +117,14 @@ export default class Datepicker extends React.Component {
     };
 
     return (
-      <React.Fragment>
+      <div>
+        {this.state.globalErrorMessage === true ? (
+          <ErrorMessage element={document.getElementById('modal')}>
+            <ErrorMessageContent
+              closeGlobalErrorMessage={this.closeGlobalErrorMessage}
+            />
+          </ErrorMessage>
+        ) : null}
         <DayPicker
           modifiers={modifiers}
           onDayClick={this.handleDayClick}
@@ -141,7 +148,7 @@ export default class Datepicker extends React.Component {
           </div>
           <p className="availableTimesInfo">Choose number of guests</p>
           <select id="amountOfGuestsDropdown" onChange={this.setAmountOfGuests}>
-            <option name="numOfGuests" disabled selected>
+            <option name="numOfGuests" disabled defaultValue>
               Number of Guests
             </option>
             <option value="1">1 Guest</option>
@@ -152,7 +159,7 @@ export default class Datepicker extends React.Component {
             <option value="6">6 Guests</option>
           </select>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

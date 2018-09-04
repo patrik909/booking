@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import Datepicker from '../Datepicker.js';
+import ErrorMessage from '../ErrorMessage.js';
+import ErrorMessageContent from '../parts/ErrorMessageContent.js';
 
 class AdminUpdateBookings extends Component {
   state = {
+    globalErrorMessage: false,
     time: '',
     numOfGuests: '',
     date: '',
@@ -38,8 +41,12 @@ class AdminUpdateBookings extends Component {
         this.closeUpdateDiv();
       })
       .catch(error => {
-        console.log(error);
+        this.setState({ globalErrorMessage: true });
       });
+  };
+
+  closeGlobalErrorMessage = () => {
+    this.setState({ globalErrorMessage: false });
   };
 
   render() {
@@ -48,6 +55,13 @@ class AdminUpdateBookings extends Component {
         id="adminUpdateDiv"
         className={this.props.updateDivClass + ' container'}
       >
+        {this.state.globalErrorMessage === true ? (
+          <ErrorMessage element={document.getElementById('modal')}>
+            <ErrorMessageContent
+              closeGlobalErrorMessage={this.closeGlobalErrorMessage}
+            />
+          </ErrorMessage>
+        ) : null}
         <div id="customersBookingWrapper" className="row">
           <div id="customersBookingDetails" className="col-md-4">
             <h3>Details</h3>
