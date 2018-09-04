@@ -8,8 +8,6 @@ function BookingDetails(props) {
         <Datepicker
           getDate={props.getDate}
           setTime={props.setTime}
-          seat1Class={props.isFirstSeatAvailable}
-          seat2Class={props.isSecondSeatAvailable}
           setAmountOfGuests={props.setAmountOfGuests}
         />
       </div>

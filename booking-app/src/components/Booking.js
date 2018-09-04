@@ -42,10 +42,10 @@ class BookingPage extends Component {
   /** ----- Guest Details----- **/
 
   submitBookingDetails = () => {
-    this.state.amountOfGuests && this.state.date
-      ? this.setState({ addBookingDiv: 'guestDetails' })
-      : //felmeddelande
-        null;
+    if (this.state.amountOfGuests && this.state.date) {
+      this.setState({ addBookingDiv: 'guestDetails' });
+      //felmeddelande
+    }
   };
 
   setGuestDetails = event => {
