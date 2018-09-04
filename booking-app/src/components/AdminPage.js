@@ -11,11 +11,16 @@ class AdminPage extends Component {
 
   handleAdminPage = page => {
     //Receives props to decide which page to display
-    page === 'openCreateBooking'
-      ? this.setState({ displayAdminPageContent: 'adminCreateBooking' })
-      : page === 'openViewUpdateBooking'
-        ? this.setState({ displayAdminPageContent: 'adminViewUpdateBookings' })
-        : null;
+    if (page === 'openCreateBooking') {
+      this.setState({
+        displayAdminPageContent: 'adminCreateBooking',
+      });
+    }
+    if (page === 'openViewUpdateBooking') {
+      this.setState({
+        displayAdminPageContent: 'adminViewUpdateBookings',
+      });
+    }
   };
 
   fetchBookings = () => {

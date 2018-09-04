@@ -66,27 +66,28 @@ class AdminCreateBooking extends Component {
     event.preventDefault();
     /*if one of the fields are 
    empty an error message will be displayed */
-    this.state.firstName === ''
-      ? this.setState({ errorName: 'Please enter your name!' })
-      : null;
 
-    this.state.lastName === ''
-      ? this.setState({ errorLastName: 'Please enter your last name!' })
-      : null;
+    if (this.state.firstName === '') {
+      this.setState({ errorName: 'Please enter your name!' });
+    }
 
-    this.state.email === ''
-      ? this.setState({ errorEmail: 'Please enter your email!' })
-      : null;
+    if (this.state.lastName === '') {
+      this.setState({ errorLastName: 'Please enter your last name!' });
+    }
 
-    this.state.phoneNumber === ''
-      ? this.setState({ errorPhoneNumber: 'Please enter your phone number!' })
-      : null;
+    if (this.state.email === '') {
+      this.setState({ errorEmail: 'Please enter your email!' });
+    }
 
-    this.state.numOfGuests === ''
-      ? this.setState({
-          errorDateTimeNumOfGuests: `Please make sure you've choosen a Date, Time and Number of Guests`,
-        })
-      : null;
+    if (this.state.phoneNumber === '') {
+      this.setState({ errorPhoneNumber: 'Please enter your phone number!' });
+    }
+
+    if (this.state.numOfGuests === '') {
+      this.setState({
+        errorDateTimeNumOfGuests: `Please make sure you've choosen a Date, Time and Number of Guests`,
+      });
+    }
 
     console.log(this.state.numOfGuests);
     console.log(this.state.time);

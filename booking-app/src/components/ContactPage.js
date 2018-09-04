@@ -8,7 +8,7 @@ function ContactPage() {
         <Map />
       </div>
       <h2>Contact or visit us!</h2>
-      <div class="underline" />
+      <div className="underline" />
       <div id="contactDetailsWrapper" className="row">
         <div id="contactDetailsLeft" className="col-sm-12 col-md-6">
           <p>
