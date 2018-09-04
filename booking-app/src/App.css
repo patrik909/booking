@@ -117,7 +117,7 @@ a.nav-link {
 }
 
 a.nav-link:hover {
-  color: #cbbb9f !important;
+  color: #ffbc68 !important;
   text-decoration: none !important;
 }
 
@@ -165,6 +165,7 @@ li hr {
 
 .home-headline {
   font-family: 'Dancing Script', cursive;
+  text-shadow: 1px 1px 2px rgb(53, 52, 52);
 }
 .display-4 img {
   width: 5%;
@@ -190,6 +191,7 @@ li hr {
     top: 50px;
   }
 }
+
 /* ----CARDS---- */
 .card-group {
   margin: 10px;
@@ -200,8 +202,11 @@ li hr {
   border-bottom: 2px solid white;
   border-top: 2px solid white;
   text-shadow: 1px 1px 2px rgb(53, 52, 52);
-  margin-left: -1.3rem;
+  font-size: 2em;
+  text-align: center;
   letter-spacing: 2px;
+  padding: 5px;
+  text-align: center;
 }
 
 .card {
@@ -209,6 +214,11 @@ li hr {
   border: 1px solid transparent;
 }
 
+@media screen and (min-width: 576px) and (max-width: 982px) {
+  .card-title {
+    font-size: 1.2em;
+  }
+}
 /* ---------------------------- */
 /* --------  BOOKING  --------- */
 /* ---------------------------- */
@@ -219,6 +229,7 @@ h1.display-4 {
   letter-spacing: 5px;
   font-size: 2em;
   font-weight: 700;
+  text-shadow: 1px 1px 2px rgb(53, 52, 52);
 }
 
 p.lead {
@@ -226,6 +237,8 @@ p.lead {
   text-align: center;
   letter-spacing: 1px;
   font-size: 0.8em;
+  text-shadow: 1px 1px 5px rgb(34, 33, 33);
+  font-weight: 400;
 }
 
 .jumbotron {
@@ -288,7 +301,7 @@ p.lead {
 
 #bookingGuestDetails p {
   margin: 2px 0 0 0;
-  paddding-bottom: 0;
+  padding-bottom: 0;
   font-size: 0.9em;
   letter-spacing: 1px;
   font-weight: 500;
@@ -920,6 +933,7 @@ footer {
 
 .freepik {
   font-size: 0.5em;
+  letter-spacing: 0.5px;
 }
 
 @media screen and (min-width: 768px) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import ChefHat from './../images/chef-hat.svg';
+import ChefHat from './../images/logo.svg';
 
 // Reactsrap navbar
 import {
